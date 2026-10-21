@@ -1,0 +1,982 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f7">
+  <title>JEDI Lab | Research map</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #282828;
+      --muted: #6a6a6a;
+      --line: #dedede;
+      --paper: #ffffff;
+      --wash: #f5f5f5;
+      --blue: #bd1230;
+      --navy: #292929;
+      --gold: #bd1230;
+      --shadow: 0 12px 32px rgba(30, 30, 30, .07);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--wash);
+      color: var(--ink);
+      font: 15px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    a { color: var(--blue); }
+    .page { max-width: 1600px; margin: 0 auto; padding: 24px clamp(16px, 3vw, 44px) 32px; }
+    .masthead { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+    .brand { display: flex; gap: 13px; align-items: center; }
+    .brand-mark {
+      display: grid; place-items: center; flex: none; width: 74px; height: 74px;
+      overflow: hidden; border-radius: 50%; background: var(--navy);
+    }
+    .brand-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .eyebrow { margin: 0 0 2px; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(22px, 3vw, 30px); letter-spacing: -.035em; line-height: 1.15; }
+    .site-link { color: var(--muted); font-size: 13px; text-decoration: none; }
+    .site-link:hover { color: var(--blue); }
+    .intro { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin: 0 0 20px; }
+    .intro-copy { max-width: 700px; color: var(--muted); }
+    .intro-copy p { margin: 0; }
+    .stats { display: flex; gap: 9px; flex-wrap: wrap; justify-content: end; }
+    .stat { min-width: 112px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    .stat strong { display: block; color: var(--navy); font-size: 19px; line-height: 1.15; }
+    .stat span { color: var(--muted); font-size: 11px; }
+    .toolbar {
+      display: flex; align-items: center; gap: 9px; flex-wrap: wrap; padding: 12px;
+      border: 1px solid var(--line); border-radius: 14px 14px 0 0; background: var(--paper);
+    }
+    .search-wrap { position: relative; flex: 1 1 250px; }
+    .search-wrap input, select {
+      width: 100%; min-height: 40px; padding: 8px 11px; border: 1px solid var(--line);
+      border-radius: 9px; background: #fff; color: var(--ink); outline: none;
+    }
+    .search-wrap input:focus, select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(189,18,48,.12); }
+    select { width: auto; min-width: 132px; }
+    .button {
+      display: inline-flex; min-height: 39px; align-items: center; justify-content: center; gap: 7px;
+      padding: 8px 12px; border: 1px solid var(--line); border-radius: 9px;
+      background: #fff; color: var(--ink); font-weight: 650; font-size: 13px;
+    }
+    .button:hover { border-color: #9aabb6; background: #f9fbfc; }
+    .button.primary { border-color: var(--navy); background: var(--navy); color: #fff; }
+    .button.primary:hover { background: #444; }
+    .button.subtle { background: #f7f9fa; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 355px; min-height: 665px; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 14px 14px; overflow: hidden; background: #fff; box-shadow: var(--shadow); }
+    .graph-column { min-width: 0; background: radial-gradient(ellipse at 50% 46%, #fff 15%, #f8f8f8 100%); }
+    .graph-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 19px 7px; }
+    .graph-heading h2 { margin: 0; font-size: 16px; letter-spacing: -.02em; }
+    .graph-hint { color: var(--muted); font-size: 12px; }
+    .graph-controls { display: flex; align-items: center; gap: 5px; }
+    .graph-controls .button { min-width: 34px; min-height: 32px; padding: 4px 8px; }
+    .zoom-level { min-width: 42px; color: var(--muted); font-size: 11px; text-align: center; }
+    .graph-stage { height: 630px; min-height: 490px; }
+    #graph { display: block; width: 100%; height: 100%; touch-action: none; user-select: none; }
+    .graph-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 19px 15px; color: var(--muted); font-size: 11px; }
+    .legend { display: flex; flex-wrap: wrap; gap: 14px; }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .legend i { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
+    .legend .legend-person { background: var(--gold); }
+    .legend .legend-edge { width: 15px; height: 1px; border-radius: 0; background: #aebac3; }
+    .side-panel { border-left: 1px solid var(--line); background: #fff; display: flex; flex-direction: column; min-width: 0; }
+    .side-top { padding: 19px 20px 14px; border-bottom: 1px solid var(--line); }
+    .side-label { margin: 0 0 7px; color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .side-top h2 { margin: 0 0 7px; font-size: 21px; line-height: 1.2; letter-spacing: -.03em; }
+    .side-description { margin: 0; color: var(--muted); font-size: 13px; }
+    .side-content { min-height: 0; padding: 14px 20px 20px; overflow: auto; }
+    .section-title { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin: 0 0 9px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .section-title .count { color: #83919b; font-weight: 600; letter-spacing: 0; text-transform: none; }
+    .people-list { display: grid; gap: 6px; margin: 0 0 19px; padding: 0; list-style: none; }
+    .people-list button {
+      width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 8px;
+      padding: 8px 9px; border: 1px solid transparent; border-radius: 8px;
+      background: #f6f8f9; color: var(--ink); text-align: left; font-size: 12px;
+    }
+    .people-list button:hover { border-color: #d4a0aa; background: #fcf5f6; }
+    .people-list .paper-count { color: var(--muted); font-size: 11px; white-space: nowrap; }
+    .people-disclosure { margin: 0 0 19px; }
+    .people-disclosure summary {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+      margin: 0 0 9px; color: var(--muted); cursor: pointer; list-style: none;
+      font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    }
+    .people-disclosure summary::-webkit-details-marker { display: none; }
+    .people-disclosure summary::before { content: "▸"; margin-right: 1px; font-size: 13px; }
+    .people-disclosure[open] summary::before { content: "▾"; }
+    .people-disclosure .count { margin-left: auto; color: #83919b; font-weight: 600; letter-spacing: 0; text-transform: none; }
+    .people-disclosure .people-list { margin-bottom: 0; }
+    .people-more {
+      width: 100%; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--line);
+      border-radius: 8px; background: #fff; color: var(--blue); text-align: left;
+      font-size: 12px; font-weight: 700;
+    }
+    .people-more:hover { background: #fcf5f6; border-color: #d4a0aa; }
+    .paper-list { display: grid; gap: 10px; }
+    .paper-card { padding: 11px 0 0; border-top: 1px solid #e9edf0; }
+    .paper-card:first-child { border-top: 0; padding-top: 0; }
+    .paper-title { margin: 0 0 4px; color: var(--ink); font-size: 13px; font-weight: 720; line-height: 1.4; }
+    .paper-meta { color: var(--muted); font-size: 11px; }
+    .paper-meta a { text-decoration: none; }
+    .paper-meta a:hover { text-decoration: underline; }
+    .topic-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
+    .topic-tag { padding: 2px 7px; border-radius: 99px; background: #f8e9ec; color: #8b1c30; font-size: 10px; }
+    .empty { padding: 17px 12px; border: 1px dashed var(--line); border-radius: 9px; color: var(--muted); font-size: 13px; text-align: center; }
+    .status { min-height: 19px; padding: 0 14px 6px; color: var(--muted); font-size: 11px; }
+    .status.error { color: #a13030; }
+    .disclaimer { margin: 14px 1px 0; color: #778590; font-size: 11px; }
+    .search-results {
+      position: absolute; z-index: 5; top: calc(100% + 5px); left: 0; right: 0;
+      max-height: 310px; overflow: auto; padding: 5px; border: 1px solid var(--line);
+      border-radius: 10px; background: #fff; box-shadow: var(--shadow);
+    }
+    .search-results[hidden] { display: none; }
+    .search-result { display: block; width: 100%; padding: 8px 9px; border: 0; border-radius: 6px; background: #fff; color: var(--ink); text-align: left; }
+    .search-result:hover { background: #f2f6f8; }
+    .search-result small { display: block; color: var(--muted); }
+    .graph-node { cursor: grab; }
+    .graph-node.dragging { cursor: grabbing; }
+    .graph-node:focus { outline: none; }
+    .graph-node:focus .node-circle, .graph-node.selected .node-circle { stroke: #172432; stroke-width: 3; }
+    .node-label { pointer-events: none; fill: #263947; font-size: 10px; font-weight: 650; }
+    .topic-label { pointer-events: none; fill: #fff; font-size: 11px; font-weight: 750; }
+    .edge { fill: none; stroke: #858585; stroke-opacity: .16; }
+    .paper-edge { fill: none; stroke: #d4dce1; stroke-opacity: .55; }
+    @media (max-width: 1000px) {
+      .layout { grid-template-columns: minmax(0, 1fr) 310px; }
+      .graph-stage { height: 590px; }
+      .graph-hint { display: none; }
+    }
+    @media (max-width: 760px) {
+      .page { padding: 16px 12px 24px; }
+      .masthead { margin-bottom: 17px; }
+      .brand-mark { width: 58px; height: 58px; }
+      .site-link { display: none; }
+      .intro { display: block; }
+      .stats { justify-content: start; margin-top: 14px; }
+      .stat { min-width: 96px; }
+      .layout { display: flex; flex-direction: column; }
+      .graph-stage { height: min(72vh, 560px); min-height: 410px; }
+      .side-panel { min-height: 430px; border-top: 1px solid var(--line); border-left: 0; }
+      .side-content { max-height: 520px; }
+      .graph-footer { align-items: start; flex-direction: column; }
+      .toolbar select { flex: 1; }
+      .graph-heading { flex-wrap: wrap; }
+      .graph-controls { margin-left: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="brand">
+        <div class="brand-mark"><img src="data/JEDI_logo.png" alt="JEDI Lab logo"></div>
+        <div>
+          <p class="eyebrow">Research map</p>
+          <h1>Ideas, people &amp; connections</h1>
+        </div>
+      </div>
+      <a class="site-link" href="https://jedilab.weebly.com/publications.html" target="_blank" rel="noreferrer">JEDI Lab publications ↗</a>
+    </header>
+
+    <section class="intro" aria-label="About this graph">
+      <div class="intro-copy">
+        <p>Explore the ideas running through JEDI Lab's research. Choose a theme or researcher to see related collaborators and publications. The map is built from the lab's public bibliography.</p>
+      </div>
+      <div class="stats" aria-label="Dataset summary">
+        <div class="stat"><strong id="paper-stat">—</strong><span>publications</span></div>
+        <div class="stat"><strong id="people-stat">—</strong><span>named contributors</span></div>
+        <div class="stat"><strong id="year-stat">—</strong><span>publication years</span></div>
+      </div>
+    </section>
+
+    <div class="toolbar" role="search">
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Search a theme, researcher or paper" autocomplete="off" aria-label="Search the research graph">
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+      <select id="year-filter" aria-label="Filter by publication year"><option value="all">All years</option></select>
+      <button id="reset-view" class="button subtle" type="button">Reset view</button>
+    </div>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <section class="layout" aria-label="Interactive knowledge graph">
+      <div class="graph-column">
+        <div class="graph-heading">
+          <h2>Research connections</h2>
+          <span class="graph-hint">Drag to rearrange · Shift-drag a theme to move its group · Scroll to zoom</span>
+          <div class="graph-controls" role="group" aria-label="Graph zoom controls">
+            <button id="zoom-out" class="button" type="button" aria-label="Zoom out" title="Zoom out">−</button>
+            <span id="zoom-level" class="zoom-level" aria-live="polite">100%</span>
+            <button id="zoom-in" class="button" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+            <button id="zoom-reset" class="button subtle" type="button" aria-label="Reset zoom" title="Reset zoom">Fit</button>
+          </div>
+        </div>
+        <div class="graph-stage">
+          <svg id="graph" viewBox="0 0 1000 920" role="img" aria-label="Interactive map of research topics and contributors">
+            <g id="graph-viewport"></g>
+          </svg>
+        </div>
+        <div class="graph-footer">
+          <div class="legend">
+            <span><i></i> Research theme</span>
+            <span><i class="legend-person"></i> Contributor</span>
+            <span><i class="legend-edge"></i> Shared publications</span>
+          </div>
+          <span id="graph-summary"></span>
+        </div>
+      </div>
+      <aside class="side-panel" aria-label="Selected topic or researcher">
+        <div class="side-top">
+          <p id="detail-label" class="side-label">Start exploring</p>
+          <h2 id="detail-title">A map of shared ideas</h2>
+          <p id="detail-description" class="side-description">Select one of the themes or researcher nodes. The list of people and papers here updates to match your selection.</p>
+        </div>
+        <div id="detail-content" class="side-content">
+          <div class="empty">Choose a node in the graph, or search for a topic, person or publication.</div>
+        </div>
+      </aside>
+    </section>
+    <p class="disclaimer">Themes are suggested from publication titles and journal names; they are an aid to browsing, not a formal coding of the research. Contributor nodes reflect cited coauthors, not verified JEDI Lab membership: the source bibliography does not identify historical lab affiliation, uses abbreviated author names and may omit authors where it uses an ellipsis. Publication data is maintained by the site administrator in the JSON dataset.</p>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const DATA_URL = "./data/publications.json";
+      const LAYOUT_KEY = "jedi-graph-layout-v2";
+      const SVG_ELEMENTS = new Set(["g", "line", "circle", "text", "title", "tspan"]);
+      const TOPIC_COLORS = [
+        "#bd1230", "#343434", "#7e7e7e", "#8e1b32", "#56504b",
+        "#a83247", "#737373", "#9f5a64", "#474747", "#c34a60",
+        "#8b817d", "#242424",
+      ];
+      const NS = "http://www.w3.org/2000/svg";
+      const elements = {
+        graph: document.getElementById("graph"),
+        viewport: document.getElementById("graph-viewport"),
+        search: document.getElementById("search"),
+        results: document.getElementById("search-results"),
+        year: document.getElementById("year-filter"),
+        status: document.getElementById("status"),
+        zoomLevel: document.getElementById("zoom-level"),
+      };
+      let data;
+      let selected = null;
+      let contributorsExpanded = true;
+      let allContributorsExpanded = false;
+      let layoutPositions = new Map();
+      let renderedNodes = new Map();
+      let renderedEdges = [];
+      let activeDrag = null;
+      let suppressNodeClick = false;
+      let zoom = { scale: 1, x: 0, y: 0 };
+      let currentGraph = { nodes: [], topics: [], people: [], topicCounts: new Map() };
+      let topicPalette = new Map();
+      function setStatus(message, isError = false) {
+        elements.status.textContent = message;
+        elements.status.classList.toggle("error", isError);
+      }
+
+      function normalizePublication(row) {
+        if (!row || typeof row !== "object" || !String(row.title || "").trim()) return null;
+        const year = Number(row.year);
+        if (!Number.isInteger(year) || year < 1800 || year > 2200) return null;
+        const authors = Array.isArray(row.authors)
+          ? row.authors.map((name) => String(name).trim()).filter(Boolean)
+          : String(row.authors || "").split(";").map((name) => name.trim()).filter(Boolean);
+        const topics = Array.isArray(row.topics)
+          ? row.topics.map((topic) => String(topic).trim()).filter(Boolean)
+          : String(row.topics || "").split(";").map((topic) => topic.trim()).filter(Boolean);
+        const doi = String(row.doi || "").trim();
+        const id = String(row.id || doi || `${year}-${row.title}`).trim();
+        return {
+          id,
+          title: String(row.title).trim(),
+          year,
+          authors,
+          journal: String(row.journal || "").trim(),
+          doi,
+          citation: String(row.citation || "").trim(),
+          topics: topics.length ? topics : classifyTopics(row.title, row.journal || ""),
+        };
+      }
+
+      function normalizeDataset(value) {
+        const rows = Array.isArray(value) ? value : value && value.publications;
+        if (!Array.isArray(rows)) throw new Error("The JSON must contain a publications array.");
+        const publications = rows.map(normalizePublication).filter(Boolean);
+        if (publications.length !== rows.length) {
+          throw new Error(`Dataset contains invalid entries (${rows.length - publications.length} could not be read).`);
+        }
+        const seenIds = new Set();
+        const seenDois = new Set();
+        for (const publication of publications) {
+          const id = publication.id.toLocaleLowerCase();
+          const doi = publication.doi.toLocaleLowerCase();
+          if (seenIds.has(id) || (doi && seenDois.has(doi))) {
+            throw new Error(`Duplicate publication identifier: ${publication.title}`);
+          }
+          seenIds.add(id);
+          if (doi) seenDois.add(doi);
+        }
+        return {
+          source: String(Array.isArray(value) ? "" : value.source || ""),
+          updated: String(Array.isArray(value) ? "" : value.updated || ""),
+          count: publications.length,
+          publications,
+        };
+      }
+
+      function classifyTopics(title, journal) {
+        const text = `${title} ${journal}`.toLocaleLowerCase();
+        const rules = {
+          "Prosociality & cooperation": ["prosocial", "altruis", "donat", "helping", "generosity", "cooperat", "charit", "giving", "sharing", "warm glow"],
+          "Fairness & social preferences": ["fair", "inequal", "distribut", "envy", "equity", "social preference", "allocation", "reciprocity"],
+          "Risk & uncertainty": ["risk", "uncertaint", "gambl", "lottery", "ambiguit", "risky"],
+          "Intertemporal choice": ["time preference", "time discount", "discounting", "temporal", "delay", "patience", "future", "intertemporal"],
+          "Judgment & decision-making": ["decision", "choice", "judgment", "judgement", "intuition", "reflection", "cognitive", "bias", "heuristic", "framing", "reasoning", "deliberat"],
+          "Behavioral economics": ["economic", "incentive", "money", "monetary", "cost", "price", "consumer", "insurance", "financial", "accounting"],
+          "Health & medical decisions": ["health", "medical", "patient", "treatment", "healthcare", "clinical", "organ", "bioethic", "rationing", "reimbursement"],
+          "Social norms & morality": ["norm", "moral", "ethic", "politic", "trust", "honest", "corrupt", "misconduct", "misinformation", "conspiracy"],
+          "Emotion & wellbeing": ["affect", "emotion", "happiness", "well-being", "wellbeing", "welfare", "empathy", "fear", "disgust", "regret", "warm glow"],
+          "Research methods & integrity": ["method", "reproduc", "prereg", "registered report", "transparency", "replication", "research ethics", "questionable", "randomized", "publication bias"],
+          "Neuroscience & physiology": ["neuro", "brain", "fmri", "skin conductance", "eye tracking", "physiolog", "genetic"],
+        };
+        const matches = Object.entries(rules)
+          .filter(([, terms]) => terms.some((term) => text.includes(term)))
+          .map(([topic]) => topic);
+        return matches.length ? matches : ["Other"];
+      }
+
+      function activePublications() {
+        const selectedYear = elements.year.value;
+        return data.publications.filter((publication) => selectedYear === "all" || String(publication.year) === selectedYear);
+      }
+
+      function countGraph(publications) {
+        const topicCounts = new Map();
+        const people = new Map();
+        const pairCounts = new Map();
+        publications.forEach((publication) => {
+          const topics = publication.topics.length ? publication.topics : ["Other"];
+          topics.forEach((topic) => topicCounts.set(topic, (topicCounts.get(topic) || 0) + 1));
+          publication.authors.forEach((name) => {
+            const person = people.get(name) || { name, papers: new Map(), topics: new Map() };
+            person.papers.set(publication.id, publication);
+            topics.forEach((topic) => person.topics.set(topic, (person.topics.get(topic) || 0) + 1));
+            people.set(name, person);
+          });
+          for (let i = 0; i < topics.length; i += 1) {
+            for (let j = i + 1; j < topics.length; j += 1) {
+              const pair = [topics[i], topics[j]].sort().join("\u0000");
+              pairCounts.set(pair, (pairCounts.get(pair) || 0) + 1);
+            }
+          }
+        });
+        return { topicCounts, people, pairCounts };
+      }
+
+      function hash(value) {
+        let number = 2166136261;
+        for (const character of value) number = Math.imul(number ^ character.charCodeAt(0), 16777619);
+        return number >>> 0;
+      }
+
+      function element(name, attributes = {}, text = "") {
+        const node = SVG_ELEMENTS.has(name)
+          ? document.createElementNS(NS, name)
+          : document.createElement(name);
+        Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, String(value)));
+        if (text) node.textContent = text;
+        return node;
+      }
+
+      function positionKey(node) {
+        return `${node.type}:${node.name}`;
+      }
+
+      function applySavedPosition(node) {
+        const saved = layoutPositions.get(positionKey(node));
+        if (saved) {
+          node.x = saved.x;
+          node.y = saved.y;
+        }
+        return node;
+      }
+
+      function layoutGraph(publications) {
+        const { topicCounts, people, pairCounts } = countGraph(publications);
+        const cx = 500;
+        const cy = 460;
+        const topics = [...topicCounts.entries()]
+          .map(([name, count]) => ({ type: "topic", name, count }))
+          .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+        const topicPosition = new Map();
+        topicPalette = new Map();
+        topics.forEach((topic, index) => {
+          const angle = -Math.PI / 2 + (2 * Math.PI * index) / Math.max(topics.length, 1);
+          topic.x = cx + Math.cos(angle) * 215;
+          topic.y = cy + Math.sin(angle) * 250;
+          topic.r = Math.min(43, 21 + Math.sqrt(topic.count) * 2.1);
+          topic.color = TOPIC_COLORS[index % TOPIC_COLORS.length];
+          applySavedPosition(topic);
+          topicPosition.set(topic.name, topic);
+          topicPalette.set(topic.name, topic.color);
+        });
+        const topPeople = [...people.values()]
+          .map((person) => ({ ...person, count: person.papers.size }))
+          .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+          .slice(0, 78);
+        const topicMembership = new Map(topics.map((topic) => [topic.name, 0]));
+        const graphPeople = topPeople.map((person) => {
+          const sortedTopics = [...person.topics.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+          const dominant = sortedTopics[0]?.[0] || "Other";
+          const center = topicPosition.get(dominant) || { x: cx, y: cy };
+          const rank = topicMembership.get(dominant) || 0;
+          topicMembership.set(dominant, rank + 1);
+          const angle = Math.atan2(center.y - cy, center.x - cx) + ((rank % 6) - 2.5) * 0.09;
+          const radius = 112 + Math.floor(rank / 6) * 35 + (hash(person.name) % 13);
+          const connected = sortedTopics.map(([name]) => name).filter((name) => topicPosition.has(name));
+          const x = Math.max(28, Math.min(972, center.x + Math.cos(angle) * radius));
+          const y = Math.max(32, Math.min(888, center.y + Math.sin(angle) * radius));
+          return applySavedPosition({
+            type: "person", name: person.name, count: person.count, topics: connected,
+            groupTopic: dominant, papers: person.papers,
+            x, y,
+          });
+        });
+        const topicEdges = [];
+        pairCounts.forEach((count, key) => {
+          const [a, b] = key.split("\u0000");
+          if (topicPosition.has(a) && topicPosition.has(b)) topicEdges.push({ a, b, count });
+        });
+        return { topics, people: graphPeople, allPeople: people, topicCounts, topicEdges, pairCounts };
+      }
+
+      function drawGraph(publications) {
+        const graph = layoutGraph(publications);
+        currentGraph = graph;
+        renderedNodes = new Map();
+        renderedEdges = [];
+        elements.viewport.replaceChildren();
+        applyZoomTransform();
+        const edgesGroup = element("g");
+        const nodesGroup = element("g");
+        elements.viewport.append(edgesGroup, nodesGroup);
+        const topicByName = new Map(graph.topics.map((topic) => [topic.name, topic]));
+        const addEdge = (source, target, className, width) => {
+          const line = element("line", {
+            x1: source.x, y1: source.y, x2: target.x, y2: target.y,
+            class: className, "stroke-width": width,
+          });
+          edgesGroup.appendChild(line);
+          renderedEdges.push({ line, source, target });
+        };
+        graph.topicEdges.forEach(({ a, b, count }) => {
+          addEdge(
+            topicByName.get(a),
+            topicByName.get(b),
+            "edge",
+            Math.min(5, 0.7 + Math.sqrt(count) * 0.42),
+          );
+        });
+        graph.people.forEach((person) => {
+          person.topics.forEach((topicName) => {
+            const topic = topicByName.get(topicName);
+            if (!topic) return;
+            addEdge(topic, person, "edge", Math.min(2.8, 0.65 + person.count * 0.2));
+          });
+        });
+        graph.people.forEach((person) => {
+          const color = "#626262";
+          const group = element("g", {
+            class: `graph-node${selected?.type === "person" && selected.name === person.name ? " selected" : ""}`,
+            tabindex: "0", role: "button", "aria-label": `${person.name}, ${person.count} publications. Drag to rearrange.`,
+          });
+          group.appendChild(element("title", {}, "Drag to rearrange"));
+          group.appendChild(element("circle", {
+            cx: person.x, cy: person.y, r: Math.min(8, 4.3 + Math.sqrt(person.count) * 0.85),
+            fill: color, class: "node-circle", stroke: "#fff", "stroke-width": 1.5,
+          }));
+          const label = person.name.length > 25 ? `${person.name.slice(0, 23)}…` : person.name;
+          group.appendChild(element("text", {
+            x: person.x + (person.x >= 500 ? 8 : -8), y: person.y + 3,
+            "text-anchor": person.x >= 500 ? "start" : "end",
+            class: "node-label",
+          }, label));
+          registerGraphNode(group, person, () => selectPerson(person.name));
+          nodesGroup.appendChild(group);
+        });
+        graph.topics.forEach((topic) => {
+          const group = element("g", {
+            class: `graph-node${selected?.type === "topic" && selected.name === topic.name ? " selected" : ""}`,
+            tabindex: "0", role: "button", "aria-label": `${topic.name}, ${topic.count} publications. Shift-drag to move with its contributor group.`,
+          });
+          group.appendChild(element("title", {}, "Drag to rearrange; Shift-drag to move this theme with its contributor group"));
+          group.appendChild(element("circle", {
+            cx: topic.x, cy: topic.y, r: topic.r, fill: topic.color, class: "node-circle",
+            stroke: "#fff", "stroke-width": 2, opacity: ".96",
+          }));
+          const label = topicLabel(topic.name);
+          const labelWidth = Math.min(topic.r * 1.48, label.length * 5.4);
+          const topicText = element("text", {
+            x: topic.x, y: topic.y - 2, "text-anchor": "middle", class: "topic-label",
+            "font-size": topic.r < 27 ? "8" : "9",
+            textLength: labelWidth, lengthAdjust: "spacingAndGlyphs",
+          }, label);
+          group.appendChild(topicText);
+          group.appendChild(element("text", {
+            x: topic.x, y: topic.y + topic.r * 0.46, "text-anchor": "middle",
+            class: "topic-label", "font-size": topic.r < 27 ? "8" : "9",
+          }, String(topic.count)));
+          registerGraphNode(group, topic, () => selectTopic(topic.name));
+          nodesGroup.appendChild(group);
+        });
+        const visiblePeople = graph.people.length;
+        const allPeople = graph.allPeople.size;
+        document.getElementById("graph-summary").textContent =
+          `${graph.topics.length} themes · ${visiblePeople} contributors shown${allPeople > visiblePeople ? ` of ${allPeople}` : ""}`;
+      }
+
+      function topicLabel(name) {
+        const labels = {
+          "Prosociality & cooperation": "Prosoc.",
+          "Fairness & social preferences": "Fairness",
+          "Risk & uncertainty": "Risk",
+          "Intertemporal choice": "Time",
+          "Judgment & decision-making": "Decision",
+          "Behavioral economics": "Economics",
+          "Health & medical decisions": "Health",
+          "Social norms & morality": "Norms",
+          "Emotion & wellbeing": "Emotion",
+          "Research methods & integrity": "Methods",
+          "Neuroscience & physiology": "Neuro",
+        };
+        return labels[name] || name;
+      }
+
+      function applyZoomTransform() {
+        elements.viewport.setAttribute(
+          "transform",
+          `translate(${zoom.x} ${zoom.y}) scale(${zoom.scale})`,
+        );
+        elements.zoomLevel.textContent = `${Math.round(zoom.scale * 100)}%`;
+      }
+
+      function zoomAt(nextScale, anchor) {
+        const scale = Math.max(0.65, Math.min(3.5, nextScale));
+        const ratio = scale / zoom.scale;
+        zoom = {
+          scale,
+          x: anchor.x - (anchor.x - zoom.x) * ratio,
+          y: anchor.y - (anchor.y - zoom.y) * ratio,
+        };
+        applyZoomTransform();
+      }
+
+      function graphCenter() {
+        const viewBox = elements.graph.viewBox.baseVal;
+        return { x: viewBox.width / 2, y: viewBox.height / 2 };
+      }
+
+      function resetZoom() {
+        zoom = { scale: 1, x: 0, y: 0 };
+        applyZoomTransform();
+      }
+
+      function activateNode(node, callback) {
+        node.addEventListener("click", (event) => {
+          if (suppressNodeClick) {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+          callback();
+        });
+        node.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            callback();
+          }
+        });
+      }
+
+      function registerGraphNode(elementNode, graphNode, callback) {
+        const key = positionKey(graphNode);
+        const originX = graphNode.x;
+        const originY = graphNode.y;
+        renderedNodes.set(key, { element: elementNode, originX, originY });
+        activateNode(elementNode, callback);
+        elementNode.addEventListener("pointerdown", (event) => {
+          if (event.button !== 0 || activeDrag) return;
+          event.preventDefault();
+          const groupNodes = event.shiftKey && graphNode.type === "topic"
+            ? [graphNode, ...currentGraph.people.filter((person) => person.groupTopic === graphNode.name)]
+            : [graphNode];
+          activeDrag = {
+            pointerId: event.pointerId,
+            startX: event.clientX,
+            startY: event.clientY,
+            lastPosition: graphPoint(event),
+            graphNodes: groupNodes,
+            elementNodes: groupNodes.map((item) => renderedNodes.get(positionKey(item))?.element).filter(Boolean),
+            moved: false,
+          };
+          elementNode.setPointerCapture(event.pointerId);
+        });
+      }
+
+      function graphPoint(event) {
+        const point = elements.graph.createSVGPoint();
+        point.x = event.clientX;
+        point.y = event.clientY;
+        return point.matrixTransform(elements.viewport.getScreenCTM().inverse());
+      }
+
+      function moveGraphNodes(event) {
+        if (!activeDrag || activeDrag.pointerId !== event.pointerId) return;
+        const point = graphPoint(event);
+        const dx = point.x - activeDrag.lastPosition.x;
+        const dy = point.y - activeDrag.lastPosition.y;
+        if (!activeDrag.moved && Math.hypot(event.clientX - activeDrag.startX, event.clientY - activeDrag.startY) < 3) return;
+        activeDrag.moved = true;
+        activeDrag.lastPosition = point;
+        activeDrag.graphNodes.forEach((node) => {
+          node.x += dx;
+          node.y += dy;
+          layoutPositions.set(positionKey(node), { x: node.x, y: node.y });
+          const rendered = renderedNodes.get(positionKey(node));
+          if (rendered) {
+            rendered.element.setAttribute(
+              "transform",
+              `translate(${node.x - rendered.originX} ${node.y - rendered.originY})`,
+            );
+            rendered.element.classList.add("dragging");
+          }
+        });
+        renderedEdges.forEach(({ line, source, target }) => {
+          line.setAttribute("x1", source.x);
+          line.setAttribute("y1", source.y);
+          line.setAttribute("x2", target.x);
+          line.setAttribute("y2", target.y);
+        });
+      }
+
+      function finishGraphDrag(event) {
+        if (!activeDrag || activeDrag.pointerId !== event.pointerId) return;
+        const { moved, elementNodes } = activeDrag;
+        elementNodes.forEach((node) => node.classList.remove("dragging"));
+        activeDrag = null;
+        if (!moved) return;
+        suppressNodeClick = true;
+        window.setTimeout(() => { suppressNodeClick = false; }, 0);
+        try {
+          localStorage.setItem(LAYOUT_KEY, JSON.stringify(Object.fromEntries(layoutPositions)));
+          setStatus("Graph layout saved in this browser. Shift-drag a theme to move it with its contributor group.");
+        } catch (error) {
+          setStatus(`Could not save graph layout in this browser: ${error.message}`, true);
+        }
+      }
+
+      elements.graph.addEventListener("pointermove", moveGraphNodes);
+      elements.graph.addEventListener("pointerup", finishGraphDrag);
+      elements.graph.addEventListener("pointercancel", finishGraphDrag);
+      elements.graph.addEventListener("wheel", (event) => {
+        event.preventDefault();
+        const pointer = elements.graph.createSVGPoint();
+        pointer.x = event.clientX;
+        pointer.y = event.clientY;
+        const anchor = pointer.matrixTransform(elements.graph.getScreenCTM().inverse());
+        zoomAt(zoom.scale * Math.exp(-event.deltaY * 0.0012), anchor);
+      }, { passive: false });
+
+      function clearDetail(label, title, description) {
+        document.getElementById("detail-label").textContent = label;
+        document.getElementById("detail-title").textContent = title;
+        document.getElementById("detail-description").textContent = description;
+        document.getElementById("detail-content").replaceChildren();
+      }
+
+      function renderPeople(people, onSelect) {
+        const content = document.getElementById("detail-content");
+        const disclosure = element("details", { class: "people-disclosure" });
+        if (contributorsExpanded) disclosure.open = true;
+        const summary = element("summary");
+        summary.append(element("span", {}, "Contributors"), element("span", { class: "count" }, `${people.length} names`));
+        disclosure.appendChild(summary);
+        disclosure.addEventListener("toggle", () => { contributorsExpanded = disclosure.open; });
+        if (!people.length) {
+          disclosure.appendChild(element("div", { class: "empty" }, "No named contributors are listed for this selection."));
+          content.appendChild(disclosure);
+          return;
+        }
+        const list = element("ul", { class: "people-list" });
+        const initialCount = Math.min(8, people.length);
+        people.forEach((person, index) => {
+          const item = element("li");
+          if (index >= initialCount) item.hidden = !allContributorsExpanded;
+          const button = element("button", { type: "button" });
+          button.append(element("span", {}, person.name), element("span", { class: "paper-count" }, `${person.papers.size} ${person.papers.size === 1 ? "paper" : "papers"}`));
+          button.addEventListener("click", () => onSelect(person.name));
+          item.appendChild(button);
+          list.appendChild(item);
+        });
+        disclosure.appendChild(list);
+        if (people.length > initialCount) {
+          const moreButton = element("button", {
+            class: "people-more",
+            type: "button",
+            "aria-expanded": String(allContributorsExpanded),
+          }, allContributorsExpanded
+            ? "Show fewer contributors"
+            : `Show all ${people.length} contributors`);
+          moreButton.addEventListener("click", () => {
+            allContributorsExpanded = !allContributorsExpanded;
+            list.querySelectorAll("li").forEach((item, index) => {
+              if (index >= initialCount) item.hidden = !allContributorsExpanded;
+            });
+            moreButton.setAttribute("aria-expanded", String(allContributorsExpanded));
+            moreButton.textContent = allContributorsExpanded
+              ? "Show fewer contributors"
+              : `Show all ${people.length} contributors`;
+          });
+          disclosure.appendChild(moreButton);
+        }
+        content.appendChild(disclosure);
+      }
+
+      function renderPapers(publications) {
+        const content = document.getElementById("detail-content");
+        const sorted = [...publications].sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
+        const heading = element("h3", { class: "section-title" });
+        heading.append(element("span", {}, "Publications"), element("span", { class: "count" }, `${sorted.length} listed`));
+        content.appendChild(heading);
+        if (!sorted.length) {
+          content.appendChild(element("div", { class: "empty" }, "No publications match the selected year."));
+          return;
+        }
+        const list = element("div", { class: "paper-list" });
+        sorted.forEach((publication) => {
+          const card = element("article", { class: "paper-card" });
+          card.appendChild(element("h4", { class: "paper-title" }, publication.title));
+          const meta = element("div", { class: "paper-meta" });
+          meta.appendChild(document.createTextNode(`${publication.year}${publication.journal ? ` · ${publication.journal}` : ""}`));
+          if (publication.doi && /^https:\/\/doi\.org\//i.test(publication.doi)) {
+            const link = element("a", { href: publication.doi, target: "_blank", rel: "noreferrer" }, " · DOI ↗");
+            meta.appendChild(link);
+          }
+          card.appendChild(meta);
+          if (publication.authors.length) {
+            const authors = element("div", { class: "paper-meta" }, publication.authors.join("; "));
+            card.appendChild(authors);
+          }
+          if (publication.topics.length) {
+            const tags = element("div", { class: "topic-tags" });
+            publication.topics.forEach((topic) => tags.appendChild(element("span", { class: "topic-tag" }, topic)));
+            card.appendChild(tags);
+          }
+          list.appendChild(card);
+        });
+        content.appendChild(list);
+      }
+
+      function selectTopic(name) {
+        selected = { type: "topic", name };
+        allContributorsExpanded = false;
+        const selectedPapers = activePublications().filter((publication) => publication.topics.includes(name));
+        const contributors = new Map();
+        selectedPapers.forEach((paper) => paper.authors.forEach((author) => {
+          const person = contributors.get(author) || { name: author, papers: new Map() };
+          person.papers.set(paper.id, paper);
+          contributors.set(author, person);
+        }));
+        const people = [...contributors.values()].sort((a, b) => b.papers.size - a.papers.size || a.name.localeCompare(b.name));
+        clearDetail("Research theme", name, `${selectedPapers.length} publications in the selected year range.`);
+        renderPeople(people, selectPerson);
+        renderPapers(selectedPapers);
+        drawGraph(activePublications());
+      }
+
+      function selectPerson(name) {
+        selected = { type: "person", name };
+        allContributorsExpanded = false;
+        const person = currentGraph.allPeople.get(name);
+        if (!person) {
+          const publications = activePublications().filter((paper) => paper.authors.includes(name));
+          renderPersonDetail(name, publications);
+        } else {
+          renderPersonDetail(name, [...person.papers.values()].filter((paper) => activePublications().includes(paper)));
+        }
+        drawGraph(activePublications());
+      }
+
+      function renderPersonDetail(name, publications) {
+        const topics = new Map();
+        publications.forEach((paper) => paper.topics.forEach((topic) => topics.set(topic, (topics.get(topic) || 0) + 1)));
+        const themeNames = [...topics.entries()].sort((a, b) => b[1] - a[1]).map(([topic]) => topic);
+        clearDetail("Contributor", name, `${publications.length} publications in the selected year range.`);
+        const content = document.getElementById("detail-content");
+        const heading = element("h3", { class: "section-title" });
+        heading.append(element("span", {}, "Research themes"), element("span", { class: "count" }, `${themeNames.length} themes`));
+        content.appendChild(heading);
+        const topicsList = element("div", { class: "topic-tags" });
+        themeNames.forEach((topic) => {
+          const tag = element("button", { type: "button", class: "topic-tag" }, topic);
+          tag.style.border = "0";
+          tag.style.cursor = "pointer";
+          tag.addEventListener("click", () => selectTopic(topic));
+          topicsList.appendChild(tag);
+        });
+        if (themeNames.length) content.appendChild(topicsList);
+        renderPapers(publications);
+      }
+
+      function showSearchResults(value) {
+        elements.results.replaceChildren();
+        const search = value.trim().toLocaleLowerCase();
+        if (!search) {
+          elements.results.hidden = true;
+          return;
+        }
+        const publications = activePublications();
+        const graph = countGraph(publications);
+        const matches = [];
+        graph.topicCounts.forEach((count, name) => {
+          if (name.toLocaleLowerCase().includes(search)) matches.push({ type: "Research theme", name, count });
+        });
+        graph.people.forEach((person, name) => {
+          if (name.toLocaleLowerCase().includes(search)) matches.push({ type: "Contributor", name, count: person.papers.size });
+        });
+        publications.forEach((paper) => {
+          if (paper.title.toLocaleLowerCase().includes(search)) matches.push({ type: "Publication", name: paper.title, paper });
+        });
+        matches.slice(0, 9).forEach((match) => {
+          const button = element("button", { class: "search-result", type: "button" });
+          button.appendChild(document.createTextNode(match.name));
+          button.appendChild(element("small", {}, match.type === "Publication" ? `${match.paper.year} · ${match.paper.authors.join(", ")}` : `${match.type} · ${match.count} ${match.type === "Contributor" ? "publications" : "papers"}`));
+          button.addEventListener("click", () => {
+            if (match.type === "Research theme") selectTopic(match.name);
+            else if (match.type === "Contributor") selectPerson(match.name);
+            else {
+              clearDetail("Publication", match.paper.title, `${match.paper.year}${match.paper.journal ? ` · ${match.paper.journal}` : ""}`);
+              renderPapers([match.paper]);
+            }
+            elements.results.hidden = true;
+            elements.search.blur();
+          });
+          elements.results.appendChild(button);
+        });
+        if (!matches.length) elements.results.appendChild(element("div", { class: "search-result" }, "No matches found"));
+        elements.results.hidden = false;
+      }
+
+      function render() {
+        const publications = activePublications();
+        const all = countGraph(data.publications);
+        const years = data.publications.map((paper) => paper.year);
+        document.getElementById("paper-stat").textContent = publications.length.toLocaleString();
+        document.getElementById("people-stat").textContent = all.people.size.toLocaleString();
+        document.getElementById("year-stat").textContent = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : "—";
+        drawGraph(publications);
+        if (selected) {
+          if (selected.type === "topic" && currentGraph.topicCounts.has(selected.name)) selectTopic(selected.name);
+          else if (selected.type === "person" && currentGraph.allPeople.has(selected.name)) selectPerson(selected.name);
+          else if (!currentGraph.topicCounts.has(selected.name)) {
+            selected = null;
+            clearDetail("Start exploring", "A map of shared ideas", "Select one of the themes or researcher nodes. The list of people and papers here updates to match your selection.");
+            document.getElementById("detail-content").appendChild(element("div", { class: "empty" }, "Choose a node in the graph, or search for a topic, person or publication."));
+          }
+        }
+        if (elements.search.value) showSearchResults(elements.search.value);
+      }
+
+      function loadGraphPositions() {
+        try {
+          const saved = localStorage.getItem(LAYOUT_KEY);
+          if (!saved) return "";
+          const positions = JSON.parse(saved);
+          if (!positions || typeof positions !== "object" || Array.isArray(positions)) {
+            throw new Error("Saved graph layout must be a node-position object.");
+          }
+          layoutPositions = new Map();
+          Object.entries(positions).forEach(([key, value]) => {
+            const x = Array.isArray(value) ? value[0] : value?.x;
+            const y = Array.isArray(value) ? value[1] : value?.y;
+            if (
+              Number.isFinite(x) && Number.isFinite(y)
+            ) {
+              layoutPositions.set(key, { x, y });
+            }
+          });
+          return "";
+        } catch (error) {
+          layoutPositions = new Map();
+          return `Saved graph layout could not be loaded: ${error.message}`;
+        }
+      }
+
+      async function load() {
+        try {
+          const response = await fetch(DATA_URL, { cache: "no-cache" });
+          if (!response.ok) throw new Error(`Dataset request failed (HTTP ${response.status}).`);
+          data = normalizeDataset(await response.json());
+          const yearValues = [...new Set(data.publications.map((paper) => paper.year))].sort((a, b) => b - a);
+          yearValues.forEach((year) => elements.year.appendChild(element("option", { value: year }, String(year))));
+          const layoutWarning = loadGraphPositions();
+          render();
+          const sourceDate = data.updated ? ` · source data checked ${data.updated}` : "";
+          setStatus(`${data.publications.length} bibliography entries loaded${sourceDate}.${layoutWarning ? ` ${layoutWarning}` : ""}`);
+        } catch (error) {
+          setStatus(`Could not load the graph data: ${error.message}. Serve this folder over HTTP and check data/publications.json.`, true);
+          document.getElementById("detail-title").textContent = "Graph data unavailable";
+          document.getElementById("detail-description").textContent = "The bibliography JSON could not be loaded.";
+        }
+      }
+
+      document.getElementById("reset-view").addEventListener("click", () => {
+        selected = null;
+        try {
+          localStorage.removeItem(LAYOUT_KEY);
+        } catch (error) {
+          setStatus(`Could not reset the saved graph layout: ${error.message}`, true);
+          return;
+        }
+        layoutPositions.clear();
+        resetZoom();
+        elements.year.value = "all";
+        elements.search.value = "";
+        elements.results.hidden = true;
+        clearDetail("Start exploring", "A map of shared ideas", "Select one of the themes or researcher nodes. The list of people and papers here updates to match your selection.");
+        document.getElementById("detail-content").appendChild(element("div", { class: "empty" }, "Choose a node in the graph, or search for a topic, person or publication."));
+        render();
+        setStatus("View and custom graph layout reset.");
+      });
+      elements.year.addEventListener("change", render);
+      elements.search.addEventListener("input", () => {
+        showSearchResults(elements.search.value);
+      });
+      document.addEventListener("click", (event) => {
+        if (!elements.results.contains(event.target) && event.target !== elements.search) elements.results.hidden = true;
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") elements.results.hidden = true;
+      });
+      document.getElementById("zoom-in").addEventListener("click", () => {
+        zoomAt(zoom.scale * 1.2, graphCenter());
+      });
+      document.getElementById("zoom-out").addEventListener("click", () => {
+        zoomAt(zoom.scale / 1.2, graphCenter());
+      });
+      document.getElementById("zoom-reset").addEventListener("click", resetZoom);
+      load();
+    })();
+  </script>
+</body>
+</html>
