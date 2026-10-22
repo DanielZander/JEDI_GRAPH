@@ -146,6 +146,34 @@
     .topic-label { pointer-events: none; fill: #fff; font-size: 11px; font-weight: 750; }
     .edge { fill: none; stroke: #858585; stroke-opacity: .16; }
     .paper-edge { fill: none; stroke: #d4dce1; stroke-opacity: .55; }
+    .metric-line { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; margin-top: 5px; color: var(--muted); font-size: 11px; }
+    .metric-badge { padding: 1px 6px; border: 1px solid var(--line); border-radius: 5px; background: #fff; color: var(--ink); font-size: 10px; font-weight: 650; white-space: nowrap; }
+    .metric-line .citations { color: var(--ink); font-weight: 650; }
+    .analytics { margin-top: 18px; padding: 18px 19px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); box-shadow: var(--shadow); }
+    .analytics-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+    .analytics-head h2 { margin: 0; font-size: 16px; letter-spacing: -.02em; }
+    .analytics-coverage { color: var(--muted); font-size: 12px; }
+    .chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr)); gap: 16px 22px; }
+    .chart-card { position: relative; min-width: 0; }
+    .chart-card h3 { margin: 0; font-size: 13px; }
+    .chart-card .chart-sub { margin: 1px 0 6px; color: var(--muted); font-size: 11px; }
+    .chart-card svg { display: block; width: 100%; height: auto; overflow: visible; }
+    .chart-axis { fill: var(--muted); font-size: 10px; }
+    .chart-grid-line { stroke: #ececec; stroke-width: 1; }
+    .chart-baseline { stroke: #cfcfcf; stroke-width: 1; }
+    .chart-bar { fill: var(--blue); }
+    .chart-bar.unknown { fill: #c9c9c9; }
+    .chart-hit { fill: transparent; cursor: default; }
+    .chart-hit:hover + .chart-bar, .chart-bar.active { opacity: .78; }
+    .chart-value { fill: var(--ink); font-size: 10px; font-weight: 650; }
+    .chart-empty { padding: 30px 12px; border: 1px dashed var(--line); border-radius: 9px; color: var(--muted); font-size: 12px; text-align: center; }
+    .chart-tooltip { position: absolute; z-index: 6; pointer-events: none; padding: 6px 9px; border: 1px solid var(--line); border-radius: 7px; background: #fff; box-shadow: var(--shadow); color: var(--ink); font-size: 11px; white-space: nowrap; }
+    .chart-tooltip[hidden] { display: none; }
+    .chart-tooltip strong { display: block; font-size: 12px; }
+    .chart-table summary { margin-top: 4px; color: var(--muted); cursor: pointer; font-size: 11px; }
+    .chart-table table { width: 100%; margin-top: 6px; border-collapse: collapse; font-size: 11px; }
+    .chart-table th, .chart-table td { padding: 3px 6px; border-bottom: 1px solid #eee; text-align: left; }
+    .chart-table td:last-child, .chart-table th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
     @media (max-width: 1000px) {
       .layout { grid-template-columns: minmax(0, 1fr) 310px; }
       .graph-stage { height: 590px; }
@@ -192,6 +220,7 @@
         <div class="stat"><strong id="paper-stat">—</strong><span>publications</span></div>
         <div class="stat"><strong id="people-stat">—</strong><span>named contributors</span></div>
         <div class="stat"><strong id="year-stat">—</strong><span>publication years</span></div>
+        <div class="stat" id="citation-stat-tile" hidden><strong id="citation-stat">—</strong><span>citations (OpenAlex)</span></div>
       </div>
     </section>
 
@@ -201,6 +230,15 @@
         <div id="search-results" class="search-results" hidden></div>
       </div>
       <select id="year-filter" aria-label="Filter by publication year"><option value="all">All years</option></select>
+      <select id="ranking-filter" aria-label="Filter by journal ranking" hidden><option value="all">All journals</option></select>
+      <select id="citation-filter" aria-label="Filter by citation count" hidden>
+        <option value="all">Any citations</option>
+        <option value="0">With citation data</option>
+        <option value="1">1+ citations</option>
+        <option value="10">10+ citations</option>
+        <option value="50">50+ citations</option>
+        <option value="100">100+ citations</option>
+      </select>
       <button id="reset-view" class="button subtle" type="button">Reset view</button>
     </div>
     <div id="status" class="status" role="status" aria-live="polite"></div>
@@ -242,7 +280,16 @@
         </div>
       </aside>
     </section>
+
+    <section id="analytics" class="analytics" aria-label="Publication metrics" hidden>
+      <div class="analytics-head">
+        <h2>Publication metrics</h2>
+        <span id="analytics-coverage" class="analytics-coverage"></span>
+      </div>
+      <div id="chart-grid" class="chart-grid"></div>
+    </section>
     <p class="disclaimer">Themes are suggested from publication titles and journal names; they are an aid to browsing, not a formal coding of the research. Contributor nodes reflect cited coauthors, not verified JEDI Lab membership: the source bibliography does not identify historical lab affiliation, uses abbreviated author names and may omit authors where it uses an ellipsis. Publication data is maintained by the site administrator in the JSON dataset.</p>
+    <p id="metrics-note" class="disclaimer" hidden></p>
   </main>
 
   <script>
@@ -250,8 +297,13 @@
       "use strict";
 
       const DATA_URL = "./data/publications.json";
+      const METRICS_URL = "./data/metrics.json";
       const LAYOUT_KEY = "jedi-graph-layout-v2";
-      const SVG_ELEMENTS = new Set(["g", "line", "circle", "text", "title", "tspan"]);
+      const SVG_ELEMENTS = new Set(["svg", "g", "line", "circle", "text", "title", "tspan", "rect", "path"]);
+      const RANKING_SYSTEMS = {
+        abdc: { label: "ABDC", order: ["A*", "A", "B", "C"] },
+        norway: { label: "Norwegian Register", short: "NO", order: ["Level 2", "Level 1"] },
+      };
       const TOPIC_COLORS = [
         "#bd1230", "#343434", "#7e7e7e", "#8e1b32", "#56504b",
         "#a83247", "#737373", "#9f5a64", "#474747", "#c34a60",
@@ -264,10 +316,13 @@
         search: document.getElementById("search"),
         results: document.getElementById("search-results"),
         year: document.getElementById("year-filter"),
+        ranking: document.getElementById("ranking-filter"),
+        citations: document.getElementById("citation-filter"),
         status: document.getElementById("status"),
         zoomLevel: document.getElementById("zoom-level"),
       };
       let data;
+      let metrics = null;
       let selected = null;
       let contributorsExpanded = true;
       let allContributorsExpanded = false;
@@ -355,9 +410,74 @@
         return matches.length ? matches : ["Other"];
       }
 
+      function metricsFor(publication) {
+        return metrics?.works?.[publication.id] || null;
+      }
+
+      function rankingLabel(ranking) {
+        const system = RANKING_SYSTEMS[ranking.system];
+        return `${system ? system.short || system.label : ranking.system} ${ranking.value}`;
+      }
+
       function activePublications() {
         const selectedYear = elements.year.value;
-        return data.publications.filter((publication) => selectedYear === "all" || String(publication.year) === selectedYear);
+        const selectedRanking = elements.ranking.value;
+        const minimumCitations = elements.citations.value;
+        return data.publications.filter((publication) => {
+          if (selectedYear !== "all" && String(publication.year) !== selectedYear) return false;
+          const record = metricsFor(publication);
+          if (selectedRanking !== "all") {
+            const rankings = record?.rankings || [];
+            const [system, value] = selectedRanking.split("|");
+            if (!rankings.some((ranking) => ranking.system === system && (value === undefined || ranking.value === value))) return false;
+          }
+          if (minimumCitations !== "all") {
+            if (!record?.citations || record.citations.total < Number(minimumCitations)) return false;
+          }
+          return true;
+        });
+      }
+
+      function normalizeMetrics(value) {
+        if (!value || typeof value !== "object" || !value.works || typeof value.works !== "object") {
+          throw new Error("metrics.json must contain a works object.");
+        }
+        return value;
+      }
+
+      function setupMetricFilters() {
+        const present = new Map();
+        Object.values(metrics.works).forEach((record) => (record.rankings || []).forEach((ranking) => {
+          if (!present.has(ranking.system)) present.set(ranking.system, new Set());
+          present.get(ranking.system).add(ranking.value);
+        }));
+        const systems = [...present.keys()].sort((a, b) => (a in RANKING_SYSTEMS ? 0 : 1) - (b in RANKING_SYSTEMS ? 0 : 1) || a.localeCompare(b));
+        systems.forEach((system) => {
+          const definition = RANKING_SYSTEMS[system];
+          const order = definition?.order || [...present.get(system)].sort();
+          const group = element("optgroup", { label: definition?.label || system });
+          group.appendChild(element("option", { value: system }, `${definition?.label || system}: any level`));
+          order.filter((value) => present.get(system).has(value)).forEach((value) => {
+            group.appendChild(element("option", { value: `${system}|${value}` }, rankingLabel({ system, value })));
+          });
+          elements.ranking.appendChild(group);
+        });
+        elements.ranking.hidden = !systems.length;
+        elements.citations.hidden = false;
+        document.getElementById("citation-stat-tile").hidden = false;
+        const note = document.getElementById("metrics-note");
+        const parts = [];
+        const openalex = metrics.sources?.openalex;
+        if (openalex) parts.push(`Citation counts are OpenAlex estimates retrieved ${openalex.retrieved}; they are matched by DOI, so publications without a DOI have no citation data, and per-year counts cover roughly the last ten years.`);
+        Object.entries(metrics.sources || {}).forEach(([key, source]) => {
+          if (key === "openalex") return;
+          parts.push(`${source.name}${source.edition ? ` (edition loaded ${source.edition})` : ""}: ${source.via || "administrator-supplied"}.`);
+        });
+        if (Object.keys(metrics.sources || {}).some((key) => key in RANKING_SYSTEMS)) {
+          parts.push("Rankings from OpenAlex source lists reflect each list's current edition and are applied to all publication years; they are not the level in force when an older paper was published.");
+        }
+        note.textContent = parts.join(" ");
+        note.hidden = !parts.length;
       }
 
       function countGraph(publications) {
@@ -759,7 +879,7 @@
         heading.append(element("span", {}, "Publications"), element("span", { class: "count" }, `${sorted.length} listed`));
         content.appendChild(heading);
         if (!sorted.length) {
-          content.appendChild(element("div", { class: "empty" }, "No publications match the selected year."));
+          content.appendChild(element("div", { class: "empty" }, "No publications match the selected filters."));
           return;
         }
         const list = element("div", { class: "paper-list" });
@@ -773,6 +893,24 @@
             meta.appendChild(link);
           }
           card.appendChild(meta);
+          const record = metricsFor(publication);
+          if (record && (record.citations || record.rankings?.length)) {
+            const line = element("div", { class: "metric-line" });
+            if (record.citations) {
+              const total = record.citations.total;
+              line.appendChild(element("span", {
+                class: "citations",
+                title: `OpenAlex citation count, retrieved ${record.citations.retrieved}${record.match?.method === "title" ? "; matched by title" : ""}`,
+              }, `Cited by ${total.toLocaleString()}`));
+            }
+            (record.rankings || []).forEach((ranking) => {
+              line.appendChild(element("span", {
+                class: "metric-badge",
+                title: `${RANKING_SYSTEMS[ranking.system]?.label || ranking.system} ${ranking.value}${ranking.edition ? ` · edition ${ranking.edition}` : ""} · matched by ${ranking.matched_by} · ${ranking.source}`,
+              }, rankingLabel(ranking)));
+            });
+            card.appendChild(line);
+          }
           if (publication.authors.length) {
             const authors = element("div", { class: "paper-meta" }, publication.authors.join("; "));
             card.appendChild(authors);
@@ -798,7 +936,7 @@
           contributors.set(author, person);
         }));
         const people = [...contributors.values()].sort((a, b) => b.papers.size - a.papers.size || a.name.localeCompare(b.name));
-        clearDetail("Research theme", name, `${selectedPapers.length} publications in the selected year range.`);
+        clearDetail("Research theme", name, `${selectedPapers.length} publications matching the current filters.`);
         renderPeople(people, selectPerson);
         renderPapers(selectedPapers);
         drawGraph(activePublications());
@@ -821,7 +959,7 @@
         const topics = new Map();
         publications.forEach((paper) => paper.topics.forEach((topic) => topics.set(topic, (topics.get(topic) || 0) + 1)));
         const themeNames = [...topics.entries()].sort((a, b) => b[1] - a[1]).map(([topic]) => topic);
-        clearDetail("Contributor", name, `${publications.length} publications in the selected year range.`);
+        clearDetail("Contributor", name, `${publications.length} publications matching the current filters.`);
         const content = document.getElementById("detail-content");
         const heading = element("h3", { class: "section-title" });
         heading.append(element("span", {}, "Research themes"), element("span", { class: "count" }, `${themeNames.length} themes`));
@@ -877,6 +1015,204 @@
         elements.results.hidden = false;
       }
 
+      function niceStep(value) {
+        if (value <= 1) return 1;
+        const magnitude = 10 ** Math.floor(Math.log10(value));
+        const fraction = value / magnitude;
+        return (fraction <= 1 ? 1 : fraction <= 2 ? 2 : fraction <= 5 ? 5 : 10) * magnitude;
+      }
+
+      function compact(value) {
+        return value >= 1000 ? `${(value / 1000).toFixed(value >= 10000 ? 0 : 1).replace(/\.0$/, "")}K` : String(value);
+      }
+
+      // A bar path with a 4px rounded data-end and a square baseline end.
+      function barPath(x, y, width, height, horizontal) {
+        const r = Math.min(4, horizontal ? width : height, (horizontal ? height : width) / 2);
+        if (horizontal) {
+          return `M${x},${y}H${x + width - r}Q${x + width},${y} ${x + width},${y + r}V${y + height - r}Q${x + width},${y + height} ${x + width - r},${y + height}H${x}Z`;
+        }
+        return `M${x},${y + height}V${y + r}Q${x},${y} ${x + r},${y}H${x + width - r}Q${x + width},${y} ${x + width},${y + r}V${y + height}Z`;
+      }
+
+      function chartCard(title, subtitle, columns, rows) {
+        const card = element("div", { class: "chart-card" });
+        card.append(element("h3", {}, title), element("p", { class: "chart-sub" }, subtitle));
+        const tooltip = element("div", { class: "chart-tooltip", role: "status" });
+        tooltip.hidden = true;
+        card.appendChild(tooltip);
+        const table = element("details", { class: "chart-table" });
+        table.appendChild(element("summary", {}, "Show data table"));
+        const grid = element("table");
+        const head = element("tr");
+        columns.forEach((column) => head.appendChild(element("th", { scope: "col" }, column)));
+        grid.appendChild(head);
+        rows.forEach((row) => {
+          const line = element("tr");
+          line.append(element("td", {}, row.label), element("td", {}, row.value.toLocaleString()));
+          grid.appendChild(line);
+        });
+        table.appendChild(grid);
+        return { card, tooltip, table };
+      }
+
+      function attachTooltip(hit, bar, tooltip, card, heading, detail) {
+        const show = (event) => {
+          tooltip.replaceChildren(element("strong", {}, heading), document.createTextNode(detail));
+          tooltip.hidden = false;
+          bar.classList.add("active");
+          const box = card.getBoundingClientRect();
+          const target = event?.clientX !== undefined ? { x: event.clientX, y: event.clientY } : (() => {
+            const rect = hit.getBoundingClientRect();
+            return { x: rect.left + rect.width / 2, y: rect.top };
+          })();
+          const left = Math.min(Math.max(0, target.x - box.left + 12), box.width - tooltip.offsetWidth);
+          tooltip.style.left = `${left}px`;
+          tooltip.style.top = `${Math.max(0, target.y - box.top - tooltip.offsetHeight - 10)}px`;
+        };
+        const hide = () => { tooltip.hidden = true; bar.classList.remove("active"); };
+        hit.addEventListener("pointermove", show);
+        hit.addEventListener("focus", () => show());
+        hit.addEventListener("pointerleave", hide);
+        hit.addEventListener("blur", hide);
+      }
+
+      function columnChart(title, subtitle, rows, unit) {
+        const { card, tooltip, table } = chartCard(title, subtitle, ["Year", unit[1]], rows);
+        if (!rows.some((row) => row.value > 0)) {
+          card.appendChild(element("div", { class: "chart-empty" }, "No data for the selected filters."));
+          return card;
+        }
+        const width = 520;
+        const height = 210;
+        const margin = { top: 14, right: 6, bottom: 24, left: 36 };
+        const plotWidth = width - margin.left - margin.right;
+        const plotHeight = height - margin.top - margin.bottom;
+        const max = Math.max(...rows.map((row) => row.value));
+        const step = niceStep(max / 4);
+        const top = Math.ceil(max / step) * step;
+        const svg = element("svg", { viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": `${title}: column chart` });
+        for (let tick = 0; tick <= top; tick += step) {
+          const y = margin.top + plotHeight - (tick / top) * plotHeight;
+          if (tick) svg.appendChild(element("line", { x1: margin.left, x2: width - margin.right, y1: y, y2: y, class: "chart-grid-line" }));
+          svg.appendChild(element("text", { x: margin.left - 6, y: y + 3, "text-anchor": "end", class: "chart-axis" }, compact(tick)));
+        }
+        const band = plotWidth / rows.length;
+        const barWidth = Math.max(2, Math.min(24, band - 2));
+        const labelEvery = Math.ceil(30 / band);
+        const peak = rows.reduce((best, row) => (row.value > best.value ? row : best), rows[0]);
+        rows.forEach((row, index) => {
+          const x = margin.left + band * index + (band - barWidth) / 2;
+          const barHeight = (row.value / top) * plotHeight;
+          const y = margin.top + plotHeight - barHeight;
+          const hit = element("rect", { x: margin.left + band * index, y: margin.top, width: band, height: plotHeight, class: "chart-hit", tabindex: "0", "aria-label": `${row.label}: ${row.value} ${unit[row.value === 1 ? 0 : 1]}` });
+          const bar = element("path", { d: barHeight > 0 ? barPath(x, y, barWidth, barHeight, false) : "", class: "chart-bar" });
+          svg.append(hit, bar);
+          attachTooltip(hit, bar, tooltip, card, row.label, `${row.value.toLocaleString()} ${unit[row.value === 1 ? 0 : 1]}`);
+          if (row === peak) svg.appendChild(element("text", { x: x + barWidth / 2, y: y - 4, "text-anchor": "middle", class: "chart-value" }, compact(row.value)));
+          if ((rows.length - 1 - index) % labelEvery === 0) {
+            svg.appendChild(element("text", { x: x + barWidth / 2, y: height - 8, "text-anchor": "middle", class: "chart-axis" }, row.label));
+          }
+        });
+        svg.appendChild(element("line", { x1: margin.left, x2: width - margin.right, y1: margin.top + plotHeight, y2: margin.top + plotHeight, class: "chart-baseline" }));
+        card.append(svg, table);
+        return card;
+      }
+
+      function barChart(title, subtitle, rows) {
+        const { card, tooltip, table } = chartCard(title, subtitle, ["Level", "Publications"], rows);
+        const width = 520;
+        const rowHeight = 26;
+        const margin = { top: 4, right: 40, left: 150 };
+        const height = margin.top + rows.length * rowHeight;
+        const plotWidth = width - margin.left - margin.right;
+        const max = Math.max(1, ...rows.map((row) => row.value));
+        const svg = element("svg", { viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": `${title}: bar chart` });
+        rows.forEach((row, index) => {
+          const y = margin.top + index * rowHeight;
+          const barWidth = (row.value / max) * plotWidth;
+          const hit = element("rect", { x: 0, y, width, height: rowHeight, class: "chart-hit", tabindex: "0", "aria-label": `${row.label}: ${row.value} publications` });
+          const bar = element("path", { d: barWidth > 0 ? barPath(margin.left, y + 5, barWidth, 16, true) : "", class: `chart-bar${row.unknown ? " unknown" : ""}` });
+          svg.append(hit, bar);
+          svg.appendChild(element("text", { x: margin.left - 8, y: y + 17, "text-anchor": "end", class: "chart-axis" }, row.label));
+          svg.appendChild(element("text", { x: margin.left + barWidth + 6, y: y + 17, class: "chart-value" }, row.value.toLocaleString()));
+          attachTooltip(hit, bar, tooltip, card, row.label, `${row.value.toLocaleString()} ${row.value === 1 ? "publication" : "publications"}`);
+        });
+        svg.appendChild(element("line", { x1: margin.left, x2: margin.left, y1: 0, y2: height, class: "chart-baseline" }));
+        card.append(svg, table);
+        return card;
+      }
+
+      function yearRows(counts) {
+        const years = [...counts.keys()];
+        if (!years.length) return [];
+        const rows = [];
+        for (let year = Math.min(...years); year <= Math.max(...years); year += 1) {
+          rows.push({ label: String(year), value: counts.get(year) || 0 });
+        }
+        return rows;
+      }
+
+      function drawAnalytics(publications) {
+        const section = document.getElementById("analytics");
+        if (!metrics) return;
+        section.hidden = false;
+        const grid = document.getElementById("chart-grid");
+        grid.replaceChildren();
+        const perYear = new Map();
+        const citedPerYear = new Map();
+        let withCitations = 0;
+        let withRankings = 0;
+        publications.forEach((publication) => {
+          perYear.set(publication.year, (perYear.get(publication.year) || 0) + 1);
+          const record = metricsFor(publication);
+          if (record?.citations) {
+            withCitations += 1;
+            Object.entries(record.citations.by_year || {}).forEach(([year, count]) => {
+              citedPerYear.set(Number(year), (citedPerYear.get(Number(year)) || 0) + count);
+            });
+          }
+          if (record?.rankings?.length) withRankings += 1;
+        });
+        const thisYear = new Date().getFullYear();
+        document.getElementById("analytics-coverage").textContent =
+          `${publications.length} selected publications · citation data for ${withCitations} · journal ranking for ${withRankings}`;
+        grid.appendChild(columnChart(
+          "Publications per year",
+          "Selected publications by publication year",
+          yearRows(perYear),
+          ["publication", "publications"],
+        ));
+        grid.appendChild(columnChart(
+          "Citations received per year",
+          `Citations the selected publications received in each calendar year (OpenAlex)${citedPerYear.has(thisYear) ? `; ${thisYear} is year to date` : ""}`,
+          yearRows(citedPerYear),
+          ["citation", "citations"],
+        ));
+        const systems = new Set();
+        Object.values(metrics.works).forEach((record) => (record.rankings || []).forEach((ranking) => systems.add(ranking.system)));
+        [...systems].sort().forEach((system) => {
+          const definition = RANKING_SYSTEMS[system];
+          const counts = new Map();
+          let unranked = 0;
+          const editions = new Set();
+          publications.forEach((publication) => {
+            const ranking = (metricsFor(publication)?.rankings || []).find((item) => item.system === system);
+            if (!ranking) { unranked += 1; return; }
+            counts.set(ranking.value, (counts.get(ranking.value) || 0) + 1);
+            if (ranking.edition) editions.add(ranking.edition);
+          });
+          const order = definition?.order || [...counts.keys()].sort();
+          const rows = order.map((value) => ({ label: rankingLabel({ system, value }), value: counts.get(value) || 0 }));
+          rows.push({ label: "Not listed or no match", value: unranked, unknown: true });
+          grid.appendChild(barChart(
+            `${definition?.label || system} levels`,
+            `Selected publications by journal level${editions.size ? ` · edition ${[...editions].sort().join(", ")}` : ""}`,
+            rows,
+          ));
+        });
+      }
+
       function render() {
         const publications = activePublications();
         const all = countGraph(data.publications);
@@ -884,7 +1220,12 @@
         document.getElementById("paper-stat").textContent = publications.length.toLocaleString();
         document.getElementById("people-stat").textContent = all.people.size.toLocaleString();
         document.getElementById("year-stat").textContent = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : "—";
+        if (metrics) {
+          const citations = publications.reduce((sum, publication) => sum + (metricsFor(publication)?.citations?.total || 0), 0);
+          document.getElementById("citation-stat").textContent = compact(citations);
+        }
         drawGraph(publications);
+        drawAnalytics(publications);
         if (selected) {
           if (selected.type === "topic" && currentGraph.topicCounts.has(selected.name)) selectTopic(selected.name);
           else if (selected.type === "person" && currentGraph.allPeople.has(selected.name)) selectPerson(selected.name);
@@ -927,12 +1268,26 @@
           const response = await fetch(DATA_URL, { cache: "no-cache" });
           if (!response.ok) throw new Error(`Dataset request failed (HTTP ${response.status}).`);
           data = normalizeDataset(await response.json());
+          let metricsWarning = "";
+          try {
+            const metricsResponse = await fetch(METRICS_URL, { cache: "no-cache" });
+            if (metricsResponse.ok) {
+              metrics = normalizeMetrics(await metricsResponse.json());
+              setupMetricFilters();
+            } else if (metricsResponse.status !== 404) {
+              metricsWarning = ` Publication metrics unavailable (HTTP ${metricsResponse.status}).`;
+            }
+          } catch (error) {
+            metrics = null;
+            metricsWarning = ` Publication metrics could not be loaded: ${error.message}`;
+          }
           const yearValues = [...new Set(data.publications.map((paper) => paper.year))].sort((a, b) => b - a);
           yearValues.forEach((year) => elements.year.appendChild(element("option", { value: year }, String(year))));
           const layoutWarning = loadGraphPositions();
           render();
           const sourceDate = data.updated ? ` · source data checked ${data.updated}` : "";
-          setStatus(`${data.publications.length} bibliography entries loaded${sourceDate}.${layoutWarning ? ` ${layoutWarning}` : ""}`);
+          const metricsDate = metrics?.generated ? ` · metrics retrieved ${metrics.generated}` : "";
+          setStatus(`${data.publications.length} bibliography entries loaded${sourceDate}${metricsDate}.${layoutWarning ? ` ${layoutWarning}` : ""}${metricsWarning}`, Boolean(metricsWarning));
         } catch (error) {
           setStatus(`Could not load the graph data: ${error.message}. Serve this folder over HTTP and check data/publications.json.`, true);
           document.getElementById("detail-title").textContent = "Graph data unavailable";
@@ -951,6 +1306,8 @@
         layoutPositions.clear();
         resetZoom();
         elements.year.value = "all";
+        elements.ranking.value = "all";
+        elements.citations.value = "all";
         elements.search.value = "";
         elements.results.hidden = true;
         clearDetail("Start exploring", "A map of shared ideas", "Select one of the themes or researcher nodes. The list of people and papers here updates to match your selection.");
@@ -959,6 +1316,8 @@
         setStatus("View and custom graph layout reset.");
       });
       elements.year.addEventListener("change", render);
+      elements.ranking.addEventListener("change", render);
+      elements.citations.addEventListener("change", render);
       elements.search.addEventListener("input", () => {
         showSearchResults(elements.search.value);
       });

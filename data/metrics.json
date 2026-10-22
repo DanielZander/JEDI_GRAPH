@@ -1,0 +1,5601 @@
+{
+  "generated": "2026-10-22",
+  "bibliography_updated": "2026-10-21",
+  "sources": {
+    "openalex": {
+      "name": "OpenAlex",
+      "url": "https://openalex.org/",
+      "retrieved": "2026-10-22",
+      "note": "Citation counts are OpenAlex estimates; per-year counts cover roughly the last ten years."
+    },
+    "norway": {
+      "name": "Norwegian Register",
+      "maintainer": "Norwegian Directorate for Higher Education and Skills (HK-dir)",
+      "url": "https://kanalregister.hkdir.no/",
+      "edition": "2026-09-18",
+      "via": "OpenAlex source lists (current edition, matched by ISSN)"
+    },
+    "abdc": {
+      "name": "ABDC Journal Quality List",
+      "maintainer": "Australian Business Deans Council (ABDC)",
+      "url": "https://abdc.edu.au/abdc-journal-quality-list/",
+      "edition": "2026-09-22",
+      "via": "OpenAlex source lists (current edition, matched by ISSN)"
+    }
+  },
+  "summary": {
+    "publications": 264,
+    "matched_by_doi": 156,
+    "matched_by_title": 0,
+    "ambiguous": 0,
+    "unmatched": 108,
+    "with_rankings": 149
+  },
+  "works": {
+    "https://doi.org/10.1177/00031224261464586": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W7204443438"
+      },
+      "source": {
+        "name": "American Sociological Review",
+        "issn_l": "0003-1224",
+        "issn": [
+          "0003-1224",
+          "1939-8271"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 0,
+        "by_year": {},
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1093/jcr/ucag022": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W7168037641"
+      },
+      "source": {
+        "name": "Journal of Consumer Research",
+        "issn_l": "0093-5301",
+        "issn": [
+          "0093-5301",
+          "1537-5277"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 1,
+        "by_year": {
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.actpsy.2026.107292": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W7165561150"
+      },
+      "source": {
+        "name": "DOAJ (DOAJ: Directory of Open Access Journals)",
+        "issn_l": "",
+        "issn": []
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 0,
+        "by_year": {},
+        "retrieved": "2026-10-22"
+      }
+    },
+    "https://doi.org/10.1016/j.euroecorev.2026.105389": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W7163221891"
+      },
+      "source": {
+        "name": "European Economic Review",
+        "issn_l": "0014-2921",
+        "issn": [
+          "0014-2921",
+          "1873-572X"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 0,
+        "by_year": {},
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jesp.2026.104942": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4412718025"
+      },
+      "source": {
+        "name": "Journal of Experimental Social Psychology",
+        "issn_l": "0022-1031",
+        "issn": [
+          "0022-1031",
+          "1096-0465"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 1,
+        "by_year": {
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/25152459251401177": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W7154597655"
+      },
+      "source": {
+        "name": "University of Groningen research database (University of Groningen / Centre for Information Technology)",
+        "issn_l": "",
+        "issn": []
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 4,
+        "by_year": {
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      }
+    },
+    "https://doi.org/10.1016/j.jclinepi.2026.112215": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W7135098169"
+      },
+      "source": {
+        "name": "Journal of Clinical Epidemiology",
+        "issn_l": "0895-4356",
+        "issn": [
+          "0895-4356",
+          "1878-5921"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 0,
+        "by_year": {},
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1017/eec.2026.10044": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W7155236108"
+      },
+      "source": {
+        "name": "Experimental Economics",
+        "issn_l": "1386-4157",
+        "issn": [
+          "1386-4157",
+          "1573-6938"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 1,
+        "by_year": {
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1080/13546783.2026.2627236": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W7128926606"
+      },
+      "source": {
+        "name": "Thinking & Reasoning",
+        "issn_l": "1354-6783",
+        "issn": [
+          "1354-6783",
+          "1464-0708"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 0,
+        "by_year": {},
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.respol.2026.105435": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W7130641932"
+      },
+      "source": {
+        "name": "Research Policy",
+        "issn_l": "0048-7333",
+        "issn": [
+          "0048-7333",
+          "1873-7625"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 0,
+        "by_year": {},
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1007/s10603-025-09607-z": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W7117315611"
+      },
+      "source": {
+        "name": "Journal of Consumer Policy",
+        "issn_l": "0168-7034",
+        "issn": [
+          "0168-7034",
+          "0342-5843",
+          "1573-0700"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 1,
+        "by_year": {
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "C",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1007/s11673-025-10469-w": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4414085593"
+      },
+      "source": {
+        "name": "Journal of Bioethical Inquiry",
+        "issn_l": "1176-7529",
+        "issn": [
+          "1176-7529",
+          "1872-4353"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 0,
+        "by_year": {},
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1098/rsos.251064": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4417415908"
+      },
+      "source": {
+        "name": "Royal Society Open Science",
+        "issn_l": "2054-5703",
+        "issn": [
+          "2054-5703"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 1,
+        "by_year": {
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s44271-025-00332-4": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4415913430"
+      },
+      "source": {
+        "name": "Communications Psychology",
+        "issn_l": "2731-9121",
+        "issn": [
+          "2731-9121"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 7,
+        "by_year": {
+          "2025": 2,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1017/jdm.2025.10017": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4415570733"
+      },
+      "source": {
+        "name": "Judgment and Decision Making",
+        "issn_l": "1930-2975",
+        "issn": [
+          "1930-2975"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 0,
+        "by_year": {},
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s44271-025-00324-4": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4414915791"
+      },
+      "source": {
+        "name": "Communications Psychology",
+        "issn_l": "2731-9121",
+        "issn": [
+          "2731-9121"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 7,
+        "by_year": {
+          "2026": 7
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1073/pnas.2503355122": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4413636986"
+      },
+      "source": {
+        "name": "Proceedings of the National Academy of Sciences",
+        "issn_l": "0027-8424",
+        "issn": [
+          "0027-8424",
+          "1091-6490"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 15,
+        "by_year": {
+          "2025": 2,
+          "2026": 13
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jebo.2025.107140": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4412658999"
+      },
+      "source": {
+        "name": "Journal of Economic Behavior & Organization",
+        "issn_l": "0167-2681",
+        "issn": [
+          "0167-2681",
+          "1879-1751"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 4,
+        "by_year": {
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.isci.2025.112389": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4409255606"
+      },
+      "source": {
+        "name": "iScience",
+        "issn_l": "2589-0042",
+        "issn": [
+          "2589-0042"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 6,
+        "by_year": {
+          "2025": 3,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.3389/fpsyg.2025.1519113": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4410183346"
+      },
+      "source": {
+        "name": "Frontiers in Psychology",
+        "issn_l": "1664-1078",
+        "issn": [
+          "1664-1078"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 0,
+        "by_year": {},
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jebo.2025.107039": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4409874330"
+      },
+      "source": {
+        "name": "Journal of Economic Behavior & Organization",
+        "issn_l": "0167-2681",
+        "issn": [
+          "0167-2681",
+          "1879-1751"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 11,
+        "by_year": {
+          "2025": 5,
+          "2026": 6
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s44271-025-00207-8": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4407954110"
+      },
+      "source": {
+        "name": "Communications Psychology",
+        "issn_l": "2731-9121",
+        "issn": [
+          "2731-9121"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 2,
+        "by_year": {
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1017/S0143814X24000266": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4405728298"
+      },
+      "source": {
+        "name": "Journal of Public Policy",
+        "issn_l": "0143-814X",
+        "issn": [
+          "0143-814X",
+          "1469-7815"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 2,
+        "by_year": {
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "B",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/17456916241235889": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4408143927"
+      },
+      "source": {
+        "name": "Perspectives on Psychological Science",
+        "issn_l": "1745-6916",
+        "issn": [
+          "1745-6916",
+          "1745-6924"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 2,
+        "by_year": {
+          "2025": 1,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.crbeha.2025.100171": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4407463978"
+      },
+      "source": {
+        "name": "Current Research in Behavioral Sciences",
+        "issn_l": "2666-5182",
+        "issn": [
+          "2666-5182"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 2,
+        "by_year": {
+          "2025": 1,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.cortex.2025.01.005": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4406822121"
+      },
+      "source": {
+        "name": "Cortex",
+        "issn_l": "0010-9452",
+        "issn": [
+          "0010-9452",
+          "1973-8102"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 9,
+        "by_year": {
+          "2025": 3,
+          "2026": 6
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/17470218241234041": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4391649030"
+      },
+      "source": {
+        "name": "Quarterly Journal of Experimental Psychology",
+        "issn_l": "0033-555X",
+        "issn": [
+          "0033-555X",
+          "1747-0218",
+          "1747-0226"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 9,
+        "by_year": {
+          "2024": 1,
+          "2025": 5,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jecp.2024.106155": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4405804878"
+      },
+      "source": {
+        "name": "Journal of Experimental Child Psychology",
+        "issn_l": "0022-0965",
+        "issn": [
+          "0022-0965",
+          "1096-0457"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 4,
+        "by_year": {
+          "2025": 3,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41562-024-02090-5": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W7212061536"
+      },
+      "source": {
+        "name": "Electronic Archive of Ural Federal University (ELAR UrFU)",
+        "issn_l": "",
+        "issn": []
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 26,
+        "by_year": {
+          "2026": 26
+        },
+        "retrieved": "2026-10-22"
+      }
+    },
+    "https://doi.org/10.1017/jdm.2024.35": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4406623940"
+      },
+      "source": {
+        "name": "Judgment and Decision Making",
+        "issn_l": "1930-2975",
+        "issn": [
+          "1930-2975"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 3,
+        "by_year": {
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s44271-024-00178-2": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4405622093"
+      },
+      "source": {
+        "name": "Communications Psychology",
+        "issn_l": "2731-9121",
+        "issn": [
+          "2731-9121"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 15,
+        "by_year": {
+          "2025": 2,
+          "2026": 13
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41598-024-77408-4": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4404618059"
+      },
+      "source": {
+        "name": "Scientific Reports",
+        "issn_l": "2045-2322",
+        "issn": [
+          "2045-2322"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 7,
+        "by_year": {
+          "2025": 2,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41597-024-03865-1": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4403036292"
+      },
+      "source": {
+        "name": "Scientific Data",
+        "issn_l": "2052-4463",
+        "issn": [
+          "2052-4463"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 17,
+        "by_year": {
+          "2024": 2,
+          "2025": 10,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/01461672241298390": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4404543338"
+      },
+      "source": {
+        "name": "Personality and Social Psychology Bulletin",
+        "issn_l": "0146-1672",
+        "issn": [
+          "0146-1672",
+          "1552-7433"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 4,
+        "by_year": {
+          "2024": 1,
+          "2025": 2,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/08997640241280983": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4403337079"
+      },
+      "source": {
+        "name": "Nonprofit and Voluntary Sector Quarterly",
+        "issn_l": "0094-0607",
+        "issn": [
+          "0094-0607",
+          "0899-7640",
+          "1552-7395"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 8,
+        "by_year": {
+          "2025": 7,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1007/s00146-024-02071-2": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4402660816"
+      },
+      "source": {
+        "name": "AI & Society",
+        "issn_l": "0951-5666",
+        "issn": [
+          "0951-5666",
+          "1435-5655"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 27,
+        "by_year": {
+          "2025": 9,
+          "2026": 18
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1017/jdm.2024.14": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4402579334"
+      },
+      "source": {
+        "name": "Judgment and Decision Making",
+        "issn_l": "1930-2975",
+        "issn": [
+          "1930-2975"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 2,
+        "by_year": {
+          "2025": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1007/s42761-024-00264-y": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4401868517"
+      },
+      "source": {
+        "name": "Affective Science",
+        "issn_l": "2662-2041",
+        "issn": [
+          "2662-2041",
+          "2662-205X"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 3,
+        "by_year": {
+          "2025": 2,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/17540739241278933": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4402096391"
+      },
+      "source": {
+        "name": "Emotion Review",
+        "issn_l": "1754-0739",
+        "issn": [
+          "1754-0739",
+          "1754-0747"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 8,
+        "by_year": {
+          "2024": 1,
+          "2025": 2,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1080/1047840X.2024.2366813": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4401176186"
+      },
+      "source": {
+        "name": "Psychological Inquiry",
+        "issn_l": "1047-840X",
+        "issn": [
+          "1047-840X",
+          "1532-7965"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 0,
+        "by_year": {},
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1073/pnas.2411093121": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4400974747"
+      },
+      "source": {
+        "name": "Proceedings of the National Academy of Sciences",
+        "issn_l": "0027-8424",
+        "issn": [
+          "0027-8424",
+          "1091-6490"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 2,
+        "by_year": {
+          "2024": 1,
+          "2025": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1007/s40881-024-00173-7": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4399728015"
+      },
+      "source": {
+        "name": "Journal of the Economic Science Association",
+        "issn_l": "2199-6776",
+        "issn": [
+          "2199-6776",
+          "2199-6784"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 4,
+        "by_year": {
+          "2024": 2,
+          "2025": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/0272989X241263001": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4400007874"
+      },
+      "source": {
+        "name": "Medical Decision Making",
+        "issn_l": "0272-989X",
+        "issn": [
+          "0272-989X",
+          "1552-681X"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 2,
+        "by_year": {
+          "2024": 1,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/0272989X241258195": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4399974496"
+      },
+      "source": {
+        "name": "Medical Decision Making",
+        "issn_l": "0272-989X",
+        "issn": [
+          "0272-989X",
+          "1552-681X"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 4,
+        "by_year": {
+          "2025": 2,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jbef.2024.100936": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4396531043"
+      },
+      "source": {
+        "name": "Journal of Behavioral and Experimental Finance",
+        "issn_l": "2214-6350",
+        "issn": [
+          "2214-6350",
+          "2214-6369"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 11,
+        "by_year": {
+          "2024": 5,
+          "2025": 4,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1891/JFCP-2022-0112": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4395466441"
+      },
+      "source": {
+        "name": "Journal of Financial Counseling and Planning",
+        "issn_l": "1052-3073",
+        "issn": [
+          "1052-3073",
+          "1947-7910"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 4,
+        "by_year": {
+          "2024": 1,
+          "2025": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "B",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.3389/frbhe.2024.1381080": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4396612986"
+      },
+      "source": {
+        "name": "Frontiers in Behavioral Economics",
+        "issn_l": "2813-5296",
+        "issn": [
+          "2813-5296"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 6,
+        "by_year": {
+          "2025": 3,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1371/journal.pone.0300863": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4393254132"
+      },
+      "source": {
+        "name": "PLoS ONE",
+        "issn_l": "1932-6203",
+        "issn": [
+          "1932-6203"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 9,
+        "by_year": {
+          "2024": 1,
+          "2025": 3,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41598-024-55815-x": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4392555995"
+      },
+      "source": {
+        "name": "Scientific Reports",
+        "issn_l": "2045-2322",
+        "issn": [
+          "2045-2322"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 12,
+        "by_year": {
+          "2024": 1,
+          "2025": 6,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41386-024-01821-6": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4392159154"
+      },
+      "source": {
+        "name": "Neuropsychopharmacology",
+        "issn_l": "0893-133X",
+        "issn": [
+          "0893-133X",
+          "1740-634X"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 14,
+        "by_year": {
+          "2024": 4,
+          "2025": 8,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1126/sciadv.adj5778": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4391629219"
+      },
+      "source": {
+        "name": "Science Advances",
+        "issn_l": "2375-2548",
+        "issn": [
+          "2375-2548"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 270,
+        "by_year": {
+          "2023": 1,
+          "2024": 51,
+          "2025": 150,
+          "2026": 68
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41598-024-53450-0": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4391576776"
+      },
+      "source": {
+        "name": "Scientific Reports",
+        "issn_l": "2045-2322",
+        "issn": [
+          "2045-2322"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 3,
+        "by_year": {
+          "2025": 1,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.cresp.2024.100181": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4390748071"
+      },
+      "source": {
+        "name": "Current Research in Ecological and Social Psychology",
+        "issn_l": "2666-6227",
+        "issn": [
+          "2666-6227"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 12,
+        "by_year": {
+          "2024": 1,
+          "2025": 6,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.socec.2023.102153": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4389719970"
+      },
+      "source": {
+        "name": "Journal of Behavioral and Experimental Economics",
+        "issn_l": "2214-8043",
+        "issn": [
+          "2214-8043",
+          "2214-8051"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 2,
+        "by_year": {
+          "2025": 1,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1186/s12877-023-04525-6": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4389340875"
+      },
+      "source": {
+        "name": "BMC Geriatrics",
+        "issn_l": "1471-2318",
+        "issn": [
+          "1471-2318"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 4,
+        "by_year": {
+          "2024": 2,
+          "2025": 1,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1080/10463283.2023.2272238": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4388421201"
+      },
+      "source": {
+        "name": "European Review of Social Psychology",
+        "issn_l": "1046-3283",
+        "issn": [
+          "1046-3283",
+          "1479-277X"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 14,
+        "by_year": {
+          "2024": 4,
+          "2025": 2,
+          "2026": 8
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.isci.2023.108280": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4387826606"
+      },
+      "source": {
+        "name": "iScience",
+        "issn_l": "2589-0042",
+        "issn": [
+          "2589-0042"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 18,
+        "by_year": {
+          "2024": 7,
+          "2025": 3,
+          "2026": 8
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1098/rsos.230558": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4387107905"
+      },
+      "source": {
+        "name": "Royal Society Open Science",
+        "issn_l": "2054-5703",
+        "issn": [
+          "2054-5703"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 8,
+        "by_year": {
+          "2023": 2,
+          "2024": 2,
+          "2025": 3,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1111/1467-8551.12765": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4387307589"
+      },
+      "source": {
+        "name": "British Journal of Management",
+        "issn_l": "1045-3172",
+        "issn": [
+          "1045-3172",
+          "1467-8551"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 21,
+        "by_year": {
+          "2023": 1,
+          "2024": 4,
+          "2025": 10,
+          "2026": 6
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1007/s40881-023-00134-6": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4382883160"
+      },
+      "source": {
+        "name": "Journal of the Economic Science Association",
+        "issn_l": "2199-6776",
+        "issn": [
+          "2199-6776",
+          "2199-6784"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 9,
+        "by_year": {
+          "2024": 4,
+          "2025": 3,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1017/jdm.2023.27": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4385981942"
+      },
+      "source": {
+        "name": "Judgment and Decision Making",
+        "issn_l": "1930-2975",
+        "issn": [
+          "1930-2975"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 6,
+        "by_year": {
+          "2023": 1,
+          "2024": 2,
+          "2025": 2,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1017/S0140525X2300105X": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4386271254"
+      },
+      "source": {
+        "name": "Behavioral and Brain Sciences",
+        "issn_l": "0140-525X",
+        "issn": [
+          "0140-525X",
+          "1469-1825"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 10,
+        "by_year": {
+          "2022": 1,
+          "2023": 2,
+          "2024": 3,
+          "2025": 3,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1017/S0140525X22003211": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4384626512"
+      },
+      "source": {
+        "name": "Behavioral and Brain Sciences",
+        "issn_l": "0140-525X",
+        "issn": [
+          "0140-525X",
+          "1469-1825"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 7,
+        "by_year": {
+          "2024": 2,
+          "2025": 2,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jrp.2023.104394": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4380148476"
+      },
+      "source": {
+        "name": "Journal of Research in Personality",
+        "issn_l": "0092-6566",
+        "issn": [
+          "0092-6566",
+          "1095-7251"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 18,
+        "by_year": {
+          "2023": 1,
+          "2024": 9,
+          "2025": 5,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "B",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41598-023-37195-w": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4381598907"
+      },
+      "source": {
+        "name": "Scientific Reports",
+        "issn_l": "2045-2322",
+        "issn": [
+          "2045-2322"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 16,
+        "by_year": {
+          "2024": 6,
+          "2025": 4,
+          "2026": 6
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41597-023-02080-8": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4376127614"
+      },
+      "source": {
+        "name": "Scientific Data",
+        "issn_l": "2052-4463",
+        "issn": [
+          "2052-4463"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 58,
+        "by_year": {
+          "2021": 1,
+          "2022": 2,
+          "2023": 14,
+          "2024": 18,
+          "2025": 13,
+          "2026": 10
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1111/bjep.12599": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4365137770"
+      },
+      "source": {
+        "name": "British Journal of Educational Psychology",
+        "issn_l": "0007-0998",
+        "issn": [
+          "0007-0998",
+          "2044-8279"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 18,
+        "by_year": {
+          "2023": 1,
+          "2024": 6,
+          "2025": 5,
+          "2026": 6
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.3389/fpsyg.2023.1088682": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4375855353"
+      },
+      "source": {
+        "name": "Frontiers in Psychology",
+        "issn_l": "1664-1078",
+        "issn": [
+          "1664-1078"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 11,
+        "by_year": {
+          "2024": 4,
+          "2025": 3,
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.15626/MP.2021.2932": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4382312125"
+      },
+      "source": {
+        "name": "Meta-Psychology",
+        "issn_l": "2003-2714",
+        "issn": [
+          "2003-2714"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 1,
+        "by_year": {
+          "2024": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.neuropsychologia.2023.108563": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4365511570"
+      },
+      "source": {
+        "name": "Neuropsychologia",
+        "issn_l": "0028-3932",
+        "issn": [
+          "0028-3932",
+          "1873-3514"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 3,
+        "by_year": {
+          "2022": 1,
+          "2025": 1,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1172/JCI168260": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4364353698"
+      },
+      "source": {
+        "name": "Journal of Clinical Investigation",
+        "issn_l": "0021-9738",
+        "issn": [
+          "0021-9738",
+          "1558-8238"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 20,
+        "by_year": {
+          "2023": 1,
+          "2024": 10,
+          "2025": 5,
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1093/cercor/bhac102": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4214597178"
+      },
+      "source": {
+        "name": "Cerebral Cortex",
+        "issn_l": "1047-3211",
+        "issn": [
+          "1047-3211",
+          "1460-2199"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 14,
+        "by_year": {
+          "2023": 2,
+          "2024": 6,
+          "2025": 4,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.dcn.2022.101159": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4300981361"
+      },
+      "source": {
+        "name": "Developmental Cognitive Neuroscience",
+        "issn_l": "1878-9293",
+        "issn": [
+          "1878-9293",
+          "1878-9307"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 13,
+        "by_year": {
+          "2022": 1,
+          "2023": 3,
+          "2024": 4,
+          "2025": 4,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41598-022-24360-w": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4313396979"
+      },
+      "source": {
+        "name": "Scientific Reports",
+        "issn_l": "2045-2322",
+        "issn": [
+          "2045-2322"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 3,
+        "by_year": {
+          "2023": 1,
+          "2024": 1,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.joep.2022.102574": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4307038935"
+      },
+      "source": {
+        "name": "Journal of Economic Psychology",
+        "issn_l": "0167-4870",
+        "issn": [
+          "0167-4870",
+          "1872-7719"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 15,
+        "by_year": {
+          "2023": 2,
+          "2024": 7,
+          "2025": 6
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1093/pnasnexus/pgac218": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4300864369"
+      },
+      "source": {
+        "name": "PNAS Nexus",
+        "issn_l": "2752-6542",
+        "issn": [
+          "2752-6542"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 5,
+        "by_year": {
+          "2024": 1,
+          "2025": 2,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1093/pnasnexus/pgac093": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4286247879"
+      },
+      "source": {
+        "name": "PNAS Nexus",
+        "issn_l": "2752-6542",
+        "issn": [
+          "2752-6542"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 48,
+        "by_year": {
+          "2022": 9,
+          "2023": 18,
+          "2024": 11,
+          "2025": 5,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1186/s40359-022-00927-0": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4296351004"
+      },
+      "source": {
+        "name": "BMC Psychology",
+        "issn_l": "2050-7283",
+        "issn": [
+          "2050-7283"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 1,
+        "by_year": {
+          "2025": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/0272989X221118078": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4292485488"
+      },
+      "source": {
+        "name": "Medical Decision Making",
+        "issn_l": "0272-989X",
+        "issn": [
+          "0272-989X",
+          "1552-681X"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 10,
+        "by_year": {
+          "2023": 4,
+          "2024": 2,
+          "2025": 2,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1186/s12910-022-00805-9": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4283366516"
+      },
+      "source": {
+        "name": "BMC Medical Ethics",
+        "issn_l": "1472-6939",
+        "issn": [
+          "1472-6939"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 8,
+        "by_year": {
+          "2024": 1,
+          "2025": 3,
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.3389/fpsyg.2022.801150": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4285086165"
+      },
+      "source": {
+        "name": "Frontiers in Psychology",
+        "issn_l": "1664-1078",
+        "issn": [
+          "1664-1078"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 6,
+        "by_year": {
+          "2023": 1,
+          "2024": 3,
+          "2025": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1057/s41599-022-01257-7": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4285730124"
+      },
+      "source": {
+        "name": "Humanities and Social Sciences Communications",
+        "issn_l": "2055-1045",
+        "issn": [
+          "2055-1045",
+          "2662-9992"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 8,
+        "by_year": {
+          "2022": 2,
+          "2023": 3,
+          "2024": 1,
+          "2025": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41598-022-14810-w": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4283317403"
+      },
+      "source": {
+        "name": "Scientific Reports",
+        "issn_l": "2045-2322",
+        "issn": [
+          "2045-2322"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 9,
+        "by_year": {
+          "2023": 3,
+          "2024": 4,
+          "2025": 1,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.3389/frhs.2022.886508": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4280643099"
+      },
+      "source": {
+        "name": "Frontiers in Health Services",
+        "issn_l": "2813-0146",
+        "issn": [
+          "2813-0146"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 6,
+        "by_year": {
+          "2022": 1,
+          "2024": 2,
+          "2025": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1002/nvsm.1755": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4224306174"
+      },
+      "source": {
+        "name": "Journal of Philanthropy and Marketing",
+        "issn_l": "2691-1361",
+        "issn": [
+          "2691-1361"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 6,
+        "by_year": {
+          "2022": 3,
+          "2025": 2,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      }
+    },
+    "https://doi.org/10.1016/j.jbef.2022.100655": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4220900332"
+      },
+      "source": {
+        "name": "Journal of Behavioral and Experimental Finance",
+        "issn_l": "2214-6350",
+        "issn": [
+          "2214-6350",
+          "2214-6369"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 14,
+        "by_year": {
+          "2022": 1,
+          "2023": 3,
+          "2024": 7,
+          "2025": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.5964/jspp.8017": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4221101024"
+      },
+      "source": {
+        "name": "Journal of Social and Political Psychology",
+        "issn_l": "2195-3325",
+        "issn": [
+          "2195-3325"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 7,
+        "by_year": {
+          "2022": 1,
+          "2024": 1,
+          "2025": 4,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/0272989X221079354": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4213228079"
+      },
+      "source": {
+        "name": "Medical Decision Making",
+        "issn_l": "0272-989X",
+        "issn": [
+          "0272-989X",
+          "1552-681X"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 7,
+        "by_year": {
+          "2022": 1,
+          "2024": 2,
+          "2025": 2,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1080/13546783.2022.2038268": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4211027036"
+      },
+      "source": {
+        "name": "Thinking & Reasoning",
+        "issn_l": "1354-6783",
+        "issn": [
+          "1354-6783",
+          "1464-0708"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 27,
+        "by_year": {
+          "2022": 1,
+          "2023": 8,
+          "2024": 6,
+          "2025": 9,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41467-021-27668-9": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4225690429"
+      },
+      "source": {
+        "name": "Nature Communications",
+        "issn_l": "2041-1723",
+        "issn": [
+          "2041-1723"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 311,
+        "by_year": {
+          "2020": 3,
+          "2021": 34,
+          "2022": 85,
+          "2023": 74,
+          "2024": 45,
+          "2025": 45,
+          "2026": 25
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1073/pnas.2117543119": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4205786932"
+      },
+      "source": {
+        "name": "Proceedings of the National Academy of Sciences",
+        "issn_l": "0027-8424",
+        "issn": [
+          "0027-8424",
+          "1091-6490"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 149,
+        "by_year": {
+          "2022": 25,
+          "2023": 39,
+          "2024": 48,
+          "2025": 23,
+          "2026": 14
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1017/bpp.2021.34": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3215910793"
+      },
+      "source": {
+        "name": "Behavioural Public Policy",
+        "issn_l": "2398-063X",
+        "issn": [
+          "2398-063X",
+          "2398-0648"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 22,
+        "by_year": {
+          "2021": 1,
+          "2022": 3,
+          "2023": 4,
+          "2024": 4,
+          "2025": 6,
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1098/rsos.211548": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3215848944"
+      },
+      "source": {
+        "name": "Royal Society Open Science",
+        "issn_l": "2054-5703",
+        "issn": [
+          "2054-5703"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 4,
+        "by_year": {
+          "2024": 2,
+          "2025": 1,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41386-021-01218-9": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3213534673"
+      },
+      "source": {
+        "name": "Neuropsychopharmacology",
+        "issn_l": "0893-133X",
+        "issn": [
+          "0893-133X",
+          "1740-634X"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 33,
+        "by_year": {
+          "2021": 1,
+          "2022": 3,
+          "2023": 8,
+          "2024": 10,
+          "2025": 6,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jebo.2021.10.015": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3214280300"
+      },
+      "source": {
+        "name": "Journal of Economic Behavior & Organization",
+        "issn_l": "0167-2681",
+        "issn": [
+          "0167-2681",
+          "1879-1751"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 126,
+        "by_year": {
+          "2021": 2,
+          "2022": 9,
+          "2023": 31,
+          "2024": 34,
+          "2025": 28,
+          "2026": 22
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1080/15534510.2021.1995482": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3209462590"
+      },
+      "source": {
+        "name": "Social Influence",
+        "issn_l": "1553-4510",
+        "issn": [
+          "1553-4510",
+          "1553-4529"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 17,
+        "by_year": {
+          "2021": 1,
+          "2022": 2,
+          "2023": 2,
+          "2024": 7,
+          "2025": 4,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.joep.2021.102408": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3174430622"
+      },
+      "source": {
+        "name": "Journal of Economic Psychology",
+        "issn_l": "0167-4870",
+        "issn": [
+          "0167-4870",
+          "1872-7719"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 3,
+        "by_year": {
+          "2021": 1,
+          "2023": 1,
+          "2024": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1162/jocn_a_01758": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3181018991"
+      },
+      "source": {
+        "name": "Journal of Cognitive Neuroscience",
+        "issn_l": "0898-929X",
+        "issn": [
+          "0898-929X",
+          "1530-8898"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 10,
+        "by_year": {
+          "2022": 3,
+          "2024": 1,
+          "2025": 2,
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jebo.2021.07.014": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3189817646"
+      },
+      "source": {
+        "name": "Journal of Economic Behavior & Organization",
+        "issn_l": "0167-2681",
+        "issn": [
+          "0167-2681",
+          "1879-1751"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 15,
+        "by_year": {
+          "2022": 3,
+          "2023": 3,
+          "2024": 2,
+          "2025": 5,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1080/17439760.2021.1940248": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3161240324"
+      },
+      "source": {
+        "name": "The Journal of Positive Psychology",
+        "issn_l": "1743-9760",
+        "issn": [
+          "1743-9760",
+          "1743-9779"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 27,
+        "by_year": {
+          "2021": 1,
+          "2022": 1,
+          "2023": 6,
+          "2024": 7,
+          "2025": 7,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jbusres.2021.04.024": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3157136923"
+      },
+      "source": {
+        "name": "Journal of Business Research",
+        "issn_l": "0148-2963",
+        "issn": [
+          "0148-2963",
+          "1873-7978"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 8,
+        "by_year": {
+          "2022": 2,
+          "2023": 2,
+          "2024": 2,
+          "2025": 1,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jbusres.2021.04.076": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3160639361"
+      },
+      "source": {
+        "name": "Journal of Business Research",
+        "issn_l": "0148-2963",
+        "issn": [
+          "0148-2963",
+          "1873-7978"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 13,
+        "by_year": {
+          "2022": 2,
+          "2023": 4,
+          "2025": 4,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.cognition.2021.104768": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3165665947"
+      },
+      "source": {
+        "name": "Cognition",
+        "issn_l": "0010-0277",
+        "issn": [
+          "0010-0277",
+          "1873-7838"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 51,
+        "by_year": {
+          "2021": 6,
+          "2022": 16,
+          "2023": 7,
+          "2024": 9,
+          "2025": 9,
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jbef.2021.100514": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3162562992"
+      },
+      "source": {
+        "name": "Journal of Behavioral and Experimental Finance",
+        "issn_l": "2214-6350",
+        "issn": [
+          "2214-6350",
+          "2214-6369"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 71,
+        "by_year": {
+          "2021": 4,
+          "2022": 11,
+          "2023": 21,
+          "2024": 14,
+          "2025": 14,
+          "2026": 7
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1017/bpp.2021.10": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3140826621"
+      },
+      "source": {
+        "name": "Behavioural Public Policy",
+        "issn_l": "2398-063X",
+        "issn": [
+          "2398-063X",
+          "2398-0648"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 24,
+        "by_year": {
+          "2022": 3,
+          "2023": 4,
+          "2024": 6,
+          "2025": 8,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1002/bdm.2244": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3134015771"
+      },
+      "source": {
+        "name": "Journal of Behavioral Decision Making",
+        "issn_l": "0894-3257",
+        "issn": [
+          "0894-3257",
+          "1099-0771"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 21,
+        "by_year": {
+          "2021": 1,
+          "2022": 3,
+          "2023": 4,
+          "2024": 5,
+          "2025": 7,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41467-021-21602-9": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3134934442"
+      },
+      "source": {
+        "name": "Nature Communications",
+        "issn_l": "2041-1723",
+        "issn": [
+          "2041-1723"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 216,
+        "by_year": {
+          "2020": 1,
+          "2021": 21,
+          "2022": 20,
+          "2023": 34,
+          "2024": 64,
+          "2025": 48,
+          "2026": 28
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1002/bdm.2242": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3133535772"
+      },
+      "source": {
+        "name": "Journal of Behavioral Decision Making",
+        "issn_l": "0894-3257",
+        "issn": [
+          "0894-3257",
+          "1099-0771"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 58,
+        "by_year": {
+          "2021": 4,
+          "2022": 3,
+          "2023": 8,
+          "2024": 19,
+          "2025": 13,
+          "2026": 11
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.dcn.2021.100933": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3127059836"
+      },
+      "source": {
+        "name": "Developmental Cognitive Neuroscience",
+        "issn_l": "1878-9293",
+        "issn": [
+          "1878-9293",
+          "1878-9307"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 22,
+        "by_year": {
+          "2021": 2,
+          "2022": 3,
+          "2023": 4,
+          "2024": 4,
+          "2025": 4,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1080/13676261.2020.1768229": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3033530976"
+      },
+      "source": {
+        "name": "Journal of Youth Studies",
+        "issn_l": "1367-6261",
+        "issn": [
+          "1367-6261",
+          "1469-9680"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 38,
+        "by_year": {
+          "2021": 5,
+          "2022": 6,
+          "2023": 5,
+          "2024": 6,
+          "2025": 14,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jbef.2020.100410": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3091435389"
+      },
+      "source": {
+        "name": "Journal of Behavioral and Experimental Finance",
+        "issn_l": "2214-6350",
+        "issn": [
+          "2214-6350",
+          "2214-6369"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 125,
+        "by_year": {
+          "2021": 33,
+          "2022": 31,
+          "2023": 26,
+          "2024": 17,
+          "2025": 9,
+          "2026": 9
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1371/journal.pone.0243808": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3112776231"
+      },
+      "source": {
+        "name": "PLoS ONE",
+        "issn_l": "1932-6203",
+        "issn": [
+          "1932-6203"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 23,
+        "by_year": {
+          "2021": 3,
+          "2022": 4,
+          "2023": 5,
+          "2024": 6,
+          "2025": 3,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1558/jcsr.41002": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3120906196"
+      },
+      "source": {
+        "name": "Journal for the Cognitive Science of Religion",
+        "issn_l": "2049-7555",
+        "issn": [
+          "2049-7555",
+          "2049-7563"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 0,
+        "by_year": {},
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41598-020-76923-4": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3103771979"
+      },
+      "source": {
+        "name": "Scientific Reports",
+        "issn_l": "2045-2322",
+        "issn": [
+          "2045-2322"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 6,
+        "by_year": {
+          "2021": 3,
+          "2022": 1,
+          "2024": 1,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1037/emo0000912": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3109984972"
+      },
+      "source": {
+        "name": "Emotion",
+        "issn_l": "1528-3542",
+        "issn": [
+          "1528-3542",
+          "1931-1516"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 19,
+        "by_year": {
+          "2021": 2,
+          "2022": 2,
+          "2023": 1,
+          "2024": 7,
+          "2025": 3,
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1007/978-3-030-45500-2": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4245852438"
+      },
+      "source": {
+        "name": "Springer eBooks",
+        "issn_l": "",
+        "issn": []
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 26,
+        "by_year": {
+          "2020": 2,
+          "2021": 6,
+          "2022": 6,
+          "2023": 3,
+          "2024": 3,
+          "2025": 2,
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      }
+    },
+    "https://doi.org/10.1037/pag0000576": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3088485173"
+      },
+      "source": {
+        "name": "Psychology and Aging",
+        "issn_l": "0882-7974",
+        "issn": [
+          "0882-7974",
+          "1939-1498"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 43,
+        "by_year": {
+          "2012": 1,
+          "2021": 5,
+          "2022": 6,
+          "2023": 7,
+          "2024": 11,
+          "2025": 9,
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1371/journal.pone.0236627": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3046897834"
+      },
+      "source": {
+        "name": "PLoS ONE",
+        "issn_l": "1932-6203",
+        "issn": [
+          "1932-6203"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 23,
+        "by_year": {
+          "2017": 1,
+          "2018": 2,
+          "2019": 1,
+          "2020": 2,
+          "2021": 4,
+          "2022": 4,
+          "2023": 3,
+          "2024": 2,
+          "2025": 3,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.cobeha.2020.03.003": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3019002217"
+      },
+      "source": {
+        "name": "Current Opinion in Behavioral Sciences",
+        "issn_l": "2352-1546",
+        "issn": [
+          "2352-1546",
+          "2352-1554"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 101,
+        "by_year": {
+          "2020": 3,
+          "2021": 12,
+          "2022": 15,
+          "2023": 19,
+          "2024": 18,
+          "2025": 28,
+          "2026": 6
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1073/pnas.2001583117": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3048573520"
+      },
+      "source": {
+        "name": "Proceedings of the National Academy of Sciences",
+        "issn_l": "0027-8424",
+        "issn": [
+          "0027-8424",
+          "1091-6490"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 64,
+        "by_year": {
+          "2015": 1,
+          "2020": 2,
+          "2021": 7,
+          "2022": 10,
+          "2023": 9,
+          "2024": 10,
+          "2025": 9,
+          "2026": 16
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1080/09297049.2020.1739259": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3011678222"
+      },
+      "source": {
+        "name": "Child Neuropsychology",
+        "issn_l": "0929-7049",
+        "issn": [
+          "0929-7049",
+          "1744-4136"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 37,
+        "by_year": {
+          "2020": 1,
+          "2021": 6,
+          "2022": 7,
+          "2023": 7,
+          "2024": 5,
+          "2025": 8,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.3389/fpsyg.2020.00970": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3035272970"
+      },
+      "source": {
+        "name": "Frontiers in Psychology",
+        "issn_l": "1664-1078",
+        "issn": [
+          "1664-1078"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 92,
+        "by_year": {
+          "2020": 2,
+          "2021": 15,
+          "2022": 11,
+          "2023": 11,
+          "2024": 17,
+          "2025": 20,
+          "2026": 16
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.labeco.2020.101860": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3029257784"
+      },
+      "source": {
+        "name": "Labour Economics",
+        "issn_l": "0927-5371",
+        "issn": [
+          "0927-5371",
+          "1879-1034"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 94,
+        "by_year": {
+          "2020": 3,
+          "2021": 6,
+          "2022": 8,
+          "2023": 22,
+          "2024": 24,
+          "2025": 16,
+          "2026": 15
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jbef.2020.100339": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3029013205"
+      },
+      "source": {
+        "name": "Journal of Behavioral and Experimental Finance",
+        "issn_l": "2214-6350",
+        "issn": [
+          "2214-6350",
+          "2214-6369"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 88,
+        "by_year": {
+          "2019": 1,
+          "2020": 4,
+          "2021": 11,
+          "2022": 15,
+          "2023": 21,
+          "2024": 12,
+          "2025": 10,
+          "2026": 14
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.socec.2020.101561": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3032678017"
+      },
+      "source": {
+        "name": "Journal of Behavioral and Experimental Economics",
+        "issn_l": "2214-8043",
+        "issn": [
+          "2214-8043",
+          "2214-8051"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 22,
+        "by_year": {
+          "2017": 1,
+          "2020": 1,
+          "2021": 5,
+          "2022": 4,
+          "2023": 4,
+          "2024": 3,
+          "2025": 3,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41586-020-2314-9": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2985923507"
+      },
+      "source": {
+        "name": "Nature",
+        "issn_l": "0028-0836",
+        "issn": [
+          "0028-0836",
+          "1476-4687"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 1109,
+        "by_year": {
+          "2018": 1,
+          "2019": 4,
+          "2020": 80,
+          "2021": 204,
+          "2022": 181,
+          "2023": 175,
+          "2024": 240,
+          "2025": 125,
+          "2026": 95
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jbusres.2020.04.027": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3022840585"
+      },
+      "source": {
+        "name": "Journal of Business Research",
+        "issn_l": "0148-2963",
+        "issn": [
+          "0148-2963",
+          "1873-7978"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 27,
+        "by_year": {
+          "2020": 1,
+          "2021": 4,
+          "2022": 4,
+          "2023": 7,
+          "2024": 2,
+          "2025": 4,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1002/per.2256": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2903919704"
+      },
+      "source": {
+        "name": "European Journal of Personality",
+        "issn_l": "0890-2070",
+        "issn": [
+          "0890-2070",
+          "1099-0984"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 83,
+        "by_year": {
+          "2018": 1,
+          "2020": 3,
+          "2021": 8,
+          "2022": 9,
+          "2023": 11,
+          "2024": 25,
+          "2025": 16,
+          "2026": 10
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1002/per.2249": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3013096981"
+      },
+      "source": {
+        "name": "European Journal of Personality",
+        "issn_l": "0890-2070",
+        "issn": [
+          "0890-2070",
+          "1099-0984"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 32,
+        "by_year": {
+          "2020": 3,
+          "2021": 2,
+          "2022": 6,
+          "2023": 7,
+          "2024": 9,
+          "2025": 2,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1007/s12553-020-00424-7": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3015273702"
+      },
+      "source": {
+        "name": "Health and Technology",
+        "issn_l": "2190-7188",
+        "issn": [
+          "2190-7188",
+          "2190-7196"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 18,
+        "by_year": {
+          "2020": 4,
+          "2021": 1,
+          "2023": 2,
+          "2024": 5,
+          "2025": 3,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      }
+    },
+    "https://doi.org/10.1007/s10834-020-09678-9": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3011659123"
+      },
+      "source": {
+        "name": "Journal of Family and Economic Issues",
+        "issn_l": "1058-0476",
+        "issn": [
+          "1058-0476",
+          "1573-3475"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 216,
+        "by_year": {
+          "2020": 6,
+          "2021": 19,
+          "2022": 27,
+          "2023": 49,
+          "2024": 39,
+          "2025": 38,
+          "2026": 38
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "B",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1007/s40881-020-00084-3": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2937238651"
+      },
+      "source": {
+        "name": "Journal of the Economic Science Association",
+        "issn_l": "2199-6776",
+        "issn": [
+          "2199-6776",
+          "2199-6784"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 70,
+        "by_year": {
+          "2019": 2,
+          "2020": 13,
+          "2021": 11,
+          "2022": 17,
+          "2023": 8,
+          "2024": 7,
+          "2025": 8,
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.3389/fpsyg.2019.03035": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3002101463"
+      },
+      "source": {
+        "name": "Frontiers in Psychology",
+        "issn_l": "1664-1078",
+        "issn": [
+          "1664-1078"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 16,
+        "by_year": {
+          "2018": 1,
+          "2021": 4,
+          "2022": 3,
+          "2023": 4,
+          "2024": 3,
+          "2025": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jebo.2019.12.012": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2999892028"
+      },
+      "source": {
+        "name": "Journal of Economic Behavior & Organization",
+        "issn_l": "0167-2681",
+        "issn": [
+          "0167-2681",
+          "1879-1751"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 47,
+        "by_year": {
+          "2020": 1,
+          "2021": 8,
+          "2022": 7,
+          "2023": 2,
+          "2024": 18,
+          "2025": 7,
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1037/emo0000681": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2981542325"
+      },
+      "source": {
+        "name": "Emotion",
+        "issn_l": "1528-3542",
+        "issn": [
+          "1528-3542",
+          "1931-1516"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 34,
+        "by_year": {
+          "2020": 3,
+          "2021": 4,
+          "2022": 4,
+          "2023": 7,
+          "2024": 10,
+          "2025": 3,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.5282/ubm/epub.69641": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W3086023343"
+      },
+      "source": {
+        "name": "RePEc: Research Papers in Economics",
+        "issn_l": "",
+        "issn": []
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 2,
+        "by_year": {
+          "2022": 2
+        },
+        "retrieved": "2026-10-22"
+      }
+    },
+    "https://doi.org/10.1093/jrs/fez068": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2971410008"
+      },
+      "source": {
+        "name": "Journal of Refugee Studies",
+        "issn_l": "0951-6328",
+        "issn": [
+          "0951-6328",
+          "1471-6925"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 4,
+        "by_year": {
+          "2020": 1,
+          "2021": 1,
+          "2022": 1,
+          "2024": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.3389/fpsyg.2019.01929": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2966757842"
+      },
+      "source": {
+        "name": "Frontiers in Psychology",
+        "issn_l": "1664-1078",
+        "issn": [
+          "1664-1078"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 22,
+        "by_year": {
+          "2021": 1,
+          "2022": 2,
+          "2023": 4,
+          "2024": 6,
+          "2025": 3,
+          "2026": 6
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1007/s11238-019-09714-7": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2954621450"
+      },
+      "source": {
+        "name": "Theory and Decision",
+        "issn_l": "0040-5833",
+        "issn": [
+          "0040-5833",
+          "1573-7187"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 38,
+        "by_year": {
+          "2020": 8,
+          "2021": 2,
+          "2022": 4,
+          "2023": 9,
+          "2024": 4,
+          "2025": 6,
+          "2026": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1002/hec.3933": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2962704078"
+      },
+      "source": {
+        "name": "Health Economics",
+        "issn_l": "1057-9230",
+        "issn": [
+          "1057-9230",
+          "1099-1050"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 117,
+        "by_year": {
+          "2019": 4,
+          "2020": 7,
+          "2021": 12,
+          "2022": 16,
+          "2023": 15,
+          "2024": 20,
+          "2025": 21,
+          "2026": 22
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1038/s41598-019-46103-0": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2955570233"
+      },
+      "source": {
+        "name": "Scientific Reports",
+        "issn_l": "2045-2322",
+        "issn": [
+          "2045-2322"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 17,
+        "by_year": {
+          "2019": 2,
+          "2020": 2,
+          "2021": 5,
+          "2022": 1,
+          "2023": 1,
+          "2024": 2,
+          "2025": 4
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.joep.2019.05.004": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W4247059483"
+      },
+      "source": {
+        "name": "Journal of Economic Psychology",
+        "issn_l": "0167-4870",
+        "issn": [
+          "0167-4870",
+          "1872-7719"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 1,
+        "by_year": {
+          "2019": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/0956797619849894": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2949532338"
+      },
+      "source": {
+        "name": "Psychological Science",
+        "issn_l": "0956-7976",
+        "issn": [
+          "0956-7976",
+          "1467-9280"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 9,
+        "by_year": {
+          "2019": 2,
+          "2020": 1,
+          "2021": 2,
+          "2022": 1,
+          "2023": 1,
+          "2024": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/2059204319844161": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2940883624"
+      },
+      "source": {
+        "name": "Music & Science",
+        "issn_l": "2059-2043",
+        "issn": [
+          "2059-2043"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 67,
+        "by_year": {
+          "2020": 2,
+          "2021": 7,
+          "2022": 23,
+          "2023": 7,
+          "2024": 12,
+          "2025": 8,
+          "2026": 8
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1111/ecin.12768": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2920474667"
+      },
+      "source": {
+        "name": "Economic Inquiry",
+        "issn_l": "0043-3640",
+        "issn": [
+          "0043-3640",
+          "0095-2583",
+          "1465-7295"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 1,
+        "by_year": {
+          "2023": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1371/journal.pone.0211283": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2913792524"
+      },
+      "source": {
+        "name": "PLoS ONE",
+        "issn_l": "1932-6203",
+        "issn": [
+          "1932-6203"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 102,
+        "by_year": {
+          "2019": 6,
+          "2020": 5,
+          "2021": 15,
+          "2022": 12,
+          "2023": 15,
+          "2024": 20,
+          "2025": 17,
+          "2026": 12
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.econlet.2018.12.029": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2906122640"
+      },
+      "source": {
+        "name": "Economics Letters",
+        "issn_l": "0165-1765",
+        "issn": [
+          "0165-1765",
+          "1873-7374"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 7,
+        "by_year": {
+          "2019": 1,
+          "2021": 1,
+          "2022": 3,
+          "2023": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/0146167219830415": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2912145849"
+      },
+      "source": {
+        "name": "Personality and Social Psychology Bulletin",
+        "issn_l": "0146-1672",
+        "issn": [
+          "0146-1672",
+          "1552-7433"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 58,
+        "by_year": {
+          "2018": 1,
+          "2019": 4,
+          "2020": 10,
+          "2021": 6,
+          "2022": 11,
+          "2023": 8,
+          "2024": 9,
+          "2025": 4,
+          "2026": 5
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/0899764018819872": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2905759318"
+      },
+      "source": {
+        "name": "Nonprofit and Voluntary Sector Quarterly",
+        "issn_l": "0094-0607",
+        "issn": [
+          "0094-0607",
+          "0899-7640",
+          "1552-7395"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 26,
+        "by_year": {
+          "2020": 5,
+          "2021": 7,
+          "2022": 2,
+          "2023": 7,
+          "2024": 2,
+          "2025": 1,
+          "2026": 2
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1162/jocn_a_01367": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2905082304"
+      },
+      "source": {
+        "name": "Journal of Cognitive Neuroscience",
+        "issn_l": "0898-929X",
+        "issn": [
+          "0898-929X",
+          "1530-8898"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 22,
+        "by_year": {
+          "2019": 1,
+          "2020": 1,
+          "2021": 3,
+          "2022": 4,
+          "2023": 1,
+          "2024": 4,
+          "2025": 5,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1017/bpp.2018.41": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2904549450"
+      },
+      "source": {
+        "name": "Behavioural Public Policy",
+        "issn_l": "2398-063X",
+        "issn": [
+          "2398-063X",
+          "2398-0648"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 36,
+        "by_year": {
+          "2019": 1,
+          "2020": 4,
+          "2021": 5,
+          "2022": 8,
+          "2023": 4,
+          "2024": 9,
+          "2025": 4,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/0272989X18793637": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2890059469"
+      },
+      "source": {
+        "name": "Medical Decision Making",
+        "issn_l": "0272-989X",
+        "issn": [
+          "0272-989X",
+          "1552-681X"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 17,
+        "by_year": {
+          "2019": 2,
+          "2020": 3,
+          "2021": 1,
+          "2022": 2,
+          "2023": 2,
+          "2024": 2,
+          "2025": 4,
+          "2026": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/2515245918781032": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2891039941"
+      },
+      "source": {
+        "name": "Advances in Methods and Practices in Psychological Science",
+        "issn_l": "2515-2459",
+        "issn": [
+          "2515-2459",
+          "2515-2467"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 117,
+        "by_year": {
+          "2018": 4,
+          "2019": 17,
+          "2020": 22,
+          "2021": 12,
+          "2022": 14,
+          "2023": 16,
+          "2024": 10,
+          "2025": 16,
+          "2026": 6
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1177/2515245918777487": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2892027854"
+      },
+      "source": {
+        "name": "Advances in Methods and Practices in Psychological Science",
+        "issn_l": "2515-2459",
+        "issn": [
+          "2515-2459",
+          "2515-2467"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 54,
+        "by_year": {
+          "2018": 1,
+          "2019": 10,
+          "2020": 10,
+          "2021": 11,
+          "2022": 8,
+          "2023": 7,
+          "2024": 4,
+          "2025": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1111/jasp.12552": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2892134164"
+      },
+      "source": {
+        "name": "Journal of Applied Social Psychology",
+        "issn_l": "0021-9029",
+        "issn": [
+          "0021-9029",
+          "1559-1816"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 13,
+        "by_year": {
+          "2017": 1,
+          "2019": 1,
+          "2020": 4,
+          "2021": 3,
+          "2022": 2,
+          "2023": 1,
+          "2025": 1
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "B",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 1",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    },
+    "https://doi.org/10.1016/j.jpubeco.2017.06.009": {
+      "match": {
+        "method": "doi",
+        "openalex": "https://openalex.org/W2736934603"
+      },
+      "source": {
+        "name": "Journal of Public Economics",
+        "issn_l": "0047-2727",
+        "issn": [
+          "0047-2727",
+          "1879-2316"
+        ]
+      },
+      "citations": {
+        "provider": "OpenAlex",
+        "total": 63,
+        "by_year": {
+          "2017": 2,
+          "2019": 6,
+          "2020": 7,
+          "2021": 5,
+          "2022": 14,
+          "2023": 5,
+          "2024": 9,
+          "2025": 12,
+          "2026": 3
+        },
+        "retrieved": "2026-10-22"
+      },
+      "rankings": [
+        {
+          "system": "abdc",
+          "value": "A*",
+          "edition": "2026-09-22",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        },
+        {
+          "system": "norway",
+          "value": "Level 2",
+          "edition": "2026-09-18",
+          "matched_by": "issn",
+          "source": "OpenAlex source lists"
+        }
+      ]
+    }
+  },
+  "review": [
+    {
+      "id": "https://doi.org/10.3389/fpsyg.2022.95725",
+      "title": "Moral spillover in carbon offset judgments",
+      "reason": "DOI not found in OpenAlex"
+    },
+    {
+      "id": "https://doi.org/10.1080/00223891.2022.207485",
+      "title": "Measurement invariance of moral foundations across population strata",
+      "reason": "DOI not found in OpenAlex"
+    }
+  ]
+}
