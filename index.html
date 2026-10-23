@@ -76,12 +76,29 @@
     .graph-controls .button { min-width: 34px; min-height: 32px; padding: 4px 8px; }
     .zoom-level { min-width: 42px; color: var(--muted); font-size: 11px; text-align: center; }
     .graph-stage { height: 630px; min-height: 490px; }
-    #graph { display: block; width: 100%; height: 100%; touch-action: none; user-select: none; }
+    #graph { display: block; width: 100%; height: 100%; touch-action: none; user-select: none; cursor: grab; }
+    #graph.panning { cursor: grabbing; }
     .graph-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 19px 15px; color: var(--muted); font-size: 11px; }
     .legend { display: flex; flex-wrap: wrap; gap: 14px; }
     .legend span { display: inline-flex; align-items: center; gap: 6px; }
     .legend i { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
-    .legend .legend-person { background: var(--gold); }
+    .legend .legend-theme { width: 13px; height: 13px; background: #343434; }
+    .legend .legend-person { background: var(--blue); }
+    .legend .legend-associate { box-sizing: border-box; border: 2px solid var(--blue); background: #fff; }
+    .legend .legend-other { background: #9b9b9b; }
+    .jedi-mark { display: inline-block; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
+    .jedi-mark.associate { box-sizing: border-box; border: 2px solid var(--blue); background: #fff; }
+    .people-list .person-name { display: flex; align-items: center; gap: 7px; min-width: 0; }
+    .people-list .member-role { display: block; color: var(--muted); font-size: 10px; }
+    .people-list .is-member { font-weight: 750; }
+    .people-group { margin: 0 0 19px; }
+    .author-list { color: var(--muted); font-size: 11px; }
+    .author-member {
+      display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none;
+      color: var(--ink); font: inherit; font-weight: 750; cursor: pointer;
+    }
+    .author-member:hover { color: var(--blue); text-decoration: underline; }
+    .spellings { display: block; margin: 7px 0 0; color: var(--muted); font-size: 11px; }
     .legend .legend-edge { width: 15px; height: 1px; border-radius: 0; background: #aebac3; }
     .side-panel { border-left: 1px solid var(--line); background: #fff; display: flex; flex-direction: column; min-width: 0; }
     .side-top { padding: 19px 20px 14px; border-bottom: 1px solid var(--line); }
@@ -143,6 +160,8 @@
     .graph-node:focus { outline: none; }
     .graph-node:focus .node-circle, .graph-node.selected .node-circle { stroke: #172432; stroke-width: 3; }
     .node-label { pointer-events: none; fill: #263947; font-size: 10px; font-weight: 650; }
+    .person-other .node-label { fill: #7d878e; font-weight: 550; }
+    .node-label.member-label { fill: #1b1b1b; font-weight: 800; }
     .topic-label { pointer-events: none; fill: #fff; font-size: 11px; font-weight: 750; }
     .edge { fill: none; stroke: #858585; stroke-opacity: .16; }
     .paper-edge { fill: none; stroke: #d4dce1; stroke-opacity: .55; }
@@ -192,7 +211,8 @@
       .side-panel { min-height: 430px; border-top: 1px solid var(--line); border-left: 0; }
       .side-content { max-height: 520px; }
       .graph-footer { align-items: start; flex-direction: column; }
-      .toolbar select { flex: 1; }
+      .search-wrap { flex-basis: 100%; }
+      .toolbar select { flex: 1 1 calc(50% - 5px); min-width: 0; max-width: 100%; }
       .graph-heading { flex-wrap: wrap; }
       .graph-controls { margin-left: auto; }
     }
@@ -226,7 +246,7 @@
 
     <div class="toolbar" role="search">
       <div class="search-wrap">
-        <input id="search" type="search" placeholder="Search a theme, researcher or paper" autocomplete="off" aria-label="Search the research graph">
+        <input id="search" type="search" placeholder="Search a theme, researcher (first or last name) or paper" autocomplete="off" aria-label="Search the research graph">
         <div id="search-results" class="search-results" hidden></div>
       </div>
       <select id="year-filter" aria-label="Filter by publication year"><option value="all">All years</option></select>
@@ -247,7 +267,7 @@
       <div class="graph-column">
         <div class="graph-heading">
           <h2>Research connections</h2>
-          <span class="graph-hint">Drag to rearrange · Shift-drag a theme to move its group · Scroll to zoom</span>
+          <span class="graph-hint">Drag the background to pan · Drag a node to rearrange · Shift-drag a theme to move its group · Scroll to zoom</span>
           <div class="graph-controls" role="group" aria-label="Graph zoom controls">
             <button id="zoom-out" class="button" type="button" aria-label="Zoom out" title="Zoom out">−</button>
             <span id="zoom-level" class="zoom-level" aria-live="polite">100%</span>
@@ -262,8 +282,10 @@
         </div>
         <div class="graph-footer">
           <div class="legend">
-            <span><i></i> Research theme</span>
-            <span><i class="legend-person"></i> Contributor</span>
+            <span><i class="legend-theme"></i> Research theme</span>
+            <span><i class="legend-person"></i> JEDI Lab member</span>
+            <span><i class="legend-associate"></i> Alumni / affiliated</span>
+            <span><i class="legend-other"></i> Other coauthor</span>
             <span><i class="legend-edge"></i> Shared publications</span>
           </div>
           <span id="graph-summary"></span>
@@ -288,7 +310,7 @@
       </div>
       <div id="chart-grid" class="chart-grid"></div>
     </section>
-    <p class="disclaimer">Themes are suggested from publication titles and journal names; they are an aid to browsing, not a formal coding of the research. Contributor nodes reflect cited coauthors, not verified JEDI Lab membership: the source bibliography does not identify historical lab affiliation, uses abbreviated author names and may omit authors where it uses an ellipsis. Publication data is maintained by the site administrator in the JSON dataset.</p>
+    <p class="disclaimer">Themes are suggested from publication titles and journal names; they are an aid to browsing, not a formal coding of the research. JEDI Lab people (members, alumni and affiliated researchers, from the lab's people page) are matched to the bibliography's cited names by surname and first initial, plus reviewed spellings, so an unrelated namesake can occasionally be counted; their spellings are merged under one name. Other contributor nodes are cited coauthors. The source bibliography uses abbreviated author names and may omit authors where it uses an ellipsis. Publication data is maintained by the site administrator in the JSON dataset.</p>
     <p id="metrics-note" class="disclaimer" hidden></p>
   </main>
 
@@ -298,6 +320,13 @@
 
       const DATA_URL = "./data/publications.json";
       const METRICS_URL = "./data/metrics.json";
+      const MEMBERS_URL = "./data/members.json";
+      const MEMBER_GROUPS = {
+        director: { label: "Lab director", core: true, order: 0 },
+        member: { label: "Lab member", core: true, order: 1 },
+        alumni: { label: "Alumni", core: false, order: 2 },
+        affiliated: { label: "Affiliated researcher", core: false, order: 3 },
+      };
       const LAYOUT_KEY = "jedi-graph-layout-v2";
       const SVG_ELEMENTS = new Set(["svg", "g", "line", "circle", "text", "title", "tspan", "rect", "path"]);
       const RANKING_SYSTEMS = {
@@ -323,6 +352,8 @@
       };
       let data;
       let metrics = null;
+      // Canonical member name -> { name, group, role, spellings: Set of cited forms }.
+      let members = new Map();
       let selected = null;
       let contributorsExpanded = true;
       let allContributorsExpanded = false;
@@ -330,6 +361,7 @@
       let renderedNodes = new Map();
       let renderedEdges = [];
       let activeDrag = null;
+      let activePan = null;
       let suppressNodeClick = false;
       let zoom = { scale: 1, x: 0, y: 0 };
       let currentGraph = { nodes: [], topics: [], people: [], topicCounts: new Map() };
@@ -408,6 +440,81 @@
           .filter(([, terms]) => terms.some((term) => text.includes(term)))
           .map(([topic]) => topic);
         return matches.length ? matches : ["Other"];
+      }
+
+      function fold(value) {
+        return String(value).normalize("NFKD").replace(/[̀-ͯ]/g, "").toLocaleLowerCase();
+      }
+
+      // Split a cited name into surname and first initial. Handles "Surname, A. B.",
+      // "Surname A.B." and "First Last".
+      function parseCitedName(value) {
+        const text = String(value).replace(/[.,\s]+$/, "").trim();
+        if (text.includes(",")) {
+          const [surname, given] = text.split(/,(.*)/s);
+          return { surname: fold(surname.trim()), initial: fold(given.trim()).charAt(0) };
+        }
+        const tokens = text.split(/\s+/);
+        if (tokens.length > 1 && /^[A-Z]{1,3}$/.test(tokens[tokens.length - 1].replace(/\./g, ""))) {
+          return { surname: fold(tokens.slice(0, -1).join(" ")), initial: fold(tokens[tokens.length - 1]).charAt(0) };
+        }
+        return { surname: fold(tokens[tokens.length - 1]), initial: fold(tokens[0]).charAt(0) };
+      }
+
+      function normalizeMembers(value) {
+        const rows = value && Array.isArray(value.members) ? value.members : null;
+        if (!rows) throw new Error("members.json must contain a members array.");
+        const result = new Map();
+        rows.forEach((row) => {
+          const name = String(row?.name || "").trim();
+          if (!name || !MEMBER_GROUPS[row.group]) return;
+          const tokens = name.split(/\s+/);
+          result.set(name, {
+            name,
+            group: row.group,
+            role: String(row.role || "").trim(),
+            first: fold(tokens[0]),
+            surnames: new Set([fold(tokens.slice(1).join(" ")), fold(tokens[tokens.length - 1])]),
+            aliases: new Set((row.aliases || []).map((alias) => fold(alias).replace(/[.,\s]/g, ""))),
+            spellings: new Set(),
+          });
+        });
+        return result;
+      }
+
+      // A cited author is a member when an alias matches exactly, or when the
+      // surname and first initial match exactly one member.
+      function matchMember(citedName) {
+        const key = fold(citedName).replace(/[.,\s]/g, "");
+        const aliased = [...members.values()].filter((member) => member.aliases.has(key));
+        if (aliased.length === 1) return aliased[0];
+        const { surname, initial } = parseCitedName(citedName);
+        const matches = [...members.values()].filter((member) => member.surnames.has(surname) && member.first.charAt(0) === initial);
+        return matches.length === 1 ? matches[0] : null;
+      }
+
+      function applyMembers(publications) {
+        const cache = new Map();
+        publications.forEach((publication) => {
+          publication.citedAuthors = publication.authors;
+          const names = publication.authors.map((cited) => {
+            if (!cache.has(cited)) cache.set(cited, matchMember(cited));
+            const member = cache.get(cited);
+            if (!member) return cited;
+            member.spellings.add(cited);
+            return member.name;
+          });
+          publication.authors = [...new Set(names)];
+        });
+      }
+
+      function memberOf(name) {
+        return members.get(name) || null;
+      }
+
+      function memberRank(name) {
+        const member = memberOf(name);
+        return member ? MEMBER_GROUPS[member.group].order : 9;
       }
 
       function metricsFor(publication) {
@@ -550,10 +657,14 @@
           topicPosition.set(topic.name, topic);
           topicPalette.set(topic.name, topic.color);
         });
-        const topPeople = [...people.values()]
+        // Every JEDI Lab person in the selection gets a node; other coauthors fill the rest.
+        const ranked = [...people.values()]
           .map((person) => ({ ...person, count: person.papers.size }))
-          .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
-          .slice(0, 78);
+          .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+        const labPeople = ranked.filter((person) => memberOf(person.name));
+        const topPeople = [...labPeople, ...ranked.filter((person) => !memberOf(person.name))
+          .slice(0, Math.max(0, 78 - labPeople.length))]
+          .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
         const topicMembership = new Map(topics.map((topic) => [topic.name, 0]));
         const graphPeople = topPeople.map((person) => {
           const sortedTopics = [...person.topics.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
@@ -614,23 +725,32 @@
             addEdge(topic, person, "edge", Math.min(2.8, 0.65 + person.count * 0.2));
           });
         });
-        graph.people.forEach((person) => {
-          const color = "#626262";
+        [...graph.people].sort((a, b) => memberRank(b.name) - memberRank(a.name)).forEach((person) => {
+          const member = memberOf(person.name);
+          const kind = member ? (MEMBER_GROUPS[member.group].core ? "core" : "associate") : "other";
           const group = element("g", {
-            class: `graph-node${selected?.type === "person" && selected.name === person.name ? " selected" : ""}`,
-            tabindex: "0", role: "button", "aria-label": `${person.name}, ${person.count} publications. Drag to rearrange.`,
+            class: `graph-node person-${kind}${selected?.type === "person" && selected.name === person.name ? " selected" : ""}`,
+            tabindex: "0", role: "button",
+            "aria-label": `${person.name}${member ? `, ${MEMBER_GROUPS[member.group].label}` : ""}, ${person.count} publications. Drag to rearrange.`,
           });
-          group.appendChild(element("title", {}, "Drag to rearrange"));
+          group.appendChild(element("title", {}, `${person.name}\n${member ? `${MEMBER_GROUPS[member.group].label}${member.role ? ` · ${member.role}` : ""}\n` : ""}Drag to rearrange`));
+          const radius = Math.min(8, 4.3 + Math.sqrt(person.count) * 0.85) + (member ? 1 : 0);
           group.appendChild(element("circle", {
-            cx: person.x, cy: person.y, r: Math.min(8, 4.3 + Math.sqrt(person.count) * 0.85),
-            fill: color, class: "node-circle", stroke: "#fff", "stroke-width": 1.5,
+            cx: person.x, cy: person.y, r: radius,
+            fill: kind === "core" ? "#bd1230" : kind === "associate" ? "#fff" : "#9b9b9b",
+            class: "node-circle",
+            stroke: kind === "associate" ? "#bd1230" : "#fff",
+            "stroke-width": kind === "associate" ? 2 : 1.5,
           }));
-          const label = person.name.length > 25 ? `${person.name.slice(0, 23)}…` : person.name;
-          group.appendChild(element("text", {
-            x: person.x + (person.x >= 500 ? 8 : -8), y: person.y + 3,
-            "text-anchor": person.x >= 500 ? "start" : "end",
-            class: "node-label",
-          }, label));
+          // Coauthors outside the lab with few papers are named on hover only, to keep labels legible.
+          if (member || person.count >= 3) {
+            const label = person.name.length > 25 ? `${person.name.slice(0, 23)}…` : person.name;
+            group.appendChild(element("text", {
+              x: person.x + (person.x >= 500 ? 8 : -8), y: person.y + 3,
+              "text-anchor": person.x >= 500 ? "start" : "end",
+              class: `node-label${member ? " member-label" : ""}`,
+            }, label));
+          }
           registerGraphNode(group, person, () => selectPerson(person.name));
           nodesGroup.appendChild(group);
         });
@@ -805,9 +925,40 @@
         }
       }
 
-      elements.graph.addEventListener("pointermove", moveGraphNodes);
-      elements.graph.addEventListener("pointerup", finishGraphDrag);
-      elements.graph.addEventListener("pointercancel", finishGraphDrag);
+      // Dragging the empty background pans the view; dragging a node moves the node.
+      function rootPoint(event) {
+        const point = elements.graph.createSVGPoint();
+        point.x = event.clientX;
+        point.y = event.clientY;
+        return point.matrixTransform(elements.graph.getScreenCTM().inverse());
+      }
+
+      function startPan(event) {
+        if (event.button !== 0 || activeDrag || activePan || event.target.closest(".graph-node")) return;
+        event.preventDefault();
+        activePan = { pointerId: event.pointerId, start: rootPoint(event), origin: { x: zoom.x, y: zoom.y } };
+        elements.graph.setPointerCapture(event.pointerId);
+        elements.graph.classList.add("panning");
+      }
+
+      function movePan(event) {
+        if (!activePan || activePan.pointerId !== event.pointerId) return;
+        const point = rootPoint(event);
+        zoom.x = activePan.origin.x + point.x - activePan.start.x;
+        zoom.y = activePan.origin.y + point.y - activePan.start.y;
+        applyZoomTransform();
+      }
+
+      function finishPan(event) {
+        if (!activePan || activePan.pointerId !== event.pointerId) return;
+        activePan = null;
+        elements.graph.classList.remove("panning");
+      }
+
+      elements.graph.addEventListener("pointerdown", startPan);
+      elements.graph.addEventListener("pointermove", (event) => { moveGraphNodes(event); movePan(event); });
+      elements.graph.addEventListener("pointerup", (event) => { finishGraphDrag(event); finishPan(event); });
+      elements.graph.addEventListener("pointercancel", (event) => { finishGraphDrag(event); finishPan(event); });
       elements.graph.addEventListener("wheel", (event) => {
         event.preventDefault();
         const pointer = elements.graph.createSVGPoint();
@@ -824,12 +975,47 @@
         document.getElementById("detail-content").replaceChildren();
       }
 
-      function renderPeople(people, onSelect) {
+      function memberMark(member) {
+        return element("i", { class: `jedi-mark${MEMBER_GROUPS[member.group].core ? "" : " associate"}`, "aria-hidden": "true" });
+      }
+
+      function renderLabPeople(people, onSelect) {
         const content = document.getElementById("detail-content");
+        const section = element("section", { class: "people-group" });
+        const heading = element("h3", { class: "section-title" });
+        heading.append(element("span", {}, "JEDI Lab"), element("span", { class: "count" }, `${people.length} ${people.length === 1 ? "person" : "people"}`));
+        section.appendChild(heading);
+        if (!people.length) {
+          section.appendChild(element("div", { class: "empty" }, "No JEDI Lab people are listed on these publications."));
+          content.appendChild(section);
+          return;
+        }
+        const list = element("ul", { class: "people-list" });
+        people.forEach((person) => {
+          const member = memberOf(person.name);
+          const button = element("button", { type: "button" });
+          const name = element("span", { class: "person-name" });
+          const text = element("span", { class: "is-member" }, person.name);
+          text.appendChild(element("span", { class: "member-role" }, MEMBER_GROUPS[member.group].label));
+          name.append(memberMark(member), text);
+          button.append(name, element("span", { class: "paper-count" }, `${person.papers.size} ${person.papers.size === 1 ? "paper" : "papers"}`));
+          button.addEventListener("click", () => onSelect(person.name));
+          list.appendChild(element("li")).appendChild(button);
+        });
+        section.appendChild(list);
+        content.appendChild(section);
+      }
+
+      function renderPeople(allPeople, onSelect) {
+        const content = document.getElementById("detail-content");
+        const lab = allPeople.filter((person) => memberOf(person.name))
+          .sort((a, b) => memberRank(a.name) - memberRank(b.name) || b.papers.size - a.papers.size || a.name.localeCompare(b.name));
+        const people = allPeople.filter((person) => !memberOf(person.name));
+        if (members.size) renderLabPeople(lab, onSelect);
         const disclosure = element("details", { class: "people-disclosure" });
         if (contributorsExpanded) disclosure.open = true;
         const summary = element("summary");
-        summary.append(element("span", {}, "Contributors"), element("span", { class: "count" }, `${people.length} names`));
+        summary.append(element("span", {}, members.size ? "Other coauthors" : "Contributors"), element("span", { class: "count" }, `${people.length} names`));
         disclosure.appendChild(summary);
         disclosure.addEventListener("toggle", () => { contributorsExpanded = disclosure.open; });
         if (!people.length) {
@@ -855,8 +1041,8 @@
             type: "button",
             "aria-expanded": String(allContributorsExpanded),
           }, allContributorsExpanded
-            ? "Show fewer contributors"
-            : `Show all ${people.length} contributors`);
+            ? `Show fewer ${members.size ? "coauthors" : "contributors"}`
+            : `Show all ${people.length} ${members.size ? "coauthors" : "contributors"}`);
           moreButton.addEventListener("click", () => {
             allContributorsExpanded = !allContributorsExpanded;
             list.querySelectorAll("li").forEach((item, index) => {
@@ -864,8 +1050,8 @@
             });
             moreButton.setAttribute("aria-expanded", String(allContributorsExpanded));
             moreButton.textContent = allContributorsExpanded
-              ? "Show fewer contributors"
-              : `Show all ${people.length} contributors`;
+              ? `Show fewer ${members.size ? "coauthors" : "contributors"}`
+              : `Show all ${people.length} ${members.size ? "coauthors" : "contributors"}`;
           });
           disclosure.appendChild(moreButton);
         }
@@ -912,7 +1098,22 @@
             card.appendChild(line);
           }
           if (publication.authors.length) {
-            const authors = element("div", { class: "paper-meta" }, publication.authors.join("; "));
+            const authors = element("div", { class: "author-list" });
+            publication.authors.forEach((name, index) => {
+              if (index) authors.appendChild(document.createTextNode("; "));
+              const member = memberOf(name);
+              if (!member) {
+                authors.appendChild(document.createTextNode(name));
+                return;
+              }
+              const button = element("button", {
+                type: "button", class: "author-member",
+                title: `${MEMBER_GROUPS[member.group].label}${member.role ? ` · ${member.role}` : ""}`,
+              });
+              button.append(memberMark(member), document.createTextNode(name));
+              button.addEventListener("click", () => selectPerson(name));
+              authors.appendChild(button);
+            });
             card.appendChild(authors);
           }
           if (publication.topics.length) {
@@ -959,8 +1160,18 @@
         const topics = new Map();
         publications.forEach((paper) => paper.topics.forEach((topic) => topics.set(topic, (topics.get(topic) || 0) + 1)));
         const themeNames = [...topics.entries()].sort((a, b) => b[1] - a[1]).map(([topic]) => topic);
-        clearDetail("Contributor", name, `${publications.length} publications matching the current filters.`);
+        const member = memberOf(name);
+        const count = `${publications.length} publications matching the current filters.`;
+        clearDetail(
+          member ? `JEDI Lab · ${MEMBER_GROUPS[member.group].label}` : members.size ? "Coauthor" : "Contributor",
+          name,
+          member?.role ? `${member.role}. ${count}` : count,
+        );
         const content = document.getElementById("detail-content");
+        if (member?.spellings.size) {
+          document.getElementById("detail-description").appendChild(element("span", { class: "spellings" },
+            `Cited in the bibliography as: ${[...member.spellings].sort().join("; ")}`));
+        }
         const heading = element("h3", { class: "section-title" });
         heading.append(element("span", {}, "Research themes"), element("span", { class: "count" }, `${themeNames.length} themes`));
         content.appendChild(heading);
@@ -972,33 +1183,50 @@
           tag.addEventListener("click", () => selectTopic(topic));
           topicsList.appendChild(tag);
         });
-        if (themeNames.length) content.appendChild(topicsList);
+        if (themeNames.length) {
+          topicsList.style.marginBottom = "19px";
+          content.appendChild(topicsList);
+        }
         renderPapers(publications);
       }
 
       function showSearchResults(value) {
         elements.results.replaceChildren();
-        const search = value.trim().toLocaleLowerCase();
-        if (!search) {
+        // Accent-insensitive; every word of the query must appear ("gustav ting", "vastfjall").
+        const terms = fold(value).split(/\s+/).filter(Boolean);
+        if (!terms.length) {
           elements.results.hidden = true;
           return;
         }
+        const found = (...texts) => {
+          const haystack = fold(texts.join(" "));
+          return terms.every((term) => haystack.includes(term));
+        };
         const publications = activePublications();
         const graph = countGraph(publications);
         const matches = [];
-        graph.topicCounts.forEach((count, name) => {
-          if (name.toLocaleLowerCase().includes(search)) matches.push({ type: "Research theme", name, count });
-        });
+        const people = [];
         graph.people.forEach((person, name) => {
-          if (name.toLocaleLowerCase().includes(search)) matches.push({ type: "Contributor", name, count: person.papers.size });
+          const member = memberOf(name);
+          if (found(name, ...(member ? member.spellings : []))) people.push({ type: "Contributor", name, count: person.papers.size, member });
         });
+        people.sort((a, b) => memberRank(a.name) - memberRank(b.name) || b.count - a.count || a.name.localeCompare(b.name));
+        graph.topicCounts.forEach((count, name) => {
+          if (found(name)) matches.push({ type: "Research theme", name, count });
+        });
+        matches.push(...people);
         publications.forEach((paper) => {
-          if (paper.title.toLocaleLowerCase().includes(search)) matches.push({ type: "Publication", name: paper.title, paper });
+          if (found(paper.title)) matches.push({ type: "Publication", name: paper.title, paper });
         });
         matches.slice(0, 9).forEach((match) => {
           const button = element("button", { class: "search-result", type: "button" });
           button.appendChild(document.createTextNode(match.name));
-          button.appendChild(element("small", {}, match.type === "Publication" ? `${match.paper.year} · ${match.paper.authors.join(", ")}` : `${match.type} · ${match.count} ${match.type === "Contributor" ? "publications" : "papers"}`));
+          const detail = match.type === "Publication"
+            ? `${match.paper.year} · ${match.paper.authors.join(", ")}`
+            : match.type === "Contributor"
+              ? `${match.member ? `JEDI Lab · ${MEMBER_GROUPS[match.member.group].label}` : members.size ? "Coauthor" : "Contributor"} · ${match.count} ${match.count === 1 ? "publication" : "publications"}`
+              : `${match.type} · ${match.count} papers`;
+          button.appendChild(element("small", {}, detail));
           button.addEventListener("click", () => {
             if (match.type === "Research theme") selectTopic(match.name);
             else if (match.type === "Contributor") selectPerson(match.name);
@@ -1270,16 +1498,28 @@
           data = normalizeDataset(await response.json());
           let metricsWarning = "";
           try {
+            const membersResponse = await fetch(MEMBERS_URL, { cache: "no-cache" });
+            if (membersResponse.ok) {
+              members = normalizeMembers(await membersResponse.json());
+              applyMembers(data.publications);
+            } else if (membersResponse.status !== 404) {
+              metricsWarning += ` Lab member list unavailable (HTTP ${membersResponse.status}).`;
+            }
+          } catch (error) {
+            members = new Map();
+            metricsWarning += ` Lab member list could not be loaded: ${error.message}`;
+          }
+          try {
             const metricsResponse = await fetch(METRICS_URL, { cache: "no-cache" });
             if (metricsResponse.ok) {
               metrics = normalizeMetrics(await metricsResponse.json());
               setupMetricFilters();
             } else if (metricsResponse.status !== 404) {
-              metricsWarning = ` Publication metrics unavailable (HTTP ${metricsResponse.status}).`;
+              metricsWarning += ` Publication metrics unavailable (HTTP ${metricsResponse.status}).`;
             }
           } catch (error) {
             metrics = null;
-            metricsWarning = ` Publication metrics could not be loaded: ${error.message}`;
+            metricsWarning += ` Publication metrics could not be loaded: ${error.message}`;
           }
           const yearValues = [...new Set(data.publications.map((paper) => paper.year))].sort((a, b) => b - a);
           yearValues.forEach((year) => elements.year.appendChild(element("option", { value: year }, String(year))));

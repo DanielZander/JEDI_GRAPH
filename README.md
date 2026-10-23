@@ -26,7 +26,7 @@ Host this folder on a static web host (for example, GitHub Pages) and add an HTM
 </iframe>
 ```
 
-The app does not require a server-side database, API key, JavaScript package manager or tracking service. Keep `index.html`, `data/publications.json`, `data/metrics.json`, and `data/JEDI_logo.png` together at the deployed URL.
+The app does not require a server-side database, API key, JavaScript package manager or tracking service. Keep `index.html`, `data/publications.json`, `data/metrics.json`, `data/members.json`, and `data/JEDI_logo.png` together at the deployed URL.
 
 ## Refresh the bibliography
 
@@ -45,6 +45,30 @@ python tools\update_publications.py --input path\to\publications.html
 ```
 
 The page lists references, not structured author records. The tool preserves the cited author spellings (including initials), DOI, publication year, journal where marked up, and full citation text. Author ellipses are not expanded, and listed coauthors are not necessarily JEDI Lab members; historical lab affiliation is not identified by the source. Themes are assigned by documented title/journal keyword rules in `tools/update_publications.py`, so treat them as suggested browsing categories and correct them where needed.
+
+## JEDI Lab people
+
+`data/members.json` lists the lab's directors, members, alumni and affiliated researchers (from <https://jedilab.weebly.com/people.html>). The page highlights them wherever they appear:
+
+- **Graph:** current directors and members are solid red nodes with bold labels; alumni and affiliated researchers are red rings; other coauthors are gray. Every lab person in the current selection gets a node. Other coauthors with fewer than three papers are named on hover only.
+- **Side panel:** a theme lists its **JEDI Lab** people first, with their role, then the other coauthors. A lab person's page shows their role and every spelling the bibliography uses for them.
+- **Publications:** lab people are marked and bold in the author list; click a name to open that person.
+- **Search:** accepts first or last names, without accents, in any order (`gustav`, `vastfjall daniel`).
+
+Cited names are matched to people by surname and first initial (for example `Tinghög, G.`, `Tinghög G` and `TInghög, G.` all become Gustav Tinghög), and each person's spellings are merged into one node. A name that matches two people is left unmatched. Add an `aliases` entry for spellings the rule cannot catch, such as an earlier surname or a typo in the source:
+
+```json
+{
+  "name": "Hulda Karlsson-Larsson",
+  "group": "member",
+  "role": "Ph.D. student in psychology",
+  "aliases": ["Karlsson, H."]
+}
+```
+
+`group` is one of `director`, `member`, `alumni` or `affiliated`. When someone joins, leaves or graduates, edit this file and deploy it with the page. The page works without it.
+
+The rule cannot tell apart two people who share a surname and first initial. If an unrelated coauthor with the same initial appears, they will be counted as the lab person; check a person's "Cited in the bibliography as" line when in doubt.
 
 ## Refresh citations and journal rankings
 
@@ -106,7 +130,7 @@ There is no publication editor in the webpage. The site administrator owns `data
 - To add a paper not yet listed on the source page, add a record to the JSON `publications` array. Keep `count` equal to the number of records, use a unique `id` (prefer the DOI URL), and add the authors and one or more themes. Publish the changed JSON file.
 - The graph loads the deployed JSON when the page is opened. Browser layout preferences are separate from publication data.
 
-The app supports selecting themes, contributors and search results; filtering by year, journal ranking and citation count; viewing publication and citation trends and ranking distributions; scrolling over the graph to zoom around the pointer; and using the `+`, `−` and **Fit** controls. The default layout spaces theme clusters around the graph and reduces author-label clutter. Drag nodes to arrange the graph in the current browser; Shift-drag a theme to move it with its associated contributor cluster. Contributor lists initially show the top eight names, with a **Show all** button for the rest; the contributor section itself can also be collapsed. Layout changes are saved only in that browser. **Reset view** restores the default node positions and zoom. The JSON schema is:
+The app supports selecting themes, contributors and search results; filtering by year, journal ranking and citation count; viewing publication and citation trends and ranking distributions; dragging the graph background to pan; scrolling over the graph to zoom around the pointer; and using the `+`, `−` and **Fit** controls. The default layout spaces theme clusters around the graph and reduces author-label clutter. Drag nodes to arrange the graph in the current browser; Shift-drag a theme to move it with its associated contributor cluster. Contributor lists initially show the top eight names, with a **Show all** button for the rest; the contributor section itself can also be collapsed. Layout changes are saved only in that browser. **Reset view** restores the default node positions and zoom. The JSON schema is:
 
 ```json
 {

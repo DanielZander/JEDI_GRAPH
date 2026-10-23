@@ -29,6 +29,24 @@ class BibliographyParsingTests(unittest.TestCase):
             ["Simpson, B.", "Eriksson, K.", "Tinghög, G."],
         )
 
+    def test_author_parser_splits_irregular_separators(self):
+        cases = {
+            "Doell, K. C., Vlasceanu M., … Koppel, L., … & Van Bavel, J. J.":
+                ["Doell, K. C.", "Vlasceanu M.", "Koppel, L.", "Van Bavel, J. J."],
+            "Barrafrem, K., Tinghög, G., and Västfjäll, D.":
+                ["Barrafrem, K.", "Tinghög, G.", "Västfjäll, D."],
+            "Nilsson, A., Erlandsson, E. Västfjäll, D., & Tinghög, G.":
+                ["Nilsson, A.", "Erlandsson, E.", "Västfjäll, D.", "Tinghög, G."],
+            "Asutay, E., Karlsson-Larsson, H., & Sörqvist, P., MacCutcheon, D.":
+                ["Asutay, E.", "Karlsson-Larsson, H.", "Sörqvist, P.", "MacCutcheon, D."],
+            "Koppel, L., ... Lindkvist, A.M. ... & Zwaan, R.A.":
+                ["Koppel, L.", "Lindkvist, A.M.", "Zwaan, R.A."],
+            "Birt, A., . . . Zwienenberg, M.": ["Birt, A.", "Zwienenberg, M."],
+        }
+        for text, expected in cases.items():
+            with self.subTest(text=text):
+                self.assertEqual(parse_authors(text), expected)
+
     def test_unmatched_titles_remain_in_other(self):
         self.assertEqual(classify_topics("A title without a mapped keyword", ""), ["Other"])
 

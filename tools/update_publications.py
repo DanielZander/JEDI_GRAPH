@@ -101,12 +101,22 @@ def clean_text(value: str) -> str:
     return re.sub(r"\s+", " ", value.replace("\u200b", "").replace("\xa0", " ")).strip()
 
 
+# A capitalised surname, allowing internal capitals (MacCutcheon), combining
+# accents, and hyphenated or multi-word forms (Karlsson-Larsson, Van Bavel).
+_SURNAME_PART = r"[A-ZÀ-ÖØ-Þ](?:[^\W\d_]|['’̀-ͯ])+"
+SURNAME = rf"{_SURNAME_PART}(?:[- ]{_SURNAME_PART})*"
+
+
 def parse_authors(value: str) -> list[str]:
-    value = re.sub(r"\.\.\.", "", value)
-    value = re.sub(r",\s*,", ",", value).strip(" ,")
+    # Ellipses ("...", ". . .", "…") stand for omitted authors; an initial's own
+    # full stop ("A.M. ...") is not part of one.
+    value = re.sub(r"(?<![^\W\d_])\.\s*\.\s*\.|…", ",", value)
+    value = re.sub(r",?\s+and\s+", ", ", value)
+    value = re.sub(r"(?:,\s*)+,", ",", value).strip(" ,")
     split_pattern = (
-        r"\s*&\s*|,\s*(?=[A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ'’-]+"
-        r"(?:,\s*[A-Z]|\s+[A-Z]))"
+        rf"\s*&\s*|,\s*(?={SURNAME}(?:,\s*[A-Z]|\s+[A-Z]))"
+        # A missing comma between names: "Erlandsson, E. Västfjäll, D."
+        rf"|(?<=,\s[A-Z]\.)\s+(?={SURNAME},)"
     )
     names = [clean_text(part.strip(" ,")) for part in re.split(split_pattern, value)]
     return [name for name in names if name and name != "..."]

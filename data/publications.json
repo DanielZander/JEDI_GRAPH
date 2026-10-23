@@ -1,6 +1,6 @@
 {
   "source": "https://jedilab.weebly.com/publications.html",
-  "updated": "2026-10-21",
+  "updated": "2026-10-23",
   "count": 264,
   "publications": [
     {
@@ -119,7 +119,8 @@
       "title": "Trustworthiness and transparency features were less frequent in randomized trials presenting large effects for continuous outcomes in abstracts",
       "year": 2026,
       "authors": [
-        "Henssler, J. F., Reis-Pardal, J.",
+        "Henssler, J. F.",
+        "Reis-Pardal, J.",
         "Koppel, L.",
         "Ioannidis, J. P."
       ],
@@ -241,7 +242,8 @@
       "title": "Psychological interventions that decrease psychological distance or challenge system justification increase motivation to exert effort to mitigate climate change",
       "year": 2025,
       "authors": [
-        "Cutler, J., Contreras-Huerta, L. S.",
+        "Cutler, J.",
+        "Contreras-Huerta, L. S.",
         "Todorova, B.",
         "Koppel, L.",
         "Västfjäll, D.",
@@ -330,7 +332,8 @@
       "authors": [
         "Strömbäck, C.",
         "Andersson, P. A.",
-        "Asutay, E., Karlsson-Larsson, H.",
+        "Asutay, E.",
+        "Karlsson-Larsson, H.",
         "Västfjäll, D."
       ],
       "journal": "iScience",
@@ -593,7 +596,10 @@
       "authors": [
         "Doell, K. C.",
         "Todorova, B.",
-        "Vlasceanu M., … Koppel, L., … Tinghög, G., … Västfjäll, D., …",
+        "Vlasceanu M.",
+        "Koppel, L.",
+        "Tinghög, G.",
+        "Västfjäll, D.",
         "Van Bavel, J. J."
       ],
       "journal": "Scientific Data",
@@ -713,7 +719,8 @@
       "year": 2024,
       "authors": [
         "Buttliere, B.",
-        "Arvanitis, A., Białek, M.",
+        "Arvanitis, A.",
+        "Białek, M.",
         "Västfjäll, D.",
         "Weick, M."
       ],
@@ -922,7 +929,8 @@
       "year": 2024,
       "authors": [
         "Vlasceanu, M.",
-        "Doell, K., Bak-Coleman, J.",
+        "Doell, K.",
+        "Bak-Coleman, J.",
         "Koppel, L.",
         "Tinghög, G.",
         "Västfjäll, D.",
@@ -1179,7 +1187,8 @@
       "title": "Social and moral psychology of COVID-19 across 69 countries",
       "year": 2023,
       "authors": [
-        "Azevedo, F., Pavlović, T.",
+        "Azevedo, F.",
+        "Pavlović, T.",
         "Rêgo, G. G.",
         "Ay, F. C.",
         "Gjoneska, B.",
@@ -1392,7 +1401,8 @@
       "title": "Moral spillover in carbon offset judgments",
       "year": 2022,
       "authors": [
-        "Sörqvist, P., MacCutcheon, D.",
+        "Sörqvist, P.",
+        "MacCutcheon, D.",
         "Holmgren, M.",
         "Haga, A.",
         "Västfjäll, D."
@@ -1414,7 +1424,8 @@
         "Grant, M. D.",
         "Dickert, S.",
         "Eom, K.",
-        "Flores, A., Jiga-Boy, G. M.",
+        "Flores, A.",
+        "Jiga-Boy, G. M.",
         "Van Boven, L."
       ],
       "journal": "PNAS Nexus",
@@ -1433,7 +1444,9 @@
       "authors": [
         "Pavlović, T.",
         "Azevedo, F.",
-        "De, K., Riaño-Moreno, J. C., Maglić, M.",
+        "De, K.",
+        "Riaño-Moreno, J. C.",
+        "Maglić, M.",
         "Gkinopoulos, T.",
         "Van Bavel, J. J."
       ],
@@ -1683,7 +1696,8 @@
       "title": "Thinking, good and bad? Deliberative thinking and the singularity effect in charitable giving",
       "year": 2022,
       "authors": [
-        "Moche, H., Gordon-Hecker, T.",
+        "Moche, H.",
+        "Gordon-Hecker, T.",
         "Kogut, T.",
         "Västfjäll, D."
       ],
@@ -1704,7 +1718,8 @@
         "Cichocka, A.",
         "Capraro, V.",
         "Sjåstad, H.",
-        "Nezlek, J. B., Pavlović, T.",
+        "Nezlek, J. B.",
+        "Pavlović, T.",
         "Jørgensen, F. J."
       ],
       "journal": "Nature communications",
@@ -1722,7 +1737,8 @@
         "Flores, A.",
         "Cole, J. C.",
         "Dickert, S.",
-        "Eom, K., Jiga-Boy, G. M.",
+        "Eom, K.",
+        "Jiga-Boy, G. M.",
         "Kogut, T.",
         "Van Boven, L."
       ],
@@ -1738,10 +1754,12 @@
       "title": "Perceptions of Emotional Functionality: Similarities and Differences Among Dignity, Face, and Honor Cultures",
       "year": 2021,
       "authors": [
-        "Maitner, A. T., DeCoster, J.",
+        "Maitner, A. T.",
+        "DeCoster, J.",
         "Andersson, P. A.",
         "Eriksson, K.",
-        "Sherbaji, S., Giner-Sorolla, R.",
+        "Sherbaji, S.",
+        "Giner-Sorolla, R.",
         "Wu, J."
       ],
       "journal": "Journal of Cross-Cultural Psychology",
@@ -2028,7 +2046,8 @@
       "year": 2021,
       "authors": [
         "Barrafrem, K.",
-        "Tinghög, G., and Västfjäll, D."
+        "Tinghög, G.",
+        "Västfjäll, D."
       ],
       "journal": "Journal of Behavioral and Experimental Finance",
       "doi": "https://doi.org/10.1016/j.jbef.2021.100514",
@@ -2085,7 +2104,7 @@
         "Abernathy, J.",
         "Akotia, C. S.",
         "Aldashev, A.",
-        "Andersson, P. A., . . .",
+        "Andersson, P. A.",
         "Van Lange, P. A. M."
       ],
       "journal": "Nature Communications, 12",
@@ -2542,7 +2561,8 @@
       "year": 2020,
       "authors": [
         "Nilsson, A.",
-        "Erlandsson, E. Västfjäll, D.",
+        "Erlandsson, E.",
+        "Västfjäll, D.",
         "Tinghög, G."
       ],
       "journal": "Comprehensive Results in Social Psychology",
@@ -3030,7 +3050,8 @@
       "title": "Disentangling mathematics from executive functions by investigating unique functional connectivity patterns predictive of mathematics ability",
       "year": 2018,
       "authors": [
-        "Skagerlund, K. Bolt, T.",
+        "Skagerlund, K.",
+        "Bolt, T.",
         "Nomi, J.",
         "Skagenholt, M.",
         "Västfjäll, T.",
@@ -3110,7 +3131,8 @@
         "Skowronski, J. J.",
         "Verschuere, B.",
         "Meijer, E. H.",
-        "Jim, A. Yildiz, E."
+        "Jim, A.",
+        "Yildiz, E."
       ],
       "journal": "Advances in Methods and Practices in Psychological Science",
       "doi": "https://doi.org/10.1177/2515245918777487",
@@ -3323,7 +3345,8 @@
         "Andersson, P.",
         "Aveyard, M.",
         "Brauer, M.",
-        "Gritskov, V., . . . Yamagishi, T."
+        "Gritskov, V.",
+        "Yamagishi, T."
       ],
       "journal": "Management and Organization Review",
       "doi": "",
@@ -3513,7 +3536,8 @@
         "Verkoeijen, P. P. J. L.",
         "Aczel, B.",
         "Barbosa, F.",
-        "Bègue, L., Brañas-Garza, P.",
+        "Bègue, L.",
+        "Brañas-Garza, P.",
         "Wollbrant, C. E."
       ],
       "journal": "Perspectives on Psychological Science.",
@@ -3703,7 +3727,8 @@
       "year": 2016,
       "authors": [
         "Bergman, P.",
-        "Västfjäll, D., Tajadura-Jiménez, A.",
+        "Västfjäll, D.",
+        "Tajadura-Jiménez, A.",
         "Asutay, E."
       ],
       "journal": "Frontiers in Psychology, 7 (",
@@ -3884,7 +3909,8 @@
         "Alberts, H.",
         "Angonno, C. O.",
         "Batailler, C.",
-        "Birt, A., . . . Zwienenberg, M."
+        "Birt, A.",
+        "Zwienenberg, M."
       ],
       "journal": "Perspectives on Psychological Science.",
       "doi": "",
@@ -4420,7 +4446,8 @@
       "authors": [
         "Omar, F.",
         "Tinghög, G.",
-        "Carlsson, P., Omnell-Persson, M.",
+        "Carlsson, P.",
+        "Omnell-Persson, M.",
         "Welin, S."
       ],
       "journal": "Scandinavial Journal of Public Health, 41,",
