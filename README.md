@@ -36,7 +36,7 @@ The data refresh tool reads the public JEDI Lab publications page, extracts the 
 python tools\update_publications.py
 ```
 
-On refresh, papers already on the public list are rebuilt from that page; manually added records that do not appear there are retained from the existing JSON. Manual topic corrections to listed papers should be made after a source refresh (or in the source bibliography), because refresh recalculates those suggested themes.
+On refresh, papers already on the public list are rebuilt from that page; manually added records that do not appear there are retained from the existing JSON. Themes are recalculated on every refresh, so make lasting theme corrections in `data/topic_overrides.json` (see below), not in `publications.json`.
 
 To parse an HTML copy of the source page instead of fetching it:
 
@@ -44,14 +44,30 @@ To parse an HTML copy of the source page instead of fetching it:
 python tools\update_publications.py --input path\to\publications.html
 ```
 
-The page lists references, not structured author records. The tool preserves the cited author spellings (including initials), DOI, publication year, journal where marked up, and full citation text. Author ellipses are not expanded, and listed coauthors are not necessarily JEDI Lab members; historical lab affiliation is not identified by the source. Themes are assigned by documented title/journal keyword rules in `tools/update_publications.py`, so treat them as suggested browsing categories and correct them where needed.
+The page lists references, not structured author records. The tool preserves the cited author spellings (including initials), DOI, publication year, journal where marked up, and full citation text. Author ellipses are not expanded, and listed coauthors are not necessarily JEDI Lab members; historical lab affiliation is not identified by the source.
+
+## Research themes
+
+Each paper gets one to three themes from keyword rules (`TOPIC_RULES` in `tools/update_publications.py`). The rules read the **title**; the journal name is only a hint that fills in when the title gives fewer than two themes, and only for clearly specialised venues (for example *Medical Decision Making* suggests health, a journal with "economics" in its name suggests behavioral economics). Patterns match the start of words, so "organ" does not match "organization" and "invest" does not match "investigating". When more than three themes match, the ones with the most title matches are kept.
+
+The themes are: Prosociality & charitable giving; Fairness & social preferences; Risk & uncertainty; Intertemporal choice; Financial decision-making; Environmental & climate decisions; Health & medical decisions; Judgment & decision-making; Behavioral economics; Social norms & morality; Politics, ideology & beliefs; Nudges & public policy; Emotion & wellbeing; Numeracy & cognitive abilities; Perception & attention; Research methods & integrity; Neuroscience & physiology. Papers that match nothing are listed under Other.
+
+To **add a theme or sharpen one**, edit its patterns in `TOPIC_RULES` and rerun the refresh. To **correct a single paper**, add it to `data/topic_overrides.json`; the listed themes replace the suggestions on every refresh:
+
+```json
+{
+  "https://doi.org/10.1017/S0140525X2300105X": ["Environmental & climate decisions", "Nudges & public policy"]
+}
+```
+
+The key is the paper's `id` in `publications.json` (its DOI URL, or a 16-character code for papers without a DOI). Theme names must match the list above exactly; the refresh stops with an error otherwise.
 
 ## JEDI Lab people
 
 `data/members.json` lists the lab's directors, members, alumni and affiliated researchers (from <https://jedilab.weebly.com/people.html>). The page highlights them wherever they appear:
 
-- **Graph:** current directors and members are solid red nodes with bold labels; alumni and affiliated researchers are red rings; other coauthors are gray. Every lab person in the current selection gets a node. Other coauthors with fewer than three papers are named on hover only.
-- **Side panel:** a theme lists its **JEDI Lab** people first, with their role, then the other coauthors. A lab person's page shows their role and every spelling the bibliography uses for them.
+- **Graph:** current directors and members are solid red nodes; alumni and affiliated researchers are red rings; other coauthors are gray. Every lab person in the current selection gets a node, and the most-published other coauthors fill the rest (72 people in all).
+- **Side panel:** a theme lists its **JEDI Lab** people first, with their role, then the other coauthors. A person's page lists their themes, then their coauthors (lab people first) with the number of publications they share. A lab person's page also shows their role and every spelling the bibliography uses for them.
 - **Publications:** lab people are marked and bold in the author list; click a name to open that person.
 - **Search:** accepts first or last names, without accents, in any order (`gustav`, `vastfjall daniel`).
 
@@ -130,7 +146,14 @@ There is no publication editor in the webpage. The site administrator owns `data
 - To add a paper not yet listed on the source page, add a record to the JSON `publications` array. Keep `count` equal to the number of records, use a unique `id` (prefer the DOI URL), and add the authors and one or more themes. Publish the changed JSON file.
 - The graph loads the deployed JSON when the page is opened. Browser layout preferences are separate from publication data.
 
-The app supports selecting themes, contributors and search results; filtering by year, journal ranking and citation count; viewing publication and citation trends and ranking distributions; dragging the graph background to pan; scrolling over the graph to zoom around the pointer; and using the `+`, `−` and **Fit** controls. The default layout spaces theme clusters around the graph and reduces author-label clutter. Drag nodes to arrange the graph in the current browser; Shift-drag a theme to move it with its associated contributor cluster. Contributor lists initially show the top eight names, with a **Show all** button for the rest; the contributor section itself can also be collapsed. Layout changes are saved only in that browser. **Reset view** restores the default node positions and zoom. The JSON schema is:
+### How the graph works
+
+- **Layout:** a deterministic force-directed layout with collision avoidance, stretched to fill the stage. Filtered views start from the unfiltered layout, so nodes stay roughly in place and the same filters always give the same map.
+- **Encoding:** circle size is the number of publications in the current view. Themes are dark, JEDI Lab members red, alumni and affiliated researchers red rings, other coauthors gray. Line thickness is the number of shared publications: a person's papers in a theme, papers two people co-authored, or papers carrying both themes.
+- **Calm by default:** until something is selected, only the strongest links are drawn (each person to their main theme, the closest coauthor pairs and the most common theme pairs), faint and thin. Person names appear on hover, on selection, or when zoomed in to 180% or more; where names would overlap, the less prominent one waits for hover or a closer zoom.
+- **Selection:** clicking a node, or choosing a theme or person in search, highlights it, its neighbours and all the links between them; the rest of the map fades but stays visible. Hover a highlighted node for the number of shared publications. Click the background or press Esc to clear.
+
+The app also supports filtering by year, journal ranking and citation count; viewing publication and citation trends and ranking distributions; dragging the graph background to pan; scrolling over the graph to zoom around the pointer; and using the `+`, `−` and **Fit** controls. Drag nodes to arrange the graph in the current browser; Shift-drag a theme to move it with the people whose main theme it is. Contributor lists initially show the top eight names, with a **Show all** button for the rest; the contributor section itself can also be collapsed. Layout changes are saved only in that browser. **Reset view** restores the default node positions and zoom. The JSON schema is:
 
 ```json
 {

@@ -1,0 +1,5 @@
+{
+  "_comment": "Reviewed themes that replace the keyword suggestions on every refresh. Key: publication id from publications.json. Value: one to three theme names from tools/update_publications.py (TOPIC_RULES), or \"Other\".",
+  "https://doi.org/10.1017/S0140525X2300105X": ["Environmental & climate decisions", "Nudges & public policy"],
+  "2e03903043824b6c": ["Emotion & wellbeing", "Perception & attention"]
+}

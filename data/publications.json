@@ -1,6 +1,6 @@
 {
   "source": "https://jedilab.weebly.com/publications.html",
-  "updated": "2026-10-23",
+  "updated": "2026-10-26",
   "count": 264,
   "publications": [
     {
@@ -37,7 +37,8 @@
       "doi": "https://doi.org/10.1093/jcr/ucag022",
       "citation": "Priolo, G., Stablum, F., Vacondio, M., ... Andersson, P.A., ... Moche, H., ... & Rubaltelli, E. (2026). The Robustness of Mental Accounting Across 21 Countries. Journal of Consumer Research. https://doi.org/10.1093/jcr/ucag022",
       "topics": [
-        "Behavioral economics"
+        "Financial decision-making",
+        "Research methods & integrity"
       ]
     },
     {
@@ -54,7 +55,8 @@
       "doi": "https://doi.org/10.1016/j.actpsy.2026.107292",
       "citation": "Issa, R., Moche, H., Asutay, E., & Västfjäll, D. (2026). Affective forecasting and scope sensitivity of warm glow - Comparisons between joint and separate evaluations. Acta Psychologica. https://doi.org/10.1016/j.actpsy.2026.107292",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
+        "Judgment & decision-making",
         "Emotion & wellbeing"
       ]
     },
@@ -74,7 +76,7 @@
       "citation": "Hansson, K., Barrafrem, K., Mayiwar, L., Persson, E., & Tinghög, G. (2026). Envy in the Ballot Box: How Voting Influences Distributive Preferences. European Economic Review. https://doi.org/10.1016/j.euroecorev.2026.105389",
       "topics": [
         "Fairness & social preferences",
-        "Behavioral economics"
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -91,7 +93,7 @@
       "doi": "https://doi.org/10.1016/j.jesp.2026.104942",
       "citation": "Mata, A., Nilsson, T., Erlandsson, A., & Ferreira, R. (2026). People underestimate how receptive other people are to different political opinions. Journal of Experimental Social Psychology. https://doi.org/https://doi.org/10.1016/j.jesp.2026.104942",
       "topics": [
-        "Social norms & morality"
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -129,7 +131,6 @@
       "citation": "Henssler, J. F., Reis-Pardal, J., Koppel, L., & Ioannidis, J. P. (2026). Trustworthiness and transparency features were less frequent in randomized trials presenting large effects for continuous outcomes in abstracts. Journal of Clinical Epidemiology. https://doi.org/10.1016/j.jclinepi.2026.112215",
       "topics": [
         "Health & medical decisions",
-        "Social norms & morality",
         "Research methods & integrity"
       ]
     },
@@ -146,7 +147,7 @@
       "doi": "https://doi.org/10.1017/eec.2026.10044",
       "citation": "Koppel L., Lindkvist A.M., Tinghög, G. (2026). Money talks? How different incentive schemes influence prosocial behavior in economic games. Experimental Economics. https://doi.org/10.1017/eec.2026.10044",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Behavioral economics"
       ]
     },
@@ -164,7 +165,8 @@
       "doi": "https://doi.org/10.1080/13546783.2026.2627236",
       "citation": "Lauridsen, M., Collsiöö, A., Sundh, J., & Juslin, P. (2026). The role of intuitive monitoring and control of analytic calculations in the bat-and-ball problem. Thinking & Reasoning. https://doi.org/10.1080/13546783.2026.2627236",
       "topics": [
-        "Judgment & decision-making"
+        "Judgment & decision-making",
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -198,7 +200,8 @@
       "doi": "https://doi.org/10.1007/s10603-025-09607-z",
       "citation": "Barrafrem, K., & Tinghög, G. (2026). The Effect of The Omnibus Pricing Directive on Consumer Purchase Intentions. Journal of Consumer Policy. https://doi.org/10.1007/s10603-025-09607-z",
       "topics": [
-        "Behavioral economics"
+        "Behavioral economics",
+        "Nudges & public policy"
       ]
     },
     {
@@ -215,9 +218,8 @@
       "doi": "https://doi.org/10.1007/s11673-025-10469-w",
       "citation": "Strand, L., Sandman, L., Nedlund, A. C., & Tinghög, G. (2025). Nuanced public support for rationing treatments by withdrawing and withholding due to negative reimbursement decisions. Journal of Bioethical Inquiry. https://doi.org/10.1007/s11673-025-10469-w",
       "topics": [
-        "Judgment & decision-making",
         "Health & medical decisions",
-        "Social norms & morality"
+        "Judgment & decision-making"
       ]
     },
     {
@@ -233,8 +235,7 @@
       "doi": "https://doi.org/10.1098/rsos.251064",
       "citation": "Aspernäs, J., Nilsson, A., & Erlandsson, A. (2025). The role of truth relativist and realist views in bullshit receptivity, conspiracy ideation and the distribution of science misinformation. Royal Society open science. https://doi.org/10.1098/rsos.251064",
       "topics": [
-        "Fairness & social preferences",
-        "Social norms & morality"
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -253,7 +254,8 @@
       "doi": "https://doi.org/10.1038/s44271-025-00332-4",
       "citation": "Cutler, J., Contreras-Huerta, L. S., Todorova, B., ... Koppel, L., ... Västfjäll, D., ... & Lockwood, P. L. (2025). Psychological interventions that decrease psychological distance or challenge system justification increase motivation to exert effort to mitigate climate change. Communications Psychology. https://doi.org/10.1038/s44271-025-00332-4",
       "topics": [
-        "Other"
+        "Environmental & climate decisions",
+        "Nudges & public policy"
       ]
     },
     {
@@ -270,7 +272,8 @@
       "doi": "https://doi.org/10.1017/jdm.2025.10017",
       "citation": "Karlsson-Larsson, H., Slovic, P., Peterson, M., & Västfjäll, D. (2025). To ‘use or not to use’ nuclear weapons? Understanding public thinking about nuclear weapons decisions in the United States. Judgment and Decision Making. https://doi.org/10.1017/jdm.2025.10017",
       "topics": [
-        "Judgment & decision-making"
+        "Judgment & decision-making",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -304,7 +307,7 @@
       "doi": "https://doi.org/10.1073/pnas.2503355122",
       "citation": "Michaelsen, P., Sundström, A., & Jagers, S. C., (2025). Mass support for conserving 30% of the Earth by 2030: Experimental evidence from five continents. Proceedings of the National Academy of Sciences. https://doi.org/10.1073/pnas.2503355122",
       "topics": [
-        "Other"
+        "Environmental & climate decisions"
       ]
     },
     {
@@ -320,9 +323,8 @@
       "doi": "https://doi.org/10.1016/j.jebo.2025.107140",
       "citation": "Koppel, L., Lindkvist, A. M., & Tinghög, G. (2025). Scientific normative dissonance: A large-scale survey of researchers’ subscription to scientific norms and counternorms across academic fields. Journal of Economic Behavior & Organization. https://doi.org/10.1016/j.jebo.2025.107140",
       "topics": [
-        "Behavioral economics",
-        "Health & medical decisions",
-        "Social norms & morality"
+        "Social norms & morality",
+        "Research methods & integrity"
       ]
     },
     {
@@ -340,6 +342,7 @@
       "doi": "https://doi.org/10.1016/j.isci.2025.112389",
       "citation": "Strömbäck, C., Andersson, P. A., Asutay, E., Karlsson-Larsson, H., & Västfjäll, D. (2025). Positive anticipated affective reactions increase pro-environmental behavior. iScience. https://doi.org/10.1016/j.isci.2025.112389",
       "topics": [
+        "Environmental & climate decisions",
         "Emotion & wellbeing"
       ]
     },
@@ -358,7 +361,6 @@
       "citation": "Moche, H., Noryd, U., Rydén, S., & Västfjäll, D. (2025). To empathize with a group or an individual? Investigating the role of cognitive cost and distress in empathy choice. Frontiers in Psychology. https://doi.org/10.3389/fpsyg.2025.1519113",
       "topics": [
         "Judgment & decision-making",
-        "Behavioral economics",
         "Emotion & wellbeing"
       ]
     },
@@ -378,7 +380,7 @@
       "citation": "Koppel, L., Andersson, D., Johannesson, M., Strømland, E., & Tinghög, G. (2025). Comprehension in economic games. Journal of Economic Behavior & Organization. https://doi.org/10.1016/j.jebo.2025.107039",
       "topics": [
         "Behavioral economics",
-        "Health & medical decisions"
+        "Research methods & integrity"
       ]
     },
     {
@@ -395,8 +397,8 @@
       "doi": "https://doi.org/10.1038/s44271-025-00207-8",
       "citation": "Andersson, D., Lindberg, M., Tinghög, G., & Persson, E. (2025). No evidence for decision fatigue using large-scale field data from healthcare. Communications Psychology. https://doi.org/10.1038/s44271-025-00207-8 Millroth, P., & Collsiöö, A. (2025). Improving mental health diagnostic quality through cognitively tractable definitions. Nature Mental Health. https://doi.org/10.1038/s44220-025-00404-8",
       "topics": [
-        "Judgment & decision-making",
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Judgment & decision-making"
       ]
     },
     {
@@ -413,7 +415,9 @@
       "doi": "https://doi.org/10.1017/S0143814X24000266",
       "citation": "Lauren Yehle, Patrik Michaelsen, Niklas Harring, & Sverker C. Jagers (2025). Conservation for nature and wildlife’s sake: the effects of (non-)anthropocentric ethical justifications on policy acceptability. Journal of Public Policy. https://doi.org/10.1017/S0143814X24000266",
       "topics": [
-        "Social norms & morality"
+        "Environmental & climate decisions",
+        "Social norms & morality",
+        "Nudges & public policy"
       ]
     },
     {
@@ -430,7 +434,7 @@
       "doi": "https://doi.org/10.1177/17456916241235889",
       "citation": "Sundh, J., Millroth, P., Collsiöö, A., & Juslin, P. (2025). Enriching Psychological Research by Exploring the Source and Nature of Noise. Perspectives on Psychological Science. https://doi.org/10.1177/17456916241235889.",
       "topics": [
-        "Other"
+        "Research methods & integrity"
       ]
     },
     {
@@ -446,7 +450,7 @@
       "doi": "https://doi.org/10.1016/j.crbeha.2025.100171",
       "citation": "Karlsson, H., Moche, H., & Västfjäll, D. (2025). Reducing overhead aversion in charitable giving through information and introspection. Current Research in Behavioral Sciences. https://doi.org/10.1016/j.crbeha.2025.100171",
       "topics": [
-        "Prosociality & cooperation"
+        "Prosociality & charitable giving"
       ]
     },
     {
@@ -462,8 +466,9 @@
       "doi": "https://doi.org/10.1016/j.cortex.2025.01.005",
       "citation": "Skagenholt, M., Skagerlund, K., & Träff, U. (2025). Numerical Cognition Across the Lifespan: A Selective Review of Key Developmental Stages and Neural, Cognitive, and Affective Underpinnings. Cortex. https://doi.org/10.1016/j.cortex.2025.01.005",
       "topics": [
-        "Judgment & decision-making",
-        "Emotion & wellbeing"
+        "Emotion & wellbeing",
+        "Numeracy & cognitive abilities",
+        "Neuroscience & physiology"
       ]
     },
     {
@@ -479,7 +484,8 @@
       "doi": "https://doi.org/10.1177/17470218241234041",
       "citation": "Skagerlund, K., Skagenholt, M., & Träff, U. (2025). Mathematics anxiety and number processing: The link between executive functions, cardinality, and ordinality. Quarterly Journal of Experimental Psychology. https://doi.org/10.1177/17470218241234041",
       "topics": [
-        "Other"
+        "Emotion & wellbeing",
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -496,7 +502,7 @@
       "doi": "https://doi.org/10.1016/j.jecp.2024.106155",
       "citation": "Träff, U., Östergren, R., Skagerlund, K., & Skagenholt, M. (2025). Mental arithmetic and skill development in primary school: The importance of number processing abilities and general cognitive abilities. Journal of Experimental Child Psychology. https://doi.org/10.1016/j.jecp.2024.106155",
       "topics": [
-        "Judgment & decision-making"
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -515,7 +521,7 @@
       "doi": "https://doi.org/10.1038/s41562-024-02090-5",
       "citation": "Cologna, V., Mede, N.G., Berger, S., ... Koppel, L., ... Lindkvist, A.M. ... & Zwaan, R.A. (2025). Trust in scientists and their role in society across 68 countries. Nature Human Behaviour. https://doi.org/10.1038/s41562-024-02090-5",
       "topics": [
-        "Social norms & morality"
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -534,7 +540,9 @@
       "doi": "",
       "citation": "Mede, N. G., Cologna, V., Berger, S., ... Koppel, L., ... Lindkvist, A.M. ... & Zwaan, R.A. (2025). Perceptions of science, science communication, and climate change attitudes in 68 countries–the TISP dataset. Scientific Data. doi.org/10.1038/s41597-024-04100-7",
       "topics": [
-        "Other"
+        "Environmental & climate decisions",
+        "Politics, ideology & beliefs",
+        "Research methods & integrity"
       ]
     },
     {
@@ -551,8 +559,8 @@
       "doi": "https://doi.org/10.1017/jdm.2024.35",
       "citation": "Karlsson-Larsson, H., Erlandsson, A., Sandberg, J., & Västfjäll, D. (2025). Mitigating climate change with financial investments: exploring sustainable investment strategies in a novel experimental investment paradigm. Judgment and Decision Making. https://doi.org/10.1017/jdm.2024.35",
       "topics": [
-        "Judgment & decision-making",
-        "Behavioral economics"
+        "Financial decision-making",
+        "Environmental & climate decisions"
       ]
     },
     {
@@ -586,7 +594,8 @@
       "doi": "https://doi.org/10.1038/s41598-024-77408-4",
       "citation": "Grant, M. D., Markowitz, D. M., Sherman, D. K., ... Västfjäll, D., & Van Boven, L. (2024). Ideological diversity of media consumption predicts COVID-19 vaccination. Scientific Reports, 14, 28948. https://doi.org/10.1038/s41598-024-77408-4",
       "topics": [
-        "Other"
+        "Health & medical decisions",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -606,7 +615,8 @@
       "doi": "https://doi.org/10.1038/s41597-024-03865-1",
       "citation": "Doell, K. C., Todorova, B., Vlasceanu M., … Koppel, L., … Tinghög, G., … Västfjäll, D., … & Van Bavel, J. J. (2024). The International Climate Psychology Collaboration: Climate change-related data collected from 63 countries. Scientific Data. https://doi.org/10.1038/s41597-024-03865-1",
       "topics": [
-        "Other"
+        "Environmental & climate decisions",
+        "Research methods & integrity"
       ]
     },
     {
@@ -624,8 +634,8 @@
       "doi": "https://doi.org/10.1177/01461672241298390",
       "citation": "Erlandsson, A., Nilsson, A., Rosander, J., Persson, R., & Van Boven, L. (2024). Politically Contaminated Clothes, Chocolates, and Charities: Distancing From Neutral Products Liked by Out-Group or In-Group Partisans. Personality and Social Psychology Bulletin. https://doi.org/10.1177/01461672241298390",
       "topics": [
-        "Prosociality & cooperation",
-        "Social norms & morality"
+        "Prosociality & charitable giving",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -640,7 +650,7 @@
       "doi": "https://doi.org/10.1177/08997640241280983",
       "citation": "Erlandsson, A., & Dickert, S. (2024). A Typology of Psychological Mechanisms Underlying Prosocial Decisions. Nonprofit and Voluntary Sector Quarterly. https://doi.org/10.1177/08997640241280983",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making"
       ]
     },
@@ -676,8 +686,8 @@
       "doi": "https://doi.org/10.1017/jdm.2024.14",
       "citation": "Hallin, N., Moche, H., Andersson, G., & Västfjäll, D. (2024). Who is generous and to whom? Generosity among Christians, Muslims, and atheists in the USA, Sweden, Egypt, and Lebanon. Judgment and Decision Making. https://doi.org/10.1017/jdm.2024.14",
       "topics": [
-        "Prosociality & cooperation",
-        "Judgment & decision-making"
+        "Prosociality & charitable giving",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -693,6 +703,7 @@
       "doi": "https://doi.org/10.1007/s42761-024-00264-y",
       "citation": "Västfjäll, D., Asutay, E., & Tinghög, G. (2024). How affective science can inform behavioral public policy. Affective Science. https://doi.org/10.1007/s42761-024-00264-y",
       "topics": [
+        "Nudges & public policy",
         "Emotion & wellbeing"
       ]
     },
@@ -709,6 +720,7 @@
       "doi": "https://doi.org/10.1177/17540739241278933",
       "citation": "Asutay, E., Karlsson, H., & Västfjäll, D. (2024). Affect and impact neglect in sustainable decision-making. Emotion Review. https://doi.org/10.1177/17540739241278933",
       "topics": [
+        "Environmental & climate decisions",
         "Judgment & decision-making",
         "Emotion & wellbeing"
       ]
@@ -745,7 +757,8 @@
       "doi": "https://doi.org/10.1073/pnas.2411093121",
       "citation": "Strømland, E., Koppel, L., Johannesson, M., Tinghög, G. (2024). Confusion remains an important issue in public goods game experiments. PNAS, 121, (32). https://doi.org/10.1073/pnas.2411093121",
       "topics": [
-        "Other"
+        "Behavioral economics",
+        "Research methods & integrity"
       ]
     },
     {
@@ -762,7 +775,8 @@
       "doi": "",
       "citation": "Barrafrem, K., Kienzler, M., Västfjäll, D., & Tinghög, G. (2024). The Effect of Scarcity and Information Avoidance on Debt Management Behavior. Journal of Financial Counseling and Planning. doi.org/10.1891/JFCP-2022-0062",
       "topics": [
-        "Behavioral economics"
+        "Financial decision-making",
+        "Judgment & decision-making"
       ]
     },
     {
@@ -793,8 +807,8 @@
       "doi": "https://doi.org/10.1177/0272989X241263001",
       "citation": "Tinghög G, Persson E, Västfjäll D. (2024). Medical Homo Ignorans, Shared Decision Making, and Affective Paternalism: Balancing Emotion and Analysis in Health Care Choices. Medical Decision Making. https://doi.org/10.1177/0272989X241263001",
       "topics": [
-        "Judgment & decision-making",
         "Health & medical decisions",
+        "Judgment & decision-making",
         "Emotion & wellbeing"
       ]
     },
@@ -814,8 +828,8 @@
       "doi": "https://doi.org/10.1177/0272989X241258195",
       "citation": "Strand, L., Sandman, L., Persson, E., Andersson, D., Nedlund, A-C., Tinghög, G. (2024). Withdrawing versus Withholding Treatments in Medical Reimbursement Decisions: A Study on Public Attitudes. Medical Decision Making. https://doi.org/10.1177/0272989X241258195",
       "topics": [
-        "Judgment & decision-making",
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Judgment & decision-making"
       ]
     },
     {
@@ -831,7 +845,9 @@
       "doi": "https://doi.org/10.1016/j.jbef.2024.100936",
       "citation": "Barrafrem, K., Västfjäll, D., & Tinghög, G. (2024). Financial Homo Ignorans: Development and validation of a scale to measure individual differences in financial information ignorance. Journal of Behavioral and Experimental Finance, 100936. https://doi.org/https://doi.org/10.1016/j.jbef.2024.100936",
       "topics": [
-        "Behavioral economics"
+        "Financial decision-making",
+        "Judgment & decision-making",
+        "Research methods & integrity"
       ]
     },
     {
@@ -848,7 +864,8 @@
       "doi": "https://doi.org/10.1891/JFCP-2022-0112",
       "citation": "Tinghög, G., Asutay, E., Barrafrem, K., & Västfjäll, D. (2024). The Effect of COVID-19 on Subjective Financial Well-Being. Journal of Financial Counseling and Planning. https://doi.org/10.1891/JFCP-2022-0112",
       "topics": [
-        "Behavioral economics",
+        "Financial decision-making",
+        "Health & medical decisions",
         "Emotion & wellbeing"
       ]
     },
@@ -865,6 +882,7 @@
       "doi": "https://doi.org/10.3389/frbhe.2024.1381080",
       "citation": "Barrafrem, K., Tinghög, G., & Västfjäll, D. (2024). Behavioral and contextual determinants of different stages of saving behavior. Frontiers in Behavioral Economics, 3. https://doi.org/10.3389/frbhe.2024.1381080",
       "topics": [
+        "Financial decision-making",
         "Behavioral economics"
       ]
     },
@@ -881,7 +899,7 @@
       "doi": "https://doi.org/10.1371/journal.pone.0300863",
       "citation": "Moche, H., Karlsson, H., & Västfjäll, D. (2024). Victim identifiability, number of victims, and unit asking in charitable giving. Plos one, 19(3). https://doi.org/10.1371/journal.pone.0300863 Persson, E., Tinghög, G., & Västfjäll, D. (2023). Intertemporal prosocial behavior: A review and research agenda. Frontiers in Psychology, 15. https://doi.org/10.3389/fpsyg.2024.1359447",
       "topics": [
-        "Prosociality & cooperation"
+        "Prosociality & charitable giving"
       ]
     },
     {
@@ -900,6 +918,7 @@
       "citation": "Andersson, P.A., Vartanova, I., Västfjäll, D., Tinghög, G., ... Eriksson, K. (2024). Anger and disgust shape judgments of social sanctions across cultures, especially in high individual autonomy societies. Scientific Reports. https://doi.org/10.1038/s41598-024-55815-x",
       "topics": [
         "Judgment & decision-making",
+        "Social norms & morality",
         "Emotion & wellbeing"
       ]
     },
@@ -919,7 +938,6 @@
       "doi": "https://doi.org/10.1038/s41386-024-01821-6",
       "citation": "Pietrzak, M., Yngve, A., Hamilton, J. P., ... Persson, E., ... Tinghög, G., ... & Boehme, R. (2024). Ghrelin decreases sensitivity to negative feedback and increases prediction-error related caudate activity in humans, a randomized controlled trial. Neuropsychopharmacology. https://doi.org/10.1038/s41386-024-01821-6",
       "topics": [
-        "Research methods & integrity",
         "Neuroscience & physiology"
       ]
     },
@@ -940,7 +958,8 @@
       "doi": "https://doi.org/10.1126/sciadv.adj5778",
       "citation": "Vlasceanu, M., Doell, K., Bak-Coleman, J., ... Koppel, L., ... Tinghög, G., ... Västfjäll, D., ... & Van Bavel, J. J. (2024). Addressing climate change with behavioral science: A global intervention tournament in 63 countries. Science Advances. https://doi.org/10.1126/sciadv.adj5778",
       "topics": [
-        "Other"
+        "Environmental & climate decisions",
+        "Nudges & public policy"
       ]
     },
     {
@@ -956,7 +975,8 @@
       "doi": "https://doi.org/10.1038/s41598-024-53450-0",
       "citation": "Lindkvist, A. M., Koppel, L., & Tinghög, G. (2024). Bounded research ethicality: Researchers rate themselves and their field as better than others at following good research practice. Scientific Reports. https://doi.org/10.1038/s41598-024-53450-0",
       "topics": [
-        "Social norms & morality"
+        "Social norms & morality",
+        "Research methods & integrity"
       ]
     },
     {
@@ -973,7 +993,7 @@
       "doi": "https://doi.org/10.1016/j.cresp.2024.100181",
       "citation": "Karlsson, H., Erlandsson, A., Asutay, E., & Västfjäll, D. (2024). The role of environmental mental imagery in impact beliefs about climate change mitigation and pro-environmental intentions. Current Research in Ecological and Social Psychology. https://doi.org/10.1016/j.cresp.2024.100181",
       "topics": [
-        "Other"
+        "Environmental & climate decisions"
       ]
     },
     {
@@ -988,7 +1008,8 @@
       "doi": "https://doi.org/10.1016/j.socec.2023.102153",
       "citation": "Persson, E., & Tinghög, G. (2024). Repugnant markets and preferences in public. Journal of Behavioral and Experimental Economics. https://doi.org/10.1016/j.socec.2023.102153",
       "topics": [
-        "Behavioral economics"
+        "Behavioral economics",
+        "Social norms & morality"
       ]
     },
     {
@@ -1008,7 +1029,8 @@
       "doi": "https://doi.org/10.1186/s12877-023-04525-6",
       "citation": "Olsson, H., Åhlund, K., Alfredsson, J., Andersson, D., Boström, A. M., Guidetti, S., ... & Ekerstad, N. (2023). Cross-cultural adaption and inter-rater reliability of the Swedish version of the updated clinical frailty scale 2.0. BMC geriatrics, 23(1), 803. https://doi.org/10.1186/s12877-023-04525-6",
       "topics": [
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Research methods & integrity"
       ]
     },
     {
@@ -1026,7 +1048,7 @@
       "doi": "https://doi.org/10.1080/10463283.2023.2272238",
       "citation": "Erlandsson, A., Dickert, S., Moche, H., Västfjäll, D., & Chapman, C. (2023). Beneficiary effects in prosocial decision making: Understanding unequal valuations of lives. European Review of Social Psychology, 1-48. https://doi.org/10.1080/10463283.2023.2272238",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making"
       ]
     },
@@ -1043,6 +1065,7 @@
       "doi": "https://doi.org/10.1016/j.isci.2023.108280",
       "citation": "Asutay, E., Karlsson, H., & Västfjäll, D. (2023). Affective responses drive the impact neglect in sustainable behavior. iScience. https://doi.org/10.1016/j.isci.2023.108280",
       "topics": [
+        "Environmental & climate decisions",
         "Emotion & wellbeing"
       ]
     },
@@ -1076,7 +1099,7 @@
       "doi": "https://doi.org/10.1111/1467-8551.12765",
       "citation": "Otterbring, T., Arsenovic, J., & Samuelsson, P. (2021). Going the Extra Mile, Now or After a While: The Impact of Employee Proactivity on Customers’ Responses and the Moderating Role of Time to Contact. British Journal of Management. https://doi.org/10.1111/1467-8551.12765",
       "topics": [
-        "Other"
+        "Behavioral economics"
       ]
     },
     {
@@ -1092,7 +1115,9 @@
       "doi": "https://doi.org/10.1007/s40881-023-00134-6",
       "citation": "Maguire, A., Persson, E., & Tinghög, G. (2023). Opportunity cost neglect: a meta-analysis. Journal of the Economic Science Association, 1-17. https://doi.org/10.1007/s40881-023-00134-6",
       "topics": [
-        "Behavioral economics"
+        "Judgment & decision-making",
+        "Behavioral economics",
+        "Research methods & integrity"
       ]
     },
     {
@@ -1130,7 +1155,8 @@
       "doi": "https://doi.org/10.1017/S0140525X2300105X",
       "citation": "Koppel, L., Robertson, C.E., Doell, K.C., Javeed, A.M., Rasmussen, J., Rathje, S., Vlasceanu, M., & Van Bavel, J.J. (2023). Individual-level solutions may support system-level change--if they are internalized as part of one's social identity. Behavioral and Brain Sciences, 46, e165. https://doi.org/10.1017/S0140525X2300105X",
       "topics": [
-        "Neuroscience & physiology"
+        "Environmental & climate decisions",
+        "Nudges & public policy"
       ]
     },
     {
@@ -1146,7 +1172,7 @@
       "doi": "https://doi.org/10.1017/S0140525X22003211",
       "citation": "Tinghög, G., Koppel, L., & Västfjäll, D. (2023). Dual-process theory is Barbapapa. Behavioral and Brain Sciences, 46, e144. https://doi.org/10.1017/S0140525X22003211",
       "topics": [
-        "Neuroscience & physiology"
+        "Judgment & decision-making"
       ]
     },
     {
@@ -1162,7 +1188,7 @@
       "doi": "https://doi.org/10.1016/j.jrp.2023.104394",
       "citation": "Aspernäs, J., Erlandsson, A., & Nilsson, A. (2023). Misperceptions in a post-truth world: Effects of subjectivism and cultural relativism on bullshit receptivity and conspiracist ideation. Journal of Research in Personality, 104394. https://doi.org/10.1016/j.jrp.2023.104394",
       "topics": [
-        "Other"
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -1179,6 +1205,7 @@
       "citation": "Karlsson, H., Asutay, E. & Västfjäll, D. (2023). A causal link between mental imagery and affect-laden perception of climate change related risks. Scientific Reports, 13, 10081. https://doi.org/10.1038/s41598-023-37195-w",
       "topics": [
         "Risk & uncertainty",
+        "Environmental & climate decisions",
         "Emotion & wellbeing"
       ]
     },
@@ -1199,6 +1226,7 @@
       "doi": "https://doi.org/10.1038/s41597-023-02080-8",
       "citation": "Azevedo, F., Pavlović, T., Rêgo, G. G., Ay, F. C., Gjoneska, B., Etienne, T. W., ... & Huang, G. (2023). Social and moral psychology of COVID-19 across 69 countries. Scientific Data, 10(1), 272. https://doi.org/10.1038/s41597-023-02080-8",
       "topics": [
+        "Health & medical decisions",
         "Social norms & morality"
       ]
     },
@@ -1216,7 +1244,7 @@
       "doi": "https://doi.org/10.1111/bjep.12599",
       "citation": "Träff, U., Skagerlund, K., Östergren, R., & Skagenholt, M. (2023). The importance of domain‐specific number abilities and domain‐general cognitive abilities for early arithmetic achievement and development. British Journal of Educational Psychology, e12599. https://doi.org/10.1111/bjep.12599",
       "topics": [
-        "Judgment & decision-making"
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -1232,6 +1260,7 @@
       "doi": "https://doi.org/10.3389/fpsyg.2023.1088682",
       "citation": "Strömbäck, C., Lindkvist, E., & Västfjäll, D. (2023). Individual differences in environmental wellbeing and pro-environmental behaviors explained by self-control. Frontiers in Psychology, 14, 1462. https://doi.org/10.3389/fpsyg.2023.1088682",
       "topics": [
+        "Environmental & climate decisions",
         "Emotion & wellbeing"
       ]
     },
@@ -1268,7 +1297,7 @@
       "doi": "https://doi.org/10.1016/j.neuropsychologia.2023.108563",
       "citation": "Skagenholt, M., Lyons, I.M., Skagerlund, K., & Träff, U. (2023). Connectome-based predictive modeling indicates dissociable neurocognitive mechanisms for numerical order and magnitude processing in children. Neuropsychologia. https://doi.org/10.1016/j.neuropsychologia.2023.108563",
       "topics": [
-        "Judgment & decision-making",
+        "Numeracy & cognitive abilities",
         "Neuroscience & physiology"
       ]
     },
@@ -1289,9 +1318,9 @@
       "doi": "https://doi.org/10.1172/JCI168260",
       "citation": "Pietrzak, M., Yngve, A., Hamilton, J. P., Kämpe, R., Boehme, R., Asratian, A., ... & Heilig, M. (2023). A randomized controlled experimental medicine study of ghrelin in value-based decision making. The Journal of Clinical Investigation. https://doi.org/10.1172/JCI168260",
       "topics": [
-        "Judgment & decision-making",
         "Health & medical decisions",
-        "Research methods & integrity"
+        "Judgment & decision-making",
+        "Neuroscience & physiology"
       ]
     },
     {
@@ -1309,7 +1338,7 @@
       "doi": "https://doi.org/10.1093/cercor/bhac102",
       "citation": "Koppel, L., Novembre, G., Kämpe, R., & Savallampi, M. & Morrison, I. (2023). Prediction and action in cortical pain processing. Cerebral Cortex, 33(3), 794-810. https://doi.org/10.1093/cercor/bhac102",
       "topics": [
-        "Other"
+        "Neuroscience & physiology"
       ]
     },
     {
@@ -1325,7 +1354,8 @@
       "doi": "https://doi.org/10.1016/j.dcn.2022.101159",
       "citation": "Skagenholt, M., Skagerlund, K., & Träff, U. (2022). Neurodevelopmental differences in task-evoked number network connectivity: Comparing symbolic and nonsymbolic number discrimination in children and adults. Developmental Cognitive Neuroscience, 58. https://doi.org/10.1016/j.dcn.2022.101159",
       "topics": [
-        "Judgment & decision-making",
+        "Social norms & morality",
+        "Numeracy & cognitive abilities",
         "Neuroscience & physiology"
       ]
     },
@@ -1342,7 +1372,8 @@
       "doi": "https://doi.org/10.1038/s41598-022-24360-w",
       "citation": "Hansson, K., Persson, E. & Tinghög, G. (2022). Voting and (im)moral behavior. Scientific Reports, 12. https://doi.org/10.1038/s41598-022-24360-w",
       "topics": [
-        "Social norms & morality"
+        "Social norms & morality",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -1360,8 +1391,8 @@
       "doi": "",
       "citation": "Persson, E., Erlandsson, A., Slovic, P., Västfjäll, D., & Tinghög, G. (2022). The prominence effect in health-care priority setting. Judgment and Decision Making, 17(6), 1379-1391. https://journal.sjdm.org/22/220926/jdm220926.pdf",
       "topics": [
-        "Judgment & decision-making",
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Judgment & decision-making"
       ]
     },
     {
@@ -1393,7 +1424,8 @@
       "doi": "",
       "citation": "Nilsson, A. & Sinclair, S. (2022). Death, ideology, and worldview: Evidence of death anxiety but not mortality salience effects on political ideology and worldview. Meta Psychology. https://psyarxiv.com/anh8v",
       "topics": [
-        "Social norms & morality"
+        "Politics, ideology & beliefs",
+        "Emotion & wellbeing"
       ]
     },
     {
@@ -1411,6 +1443,7 @@
       "doi": "https://doi.org/10.3389/fpsyg.2022.95725",
       "citation": "Sörqvist, P., MacCutcheon, D., Holmgren, M., Haga, A., & Västfjäll, D. (2022). Moral spillover in carbon offset judgments. Frontiers in Psychology. https://doi.org/10.3389/fpsyg.2022.95725",
       "topics": [
+        "Environmental & climate decisions",
         "Judgment & decision-making",
         "Social norms & morality"
       ]
@@ -1433,7 +1466,6 @@
       "citation": "Ramos, J., Grant, M. D., Dickert, S., Eom, K., Flores, A., Jiga-Boy, G. M., ... & Van Boven, L. (2022). Structured reflection increases intentions to reduce other people's health risks during Covid-19. PNAS Nexus. https://doi.org/10.1093/pnasnexus/pgac218 Garinther, A., Mayorga, M., Västfjäll, D., & Slovic, P. (2022). Information spotlighting in Americans’ Decisions Surrounding Refugee resettlement Policy. Journal of Refugee Studies, 35(1), 746-746. https://doi.org/10.1093/jrs/fez121",
       "topics": [
         "Risk & uncertainty",
-        "Judgment & decision-making",
         "Health & medical decisions"
       ]
     },
@@ -1454,7 +1486,8 @@
       "doi": "https://doi.org/10.1093/pnasnexus/pgac093",
       "citation": "Pavlović, T., Azevedo, F., De, K., Riaño-Moreno, J. C., Maglić, M., Gkinopoulos, T., ... & Van Bavel, J. J. (2022). Predicting attitudinal and behavioral responses to COVID-19 pandemic using machine learning. PNAS nexus, 1(3), pgac093. https://doi.org/10.1093/pnasnexus/pgac093",
       "topics": [
-        "Other"
+        "Health & medical decisions",
+        "Research methods & integrity"
       ]
     },
     {
@@ -1470,7 +1503,8 @@
       "doi": "https://doi.org/10.1186/s40359-022-00927-0",
       "citation": "Hallin, N., Västfjäll, D., & Andersson, G. (2022). Religious affiliation seldom seems to influence hiring or competence ratings of job applicants: studies conducted in Sweden and in the USA. BMC Psychol 10, 220. https://doi.org/10.1186/s40359-022-00927-0",
       "topics": [
-        "Other"
+        "Behavioral economics",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -1487,9 +1521,9 @@
       "doi": "https://doi.org/10.1177/0272989X221118078",
       "citation": "Maguire, A., Persson, E., Västfjäll, D., & Tinghög, G. (2022). COVID-19 and Politically Motivated Reasoning. Medical Decision Making. https://doi.org/10.1177/0272989X221118078",
       "topics": [
-        "Judgment & decision-making",
         "Health & medical decisions",
-        "Social norms & morality"
+        "Judgment & decision-making",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -1541,7 +1575,7 @@
       "doi": "https://doi.org/10.1057/s41599-022-01257-7",
       "citation": "Andersson, P. A., Tinghög, G., & Västfjäll, D. (2022). The effect of herd immunity thresholds on willingness to vaccinate. Humanities and Social Science Communication, 9. https://doi.org/10.1057/s41599-022-01257-7",
       "topics": [
-        "Other"
+        "Health & medical decisions"
       ]
     },
     {
@@ -1572,7 +1606,8 @@
       "doi": "https://doi.org/10.1080/00223891.2022.207485",
       "citation": "Nilsson, A. (2022). Measurement invariance of moral foundations across population strata. Journal of Personality Assessment. https://doi.org/10.1080/00223891.2022.207485",
       "topics": [
-        "Social norms & morality"
+        "Social norms & morality",
+        "Research methods & integrity"
       ]
     },
     {
@@ -1604,7 +1639,8 @@
       "doi": "https://doi.org/10.1002/nvsm.1755",
       "citation": "Erlandsson, A., Nilsson, A., Alì, P. A., & Västfjäll, D. (2022). Spontaneous charitable donations in Sweden before and after COVID: A natural experiment. Journal of Philanthropy and Marketing. https://doi.org/10.1002/nvsm.1755",
       "topics": [
-        "Prosociality & cooperation"
+        "Prosociality & charitable giving",
+        "Health & medical decisions"
       ]
     },
     {
@@ -1620,7 +1656,8 @@
       "doi": "https://doi.org/10.1016/j.jbef.2022.100655",
       "citation": "Kienzler, M., Västfjäll, D., & Tinghög, G. (2022). Individual differences in susceptibility to financial bullshit. Journal of Behavioral and Experimental Finance, 34. https://doi.org/10.1016/j.jbef.2022.100655",
       "topics": [
-        "Behavioral economics"
+        "Financial decision-making",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -1636,7 +1673,8 @@
       "doi": "https://doi.org/10.5964/jspp.8017",
       "citation": "Sinclair, S., Nilsson, A., & Agerström, J. (2022). Tolerating the intolerant: Does realistic threat lead to increased tolerance of right-wing extremists? The Journal of Social and Political Psychology, 10(1), 35-47. https://doi.org/10.5964/jspp.8017 Lindkvist, A. M., & Luke, T. J. (2022). Set size and donation behavior. Frontiers in Psychology, 13. https://doi.org/10.3389/fpsyg.2022.800528",
       "topics": [
-        "Social norms & morality"
+        "Social norms & morality",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -1651,8 +1689,8 @@
       "doi": "https://doi.org/10.1177/0272989X221079354",
       "citation": "Tinghög, G., & Strand, L. (2022). Medical decision style and COVID-19 behavior. Medical Decision Making, 42(6). https://doi.org/10.1177/0272989X221079354",
       "topics": [
-        "Judgment & decision-making",
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Judgment & decision-making"
       ]
     },
     {
@@ -1669,7 +1707,7 @@
       "citation": "Aspernäs, J., Erlandsson, A., & Nilsson, A. (2022). Motivated formal reasoning: Ideological belief bias in syllogistic reasoning across diverse political issues. Thinking & Reasoning, 1-27. https://doi.org/10.1080/13546783.2022.2038268",
       "topics": [
         "Judgment & decision-making",
-        "Social norms & morality"
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -1686,7 +1724,7 @@
       "doi": "",
       "citation": "Gärtner, M., Andersson, D., Västfjäll, D., & Tinghög, G. (2022). Affect and prosocial behavior: The role of decision mode and individual processing style. Judgment and Decision Making, 17(1), 1. https://sjdm.org/journal/21/211104/jdm211104.pdf",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making",
         "Emotion & wellbeing"
       ]
@@ -1705,7 +1743,7 @@
       "doi": "",
       "citation": "Moche, H., Gordon-Hecker, T., Kogut, T., & Västfjäll, D. (2022). Thinking, good and bad? Deliberative thinking and the singularity effect in charitable giving. Judgment and Decision Making, 17(1), 14. https://sjdm.org/journal/21/211026b/jdm211026b.pdf",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making"
       ]
     },
@@ -1726,7 +1764,8 @@
       "doi": "https://doi.org/10.1038/s41467-021-27668-9",
       "citation": "Van Bavel, J. J., Cichocka, A., Capraro, V., Sjåstad, H., Nezlek, J. B., Pavlović, T., ... & Jørgensen, F. J. (2022). National identity predicts public health support during a global pandemic. Nature communications, 13(1), 1-14. https://doi.org/10.1038/s41467-021-27668-9",
       "topics": [
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -1746,7 +1785,9 @@
       "doi": "https://doi.org/10.1073/pnas.2117543119",
       "citation": "Flores, A., Cole, J. C., Dickert, S., Eom, K., Jiga-Boy, G. M., Kogut, T., ... & Van Boven, L. (2022). Politicians polarize and experts depolarize public support for COVID-19 management policies across countries. Proceedings of the National Academy of Sciences, 119(3). https://doi.org/10.1073/pnas.2117543119",
       "topics": [
-        "Social norms & morality"
+        "Health & medical decisions",
+        "Politics, ideology & beliefs",
+        "Nudges & public policy"
       ]
     },
     {
@@ -1783,7 +1824,7 @@
       "doi": "",
       "citation": "Hansson, K., Persson, E., Davidai, S., & Tinghög, G. (2021). En illusion av orättvisa? Hur information om rättvisa minskar själviskt beteende. Ekonomisk debatt. https://www.nationalekonomi.se/sites/default/files/2021/12/49-8-khepsdgt.pdf",
       "topics": [
-        "Other"
+        "Fairness & social preferences"
       ]
     },
     {
@@ -1800,7 +1841,8 @@
       "doi": "https://doi.org/10.1017/bpp.2021.34",
       "citation": "Strömbäck, C., Andersson, D., Västfjäll, D., & Tinghög, G. (2021). Motivated reasoning, fast and slow. Behavioural Public Policy, 1–16. https://doi.org/10.1017/bpp.2021.34",
       "topics": [
-        "Judgment & decision-making"
+        "Judgment & decision-making",
+        "Nudges & public policy"
       ]
     },
     {
@@ -1854,8 +1896,8 @@
       "doi": "https://doi.org/10.1016/j.jebo.2021.10.015",
       "citation": "Tinghög, G., Ahmed, A., Barrafrem, K., Lind, T., Skagerlund, K., & Västfjäll, D. (2021). Gender differences in financial literacy: The role of stereotype threat. Journal of Economic Behavior & Organization, 192, 405-416. https://doi.org/10.1016/j.jebo.2021.10.015",
       "topics": [
-        "Behavioral economics",
-        "Health & medical decisions"
+        "Financial decision-making",
+        "Behavioral economics"
       ]
     },
     {
@@ -1869,7 +1911,9 @@
       "doi": "",
       "citation": "Tinghög, G. (2021). Alternativkostnadens psykologi – känslor och kostnadseffektivitet vid beslut i offentlig sektor. SNS Analys 77. https://www.sns.se/artiklar/sns-analys-77-alternativkostnadens-psykologi-kanslor-och-kostnadseffektivitet-vid-beslut-i-offentlig-sektor/",
       "topics": [
-        "Other"
+        "Judgment & decision-making",
+        "Nudges & public policy",
+        "Emotion & wellbeing"
       ]
     },
     {
@@ -1883,7 +1927,7 @@
       "doi": "",
       "citation": "Erlandsson, A. (2021). Seven (weak and strong) helping effects systematically tested in separate evaluation, joint evaluation and forced choice. Judgment and Decision Making, 16(5), 1113-1154. http://journal.sjdm.org/21/210705/jdm210705.html",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making"
       ]
     },
@@ -1899,7 +1943,7 @@
       "doi": "https://doi.org/10.1080/15534510.2021.1995482",
       "citation": "Moche, H. & Västfjäll, D. (2021). Helping the child or the adult? Systematically testing the identifiable victim effect of child and adult victims. Social Influence. https://doi.org/10.1080/15534510.2021.1995482",
       "topics": [
-        "Prosociality & cooperation"
+        "Prosociality & charitable giving"
       ]
     },
     {
@@ -1915,6 +1959,7 @@
       "doi": "https://doi.org/10.1016/j.joep.2021.102408",
       "citation": "Barrafrem, K., Västfjäll, D., & Tinghög, G. (2021). The arithmetic of outcome editing in financial and social domains. Journal of Economic Psychology, 86. https://doi.org/10.1016/j.joep.2021.102408",
       "topics": [
+        "Financial decision-making",
         "Behavioral economics"
       ]
     },
@@ -1953,8 +1998,7 @@
       "citation": "Hansson, K., Persson, E., Davidai, S., & Tinghög, G. (2021). Losing sense of fairness: How information about a level playing field reduces selfish behavior. Journal of Economic Behavior & Organization, 190, 66–75. https://doi.org/10.1016/j.jebo.2021.07.014",
       "topics": [
         "Fairness & social preferences",
-        "Behavioral economics",
-        "Health & medical decisions"
+        "Behavioral economics"
       ]
     },
     {
@@ -1969,10 +2013,9 @@
       "doi": "https://doi.org/10.1080/17439760.2021.1940248",
       "citation": "Moche, H. & Västfjäll, D. (2021). To give or to take money? The effects of choice on prosocial spending and happiness. The Journal of Positive Psychology. https://doi.org/10.1080/17439760.2021.1940248",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making",
-        "Behavioral economics",
-        "Emotion & wellbeing"
+        "Behavioral economics"
       ]
     },
     {
@@ -1986,7 +2029,8 @@
       "doi": "",
       "citation": "Erlandsson, A. (2021). Smittminskningsprosocialitet. Hjälpandets psykologi i en pandemi. Statsvetenskaplig tidskrift, 123(5). https://journals.lub.lu.se/st/article/view/23307/20730",
       "topics": [
-        "Prosociality & cooperation"
+        "Prosociality & charitable giving",
+        "Health & medical decisions"
       ]
     },
     {
@@ -2019,7 +2063,7 @@
       "doi": "https://doi.org/10.1016/j.jbusres.2021.04.076",
       "citation": "Hinterhuber, A., Kienzler, M., & Liozu, S. (2021). New product pricing in business markets: The role of psychological traits. Journal of Business Research, 133, 231-241. https://doi.org/10.1016/j.jbusres.2021.04.076",
       "topics": [
-        "Other"
+        "Behavioral economics"
       ]
     },
     {
@@ -2037,6 +2081,7 @@
       "doi": "https://doi.org/10.1016/j.cognition.2021.104768",
       "citation": "Persson, E., Andersson, D., Koppel, L., Västfjäll, D., & Tinghög, G. (2021). A preregistered replication of motivated numeracy. Cognition, 214. https://doi.org/10.1016/j.cognition.2021.104768",
       "topics": [
+        "Numeracy & cognitive abilities",
         "Research methods & integrity"
       ]
     },
@@ -2053,9 +2098,9 @@
       "doi": "https://doi.org/10.1016/j.jbef.2021.100514",
       "citation": "Barrafrem, K., Tinghög, G., and Västfjäll, D. (2021). Trust in the government increases financial well-being and general well-being during COVID-19. Journal of Behavioral and Experimental Finance. 31: 100514. https://doi.org/10.1016/j.jbef.2021.100514",
       "topics": [
-        "Behavioral economics",
-        "Social norms & morality",
-        "Emotion & wellbeing"
+        "Financial decision-making",
+        "Health & medical decisions",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -2071,7 +2116,8 @@
       "doi": "https://doi.org/10.1017/bpp.2021.10",
       "citation": "Gråd, E., Erlandsson, A., & Tinghög, G. (2021). Do nudges crowd out prosocial behavior? Behavioural Public Policy, 1-14. https://doi.org/10.1017/bpp.2021.10",
       "topics": [
-        "Prosociality & cooperation"
+        "Prosociality & charitable giving",
+        "Nudges & public policy"
       ]
     },
     {
@@ -2087,8 +2133,7 @@
       "doi": "https://doi.org/10.1002/bdm.2244",
       "citation": "Andersson, P. A., Erlandsson, A., & Västfjäll, D. (2021). Norm avoiders: The effect of optional descriptive norms on charitable donations. Journal of Behavioral Decision Making. Advance online publication. https://doi.org/10.1002/bdm.2244",
       "topics": [
-        "Prosociality & cooperation",
-        "Judgment & decision-making",
+        "Prosociality & charitable giving",
         "Social norms & morality"
       ]
     },
@@ -2128,7 +2173,8 @@
       "doi": "https://doi.org/10.1002/bdm.2242",
       "citation": "Skagerlund, K., Forsblad, M., Tinghög, G., & Västfjäll, D. (2021). Decision-making competence and cognitive abilities: Which abilities matter? Journal of Behavioral Decision Making, 1-18. https://doi.org/10.1002/bdm.2242",
       "topics": [
-        "Judgment & decision-making"
+        "Judgment & decision-making",
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -2144,7 +2190,8 @@
       "doi": "https://doi.org/10.1016/j.dcn.2021.100933",
       "citation": "Skagenholt, M., Skagerlund, K., & Träff, U. (2021). Neurodevelopmental differences in child and adult number processing: An fMRI-based validation of the Triple Code Model. Developmental Cognitive Neuroscience, 48(14), 100933. https://doi.org/10.1016/j.dcn.2021.100933",
       "topics": [
-        "Judgment & decision-making",
+        "Numeracy & cognitive abilities",
+        "Research methods & integrity",
         "Neuroscience & physiology"
       ]
     },
@@ -2161,7 +2208,7 @@
       "doi": "https://doi.org/10.1080/13676261.2020.1768229",
       "citation": "Renström, E. A., Aspernäs, J., & Bäck, H. (2020). The young protester: The impact of belongingness needs on political engagement. Journal of Youth Studies, 24, 781–798. https://doi.org/10.1080/13676261.2020.1768229",
       "topics": [
-        "Social norms & morality"
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -2175,7 +2222,8 @@
       "doi": "",
       "citation": "Erlandsson, A. (2020). Hjälpdilemman: Beslutsfattande när man inte kan hjälpa alla i nöd. Statsvetenskaplig Tidskrift, 122(4), 601–624. https://journals.lub.lu.se/st/article/view/22358/19939 [English translation: https://psyarxiv.com/dvn36/]",
       "topics": [
-        "Other"
+        "Prosociality & charitable giving",
+        "Judgment & decision-making"
       ]
     },
     {
@@ -2191,7 +2239,8 @@
       "doi": "https://doi.org/10.1016/j.jbef.2020.100410",
       "citation": "Barrafrem, K, Västfjäll, D, & Tinghög, G. (2020). Financial well-being, COVID-19, and the financial better-than-average-effect. Journal of Behavioral and Experimental Finance, 28. https://doi.org/10.1016/j.jbef.2020.100410",
       "topics": [
-        "Behavioral economics",
+        "Financial decision-making",
+        "Health & medical decisions",
         "Emotion & wellbeing"
       ]
     },
@@ -2208,7 +2257,7 @@
       "doi": "https://doi.org/10.1371/journal.pone.0243808",
       "citation": "Erlandsson, A., Wingren, M., & Andersson, P. A. (2020). Type and amount of help as predictors for impression of helpers. PloS ONE, 15(12), e0243808. https://doi.org/10.1371/journal.pone.0243808",
       "topics": [
-        "Other"
+        "Prosociality & charitable giving"
       ]
     },
     {
@@ -2225,8 +2274,7 @@
       "doi": "https://doi.org/10.1558/jcsr.41002",
       "citation": "Karlsson, H., Hellström, S., Moche, H., & Västfjäll, D. (2020). Unit asking - a method for increasing donations: A replication and extension. Judgment and Decision Making, 15(4), 989–993. http://journal.sjdm.org/20/200508/jdm200508.html Hallin, N., Västfjäll, D., & Andersson, G. (2020). Bias against atheists and religious persons in Sweden. Journal for the Cognitive Science of Religion, 5(2), 205–22. https://doi.org/10.1558/jcsr.41002",
       "topics": [
-        "Prosociality & cooperation",
-        "Judgment & decision-making",
+        "Prosociality & charitable giving",
         "Research methods & integrity"
       ]
     },
@@ -2244,7 +2292,7 @@
       "doi": "https://doi.org/10.1038/s41598-020-76923-4",
       "citation": "Persson, E., Heilig, M., Tinghög, G., & Capusan, A. J. (2020). Using quantitative trait in adults with ADHD to test predictions of dual-process theory. Scientific Reports, 10: 20076. https://doi.org/10.1038/s41598-020-76923-4",
       "topics": [
-        "Other"
+        "Judgment & decision-making"
       ]
     },
     {
@@ -2277,8 +2325,7 @@
       "doi": "https://doi.org/10.1007/978-3-030-45500-2",
       "citation": "Västfjäll, D. & Slovic, P. (2020). A psychological perspective on charitable giving and monetary donations: The role of affect. In T. Zaleskiewicz & J. Traczyk (Eds.), Psychological Perspectives on Financial Decision Making. Springer International Publishing. https://doi.org/10.1007/978-3-030-45500-2",
       "topics": [
-        "Prosociality & cooperation",
-        "Judgment & decision-making",
+        "Prosociality & charitable giving",
         "Behavioral economics",
         "Emotion & wellbeing"
       ]
@@ -2301,7 +2348,8 @@
       "doi": "https://doi.org/10.1037/pag0000576",
       "citation": "Bjälkebring, P., Henning, G., Västfjäll, D., Dickert, S., Brehmer, Y., Buratti, S., Hansson, I., & Johansson, B. (2020). Helping out or helping yourself? Volunteering and life satisfaction across the retirement transition. Psychology and Aging. Advance online publication. https://doi.org/10.1037/pag0000576",
       "topics": [
-        "Prosociality & cooperation"
+        "Prosociality & charitable giving",
+        "Emotion & wellbeing"
       ]
     },
     {
@@ -2316,7 +2364,8 @@
       "doi": "https://doi.org/10.1371/journal.pone.0236627",
       "citation": "Nilsson, A. & Jost, J. T. (2020). Rediscovering Tomkins’ polarity theory: Humanism, normativism, and the psychological basis of left-right ideological conflict in the U.S. and Sweden. PLoS ONE, 15(7):e0236627. https://doi.org/10.1371/journal.pone.0236627",
       "topics": [
-        "Social norms & morality"
+        "Social norms & morality",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -2331,7 +2380,7 @@
       "doi": "https://doi.org/10.1016/j.cobeha.2020.03.003",
       "citation": "Nilsson, A. & Jost, J. T. (2020). The authoritarian-conservatism nexus. Current Opinion in Behavioural Sciences, 34, 148-154. https://doi.org/10.1016/j.cobeha.2020.03.003",
       "topics": [
-        "Other"
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -2349,7 +2398,7 @@
       "doi": "https://doi.org/10.1073/pnas.2001583117",
       "citation": "Slovic, P., Mertz, C.K., Markowitz, D.M., Quist, A., Västfjäll, D., 2020. Virtuous violence from the war room to death row. Proceedings of the National Academy of Sciences, https://doi.org/10.1073/pnas.2001583117",
       "topics": [
-        "Other"
+        "Social norms & morality"
       ]
     },
     {
@@ -2369,7 +2418,7 @@
       "doi": "",
       "citation": "Erlandsson, A., Lindkvist, A., Lundqvist, K., Andersson, P.A., Dickert, S., Slovic, P., Västfjäll, D., 2020. Moral preferences in helping dilemmas expressed by matching and forced choice. Judgment & Decision Making, 15(4), 452-475. https://journal.sjdm.org/20/200428/jdm200428.pdf",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making",
         "Social norms & morality"
       ]
@@ -2388,8 +2437,7 @@
       "doi": "https://doi.org/10.1080/09297049.2020.1739259",
       "citation": "Träff, U., Olsson, L., Östergren, R., & Skagerlund, K. (2020). Development of early domain-specific and domain-general cognitive precursors of high and low math achievers in grade 6. Child Neuropsychology. https://doi.org/10.1080/09297049.2020.1739259",
       "topics": [
-        "Judgment & decision-making",
-        "Neuroscience & physiology"
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -2408,8 +2456,7 @@
       "topics": [
         "Risk & uncertainty",
         "Judgment & decision-making",
-        "Emotion & wellbeing",
-        "Research methods & integrity"
+        "Emotion & wellbeing"
       ]
     },
     {
@@ -2425,7 +2472,8 @@
       "doi": "https://doi.org/10.1016/j.labeco.2020.101860",
       "citation": "Granberg, M., Andersson, P. A., & Ahmed, A. (2020). Hiring discrimination against transgender people: Evidence from a field experiment. Labour Economics, 101860. https://doi.org/10.1016/j.labeco.2020.101860",
       "topics": [
-        "Behavioral economics"
+        "Behavioral economics",
+        "Social norms & morality"
       ]
     },
     {
@@ -2442,8 +2490,9 @@
       "doi": "https://doi.org/10.1016/j.jbef.2020.100339",
       "citation": "Strömbäck, C., Skagerlund, K., Västfjäll, D., & Tinghög, G. (2020). Subjective self-control but not objective measures of executive functions predicts financial behavior and well-being. Journal of Behavioral and Experimental Finance, 27. https://doi.org/10.1016/j.jbef.2020.100339",
       "topics": [
-        "Behavioral economics",
-        "Emotion & wellbeing"
+        "Financial decision-making",
+        "Emotion & wellbeing",
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -2460,9 +2509,8 @@
       "doi": "https://doi.org/10.1016/j.socec.2020.101561",
       "citation": "Andersson, P.A., Erlandsson, A., Västfjäll, D., & Tinghög, G. (2020). Prosocial and moral behavior under decision reveal in a public environment. Journal of Behavioral and Experimental Economics. https://doi.org/10.1016/j.socec.2020.101561",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making",
-        "Behavioral economics",
         "Social norms & morality"
       ]
     },
@@ -2482,7 +2530,8 @@
       "doi": "",
       "citation": "Lindauer, M., Mayorga, M., Greene, J., Slovic, P., Västfjäll, D., & Singer, P. (2020). Comparing the effect of rational and emotional appeals on donation behavior. Judgment and Decision Making, 15, 413–420. www.sjdm.org/journal/18/18703b/jdm18703b.pdf",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
+        "Judgment & decision-making",
         "Emotion & wellbeing"
       ]
     },
@@ -2499,6 +2548,7 @@
       "doi": "https://doi.org/10.1038/s41586-020-2314-9",
       "citation": "Botvinik-Nezer, R., Holzmeister, F., ... Schonberg, T. (2020). Variability in the analysis of a single neuroimaging dataset by many teams. Nature. https://doi.org/10.1038/s41586-020-2314-9",
       "topics": [
+        "Research methods & integrity",
         "Neuroscience & physiology"
       ]
     },
@@ -2515,7 +2565,8 @@
       "doi": "https://doi.org/10.1016/j.jbusres.2020.04.027",
       "citation": "Benoit, S., Kienzler, M., & Kowalkowski, C. (2020). Intuitive pricing by independent store managers: Challenging beliefs and practices. Journal of Business Research, 115, 70-84. https://doi.org/10.1016/j.jbusres.2020.04.027",
       "topics": [
-        "Other"
+        "Judgment & decision-making",
+        "Behavioral economics"
       ]
     },
     {
@@ -2531,7 +2582,7 @@
       "doi": "https://doi.org/10.1002/per.2256",
       "citation": "Nilsson, A., Erlandsson, A., & Västfjäll, D. (2020). Moral foundations theory and the psychology of charitable giving. European Journal of Personality. https://doi.org/10.1002/per.2256",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Social norms & morality"
       ]
     },
@@ -2552,7 +2603,8 @@
       "citation": "Nilsson, A., Montgomery, H., Dimdins, G., Sandgren, M., Erlandsson, A., & Taleny, A. (2020). Beyond ‘liberals’ and ‘conservatives’: Complexity in ideology, moral intuitions, and worldview among Swedish voters. European Journal of Personality. https://doi.org/10.1002/per.2249",
       "topics": [
         "Judgment & decision-making",
-        "Social norms & morality"
+        "Social norms & morality",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -2569,7 +2621,8 @@
       "doi": "",
       "citation": "Nilsson, A., Erlandsson, E. Västfjäll, D., & Tinghög, G. (in press). Who are the opponents of nudging? Insights from moral foundations theory. Comprehensive Results in Social Psychology. View accepted manuscript",
       "topics": [
-        "Social norms & morality"
+        "Social norms & morality",
+        "Nudges & public policy"
       ]
     },
     {
@@ -2584,7 +2637,6 @@
       "doi": "https://doi.org/10.1007/s12553-020-00424-7",
       "citation": "Gustavsson, E. & Tinghög, G. (2020). Needs and cost-effectiveness in health care priority setting. Health and Technology. https://doi.org/10.1007/s12553-020-00424-7",
       "topics": [
-        "Behavioral economics",
         "Health & medical decisions"
       ]
     },
@@ -2604,6 +2656,7 @@
       "doi": "https://doi.org/10.1007/s10834-020-09678-9",
       "citation": "Lind, T., Ahmed, A., Skagerlund, K., Strömbäck, C., Västfjäll, D., & Tinghög, G. (2020). Competence, confidence, and gender: The role of objective and subjective financial knowledge in household finance. Journal of Family and Economic Issues. https://doi.org/10.1007/s10834-020-09678-9",
       "topics": [
+        "Financial decision-making",
         "Behavioral economics"
       ]
     },
@@ -2625,8 +2678,9 @@
       "doi": "https://doi.org/10.1007/s40881-020-00084-3",
       "citation": "Kvarven, A., Strømland, E., Wollbrant, C., Andersson, D., Johannesson, M., Tinghög, G., Västfjäll, D., & Myrseth, K.O.R. (2020). The intuitive cooperation hypothesis revisited: A meta-analytic examination of effect-size and between-study heterogeneity. Journal of the Economic Science Association. https://doi.org/10.1007/s40881-020-00084-3",
       "topics": [
-        "Prosociality & cooperation",
-        "Behavioral economics"
+        "Prosociality & charitable giving",
+        "Judgment & decision-making",
+        "Research methods & integrity"
       ]
     },
     {
@@ -2643,7 +2697,7 @@
       "doi": "https://doi.org/10.3389/fpsyg.2019.03035",
       "citation": "Moche, H., Erlandsson, A., Andersson, D., & Västfjäll, D. (2020). Opportunity cost in monetary donation decisions to non-identified and identified victims. Frontiers in Psychology. https://doi.org/10.3389/fpsyg.2019.03035",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making",
         "Behavioral economics"
       ]
@@ -2660,8 +2714,9 @@
       "doi": "https://doi.org/10.1016/j.jebo.2019.12.012",
       "citation": "Persson, E., & Tinghög, G. (2020). Opportunity cost neglect in public policy. Journal of Economic Behavior & Organization. https://doi.org/10.1016/j.jebo.2019.12.012",
       "topics": [
+        "Judgment & decision-making",
         "Behavioral economics",
-        "Health & medical decisions"
+        "Nudges & public policy"
       ]
     },
     {
@@ -2693,7 +2748,6 @@
       "doi": "",
       "citation": "Forsberg, E., Nilsson, A., & Jørgensen, Ø. (2019). Moral dichotomization at the heart of prejudice: The role of intolerance of ambiguity and moral foundations in generalized prejudice. Social Psychological and Personality Science,10(8), 1002–1010.",
       "topics": [
-        "Risk & uncertainty",
         "Social norms & morality"
       ]
     },
@@ -2728,7 +2782,8 @@
       "doi": "",
       "citation": "Asutay, E. & Västfjäll, D. (2019). Sound and emotion. In M. Grimshaw-Aagaard, M. Walther-Hansen, & M. Knakkergaard (Eds.), The Oxford Handbook of Sound and Imagination, Volume 2 (pp. 369-390). New York: Oxford University Press.",
       "topics": [
-        "Emotion & wellbeing"
+        "Emotion & wellbeing",
+        "Perception & attention"
       ]
     },
     {
@@ -2762,7 +2817,9 @@
       "doi": "https://doi.org/10.1093/jrs/fez068",
       "citation": "Garinther, A., Mayorga, M., Västfjäll, D., & Slovic, P. (2019). Information spotlighting on Americans' decisions surrounding refugee resettlement policy. Journal of Refugee Studies, fez068. https://doi.org/10.1093/jrs/fez068",
       "topics": [
-        "Judgment & decision-making"
+        "Judgment & decision-making",
+        "Politics, ideology & beliefs",
+        "Nudges & public policy"
       ]
     },
     {
@@ -2780,7 +2837,8 @@
       "doi": "https://doi.org/10.3389/fpsyg.2019.01929",
       "citation": "Träff, U., Olsson, L., Skagerlund, K., Skagenholt, M., & Östergren. R. (2019). Logical reasoning, spatial processing, and verbal working memory: Longitudinal predictors of physics achievement at age 12-13 years. Frontiers in Psychology, 10:1929. https://doi.org/10.3389/fpsyg.2019.01929",
       "topics": [
-        "Judgment & decision-making"
+        "Judgment & decision-making",
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -2795,8 +2853,8 @@
       "doi": "https://doi.org/10.1007/s11238-019-09714-7",
       "citation": "Martinsson, P., & Persson, E. (2019). Physician behavior and conditional altruism: The effects of payment system and uncertain health benefit. Theory and Decision. https://doi.org/10.1007/s11238-019-09714-7",
       "topics": [
-        "Prosociality & cooperation",
-        "Judgment & decision-making",
+        "Prosociality & charitable giving",
+        "Risk & uncertainty",
         "Health & medical decisions"
       ]
     },
@@ -2814,9 +2872,8 @@
       "doi": "https://doi.org/10.1002/hec.3933",
       "citation": "Persson, E., Barrafrem, K., Meunier, A., & Tinghög, G. (2019). The effect of decision fatigue on surgeons' clinical decision making. Health Economics. https://doi.org/10.1002/hec.3933",
       "topics": [
-        "Judgment & decision-making",
-        "Behavioral economics",
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Judgment & decision-making"
       ]
     },
     {
@@ -2849,8 +2906,7 @@
       "citation": "Barrafrem, K. & Hausfield, J. (2019). Tracing risky decisions for oneself and others: The role of intuition and deliberation. Journal of Economic Psychology, 73, 89–101. https://doi.org/10.1016/j.joep.2019.05.004",
       "topics": [
         "Risk & uncertainty",
-        "Judgment & decision-making",
-        "Behavioral economics"
+        "Judgment & decision-making"
       ]
     },
     {
@@ -2870,7 +2926,7 @@
       "doi": "https://doi.org/10.1177/0956797619849894",
       "citation": "Persson, E., Asutay, E., Heilig, M., Löfberg, A., Pedersen, N., Västfjäll, D., & Tinghög, G. (2019). Variation in the μ-opioid receptor gene (OPRM1) does not moderate social-rejection sensitivity in humans. Psychological Science. https://doi.org/10.1177/0956797619849894",
       "topics": [
-        "Other"
+        "Neuroscience & physiology"
       ]
     },
     {
@@ -2887,7 +2943,7 @@
       "doi": "",
       "citation": "Träff, U., Olsson, L., Skagerlund, K., & Östergren. R. (2019). Kindergarten domain-specific and domain-general cognitive precursors of hierarchical mathematical development: A longitudinal study. Journal of Educational Psychology. DOI: 10.1037/edu0000369",
       "topics": [
-        "Judgment & decision-making"
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -2905,7 +2961,7 @@
       "doi": "",
       "citation": "Hagman, W., Erlandsson, A., Dickert, S., Tinghög, G. & Västfjäll, D. (2019). The effect of paternalistic alternatives on attitudes toward default nudges. Behavioral Public Policy.",
       "topics": [
-        "Other"
+        "Nudges & public policy"
       ]
     },
     {
@@ -2923,7 +2979,8 @@
       "doi": "https://doi.org/10.1177/2059204319844161",
       "citation": "Baltazar, M., Västfjäll, D., Asutay, E., Koppel, L., & Saarikallio, S. (2019). Is it me or the music? Stress reduction and the role of regulation strategies and music. Music & Science, 2, 1–16. https://doi.org/10.1177/2059204319844161",
       "topics": [
-        "Other"
+        "Emotion & wellbeing",
+        "Perception & attention"
       ]
     },
     {
@@ -2957,7 +3014,8 @@
       "doi": "https://doi.org/10.1371/journal.pone.0211283",
       "citation": "Skagerlund, K., Östergren, R., Västfjäll, D., & Träff, U. (2019). How does mathematics anxiety impair mathematical abilities? Investigating the link between math anxiety, working memory, and number processing. PLoS ONE, 14(1): e0211283. https://doi.org/10.1371/journal.pone.0211283",
       "topics": [
-        "Other"
+        "Emotion & wellbeing",
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -2974,7 +3032,7 @@
       "doi": "https://doi.org/10.1016/j.econlet.2018.12.029",
       "citation": "Knutsson, M., Martinsson, P., Persson, E., & Wollbrant, C. (2019). Gender differences in altruism: Evidence from a natural field experiment on matched donations. Economics Letters, 176, 47–50. https://doi.org/10.1016/j.econlet.2018.12.029",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Behavioral economics"
       ]
     },
@@ -2991,7 +3049,7 @@
       "doi": "https://doi.org/10.1177/0146167219830415",
       "citation": "Nilsson, A., Erlandsson, A., & Västfjäll, D. (2018). The complex relation between receptivity to pseudo-profound bullshit and political ideology. Personality and Social Psychology Bulletin. https://doi.org/10.1177/0146167219830415",
       "topics": [
-        "Social norms & morality"
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -3009,7 +3067,7 @@
       "doi": "https://doi.org/10.1177/0899764018819872",
       "citation": "Erlandsson, A., Nilsson, A., Tinghög, G., Andersson, D., & Västfjäll, D. (2018). Donations to outgroup-charities, but not ingroup-charities, predict helping intentions towards street-beggars in Sweden. Nonprofit and Voluntary Sector Quarterly. https://doi.org/10.1177/0899764018819872",
       "topics": [
-        "Prosociality & cooperation"
+        "Prosociality & charitable giving"
       ]
     },
     {
@@ -3024,8 +3082,8 @@
       "doi": "",
       "citation": "Tinghög, G. & Västfjäll, D. (2018). Why people hate health economics – two psychological explanations. Linköping University Working Papers in Economics. http://liu.diva-portal.org/smash/record.jsf?pid=diva2%3A1221921&dswid=-8560",
       "topics": [
-        "Behavioral economics",
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Behavioral economics"
       ]
     },
     {
@@ -3041,8 +3099,8 @@
       "doi": "",
       "citation": "Lyttkens, C. H., Gerdtham, U.-G., Tinghög, G. (2018). Do we know what we are doing? An exploratory study on Swedish health economists and the EQ-5D. Scandinavian Working Papers in Economics.",
       "topics": [
-        "Behavioral economics",
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Behavioral economics"
       ]
     },
     {
@@ -3062,7 +3120,7 @@
       "doi": "https://doi.org/10.1162/jocn_a_01367",
       "citation": "Skagerlund, K. Bolt, T., Nomi, J., Skagenholt, M., Västfjäll, T., Träff, U., & Uddin, L. (2018). Disentangling mathematics from executive functions by investigating unique functional connectivity patterns predictive of mathematics ability. Journal of Cognitive Neuroscience. https://doi.org/10.1162/jocn_a_01367 | Figure S1 | Table S1",
       "topics": [
-        "Judgment & decision-making",
+        "Numeracy & cognitive abilities",
         "Neuroscience & physiology"
       ]
     },
@@ -3080,7 +3138,8 @@
       "doi": "https://doi.org/10.1017/bpp.2018.41",
       "citation": "Lind, T., Erlandsson, A., Västfjäll, D., & Tinghög, G. (2018). Motivated reasoning when assessing the effects of refugee intake. Behavioural Public Policy. https://doi.org/10.1017/bpp.2018.41",
       "topics": [
-        "Judgment & decision-making"
+        "Judgment & decision-making",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -3099,8 +3158,8 @@
       "doi": "https://doi.org/10.1177/0272989X18793637",
       "citation": "Persson, E., Andersson, D., Back, L., Davidson, T., Johannisson, E., & Tinghög, G. (2018). Discrepancy between health care rationing at the bedside and policy level. Medical Decision Making. https://doi.org/10.1177/0272989X18793637",
       "topics": [
-        "Judgment & decision-making",
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Nudges & public policy"
       ]
     },
     {
@@ -3155,8 +3214,7 @@
       "doi": "https://doi.org/10.1111/jasp.12552",
       "citation": "Erlandsson, A., Hohle, S. M., Løhre, E., & Västfjäll, D. (2018). The rise and fall of scary numbers: The effect of perceived trends on future estimates, severity ratings and help-allocations in a cancer context. Journal of Applied Social Psychology. https://doi.org/10.1111/jasp.12552",
       "topics": [
-        "Fairness & social preferences",
-        "Intertemporal choice"
+        "Prosociality & charitable giving"
       ]
     },
     {
@@ -3171,7 +3229,7 @@
       "doi": "",
       "citation": "Martinsson, P. & Persson, E. (2018). Public goods and minimum provision levels: Does the institutional formation affect cooperation? Scandinavian Journal of Economics. doi: 10.1111/sjoe.12321",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Behavioral economics",
         "Emotion & wellbeing"
       ]
@@ -3190,7 +3248,8 @@
       "doi": "",
       "citation": "Erlandsson, A., Nilsson, A., Tinghög, G., & Västfjäll, D. (2018). Bullshit-sensitivity predicts prosocial behaviour. PLoS ONE. doi: 10.1371/journal.pone.0201474",
       "topics": [
-        "Prosociality & cooperation"
+        "Prosociality & charitable giving",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -3210,9 +3269,7 @@
       "topics": [
         "Risk & uncertainty",
         "Judgment & decision-making",
-        "Behavioral economics",
-        "Emotion & wellbeing",
-        "Neuroscience & physiology"
+        "Emotion & wellbeing"
       ]
     },
     {
@@ -3229,6 +3286,7 @@
       "doi": "",
       "citation": "Skagenholt, M., Träff, U., Västfjäll, D., & Skagerlund, K. (2018). Examining the Triple Code Model in numerical cognition: An fMRI study. PLoS ONE. doi: 10.1371/journal.pone.0199247 Ekerstad, N., Karlson, B., Andersson, D., Husberg, M., Carlsson, P., Heintz, E., Alwin, J. (2018). Short-term resource utilization and cost-effectiveness of comprehensive geriatric assessment in acute hospital care for severely ill frail elderly patients. Journal of the American Medical Directors Association. doi: 10.1016/j.jamda.2018.04.003",
       "topics": [
+        "Numeracy & cognitive abilities",
         "Neuroscience & physiology"
       ]
     },
@@ -3243,9 +3301,8 @@
       "doi": "",
       "citation": "Gärtner, M. (2018). The prosociality of intuitive decisions depends on the status quo. Journal of Behavioral and Experimental Economics, 74, 127–138. doi: 10.1016/j.socec.2018.04.005",
       "topics": [
-        "Prosociality & cooperation",
-        "Judgment & decision-making",
-        "Behavioral economics"
+        "Prosociality & charitable giving",
+        "Judgment & decision-making"
       ]
     },
     {
@@ -3263,7 +3320,8 @@
       "doi": "",
       "citation": "Skagerlund, K., Lind, T., Strömbäck, C., Tinghög, G., & Västfjäll. D. (2018). Financial literacy and the role of numeracy – How individuals’ attitude and affinity with numbers influence financial literacy. Journal of Behavioral and Experimental Economics, 74, 18-25. doi: 10.1016/j.socec.2018.03.004",
       "topics": [
-        "Behavioral economics"
+        "Financial decision-making",
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -3280,7 +3338,7 @@
       "doi": "",
       "citation": "Träff, U., Olsson, L., Skagerlund, K., & Östergren, R. (2018). Cognitive mechanisms underlying third graders' arithmetic skills: Expanding the pathways to mathematics model. Journal of Experimental Child Psychology, 167, 369–387. doi: 10.1016/j.jecp.2017.11.010",
       "topics": [
-        "Judgment & decision-making"
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -3295,7 +3353,7 @@
       "citation": "Persson, E. (2018). Testing the impact of frustration and anger when responsibility is low. Journal of Economic Behavior & Organization. DOI: 10.1016/j.jebo.2017.12.001",
       "topics": [
         "Behavioral economics",
-        "Health & medical decisions"
+        "Emotion & wellbeing"
       ]
     },
     {
@@ -3311,7 +3369,7 @@
       "doi": "",
       "citation": "Erlandsson, A., Nilsson, A., & Västfjäll, D. (2018). Attitudes and donation behavior when reading positive and negative charity appeals. Journal of Nonprofit & Public Sector Marketing. doi: 10.1080/10495142.2018.1452828 O-Donnell, M., Nelson, L. D., Ackermann, E., Aczel, B., Akhtar, A., … & Zrubka, M. (2018). Registered replication report: Dijksterhuis & van Knippenberg (1998). Perspectives on Psychological Science, 13, 268-294. doi: 10.1177/1745691618755704",
       "topics": [
-        "Prosociality & cooperation"
+        "Prosociality & charitable giving"
       ]
     },
     {
@@ -3329,10 +3387,9 @@
       "doi": "",
       "citation": "Koppel, L., Andersson, D., Morrison, I., Västfjäll, D., & TInghög, G. (2017). The (null) effect of affective touch on betrayal aversion, altruism, and risk taking. Frontiers in Behavioral Neuroscience. DOI: 10.3389/fnbeh.2017.00251",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Risk & uncertainty",
-        "Emotion & wellbeing",
-        "Neuroscience & physiology"
+        "Emotion & wellbeing"
       ]
     },
     {
@@ -3352,7 +3409,6 @@
       "doi": "",
       "citation": "Eriksson, K., Strimling, P., Andersson, P., Aveyard, M., Brauer, M., Gritskov, V., . . . Yamagishi, T. (2017). Cultural universals and cultural differences in meta-norms about peer punishment. Management and Organization Review, 1-20. DOI: 10.1017/mor.2017.42",
       "topics": [
-        "Health & medical decisions",
         "Social norms & morality"
       ]
     },
@@ -3369,7 +3425,7 @@
       "doi": "",
       "citation": "Reigstad, A., Stromland, E. A., Tinghög, G. (2017). Extending the cooperative phenotype: Assessing the stability of cooperation across countries. Frontiers in Psychology. DOI: 10.3389/fpsyg.2017.01990",
       "topics": [
-        "Prosociality & cooperation"
+        "Prosociality & charitable giving"
       ]
     },
     {
@@ -3386,8 +3442,9 @@
       "doi": "",
       "citation": "Slovic, P., Gregory, R., Västfjäll, D., & Frank, D. (2017). How can we prevent the collapse of humanitarian values in foreign policy decisions? In R. E. Kasperson (Ed.), Risk conundrums (pp. 260–269). Abingdon, UK: Routledge.",
       "topics": [
-        "Risk & uncertainty",
-        "Judgment & decision-making"
+        "Prosociality & charitable giving",
+        "Judgment & decision-making",
+        "Nudges & public policy"
       ]
     },
     {
@@ -3404,8 +3461,7 @@
       "citation": "Kurz, V., Orland, A., & Posadzy, K. (2017). Fairness versus efficiency: How procedural fairness concerns affect coordination. Experimental Economics. DOI: 10.1007/s10683-017-9540-5",
       "topics": [
         "Fairness & social preferences",
-        "Behavioral economics",
-        "Emotion & wellbeing"
+        "Behavioral economics"
       ]
     },
     {
@@ -3420,7 +3476,8 @@
       "doi": "",
       "citation": "Asutay, E. & Västfjäll, D. (2017). Exposure to arousal-inducing sounds facilitates visual search. Scientific Reports, 7. DOI: 10.1038/s41598-017-09975-8",
       "topics": [
-        "Other"
+        "Emotion & wellbeing",
+        "Perception & attention"
       ]
     },
     {
@@ -3437,7 +3494,7 @@
       "doi": "",
       "citation": "Träff, U., Skagerlund, K., Olsson, L., & Östergren, R. (2017). Pathways to arithmetic fact retrieval and percentage calculation in adolescents. British Journal of Educational Psychology. DOI: 10.1111/bjep.12170",
       "topics": [
-        "Other"
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -3453,8 +3510,8 @@
       "doi": "",
       "citation": "Eriksson, K., Andersson, P. A., & Strimling, P. (2017). When is it appropriate to reprimand a norm violation? The roles of anger, behavioral consequences, violation severity, and social distance. Judgment and Decision Making, 12, 396-407.",
       "topics": [
-        "Judgment & decision-making",
-        "Social norms & morality"
+        "Social norms & morality",
+        "Emotion & wellbeing"
       ]
     },
     {
@@ -3471,8 +3528,7 @@
       "citation": "Gärtner, M., Mollerstrom, J., & Seim, D. (2017). Individual risk preferences and the demand for redistribution. Journal of Public Economics. DOI: https://doi.org/10.1016/j.jpubeco.2017.06.009",
       "topics": [
         "Fairness & social preferences",
-        "Risk & uncertainty",
-        "Behavioral economics"
+        "Risk & uncertainty"
       ]
     },
     {
@@ -3490,7 +3546,7 @@
       "doi": "",
       "citation": "Strömbäck, C., Lind, T., Skagerlund, K., Västfjäll, D., & Tinghög, G. (2017). Does self-control predict financial behavior and financial well-being? Journal of Behavioural and Experimental Finance. DOI: 10.1016/j.jbef.2017.04.002",
       "topics": [
-        "Behavioral economics",
+        "Financial decision-making",
         "Emotion & wellbeing"
       ]
     },
@@ -3559,7 +3615,7 @@
       "doi": "",
       "citation": "Gärtner, M. & Sandberg, A. (2017). Is there an omission effect in prosocial behavior? A laboratory experiment on passive vs. active generosity. PLoS ONE, 12(3), e0172496. DOI: 10.1371/journal.pone.0172496",
       "topics": [
-        "Prosociality & cooperation"
+        "Prosociality & charitable giving"
       ]
     },
     {
@@ -3575,7 +3631,8 @@
       "doi": "",
       "citation": "Saarikallio, S., Baltazar, M., & Västfjäll, D. (2017). Adolescents' musical relaxation: Understanding related affective processig. Nordic Journal of Music Therapy. DOI: 10.1080/08098131.2016.1276097",
       "topics": [
-        "Emotion & wellbeing"
+        "Emotion & wellbeing",
+        "Perception & attention"
       ]
     },
     {
@@ -3593,6 +3650,7 @@
       "citation": "Meunier, A., Posadzy, K., Tinghög, G., & Aspenberg, P. (2017). Risk preferences and attitudes in surgical decision-making. A survey of Swedish orthopaedic surgeons. Acta Orthopaedica. DOI: 10.1080/17453674.2017.1298353",
       "topics": [
         "Risk & uncertainty",
+        "Health & medical decisions",
         "Judgment & decision-making"
       ]
     },
@@ -3614,8 +3672,7 @@
       "topics": [
         "Risk & uncertainty",
         "Intertemporal choice",
-        "Judgment & decision-making",
-        "Behavioral economics"
+        "Judgment & decision-making"
       ]
     },
     {
@@ -3632,8 +3689,8 @@
       "doi": "",
       "citation": "Wiss, J., Levin, L.-Å., Andersson, D., & Tinghög, G. (2017). Prioritizing rare diseases: Psychological effects influencing medical decision making. Medical Decision Making. DOI: 10.1177/0272989X17691744",
       "topics": [
-        "Judgment & decision-making",
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Judgment & decision-making"
       ]
     },
     {
@@ -3649,7 +3706,7 @@
       "doi": "",
       "citation": "Erlandsson, A., Björklund, F., & Bäckström, M. (2017). Choice-justifications after allocating resources in helping dilemmas. Judgment and Decision Making, 12, 60–80.",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making"
       ]
     },
@@ -3667,7 +3724,8 @@
       "doi": "",
       "citation": "Slovic, P., Västfjäll, D., Erlandsson, A., & Gregory, R. (2016). Iconic photographs and the ebb and flow of empathic response to humanitarian disasters. PNAS, 114, 640–644. DOI: 10.1073/pnas.1613977114",
       "topics": [
-        "Other"
+        "Prosociality & charitable giving",
+        "Emotion & wellbeing"
       ]
     },
     {
@@ -3684,7 +3742,7 @@
       "doi": "",
       "citation": "Bjälkebring, P., Västfjäll, D., Dickert, S., & Slovic, P. (2016). Response: Commentary: Greater emotional gain from giving in older adults: Age-related positivity bias in charitable giving. Frontiers in Psychology, 7: 1887. DOI: 10.3389/fpsyg.2016.01887",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making",
         "Emotion & wellbeing"
       ]
@@ -3703,7 +3761,7 @@
       "doi": "",
       "citation": "Träff, U., Olsson, L., Östergren, R., & Skagerlund, K. (2016). Heterogeneity of developmental dyscalculia: Cases with different deficit profiles. Frontiers in Psychology, 7:2000, 1–15. DOI: 10.3389/fpsyg.2016.02000",
       "topics": [
-        "Other"
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -3718,7 +3776,7 @@
       "doi": "",
       "citation": "Asutay, E. & Västfjäll, D. (2016). Auditory attentional selection is biased by reward cues. Scientific Reports. DOI: 10.1038/srep36989",
       "topics": [
-        "Judgment & decision-making"
+        "Perception & attention"
       ]
     },
     {
@@ -3735,7 +3793,8 @@
       "doi": "",
       "citation": "Bergman, P., Västfjäll, D., Tajadura-Jiménez, A., & Asutay, E. (2016). Auditory-induced emotion mediates perceptual categorization of everyday sounds. Frontiers in Psychology, 7 (1565). DOI: 10.3389/fpsyg.2016.01565",
       "topics": [
-        "Emotion & wellbeing"
+        "Emotion & wellbeing",
+        "Perception & attention"
       ]
     },
     {
@@ -3755,7 +3814,7 @@
       "doi": "",
       "citation": "Tinghög, G., Andersson, D., Bonn, C., Johannesson, M., Kirchler, M., Koppel, L., & Västfjäll, D. (2016). Intuition and moral decision-making – the effect of time pressure and cognitive load on moral judgment and altruistic behavior. PLOS ONE.",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making",
         "Social norms & morality"
       ]
@@ -3773,6 +3832,7 @@
       "doi": "",
       "citation": "Skagerlund, K., Karlsson, T., & Träff, U. (2016). Magnitude processing in the brain: An fMRI study of time, space, and numberosity as a shared cortical system. Frontiers in Human Neuroscience, 10. DOI: 10.3389/fnhum.2016.00500",
       "topics": [
+        "Numeracy & cognitive abilities",
         "Neuroscience & physiology"
       ]
     },
@@ -3789,7 +3849,7 @@
       "doi": "",
       "citation": "Erlandsson, A., Jungstrand, A., & Västfjäll, D. (2016). Anticipated guilt for not helping and anticipated warm glow for helping are differently impacted by personal responsibility to help. Frontiers in Psychology, 7(1475). Doi: 10.3389/fpsyg.2016.01475",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Emotion & wellbeing"
       ]
     },
@@ -3807,7 +3867,8 @@
       "doi": "",
       "citation": "Eriksson, K., Strimling, P., Andersson, P. A., & Lindholm, T. (2016). Costly punishment in the ultimatum game evokes moral concern, in particular when framed as payoff reduction. Journal of Experimental Social Psychology. Doi: 10.1016/j.jesp.2016.09.004",
       "topics": [
-        "Behavioral economics",
+        "Fairness & social preferences",
+        "Judgment & decision-making",
         "Social norms & morality"
       ]
     },
@@ -3824,7 +3885,7 @@
       "doi": "",
       "citation": "Nilsson, A., Erlandsson, A., & Västfjäll, D. (2016). The congruency between moral Foundations and intentions to donate, self-reported donations, and actual donations to charity. Journal of Research in Personality. Doi: 10.1016/j.jrp.2016.07.001",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Social norms & morality"
       ]
     },
@@ -3842,8 +3903,8 @@
       "doi": "",
       "citation": "Erlandsson, A., Västfjäll, D., Sundfelt, O., & Slovic, P. (2016). Argument-inconsistency in charity appeals: Statistical information about the scope of the problem decrease helping toward a single identified victim but not helping toward many non-identified victims in a refugee crisis context. Journal of Economic Psychology. Doi: 10.1016/j.joep.2016.06.007",
       "topics": [
-        "Prosociality & cooperation",
-        "Behavioral economics"
+        "Prosociality & charitable giving",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -3860,7 +3921,7 @@
       "doi": "",
       "citation": "Bjälkebring, P., Västfjäll, D., Dickert, S., & Slovic, P. (2016). Greater emotional gain from giving in older adults: Age-related positivity bias in charitable giving. Frontiers in Psychology, 7. doi: 10.3389/fpsyg.2016.00846",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making",
         "Emotion & wellbeing"
       ]
@@ -3894,9 +3955,8 @@
       "doi": "",
       "citation": "Erlandsson, A. (2016). The when and why of helping: Individual and organizational decision making from a psychological perspective. EBA Development Dissertation Brief, 2, 1-23. http://eba.se/the-when-and-why-of-helping-individual-and-organizational-decision-making-from-a-psykological-perspective/.",
       "topics": [
-        "Prosociality & cooperation",
-        "Judgment & decision-making",
-        "Health & medical decisions"
+        "Prosociality & charitable giving",
+        "Judgment & decision-making"
       ]
     },
     {
@@ -3969,7 +4029,7 @@
       "doi": "",
       "citation": "Dickert, S., Kleber, J., Västfjäll, D., & Slovic, P. (2016). Mental imagery, impact, and affect: A mediation model for charitable giving. PLoS ONE, 11, e0148274. doi: 10.1371/journal.pone.0148274",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Emotion & wellbeing"
       ]
     },
@@ -3987,6 +4047,7 @@
       "doi": "",
       "citation": "Slovic, P., Västfjäll, D., Gregory, R., & Olson, K. G. (2016). Valuing lives you might save: Understanding psychic numbing in the face of genocide. In C. H. Anderton & J. Brauer (Eds.), Economic aspects of genocides, other mass atrocities, and their prevention (pp. 613–638). New York: Oxford University Press.",
       "topics": [
+        "Judgment & decision-making",
         "Behavioral economics"
       ]
     },
@@ -4005,7 +4066,9 @@
       "doi": "",
       "citation": "Helsing, M., Västfjäll, D., Bjälkebring, P., Juslin, P.N., & Hartig, T. (2016). An experimental field study of the effects of listening to self-selected music on emotions, stress, and cortisol Levels. Music & Medicine, 8, 4.",
       "topics": [
-        "Emotion & wellbeing"
+        "Emotion & wellbeing",
+        "Perception & attention",
+        "Neuroscience & physiology"
       ]
     },
     {
@@ -4020,7 +4083,8 @@
       "doi": "",
       "citation": "Nilsson, A., & Erlandsson, A. (2015). The moral Foundations taxonomy: Structural validity and relation to political ideology in Sweden. Personality and Individual Differences, 76(0), 28–32. Doi: 10.1016/j.paid.2014.11.049",
       "topics": [
-        "Social norms & morality"
+        "Social norms & morality",
+        "Politics, ideology & beliefs"
       ]
     },
     {
@@ -4054,8 +4118,7 @@
       "doi": "",
       "citation": "Erlandsson, A., Björklund, F., & Bäckström, M. (2015). Emotional reactions, perceived impact and perceived responsibility mediate the identifiable victim effect, proportion dominance effect and in-group effect respectively. Organizational Behavior and Human Decision Processes, 127(0), 1-14. doi: http://dx.doi.org/10.1016/j.obhdp.2014.11.003",
       "topics": [
-        "Judgment & decision-making",
-        "Health & medical decisions",
+        "Prosociality & charitable giving",
         "Emotion & wellbeing"
       ]
     },
@@ -4070,8 +4133,8 @@
       "doi": "",
       "citation": "Tinghög, G. (2015). Health care priority setting in practice: Seven unresolved problems. In E. Nagel (ed.) Legitimization and framework of decisions on prioritization in medicine. Springer.",
       "topics": [
-        "Judgment & decision-making",
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Judgment & decision-making"
       ]
     },
     {
@@ -4087,7 +4150,7 @@
       "doi": "",
       "citation": "Kogut, T., Slovic, P., & Västfjäll, D. (2015). Scope insensitivity in helping decisions: Is it a matter of Culture and values? Journal of Experimental Psychology General.",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making"
       ]
     },
@@ -4122,7 +4185,7 @@
       "doi": "",
       "citation": "Baberini, M., Coleman, C.-L., Slovic, P., & Västfjäll, D. (2015). Examining the effects of photographic attributes on sympathy, emotions, and donation behavior. Visual Communication Quarterly, 22.",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Emotion & wellbeing"
       ]
     },
@@ -4139,7 +4202,7 @@
       "doi": "",
       "citation": "Kogut, T., Slovic, P., & Västfjäll, D. (2015). The effect of recpient identifiability and neediness on children's sharing behavior. Journal of Behavioral Decision Making, 29, 353–362.",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making"
       ]
     },
@@ -4155,7 +4218,8 @@
       "doi": "",
       "citation": "Asutay, E. & Västfjäll, D. (2015). Attentional and emotional prioritization of the sounds occurring outside the visual field. Emotion, 15, ﻿281-286﻿.",
       "topics": [
-        "Emotion & wellbeing"
+        "Emotion & wellbeing",
+        "Perception & attention"
       ]
     },
     {
@@ -4170,9 +4234,8 @@
       "doi": "",
       "citation": "Asutay. E. & Västfjäll. D. (2015). Negative emotion provides cues for orienting auditory spatial attention. Frontiers in Psychology: Auditory Cognitive Neuroscience.",
       "topics": [
-        "Judgment & decision-making",
         "Emotion & wellbeing",
-        "Neuroscience & physiology"
+        "Perception & attention"
       ]
     },
     {
@@ -4189,7 +4252,7 @@
       "doi": "",
       "citation": "Hagman, W., Andersson, D., Västfjäll, D., & Tinghög, G. (2015). Public views on policies involving nudges. Review of Philosophy and Psychology.",
       "topics": [
-        "Other"
+        "Nudges & public policy"
       ]
     },
     {
@@ -4205,7 +4268,7 @@
       "doi": "",
       "citation": "Västfjäll, D., Slovic, P., & Mayorga, M. (2015). Pseudoinefficacy: Negative feelings from children who cannot be helped reduce warm glow for children who can be helped. Frontiers of Psychology.",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Emotion & wellbeing"
       ]
     },
@@ -4237,7 +4300,7 @@
       "doi": "",
       "citation": "Slovic, P., & Västfjäll, D. (2015). The more who die, the less we care: Psychic numbing and genocide. In S. Kaul & D. Kim (Eds.), Imagining human rights (pp. 55–68). Berlin: De Gruyter.",
       "topics": [
-        "Other"
+        "Judgment & decision-making"
       ]
     },
     {
@@ -4254,7 +4317,8 @@
       "doi": "",
       "citation": "Dickert, S., Västfjäll, D., Kleber, J., & Slovic, P. (2015). Scope insensitivity: The limits of intuitive valuation of human lives in public policy. Journal of Applied Research in Memory and Cognition, 4, 248-255. doi: 10.1016/j.jarmac.2014.09.002",
       "topics": [
-        "Other"
+        "Judgment & decision-making",
+        "Nudges & public policy"
       ]
     },
     {
@@ -4271,7 +4335,7 @@
       "doi": "",
       "citation": "Västfjäll, D., Slovic, P., Mayorga, M., & Peters, E. (2014). Compassion fade: Affect and Charity are greatest for a single Child in need. PLoS ONE, 9(6).",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Emotion & wellbeing"
       ]
     },
@@ -4306,10 +4370,9 @@
       "doi": "",
       "citation": "Dickert, S., Västfjäll, D., & Slovic, P. (2014). Neural economics and dual information processing underlying charitable giving. In E. A. Wilhelms & V. F. Reyna (Eds.), Neuroeconomics, Judgment, and Decision Making. Psychology Press.",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making",
-        "Behavioral economics",
-        "Neuroscience & physiology"
+        "Behavioral economics"
       ]
     },
     {
@@ -4326,7 +4389,8 @@
       "doi": "",
       "citation": "Dickert, S., Västfjäll, D., Mauro, R., & Slovic, P. (2014). The feeling of risk: Implications for risk perception and Communication. In H. Cho, T. Reimer, & K. McComas (Eds.), The Sage Handbook of Risk Communication. SAGE Publications.",
       "topics": [
-        "Risk & uncertainty"
+        "Risk & uncertainty",
+        "Emotion & wellbeing"
       ]
     },
     {
@@ -4342,8 +4406,9 @@
       "doi": "",
       "citation": "Erlandsson, A., Björklund, F., & Bäckström, M. (2014). Perceived utility (not sympathy) mediates the proportion dominance effect in helping decisions. Journal of Behavioral Decision Making, 27(1), 37-47. doi: 10.1002/bdm.1789",
       "topics": [
-        "Prosociality & cooperation",
-        "Judgment & decision-making"
+        "Prosociality & charitable giving",
+        "Judgment & decision-making",
+        "Emotion & wellbeing"
       ]
     },
     {
@@ -4358,8 +4423,8 @@
       "doi": "",
       "citation": "Asutay, E. & Västfjäll, D. (2014). Emotional bias in change deafness in multisource auditory environments. Journal of Experimental Psychology: General, 143, 27-32.",
       "topics": [
-        "Judgment & decision-making",
-        "Emotion & wellbeing"
+        "Emotion & wellbeing",
+        "Perception & attention"
       ]
     },
     {
@@ -4399,7 +4464,7 @@
       "doi": "",
       "citation": "Tinghög, G., Andersson, D., Bonn, C., Böttiger, H., Josephson, C., Lundgren, G., Västfjäll, D., Kirchler, M., & Johannesson, M. (2013). Intuition and cooperation reconsidered. NATURE 498:E1-E1, doi:10.1038/nature12193.",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Judgment & decision-making"
       ]
     },
@@ -4417,7 +4482,7 @@
       "doi": "",
       "citation": "Genevsky, A., Västfjäll, D., Slovic, P., & Knutson, B. (2013). The evaluable victim effect: Neural underpinnings of charitable behavior. The Journal of Neuroscience, 33, 17188-17196.",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Neuroscience & physiology"
       ]
     },
@@ -4436,7 +4501,8 @@
       "citation": "Carpenter, S., Peters, E., Västfjäll, D., & Isen, A. (2013). Positive feelings facilitate working memory and complex decision making among older adults. Cognition and Emotion, 27, 184-192.",
       "topics": [
         "Judgment & decision-making",
-        "Emotion & wellbeing"
+        "Emotion & wellbeing",
+        "Numeracy & cognitive abilities"
       ]
     },
     {
@@ -4488,7 +4554,8 @@
       "doi": "",
       "citation": "Markowitz, E. M., Slovic, P., Västfjäll, D., & Hodges, S. (2013). Compassion fade and the challenge of environmental conservation. Judgment and Decision Making, 8, 397–406.",
       "topics": [
-        "Judgment & decision-making"
+        "Environmental & climate decisions",
+        "Emotion & wellbeing"
       ]
     },
     {
@@ -4521,6 +4588,7 @@
       "doi": "",
       "citation": "Dickert, S., Västfjäll, D., Kleber, J., & Slovic, P. (2012). Valuation of human lives: Normative expectations and psychological mechanisms of (ir)rationality. Synthese, 189, 95-105.",
       "topics": [
+        "Judgment & decision-making",
         "Social norms & morality"
       ]
     },
@@ -4536,8 +4604,8 @@
       "citation": "Tinghög, G. (2012). Discounting preferences and paternalism in cost-effectiveness analysis. Health Care Analysis, 2, 297-318.",
       "topics": [
         "Intertemporal choice",
-        "Behavioral economics",
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Nudges & public policy"
       ]
     },
     {
@@ -4552,6 +4620,7 @@
       "doi": "",
       "citation": "Tinghög, G. & Carlsson, P. (2012). Individual responsibility for Health care financing. Scandinavian Journal of Public Health, 40, 784-794.",
       "topics": [
+        "Financial decision-making",
         "Health & medical decisions"
       ]
     },
@@ -4568,8 +4637,8 @@
       "doi": "",
       "citation": "Mooney, G., Tinghög, G., & Kalkan, A. (2012). The need for a new paradigm in health economics--the case of Scandinavia. Nordic Journal of Health Economics, 1, 119-133.",
       "topics": [
-        "Behavioral economics",
-        "Health & medical decisions"
+        "Health & medical decisions",
+        "Behavioral economics"
       ]
     },
     {
@@ -4587,7 +4656,6 @@
       "doi": "",
       "citation": "Pettersson, B., Hoffmann, M., Andersson, D., Wändell, P., & Levin, L.-Å. (2012). Utilization and COSTs of glucose lowering therapies following health technology assessment for the new reimbursement scheme in Sweden. Health Policy, 108, 207-215.",
       "topics": [
-        "Behavioral economics",
         "Health & medical decisions"
       ]
     },
@@ -4607,7 +4675,6 @@
       "doi": "",
       "citation": "Carstensen, J., Andersson, D., André, M., Engström, S., Magnusson, H., & Borgquist, L. (2012). How does comorbidity influence Healthcare Costs? A population-based cross-sectional study of depression, back pain and osteorarthritis. BMJ Open, 2.",
       "topics": [
-        "Behavioral economics",
         "Health & medical decisions"
       ]
     },
@@ -4639,7 +4706,7 @@
       "doi": "",
       "citation": "Omar, F., Tinghög, G., & Welin, S. (2011). Incentivizing deceased organ donation. Scandinavian Journal of Public Health, 2, 104-110.",
       "topics": [
-        "Prosociality & cooperation",
+        "Prosociality & charitable giving",
         "Health & medical decisions"
       ]
     }

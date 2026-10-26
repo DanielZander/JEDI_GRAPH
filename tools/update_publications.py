@@ -18,51 +18,165 @@ SOURCE_URL = "https://jedilab.weebly.com/publications.html"
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "data" / "publications.json"
 
-TOPIC_RULES = {
-    "Prosociality & cooperation": (
-        "prosocial", "altruis", "donat", "donation", "helping", "generosity",
-        "cooperat", "charit", "giving", "sharing", "warm glow",
-    ),
-    "Fairness & social preferences": (
-        "fair", "inequal", "distribut", "envy", "equity", "social preference",
-        "allocation", "reciprocity",
-    ),
-    "Risk & uncertainty": (
-        "risk", "uncertaint", "gambl", "lottery", "ambiguit", "risky",
-    ),
-    "Intertemporal choice": (
-        "time preference", "time discount", "discounting", "temporal", "delay",
-        "patience", "future", "intertemporal",
-    ),
-    "Judgment & decision-making": (
-        "decision", "choice", "judgment", "judgement", "intuition", "reflection",
-        "cognitive", "bias", "heuristic", "framing", "reasoning", "deliberat",
-    ),
-    "Behavioral economics": (
-        "economic", "incentive", "money", "monetary", "cost", "price",
-        "consumer", "insurance", "financial", "accounting",
-    ),
-    "Health & medical decisions": (
-        "health", "medical", "patient", "treatment", "healthcare", "clinical",
-        "organ", "bioethic", "rationing", "reimbursement",
-    ),
-    "Social norms & morality": (
-        "norm", "moral", "ethic", "politic", "trust", "honest", "corrupt",
-        "misconduct", "misinformation", "conspiracy",
-    ),
-    "Emotion & wellbeing": (
-        "affect", "emotion", "happiness", "well-being", "wellbeing", "welfare",
-        "empathy", "fear", "disgust", "regret", "warm glow",
-    ),
-    "Research methods & integrity": (
-        "method", "reproduc", "prereg", "registered report", "transparency",
-        "replication", "research ethics", "questionable", "randomized",
-        "publication bias",
-    ),
-    "Neuroscience & physiology": (
-        "neuro", "brain", "fmri", "skin conductance", "eye tracking",
-        "physiolog", "genetic",
-    ),
+DEFAULT_OVERRIDES = ROOT / "data" / "topic_overrides.json"
+MAX_TOPICS = 3
+
+# Theme rules. Each pattern is a case-insensitive regular expression; most start
+# with \b so that they match the start of a word ("organ" must not match
+# "organization"). Title matches count double. Journal patterns are hints for
+# clearly specialised venues and only fill in when the title gives fewer than
+# two themes. A paper keeps its MAX_TOPICS highest-scoring themes. Swedish
+# stems cover the lab's Swedish-language publications.
+TOPIC_RULES: dict[str, dict[str, tuple[str, ...]]] = {
+    "Prosociality & charitable giving": {
+        "title": (
+            r"prosocial", r"\baltruis", r"\bdonat", r"\bdonor", r"\bcharit", r"\bhelp(?:ing|ers?|s)?\b",
+            r"\bgenero", r"\bcooperat", r"\bgiving\b", r"warm glow", r"\bvolunteer", r"\bsharing\b",
+            r"\bphilanthrop", r"identifiable victim", r"\bvictims?\b", r"\bhumanitarian", r"\bhjälp",
+        ),
+        "journal": (r"nonprofit", r"philanthrop", r"voluntary"),
+    },
+    "Fairness & social preferences": {
+        "title": (
+            r"\bfair", r"\binequal", r"\binequit", r"redistribut", r"distributive", r"\benvy\b",
+            r"\bequity", r"egalitarian", r"social preference", r"reciproc", r"\bselfish",
+            r"ultimatum game", r"\brättvis", r"självisk",
+        ),
+        "journal": (),
+    },
+    "Risk & uncertainty": {
+        "title": (r"\brisk", r"\buncertain", r"\bgambl", r"\blotter", r"\bprobabilit"),
+        "journal": (r"\brisk",),
+    },
+    "Intertemporal choice": {
+        "title": (
+            r"intertemporal", r"time preference", r"\bdiscounting\b", r"discounting preferences",
+            r"\bdelay(?:ed)? (?:gratification|discount)", r"\bpatience\b",
+        ),
+        "journal": (),
+    },
+    "Financial decision-making": {
+        "title": (
+            r"\bfinanc", r"\bdebt", r"\bsaving", r"\binvestments?\b", r"\binvestors?\b", r"\bpension", r"\bretirement saving",
+            r"mental accounting", r"\bwealth", r"\bhousehold financ", r"\bcredit\b", r"\bloans?\b",
+        ),
+        "journal": (r"\bfinanc", r"family and econom"),
+    },
+    "Environmental & climate decisions": {
+        "title": (
+            r"\bclimat", r"\benvironmental", r"pro-environmental", r"\bsustainab", r"\bcarbon",
+            r"\bemission", r"\bconservation\b", r"\bconserving\b", r"\bwildlife", r"biodiversit",
+            r"\bthe earth\b", r"\bgreen\b", r"\becolog", r"\benergy\b",
+        ),
+        "journal": (r"\becolog", r"environment", r"sustainab", r"\bclimat"),
+    },
+    "Health & medical decisions": {
+        "title": (
+            r"\bhealth", r"\bmedic", r"\bpatient", r"\btreatment", r"\bclinical", r"\bphysician",
+            r"\bsurg", r"\bvaccin", r"\bpandemic", r"covid", r"priority setting", r"\brationing",
+            r"\borgan donation", r"\btransplant", r"\bfrailty", r"\bdiseases?\b", r"reimbursement",
+            r"cost-effectiveness", r"\beq-5d", r"comorbidity", r"\bglucose", r"\bsmittminsk",
+        ),
+        "journal": (r"\bmedic", r"\bhealth", r"\bclinic", r"bioethic", r"\bbmj\b", r"geriatric", r"orthop"),
+    },
+    "Judgment & decision-making": {
+        "title": (
+            r"\bdecision", r"\bjudg(?:e)?ments?\b", r"\bheuristic", r"\bbias(?:es)?\b", r"\bintuiti",
+            r"\bdeliberat", r"dual[- ]process", r"\breasoning\b", r"\bframing\b", r"\bframed\b",
+            r"\brational", r"\bchoices?\b", r"scope (?:in)?sensitivity", r"\bjoint evaluation",
+            r"separate evaluation", r"prominence effect", r"homo (?:ignorans|heuristicus|economicus)",
+            r"information (?:avoidance|spotlighting|processing)", r"\bkahneman", r"psychic numbing",
+            r"\bbeslut", r"opportunity cost",
+        ),
+        "journal": (r"decision",),
+    },
+    "Behavioral economics": {
+        "title": (
+            r"\beconomic", r"\bincentive", r"\bmarkets?\b", r"\bpric(?:e|es|ing)\b", r"\bconsumer",
+            r"\bpurchas", r"\bpublic goods?\b", r"\beconomic games?\b", r"\bpayment", r"\bmonetary",
+            r"\bmoney\b", r"\bhiring\b", r"\bemployee", r"\bcustomer", r"coordination",
+            r"opportunity cost", r"minimum (?:levels|provision)",
+        ),
+        "journal": (r"econom",),
+    },
+    "Social norms & morality": {
+        "title": (
+            r"\bnorms?\b", r"\bmeta-norms?\b", r"\bnormativ", r"\bmoral", r"\bethic", r"\bhonest",
+            r"\bcheat", r"\bcorrupt", r"\bsanction", r"\bpunish", r"\bviolation", r"\bvirtu",
+            r"\brepugnan", r"\bprejudice", r"\btoleran", r"\bdiscriminat", r"\breprimand",
+        ),
+        "journal": (),
+    },
+    "Politics, ideology & beliefs": {
+        "title": (
+            r"\bpolitic", r"\bideolog", r"\bvot(?:e|es|ing|ers?)\b", r"\bballot", r"\bpartisan",
+            r"\bpolariz", r"\bconservatis", r"\bconservatives?\b", r"\bliberals?\b", r"\bauthoritarian",
+            r"\bextremis", r"left-right", r"\bconspira", r"\bmisinformation", r"\bmisperception",
+            r"\bbullshit", r"post-truth", r"\brefugee", r"\bprotest", r"\bworldview", r"\breligio",
+            r"\bchristian", r"trust in (?:the government|scientists|science)", r"science communication",
+            r"perceptions of science", r"\bnational identity", r"\bnuclear weapons",
+        ),
+        "journal": (r"\bpolitic",),
+    },
+    "Nudges & public policy": {
+        "title": (
+            r"\bnudg", r"\bpolic(?:y|ies)\b", r"\bpaternalis", r"\bdefaults?\b", r"choice architecture",
+            r"(?<!self-)\bregulatory\b", r"\bdirective\b", r"\binterventions?\b", r"\bgovernment",
+            r"offentlig sektor", r"\bpublic sector",
+        ),
+        "journal": (r"public policy", r"consumer policy"),
+    },
+    "Emotion & wellbeing": {
+        "title": (
+            r"\baffect\b(?! (?:coordination|the|how|whether))", r"\baffective", r"\baffect-", r"\bemotion",
+            r"\bmood", r"\bfeelings?\b", r"\bempath", r"\bsympath", r"\bcompassion", r"\bfear",
+            r"\banger\b", r"\bdisgust", r"\bregret", r"\bguilt", r"\banxiety", r"\bworry", r"\bstress",
+            r"\barousal", r"\barousing", r"\bhappiness", r"well-being", r"\bwellbeing", r"life satisfaction",
+            r"\bdistress", r"\bwarm glow", r"\bkänslor", r"\bdeath anxiety",
+        ),
+        "journal": (r"\bemotion", r"affective science", r"\bmusic"),
+    },
+    "Numeracy & cognitive abilities": {
+        "title": (
+            r"\bnumera", r"\bnumerical", r"\bnumber (?:processing|abilit|network)", r"\bnumberosity",
+            r"\barithmetic\b(?! of (?:emotion|compassion|outcome))", r"\bmathemat", r"\bmath\b",
+            r"\bdyscalculia", r"\bmagnitude processing", r"cognitive abilit", r"executive function",
+            r"working memory", r"\bphysics achievement", r"\bspatial processing", r"cognitive precursors",
+            r"triple code", r"\bpercentage calculation", r"bat-and-ball",
+        ),
+        "journal": (),
+    },
+    "Perception & attention": {
+        "title": (
+            r"\bsounds?\b", r"\bauditory", r"\bmusic", r"visual search", r"\battention", r"\bperceptual",
+            r"change deafness", r"\bvisual field",
+        ),
+        "journal": (r"\bauditory", r"\bperception", r"\bsound\b"),
+    },
+    "Research methods & integrity": {
+        "title": (
+            r"\breplicat", r"\breproduc", r"\bpre-?regist", r"registered report", r"registered replication",
+            r"meta-analy", r"many teams", r"multi-lab", r"open science", r"\btransparency",
+            r"questionable research", r"research ethic", r"scientific norms", r"\bresearchers[\'’]", r"\bmisconduct", r"measurement invariance",
+            r"\bvalidation\b", r"\bpsychometric", r"inter-rater reliability", r"\bnoise\b", r"\brobustness",
+            r"\bdatasets?\b", r"data collected", r"randomized trials", r"\bcomprehension in economic games",
+            r"\bconfusion remains", r"machine learning",
+        ),
+        "journal": (r"\bmethods\b", r"meta-psychology"),
+    },
+    "Neuroscience & physiology": {
+        "title": (
+            r"\bneur", r"\bbrain", r"\bfmri\b", r"functional magnetic", r"\bconnectivity", r"\bconnectome",
+            r"\beeg\b", r"\bcortical", r"\bcortex", r"\bcaudate", r"\bphysiolog", r"skin conductance",
+            r"\bcortisol", r"\bghrelin", r"\bhormon", r"\boxytocin", r"\bopioid", r"\bgenes?\b", r"\bgenetic",
+            r"\balcohol", r"\bacute pain", r"\bpain processing", r"affective touch",
+        ),
+        "journal": (),
+    },
+}
+_COMPILED_RULES = {
+    topic: {kind: [re.compile(pattern, re.I) for pattern in patterns] for kind, patterns in rules.items()}
+    for topic, rules in TOPIC_RULES.items()
 }
 
 
@@ -123,13 +237,46 @@ def parse_authors(value: str) -> list[str]:
 
 
 def classify_topics(title: str, journal: str) -> list[str]:
-    text = f"{title} {journal}".casefold()
-    topics = [
-        topic
-        for topic, keywords in TOPIC_RULES.items()
-        if any(keyword in text for keyword in keywords)
-    ]
-    return topics or ["Other"]
+    scores: dict[str, int] = {}
+    journal_only: list[str] = []
+    for order, (topic, rules) in enumerate(_COMPILED_RULES.items()):
+        title_hits = sum(1 for pattern in rules["title"] if pattern.search(title))
+        if title_hits:
+            scores[topic] = title_hits * 2 + any(pattern.search(journal) for pattern in rules["journal"])
+        elif any(pattern.search(journal) for pattern in rules["journal"]):
+            journal_only.append(topic)
+    ranked = sorted(scores, key=lambda topic: -scores[topic])
+    if len(ranked) < 2:
+        ranked += journal_only[: 2 - len(ranked)]
+    # Keep the rule order for a stable, readable listing.
+    order = list(TOPIC_RULES)
+    return sorted(ranked[:MAX_TOPICS], key=order.index) or ["Other"]
+
+
+def apply_topic_overrides(publications: list[dict[str, object]], path: Path) -> int:
+    """Replace the suggested themes of listed papers with reviewed ones.
+
+    The overrides file maps a publication id (or DOI URL) to its theme list.
+    """
+    if not path.exists():
+        return 0
+    try:
+        overrides = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise ValueError(f"Could not read {path}: {error}") from error
+    overrides = {key.casefold(): value for key, value in overrides.items() if not key.startswith("_")}
+    known = set(TOPIC_RULES) | {"Other"}
+    applied = 0
+    for publication in publications:
+        topics = overrides.get(str(publication["id"]).casefold())
+        if topics is None:
+            continue
+        unknown = [topic for topic in topics if topic not in known]
+        if unknown or not topics:
+            raise ValueError(f"{path}: unknown theme(s) {unknown or '(empty list)'} for {publication['id']}")
+        publication["topics"] = list(topics)
+        applied += 1
+    return applied
 
 
 def parse_bibliography(html: str) -> list[dict[str, object]]:
@@ -283,6 +430,12 @@ def main() -> int:
         default=DEFAULT_OUTPUT,
         help=f"Destination JSON file (default: {DEFAULT_OUTPUT}).",
     )
+    argument_parser.add_argument(
+        "--overrides",
+        type=Path,
+        default=DEFAULT_OVERRIDES,
+        help=f"Reviewed theme assignments by publication id (default: {DEFAULT_OVERRIDES}, used if present).",
+    )
     args = argument_parser.parse_args()
 
     try:
@@ -295,6 +448,7 @@ def main() -> int:
             except (OSError, json.JSONDecodeError) as error:
                 raise RuntimeError(f"Could not read existing dataset {args.output}: {error}") from error
             publications, preserved = merge_existing(publications, existing)
+        overridden = apply_topic_overrides(publications, args.overrides)
         output = {
             "source": SOURCE_URL,
             "updated": date.today().isoformat(),
@@ -312,6 +466,7 @@ def main() -> int:
 
     years = [publication["year"] for publication in publications]
     detail = f"; preserved {preserved} manually added records" if preserved else ""
+    detail += f"; applied {overridden} reviewed theme overrides" if overridden else ""
     print(
         f"Wrote {len(publications)} unique publications ({min(years)}–{max(years)})"
         f"{detail} to {args.output}"

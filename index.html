@@ -67,7 +67,7 @@
     .button.primary { border-color: var(--navy); background: var(--navy); color: #fff; }
     .button.primary:hover { background: #444; }
     .button.subtle { background: #f7f9fa; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 355px; min-height: 665px; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 14px 14px; overflow: hidden; background: #fff; box-shadow: var(--shadow); }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; min-height: 665px; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 14px 14px; overflow: hidden; background: #fff; box-shadow: var(--shadow); }
     .graph-column { min-width: 0; background: radial-gradient(ellipse at 50% 46%, #fff 15%, #f8f8f8 100%); }
     .graph-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 19px 7px; }
     .graph-heading h2 { margin: 0; font-size: 16px; letter-spacing: -.02em; }
@@ -75,17 +75,21 @@
     .graph-controls { display: flex; align-items: center; gap: 5px; }
     .graph-controls .button { min-width: 34px; min-height: 32px; padding: 4px 8px; }
     .zoom-level { min-width: 42px; color: var(--muted); font-size: 11px; text-align: center; }
-    .graph-stage { height: 630px; min-height: 490px; }
+    .graph-stage { height: 640px; min-height: 490px; }
     #graph { display: block; width: 100%; height: 100%; touch-action: none; user-select: none; cursor: grab; }
     #graph.panning { cursor: grabbing; }
-    .graph-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 19px 15px; color: var(--muted); font-size: 11px; }
-    .legend { display: flex; flex-wrap: wrap; gap: 14px; }
+    .graph-footer { display: flex; align-items: start; justify-content: space-between; gap: 8px 16px; padding: 10px 19px 15px; border-top: 1px solid #eee; color: var(--muted); font-size: 11px; }
+    .legend { display: grid; gap: 7px; }
+    .legend-row { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
     .legend span { display: inline-flex; align-items: center; gap: 6px; }
-    .legend i { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
-    .legend .legend-theme { width: 13px; height: 13px; background: #343434; }
-    .legend .legend-person { background: var(--blue); }
-    .legend .legend-associate { box-sizing: border-box; border: 2px solid var(--blue); background: #fff; }
-    .legend .legend-other { background: #9b9b9b; }
+    .legend svg { flex: none; overflow: visible; }
+    .legend-note { margin: 0; max-width: 720px; }
+    .key { display: inline-block; flex: none; width: 9px; height: 9px; border-radius: 50%; }
+    .key-theme { width: 13px; height: 13px; background: #2f2f2f; }
+    .key-core { background: var(--blue); }
+    .key-associate { border: 2px solid var(--blue); background: #fff; }
+    .key-other { background: #b4b4b4; }
+    #graph-summary { white-space: nowrap; }
     .jedi-mark { display: inline-block; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
     .jedi-mark.associate { box-sizing: border-box; border: 2px solid var(--blue); background: #fff; }
     .people-list .person-name { display: flex; align-items: center; gap: 7px; min-width: 0; }
@@ -99,7 +103,6 @@
     }
     .author-member:hover { color: var(--blue); text-decoration: underline; }
     .spellings { display: block; margin: 7px 0 0; color: var(--muted); font-size: 11px; }
-    .legend .legend-edge { width: 15px; height: 1px; border-radius: 0; background: #aebac3; }
     .side-panel { border-left: 1px solid var(--line); background: #fff; display: flex; flex-direction: column; min-width: 0; }
     .side-top { padding: 19px 20px 14px; border-bottom: 1px solid var(--line); }
     .side-label { margin: 0 0 7px; color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
@@ -155,16 +158,37 @@
     .search-result { display: block; width: 100%; padding: 8px 9px; border: 0; border-radius: 6px; background: #fff; color: var(--ink); text-align: left; }
     .search-result:hover { background: #f2f6f8; }
     .search-result small { display: block; color: var(--muted); }
-    .graph-node { cursor: grab; }
+    /* Graph: one colour per node type; size and line width encode publication counts. */
+    .graph-node { cursor: pointer; transition: opacity .18s; }
     .graph-node.dragging { cursor: grabbing; }
     .graph-node:focus { outline: none; }
-    .graph-node:focus .node-circle, .graph-node.selected .node-circle { stroke: #172432; stroke-width: 3; }
-    .node-label { pointer-events: none; fill: #263947; font-size: 10px; font-weight: 650; }
-    .person-other .node-label { fill: #7d878e; font-weight: 550; }
-    .node-label.member-label { fill: #1b1b1b; font-weight: 800; }
-    .topic-label { pointer-events: none; fill: #fff; font-size: 11px; font-weight: 750; }
-    .edge { fill: none; stroke: #858585; stroke-opacity: .16; }
-    .paper-edge { fill: none; stroke: #d4dce1; stroke-opacity: .55; }
+    .topic-node .node-circle { fill: #2f2f2f; stroke: #fff; stroke-width: 2; }
+    .person-core .node-circle { fill: var(--blue); stroke: #fff; stroke-width: 1.5; }
+    .person-associate .node-circle { fill: #fff; stroke: var(--blue); stroke-width: 2; }
+    .person-other .node-circle { fill: #b4b4b4; stroke: #fff; stroke-width: 1.5; }
+    .graph-node:focus-visible .node-circle, .graph-node.selected .node-circle { stroke: #111; stroke-width: 3; }
+    .graph-node.faded { opacity: .13; }
+    .topic-count { pointer-events: none; fill: #fff; font-size: 11px; font-weight: 700; }
+    .labels text { pointer-events: none; paint-order: stroke; stroke: #fff; stroke-linejoin: round; }
+    .theme-label {
+      fill: #1f1f1f; font-size: calc(12.5px * var(--label-scale, 1)); font-weight: 700;
+      stroke-width: calc(4px * var(--label-scale, 1)); transition: opacity .18s;
+    }
+    .theme-label.faded { opacity: .22; }
+    .node-label {
+      fill: #3b3b3b; font-size: calc(11.5px * var(--label-scale, 1)); font-weight: 550;
+      stroke-width: calc(3.5px * var(--label-scale, 1)); opacity: 0; transition: opacity .15s;
+    }
+    .node-label.member-label { fill: #1b1b1b; font-weight: 750; }
+    .node-label.show, #graph.zoomed .node-label { opacity: 1; }
+    #graph .node-label.faded { opacity: 0; }
+    #graph .node-label.crowded { opacity: 0; }
+    #graph .node-label.hover, #graph .node-label.selected { opacity: 1; }
+    .node-label.selected { fill: #111; font-weight: 800; }
+    .edge { stroke: #8c8c8c; stroke-linecap: round; stroke-opacity: .22; transition: stroke-opacity .18s; vector-effect: non-scaling-stroke; }
+    .edge:not(.strong):not(.focus) { display: none; }
+    #graph.has-focus .edge.strong:not(.focus) { stroke-opacity: .05; }
+    .edge.focus { stroke: #2f2f2f; stroke-opacity: .5; }
     .metric-line { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; margin-top: 5px; color: var(--muted); font-size: 11px; }
     .metric-badge { padding: 1px 6px; border: 1px solid var(--line); border-radius: 5px; background: #fff; color: var(--ink); font-size: 10px; font-weight: 650; white-space: nowrap; }
     .metric-line .citations { color: var(--ink); font-weight: 650; }
@@ -267,7 +291,7 @@
       <div class="graph-column">
         <div class="graph-heading">
           <h2>Research connections</h2>
-          <span class="graph-hint">Drag the background to pan · Drag a node to rearrange · Shift-drag a theme to move its group · Scroll to zoom</span>
+          <span class="graph-hint">Click a node to focus · Drag to pan or rearrange · Scroll to zoom</span>
           <div class="graph-controls" role="group" aria-label="Graph zoom controls">
             <button id="zoom-out" class="button" type="button" aria-label="Zoom out" title="Zoom out">−</button>
             <span id="zoom-level" class="zoom-level" aria-live="polite">100%</span>
@@ -281,12 +305,18 @@
           </svg>
         </div>
         <div class="graph-footer">
-          <div class="legend">
-            <span><i class="legend-theme"></i> Research theme</span>
-            <span><i class="legend-person"></i> JEDI Lab member</span>
-            <span><i class="legend-associate"></i> Alumni / affiliated</span>
-            <span><i class="legend-other"></i> Other coauthor</span>
-            <span><i class="legend-edge"></i> Shared publications</span>
+          <div class="legend" aria-label="Graph legend">
+            <div class="legend-row">
+              <span><i class="key key-theme"></i> Research theme</span>
+              <span><i class="key key-core"></i> JEDI Lab member</span>
+              <span><i class="key key-associate"></i> Alumni / affiliated</span>
+              <span><i class="key key-other"></i> Other coauthor</span>
+            </div>
+            <div class="legend-row">
+              <span><svg width="24" height="14" viewBox="0 0 24 14" aria-hidden="true"><circle cx="4" cy="9" r="3" fill="none" stroke="#8c8c8c"/><circle cx="17" cy="7" r="6" fill="none" stroke="#8c8c8c"/></svg> Circle size: publications in the current view</span>
+              <span><svg width="24" height="12" viewBox="0 0 24 12" aria-hidden="true"><line x1="1" y1="3" x2="23" y2="3" stroke="#8c8c8c" stroke-width="1"/><line x1="1" y1="9" x2="23" y2="9" stroke="#8c8c8c" stroke-width="3.5"/></svg> Line thickness: publications shared by the two nodes</span>
+            </div>
+            <p class="legend-note">Until you select something, only the strongest links are drawn: each person to their main theme, the closest coauthor pairs and the most common theme pairs. Select a theme or person to see all its connections; click the background or press Esc to clear.</p>
           </div>
           <span id="graph-summary"></span>
         </div>
@@ -310,7 +340,7 @@
       </div>
       <div id="chart-grid" class="chart-grid"></div>
     </section>
-    <p class="disclaimer">Themes are suggested from publication titles and journal names; they are an aid to browsing, not a formal coding of the research. JEDI Lab people (members, alumni and affiliated researchers, from the lab's people page) are matched to the bibliography's cited names by surname and first initial, plus reviewed spellings, so an unrelated namesake can occasionally be counted; their spellings are merged under one name. Other contributor nodes are cited coauthors. The source bibliography uses abbreviated author names and may omit authors where it uses an ellipsis. Publication data is maintained by the site administrator in the JSON dataset.</p>
+    <p class="disclaimer">Themes are suggested from publication titles (with journal names as a hint) and reviewed corrections; they are an aid to browsing, not a formal coding of the research. JEDI Lab people (members, alumni and affiliated researchers, from the lab's people page) are matched to the bibliography's cited names by surname and first initial, plus reviewed spellings, so an unrelated namesake can occasionally be counted; their spellings are merged under one name. Other contributor nodes are cited coauthors. The source bibliography uses abbreviated author names and may omit authors where it uses an ellipsis. Publication data is maintained by the site administrator in the JSON dataset.</p>
     <p id="metrics-note" class="disclaimer" hidden></p>
   </main>
 
@@ -327,17 +357,17 @@
         alumni: { label: "Alumni", core: false, order: 2 },
         affiliated: { label: "Affiliated researcher", core: false, order: 3 },
       };
-      const LAYOUT_KEY = "jedi-graph-layout-v2";
+      const LAYOUT_KEY = "jedi-graph-layout-v3";
+      const MAX_PEOPLE = 72;
+      const STRONG_COAUTHOR_LINKS = 24;
+      const STRONG_THEME_LINKS = 8;
+      const LABEL_ZOOM = 1.8;
+      const LAYOUT_MIN_WIDTH = 760;
       const SVG_ELEMENTS = new Set(["svg", "g", "line", "circle", "text", "title", "tspan", "rect", "path"]);
       const RANKING_SYSTEMS = {
         abdc: { label: "ABDC", order: ["A*", "A", "B", "C"] },
         norway: { label: "Norwegian Register", short: "NO", order: ["Level 2", "Level 1"] },
       };
-      const TOPIC_COLORS = [
-        "#bd1230", "#343434", "#7e7e7e", "#8e1b32", "#56504b",
-        "#a83247", "#737373", "#9f5a64", "#474747", "#c34a60",
-        "#8b817d", "#242424",
-      ];
       const NS = "http://www.w3.org/2000/svg";
       const elements = {
         graph: document.getElementById("graph"),
@@ -364,8 +394,11 @@
       let activePan = null;
       let suppressNodeClick = false;
       let zoom = { scale: 1, x: 0, y: 0 };
-      let currentGraph = { nodes: [], topics: [], people: [], topicCounts: new Map() };
-      let topicPalette = new Map();
+      let currentGraph = { nodes: [], topics: [], people: [], links: [], allPeople: new Map(), topicCounts: new Map() };
+      // Last computed positions (as fractions of the layout box), used to seed the next layout.
+      let layoutCache = new Map();
+      let graphDimensions = null;
+      let declutterFrame = 0;
       function setStatus(message, isError = false) {
         elements.status.textContent = message;
         elements.status.classList.toggle("error", isError);
@@ -391,7 +424,7 @@
           journal: String(row.journal || "").trim(),
           doi,
           citation: String(row.citation || "").trim(),
-          topics: topics.length ? topics : classifyTopics(row.title, row.journal || ""),
+          topics: topics.length ? topics : ["Other"],
         };
       }
 
@@ -419,27 +452,6 @@
           count: publications.length,
           publications,
         };
-      }
-
-      function classifyTopics(title, journal) {
-        const text = `${title} ${journal}`.toLocaleLowerCase();
-        const rules = {
-          "Prosociality & cooperation": ["prosocial", "altruis", "donat", "helping", "generosity", "cooperat", "charit", "giving", "sharing", "warm glow"],
-          "Fairness & social preferences": ["fair", "inequal", "distribut", "envy", "equity", "social preference", "allocation", "reciprocity"],
-          "Risk & uncertainty": ["risk", "uncertaint", "gambl", "lottery", "ambiguit", "risky"],
-          "Intertemporal choice": ["time preference", "time discount", "discounting", "temporal", "delay", "patience", "future", "intertemporal"],
-          "Judgment & decision-making": ["decision", "choice", "judgment", "judgement", "intuition", "reflection", "cognitive", "bias", "heuristic", "framing", "reasoning", "deliberat"],
-          "Behavioral economics": ["economic", "incentive", "money", "monetary", "cost", "price", "consumer", "insurance", "financial", "accounting"],
-          "Health & medical decisions": ["health", "medical", "patient", "treatment", "healthcare", "clinical", "organ", "bioethic", "rationing", "reimbursement"],
-          "Social norms & morality": ["norm", "moral", "ethic", "politic", "trust", "honest", "corrupt", "misconduct", "misinformation", "conspiracy"],
-          "Emotion & wellbeing": ["affect", "emotion", "happiness", "well-being", "wellbeing", "welfare", "empathy", "fear", "disgust", "regret", "warm glow"],
-          "Research methods & integrity": ["method", "reproduc", "prereg", "registered report", "transparency", "replication", "research ethics", "questionable", "randomized", "publication bias"],
-          "Neuroscience & physiology": ["neuro", "brain", "fmri", "skin conductance", "eye tracking", "physiolog", "genetic"],
-        };
-        const matches = Object.entries(rules)
-          .filter(([, terms]) => terms.some((term) => text.includes(term)))
-          .map(([topic]) => topic);
-        return matches.length ? matches : ["Other"];
       }
 
       function fold(value) {
@@ -629,177 +641,471 @@
         return `${node.type}:${node.name}`;
       }
 
-      function applySavedPosition(node) {
-        const saved = layoutPositions.get(positionKey(node));
-        if (saved) {
-          node.x = saved.x;
-          node.y = saved.y;
-        }
-        return node;
+      // Layout units track the stage's pixel size (at least LAYOUT_MIN_WIDTH wide),
+      // so the graph fills the available width and text sizes stay predictable.
+      function graphSize() {
+        const box = elements.graph.parentElement.getBoundingClientRect();
+        if (!box.width || !box.height) return { width: 1100, height: 660, pixels: 1100 };
+        const width = Math.max(LAYOUT_MIN_WIDTH, Math.round(box.width));
+        return { width, height: Math.round((box.height * width) / box.width), pixels: box.width };
       }
 
-      function layoutGraph(publications) {
+      function themeRadius(count) {
+        return Math.min(36, 11 + Math.sqrt(count) * 2.5);
+      }
+
+      function personRadius(count) {
+        return Math.min(12, 3 + Math.sqrt(count) * 0.9);
+      }
+
+      // The graph model: theme and person nodes joined by three kinds of links.
+      // Every node size and link weight is a number of publications in the current view.
+      function buildGraph(publications) {
         const { topicCounts, people, pairCounts } = countGraph(publications);
-        const cx = 500;
-        const cy = 460;
         const topics = [...topicCounts.entries()]
-          .map(([name, count]) => ({ type: "topic", name, count }))
+          .map(([name, count]) => ({ type: "topic", name, count, r: themeRadius(count) }))
           .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
-        const topicPosition = new Map();
-        topicPalette = new Map();
-        topics.forEach((topic, index) => {
-          const angle = -Math.PI / 2 + (2 * Math.PI * index) / Math.max(topics.length, 1);
-          topic.x = cx + Math.cos(angle) * 215;
-          topic.y = cy + Math.sin(angle) * 250;
-          topic.r = Math.min(43, 21 + Math.sqrt(topic.count) * 2.1);
-          topic.color = TOPIC_COLORS[index % TOPIC_COLORS.length];
-          applySavedPosition(topic);
-          topicPosition.set(topic.name, topic);
-          topicPalette.set(topic.name, topic.color);
-        });
-        // Every JEDI Lab person in the selection gets a node; other coauthors fill the rest.
+        const topicByName = new Map(topics.map((topic) => [topic.name, topic]));
+        // Every JEDI Lab person and a selected person get a node; other coauthors fill the rest.
         const ranked = [...people.values()]
           .map((person) => ({ ...person, count: person.papers.size }))
           .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
-        const labPeople = ranked.filter((person) => memberOf(person.name));
-        const topPeople = [...labPeople, ...ranked.filter((person) => !memberOf(person.name))
-          .slice(0, Math.max(0, 78 - labPeople.length))]
-          .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
-        const topicMembership = new Map(topics.map((topic) => [topic.name, 0]));
-        const graphPeople = topPeople.map((person) => {
-          const sortedTopics = [...person.topics.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-          const dominant = sortedTopics[0]?.[0] || "Other";
-          const center = topicPosition.get(dominant) || { x: cx, y: cy };
-          const rank = topicMembership.get(dominant) || 0;
-          topicMembership.set(dominant, rank + 1);
-          const angle = Math.atan2(center.y - cy, center.x - cx) + ((rank % 6) - 2.5) * 0.09;
-          const radius = 112 + Math.floor(rank / 6) * 35 + (hash(person.name) % 13);
-          const connected = sortedTopics.map(([name]) => name).filter((name) => topicPosition.has(name));
-          const x = Math.max(28, Math.min(972, center.x + Math.cos(angle) * radius));
-          const y = Math.max(32, Math.min(888, center.y + Math.sin(angle) * radius));
-          return applySavedPosition({
-            type: "person", name: person.name, count: person.count, topics: connected,
-            groupTopic: dominant, papers: person.papers,
-            x, y,
-          });
+        const required = (person) => memberOf(person.name) || (selected?.type === "person" && selected.name === person.name);
+        const kept = ranked.filter(required);
+        kept.push(...ranked.filter((person) => !required(person)).slice(0, Math.max(0, MAX_PEOPLE - kept.length)));
+        const graphPeople = kept.map((person) => {
+          const member = memberOf(person.name);
+          const themes = [...person.topics.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+          return {
+            type: "person", name: person.name, count: person.count, papers: person.papers, member,
+            kind: member ? (MEMBER_GROUPS[member.group].core ? "core" : "associate") : "other",
+            themes, groupTopic: themes[0]?.[0] || "Other", r: personRadius(person.count),
+          };
         });
-        const topicEdges = [];
-        pairCounts.forEach((count, key) => {
+        const links = [];
+        // Person–theme: the person's papers in that theme. Only the strongest is drawn by default.
+        graphPeople.forEach((person) => person.themes.forEach(([name, weight], index) => {
+          const topic = topicByName.get(name);
+          if (topic) links.push({ kind: "membership", source: person, target: topic, weight, strong: index === 0 });
+        }));
+        // Person–person: co-authored papers.
+        const personByName = new Map(graphPeople.map((person) => [person.name, person]));
+        const pairs = new Map();
+        publications.forEach((publication) => {
+          const names = publication.authors.filter((name) => personByName.has(name)).sort();
+          for (let i = 0; i < names.length; i += 1) {
+            for (let j = i + 1; j < names.length; j += 1) {
+              const key = `${names[i]}\u0000${names[j]}`;
+              pairs.set(key, (pairs.get(key) || 0) + 1);
+            }
+          }
+        });
+        const coauthorLinks = [...pairs.entries()].map(([key, weight]) => {
           const [a, b] = key.split("\u0000");
-          if (topicPosition.has(a) && topicPosition.has(b)) topicEdges.push({ a, b, count });
+          return { kind: "coauthor", source: personByName.get(a), target: personByName.get(b), weight, strong: false };
+        }).sort((a, b) => b.weight - a.weight);
+        coauthorLinks.filter((link) => link.weight >= 2).slice(0, STRONG_COAUTHOR_LINKS).forEach((link) => { link.strong = true; });
+        // Theme–theme: papers carrying both themes.
+        const topicLinks = [...pairCounts.entries()].map(([key, weight]) => {
+          const [a, b] = key.split("\u0000");
+          return { kind: "cooccurrence", source: topicByName.get(a), target: topicByName.get(b), weight, strong: false };
+        }).filter((link) => link.source && link.target).sort((a, b) => b.weight - a.weight);
+        topicLinks.slice(0, STRONG_THEME_LINKS).forEach((link) => { link.strong = true; });
+        links.push(...coauthorLinks, ...topicLinks);
+        return { topics, people: graphPeople, nodes: [...topics, ...graphPeople], links, allPeople: people, topicCounts };
+      }
+
+      function collisionRadius(node) {
+        // Themes reserve room for the label printed under the circle.
+        return node.type === "topic" ? node.r + 18 : node.r + 3;
+      }
+
+      // A small, deterministic force-directed layout: springs along links, repulsion
+      // between nodes, collision avoidance and a centre pull that is weaker
+      // horizontally, so the map spreads across the wide stage. Filtered views start
+      // from the unfiltered layout, so a node stays roughly where it was and the same
+      // filters always give the same map.
+      function layoutGraph(graph, size, remember) {
+        const { width, height } = size;
+        const cx = width / 2;
+        const cy = height / 2;
+        let seeded = 0;
+        const place = (node, x, y) => {
+          const saved = layoutPositions.get(positionKey(node));
+          const cached = layoutCache.get(positionKey(node));
+          const source = saved || cached;
+          node.fixed = Boolean(saved);
+          if (source) seeded += 1;
+          node.x = source ? source.fx * width : x;
+          node.y = source ? source.fy * height : y;
+          node.vx = 0;
+          node.vy = 0;
+        };
+        // Alternate large and small themes around the starting ring so size does not pile up on one side.
+        const ring = graph.topics.map((topic, index) => (index % 2 ? graph.topics.length - 1 - Math.floor(index / 2) : index / 2));
+        graph.topics.forEach((topic, index) => {
+          const angle = -Math.PI / 2 + (2 * Math.PI * ring[index]) / Math.max(graph.topics.length, 1);
+          place(topic, cx + Math.cos(angle) * width * 0.3, cy + Math.sin(angle) * height * 0.3);
         });
-        return { topics, people: graphPeople, allPeople: people, topicCounts, topicEdges, pairCounts };
+        const topicByName = new Map(graph.topics.map((topic) => [topic.name, topic]));
+        graph.people.forEach((person) => {
+          const anchor = topicByName.get(person.groupTopic) || { x: cx, y: cy };
+          const angle = ((hash(person.name) % 360) * Math.PI) / 180;
+          const distance = anchor.r ? anchor.r + 40 + (hash(`${person.name}:r`) % 40) : 60;
+          place(person, anchor.x + Math.cos(angle) * distance, anchor.y + Math.sin(angle) * distance);
+        });
+
+        const nodes = graph.nodes;
+        // The unfiltered map is already laid out: reuse it exactly.
+        if (remember && seeded === nodes.length) return;
+        const degree = new Map(nodes.map((node) => [node, 0]));
+        graph.links.forEach((link) => {
+          degree.set(link.source, degree.get(link.source) + 1);
+          degree.set(link.target, degree.get(link.target) + 1);
+        });
+        const maxThemeLink = Math.max(1, ...graph.links.filter((link) => link.kind === "cooccurrence").map((link) => link.weight));
+        const iterations = 300;
+        let alpha = seeded > nodes.length * 0.6 ? 0.3 : 1;
+        const cooling = Math.pow(0.002 / alpha, 1 / iterations);
+        for (let tick = 0; tick < iterations; tick += 1) {
+          graph.links.forEach((link) => {
+            const { source, target } = link;
+            const dx = target.x - source.x;
+            const dy = target.y - source.y;
+            const distance = Math.hypot(dx, dy) || 1;
+            let length;
+            let strength;
+            if (link.kind === "membership") {
+              length = source.r + target.r + 46;
+              strength = (0.5 * link.weight) / source.count;
+            } else if (link.kind === "coauthor") {
+              length = source.r + target.r + 28;
+              strength = 0.012 * Math.min(link.weight, 8);
+            } else {
+              length = 280;
+              strength = (0.03 * link.weight) / maxThemeLink;
+            }
+            const force = ((distance - length) / distance) * strength * alpha;
+            const bias = degree.get(source) / (degree.get(source) + degree.get(target));
+            target.vx -= dx * force * bias;
+            target.vy -= dy * force * bias;
+            source.vx += dx * force * (1 - bias);
+            source.vy += dy * force * (1 - bias);
+          });
+          for (let i = 0; i < nodes.length; i += 1) {
+            const a = nodes[i];
+            for (let j = i + 1; j < nodes.length; j += 1) {
+              const b = nodes[j];
+              // Themes push each other apart strongly, people only gently.
+              const q = a.type === "topic" && b.type === "topic" ? 900 : a.type === "topic" || b.type === "topic" ? 140 : 55;
+              let dx = b.x - a.x;
+              let dy = b.y - a.y;
+              let d2 = dx * dx + dy * dy;
+              // People only repel nearby people, so the dense core does not fling outliers to the edges.
+              if (d2 > (a.type === "person" && b.type === "person" ? 40000 : 160000)) continue;
+              if (d2 < 1) {
+                dx = ((hash(a.name + b.name) % 7) - 3) || 1;
+                dy = 1;
+                d2 = dx * dx + dy * dy;
+              }
+              b.vx += (dx * q * alpha) / d2;
+              b.vy += (dy * q * alpha) / d2;
+              a.vx -= (dx * q * alpha) / d2;
+              a.vy -= (dy * q * alpha) / d2;
+            }
+          }
+          nodes.forEach((node) => {
+            const pull = (node.type === "topic" ? 0.04 : 0.015) * alpha;
+            node.vx += (cx - node.x) * pull * 0.2;
+            node.vy += (cy - node.y) * pull * 1.6 * (width / height);
+            if (node.fixed) {
+              node.vx = 0;
+              node.vy = 0;
+              return;
+            }
+            node.vx *= 0.6;
+            node.vy *= 0.6;
+            node.x += node.vx;
+            node.y += node.vy;
+          });
+          separate(nodes, 2);
+          keepInside(nodes, width, height);
+          alpha *= cooling;
+        }
+        if (!nodes.some((node) => node.fixed)) fitLayout(nodes, width, height);
+        if (remember) nodes.forEach((node) => layoutCache.set(positionKey(node), { fx: node.x / width, fy: node.y / height }));
+      }
+
+      // Push overlapping nodes apart (nodes the user has placed stay put).
+      function separate(nodes, passes) {
+        for (let pass = 0; pass < passes; pass += 1) {
+          for (let i = 0; i < nodes.length; i += 1) {
+            for (let j = i + 1; j < nodes.length; j += 1) {
+              const a = nodes[i];
+              const b = nodes[j];
+              const minimum = collisionRadius(a) + collisionRadius(b);
+              let dx = b.x - a.x;
+              let dy = b.y - a.y;
+              let distance = Math.hypot(dx, dy);
+              if (distance >= minimum || (a.fixed && b.fixed)) continue;
+              if (!distance) {
+                dx = 1;
+                dy = 0;
+                distance = 1;
+              }
+              const shift = minimum - distance;
+              const shareA = a.fixed ? 0 : b.fixed ? 1 : 0.5;
+              a.x -= (dx / distance) * shift * shareA;
+              a.y -= (dy / distance) * shift * shareA;
+              b.x += (dx / distance) * shift * (1 - shareA);
+              b.y += (dy / distance) * shift * (1 - shareA);
+            }
+          }
+        }
+      }
+
+      // Room for a theme's label below and beside it, or for a person's hover label.
+      function nodeMargins(node) {
+        return node.type === "topic"
+          ? { side: node.r + 58, top: node.r + 8, bottom: node.r + 38 }
+          : { side: node.r + 10, top: node.r + 10, bottom: node.r + 10 };
+      }
+
+      function keepInside(nodes, width, height) {
+        nodes.forEach((node) => {
+          const margin = nodeMargins(node);
+          node.x = Math.max(margin.side, Math.min(width - margin.side, node.x));
+          node.y = Math.max(margin.top, Math.min(height - margin.bottom, node.y));
+        });
+      }
+
+      // Centre the finished layout and stretch it to fill the stage. Horizontal and
+      // vertical scales may differ by up to 1.5x, so a round cluster still uses a wide stage.
+      function fitLayout(nodes, width, height) {
+        const bounds = nodes.reduce((box, node) => {
+          const margin = nodeMargins(node);
+          return {
+            left: Math.min(box.left, node.x - margin.side), right: Math.max(box.right, node.x + margin.side),
+            top: Math.min(box.top, node.y - margin.top), bottom: Math.max(box.bottom, node.y + margin.bottom),
+          };
+        }, { left: Infinity, right: -Infinity, top: Infinity, bottom: -Infinity });
+        const pad = 14;
+        let scaleX = Math.min(1.8, (width - pad * 2) / (bounds.right - bounds.left));
+        let scaleY = Math.min(1.8, (height - pad * 2) / (bounds.bottom - bounds.top));
+        scaleX = Math.min(scaleX, scaleY * 1.5);
+        scaleY = Math.min(scaleY, scaleX * 1.5);
+        const midX = (bounds.left + bounds.right) / 2;
+        const midY = (bounds.top + bounds.bottom) / 2;
+        nodes.forEach((node) => {
+          node.x = width / 2 + (node.x - midX) * scaleX;
+          node.y = height / 2 + (node.y - midY) * scaleY;
+        });
+        separate(nodes, 3);
+        keepInside(nodes, width, height);
+      }
+
+      function edgeWidth(link) {
+        return Math.min(3, 0.5 + Math.sqrt(link.weight) * 0.32);
+      }
+
+      function focusEdgeWidth(link) {
+        return Math.min(6, 0.9 + Math.sqrt(link.weight) * 0.7);
+      }
+
+      // Break a theme name into at most two lines for the label under its circle.
+      function wrapLabel(name, width = 17) {
+        const words = name.split(" ");
+        const lines = [""];
+        words.forEach((word) => {
+          const line = lines[lines.length - 1];
+          if (line && (line + " " + word).length > width && lines.length < 2) lines.push(word);
+          else lines[lines.length - 1] = line ? `${line} ${word}` : word;
+        });
+        return lines;
+      }
+
+      function plural(count, word) {
+        return `${count} ${word}${count === 1 ? "" : "s"}`;
+      }
+
+      function nodeTitle(node, focus, link) {
+        const lines = [node.name];
+        if (node.type === "person" && node.member) {
+          lines.push(`${MEMBER_GROUPS[node.member.group].label}${node.member.role ? ` · ${node.member.role}` : ""}`);
+        }
+        lines.push(plural(node.count, "publication"));
+        if (focus && link) {
+          if (link.kind === "coauthor") lines.push(`${plural(link.weight, "shared publication")} with ${focus.name}`);
+          else if (link.kind === "cooccurrence") lines.push(`${plural(link.weight, "publication")} also in ${focus.name}`);
+          else if (focus.type === "topic") lines.push(`${plural(link.weight, "publication")} in ${focus.name}`);
+          else lines.push(`${plural(link.weight, "publication")} by ${focus.name}`);
+        }
+        return lines.join("\n");
       }
 
       function drawGraph(publications) {
-        const graph = layoutGraph(publications);
+        const size = graphSize();
+        graphDimensions = size;
+        elements.graph.setAttribute("viewBox", `0 0 ${size.width} ${size.height}`);
+        const unfiltered = publications.length === data.publications.length;
+        // Lay out the full dataset first, so filtered views have stable starting positions.
+        if (!unfiltered && !layoutCache.size) layoutGraph(buildGraph(data.publications), size, true);
+        const graph = buildGraph(publications);
+        layoutGraph(graph, size, unfiltered);
         currentGraph = graph;
         renderedNodes = new Map();
         renderedEdges = [];
         elements.viewport.replaceChildren();
         applyZoomTransform();
-        const edgesGroup = element("g");
-        const nodesGroup = element("g");
-        elements.viewport.append(edgesGroup, nodesGroup);
-        const topicByName = new Map(graph.topics.map((topic) => [topic.name, topic]));
-        const addEdge = (source, target, className, width) => {
-          const line = element("line", {
-            x1: source.x, y1: source.y, x2: target.x, y2: target.y,
-            class: className, "stroke-width": width,
+        const edgesGroup = element("g", { class: "edges" });
+        const nodesGroup = element("g", { class: "nodes" });
+        const labelsGroup = element("g", { class: "labels", "aria-hidden": "true" });
+        elements.viewport.append(edgesGroup, nodesGroup, labelsGroup);
+        graph.links.forEach((link) => {
+          link.line = element("line", {
+            x1: link.source.x, y1: link.source.y, x2: link.target.x, y2: link.target.y,
+            class: `edge edge-${link.kind}${link.strong ? " strong" : ""}`,
+            "stroke-width": edgeWidth(link),
           });
-          edgesGroup.appendChild(line);
-          renderedEdges.push({ line, source, target });
-        };
-        graph.topicEdges.forEach(({ a, b, count }) => {
-          addEdge(
-            topicByName.get(a),
-            topicByName.get(b),
-            "edge",
-            Math.min(5, 0.7 + Math.sqrt(count) * 0.42),
-          );
-        });
-        graph.people.forEach((person) => {
-          person.topics.forEach((topicName) => {
-            const topic = topicByName.get(topicName);
-            if (!topic) return;
-            addEdge(topic, person, "edge", Math.min(2.8, 0.65 + person.count * 0.2));
-          });
-        });
-        [...graph.people].sort((a, b) => memberRank(b.name) - memberRank(a.name)).forEach((person) => {
-          const member = memberOf(person.name);
-          const kind = member ? (MEMBER_GROUPS[member.group].core ? "core" : "associate") : "other";
-          const group = element("g", {
-            class: `graph-node person-${kind}${selected?.type === "person" && selected.name === person.name ? " selected" : ""}`,
-            tabindex: "0", role: "button",
-            "aria-label": `${person.name}${member ? `, ${MEMBER_GROUPS[member.group].label}` : ""}, ${person.count} publications. Drag to rearrange.`,
-          });
-          group.appendChild(element("title", {}, `${person.name}\n${member ? `${MEMBER_GROUPS[member.group].label}${member.role ? ` · ${member.role}` : ""}\n` : ""}Drag to rearrange`));
-          const radius = Math.min(8, 4.3 + Math.sqrt(person.count) * 0.85) + (member ? 1 : 0);
-          group.appendChild(element("circle", {
-            cx: person.x, cy: person.y, r: radius,
-            fill: kind === "core" ? "#bd1230" : kind === "associate" ? "#fff" : "#9b9b9b",
-            class: "node-circle",
-            stroke: kind === "associate" ? "#bd1230" : "#fff",
-            "stroke-width": kind === "associate" ? 2 : 1.5,
-          }));
-          // Coauthors outside the lab with few papers are named on hover only, to keep labels legible.
-          if (member || person.count >= 3) {
-            const label = person.name.length > 25 ? `${person.name.slice(0, 23)}…` : person.name;
-            group.appendChild(element("text", {
-              x: person.x + (person.x >= 500 ? 8 : -8), y: person.y + 3,
-              "text-anchor": person.x >= 500 ? "start" : "end",
-              class: `node-label${member ? " member-label" : ""}`,
-            }, label));
-          }
-          registerGraphNode(group, person, () => selectPerson(person.name));
-          nodesGroup.appendChild(group);
+          edgesGroup.appendChild(link.line);
+          renderedEdges.push({ line: link.line, source: link.source, target: link.target });
         });
         graph.topics.forEach((topic) => {
           const group = element("g", {
-            class: `graph-node${selected?.type === "topic" && selected.name === topic.name ? " selected" : ""}`,
-            tabindex: "0", role: "button", "aria-label": `${topic.name}, ${topic.count} publications. Shift-drag to move with its contributor group.`,
+            class: "graph-node topic-node", tabindex: "0", role: "button",
+            "aria-label": `${topic.name}, ${plural(topic.count, "publication")}. Shift-drag to move with its contributor group.`,
           });
-          group.appendChild(element("title", {}, "Drag to rearrange; Shift-drag to move this theme with its contributor group"));
-          group.appendChild(element("circle", {
-            cx: topic.x, cy: topic.y, r: topic.r, fill: topic.color, class: "node-circle",
-            stroke: "#fff", "stroke-width": 2, opacity: ".96",
-          }));
-          const label = topicLabel(topic.name);
-          const labelWidth = Math.min(topic.r * 1.48, label.length * 5.4);
-          const topicText = element("text", {
-            x: topic.x, y: topic.y - 2, "text-anchor": "middle", class: "topic-label",
-            "font-size": topic.r < 27 ? "8" : "9",
-            textLength: labelWidth, lengthAdjust: "spacingAndGlyphs",
-          }, label);
-          group.appendChild(topicText);
-          group.appendChild(element("text", {
-            x: topic.x, y: topic.y + topic.r * 0.46, "text-anchor": "middle",
-            class: "topic-label", "font-size": topic.r < 27 ? "8" : "9",
-          }, String(topic.count)));
+          topic.titleEl = element("title");
+          group.append(topic.titleEl, element("circle", { cx: topic.x, cy: topic.y, r: topic.r, class: "node-circle" }));
+          if (topic.r >= 14) {
+            group.appendChild(element("text", { x: topic.x, y: topic.y + 4, "text-anchor": "middle", class: "topic-count" }, String(topic.count)));
+          }
+          const label = element("text", { x: topic.x, y: topic.y + topic.r + 14, "text-anchor": "middle", class: "theme-label" });
+          wrapLabel(topic.name).forEach((line, index) => {
+            label.appendChild(element("tspan", { x: topic.x, dy: index ? "1.15em" : 0 }, line));
+          });
+          labelsGroup.appendChild(label);
+          topic.element = group;
+          topic.label = label;
           registerGraphNode(group, topic, () => selectTopic(topic.name));
+          nodesGroup.appendChild(group);
+        });
+        [...graph.people].sort((a, b) => memberRank(b.name) - memberRank(a.name)).forEach((person) => {
+          const group = element("g", {
+            class: `graph-node person-node person-${person.kind}`, tabindex: "0", role: "button",
+            "aria-label": `${person.name}${person.member ? `, ${MEMBER_GROUPS[person.member.group].label}` : ""}, ${plural(person.count, "publication")}.`,
+          });
+          person.titleEl = element("title");
+          group.append(person.titleEl, element("circle", { cx: person.x, cy: person.y, r: person.r, class: "node-circle" }));
+          const right = person.x >= size.width / 2;
+          const label = element("text", {
+            x: person.x + (right ? person.r + 5 : -person.r - 5), y: person.y + 4,
+            "text-anchor": right ? "start" : "end",
+            class: `node-label${person.member ? " member-label" : ""}`,
+          }, person.name);
+          labelsGroup.appendChild(label);
+          person.element = group;
+          person.label = label;
+          registerGraphNode(group, person, () => selectPerson(person.name));
           nodesGroup.appendChild(group);
         });
         const visiblePeople = graph.people.length;
         const allPeople = graph.allPeople.size;
         document.getElementById("graph-summary").textContent =
-          `${graph.topics.length} themes · ${visiblePeople} contributors shown${allPeople > visiblePeople ? ` of ${allPeople}` : ""}`;
+          `${plural(graph.topics.length, "theme")} · ${visiblePeople} people shown${allPeople > visiblePeople ? ` of ${allPeople}` : ""}`;
+        applyHighlight();
       }
 
-      function topicLabel(name) {
-        const labels = {
-          "Prosociality & cooperation": "Prosoc.",
-          "Fairness & social preferences": "Fairness",
-          "Risk & uncertainty": "Risk",
-          "Intertemporal choice": "Time",
-          "Judgment & decision-making": "Decision",
-          "Behavioral economics": "Economics",
-          "Health & medical decisions": "Health",
-          "Social norms & morality": "Norms",
-          "Emotion & wellbeing": "Emotion",
-          "Research methods & integrity": "Methods",
-          "Neuroscience & physiology": "Neuro",
-        };
-        return labels[name] || name;
+      // Selection state is shown with classes only, so the layout never moves when
+      // something is selected: the focused node, its neighbours and the links between
+      // them stay at full strength; everything else fades but remains for context.
+      function applyHighlight() {
+        const graph = currentGraph;
+        if (!graph.nodes.length) return;
+        const focus = selected ? graph.nodes.find((node) => node.type === selected.type && node.name === selected.name) : null;
+        const neighbours = new Map();
+        if (focus) {
+          graph.links.forEach((link) => {
+            if (link.source === focus) neighbours.set(link.target, link);
+            else if (link.target === focus) neighbours.set(link.source, link);
+          });
+        }
+        elements.graph.classList.toggle("has-focus", Boolean(focus));
+        graph.nodes.forEach((node) => {
+          const related = !focus || node === focus || neighbours.has(node);
+          node.element.classList.toggle("faded", !related);
+          node.element.classList.toggle("selected", node === focus);
+          node.label.classList.toggle("faded", !related);
+          node.label.classList.toggle("show", Boolean(focus) && related);
+          node.label.classList.toggle("selected", node === focus);
+          node.titleEl.textContent = nodeTitle(node, focus, neighbours.get(node));
+        });
+        graph.links.forEach((link) => {
+          const incident = Boolean(focus) && (link.source === focus || link.target === focus);
+          link.line.classList.toggle("focus", incident);
+          link.line.setAttribute("stroke-width", incident ? focusEdgeWidth(link) : edgeWidth(link));
+        });
+        declutterLabels();
+      }
+
+      // Show as many person labels as fit without overlapping: the selected node first,
+      // then JEDI Lab people, then by publication count. A label that collides tries the
+      // other side of its node and is otherwise left for hover (or a closer zoom).
+      function declutterLabels() {
+        const graph = currentGraph;
+        const focused = elements.graph.classList.contains("has-focus");
+        const zoomed = elements.graph.classList.contains("zoomed");
+        const placed = graph.topics
+          .filter((topic) => !topic.label.classList.contains("faded"))
+          .map((topic) => topic.label.getBBox());
+        const wanted = graph.people.filter((person) => {
+          const label = person.label;
+          if (label.classList.contains("selected")) return true;
+          if (label.classList.contains("faded")) return false;
+          return focused ? label.classList.contains("show") : zoomed;
+        }).sort((a, b) => Number(b.label.classList.contains("selected")) - Number(a.label.classList.contains("selected"))
+          || memberRank(a.name) - memberRank(b.name) || b.count - a.count);
+        // A label collides with an already placed one, or runs off the stage.
+        const overlaps = (box) => box.x < 0 || box.x + box.width > graphDimensions.width
+          || placed.some((other) => box.x < other.x + other.width + 2 && other.x < box.x + box.width + 2
+            && box.y < other.y + other.height && other.y < box.y + box.height);
+        graph.people.forEach((person) => person.label.classList.remove("crowded"));
+        wanted.forEach((person) => {
+          const label = person.label;
+          const preferRight = person.x >= graphDimensions.width / 2;
+          for (const right of [preferRight, !preferRight]) {
+            label.setAttribute("x", person.x + (right ? person.r + 5 : -person.r - 5));
+            label.setAttribute("text-anchor", right ? "start" : "end");
+            const box = label.getBBox();
+            if (!overlaps(box)) {
+              placed.push(box);
+              return;
+            }
+          }
+          label.setAttribute("x", person.x + (preferRight ? person.r + 5 : -person.r - 5));
+          label.setAttribute("text-anchor", preferRight ? "start" : "end");
+          // The selected person is always named, even where it has to overlap.
+          if (label.classList.contains("selected")) placed.push(label.getBBox());
+          else label.classList.add("crowded");
+        });
+      }
+
+      function refreshGraphSelection() {
+        const present = selected && currentGraph.nodes.some((node) => node.type === selected.type && node.name === selected.name);
+        // A searched-for person outside the shown set is added, then highlighted.
+        if (selected?.type === "person" && !present && currentGraph.allPeople.has(selected.name)) drawGraph(activePublications());
+        else applyHighlight();
+      }
+
+      function showStartPanel() {
+        clearDetail("Start exploring", "A map of shared ideas", "Select one of the themes or researcher nodes. The list of people and papers here updates to match your selection.");
+        document.getElementById("detail-content").appendChild(element("div", { class: "empty" }, "Choose a node in the graph, or search for a topic, person or publication."));
+      }
+
+      function clearSelection() {
+        selected = null;
+        showStartPanel();
+        applyHighlight();
       }
 
       function applyZoomTransform() {
@@ -807,11 +1113,21 @@
           "transform",
           `translate(${zoom.x} ${zoom.y}) scale(${zoom.scale})`,
         );
+        // Keep label text at a constant on-screen size, whatever the zoom or stage width.
+        const unitsPerPixel = graphDimensions ? graphDimensions.width / graphDimensions.pixels : 1;
+        elements.viewport.style.setProperty("--label-scale", String(unitsPerPixel / zoom.scale));
+        elements.graph.classList.toggle("zoomed", zoom.scale >= LABEL_ZOOM);
         elements.zoomLevel.textContent = `${Math.round(zoom.scale * 100)}%`;
+        if (!declutterFrame && currentGraph.nodes.length) {
+          declutterFrame = window.requestAnimationFrame(() => {
+            declutterFrame = 0;
+            declutterLabels();
+          });
+        }
       }
 
       function zoomAt(nextScale, anchor) {
-        const scale = Math.max(0.65, Math.min(3.5, nextScale));
+        const scale = Math.max(0.65, Math.min(4, nextScale));
         const ratio = scale / zoom.scale;
         zoom = {
           scale,
@@ -850,10 +1166,13 @@
 
       function registerGraphNode(elementNode, graphNode, callback) {
         const key = positionKey(graphNode);
-        const originX = graphNode.x;
-        const originY = graphNode.y;
-        renderedNodes.set(key, { element: elementNode, originX, originY });
+        renderedNodes.set(key, { element: elementNode, label: graphNode.label, originX: graphNode.x, originY: graphNode.y });
         activateNode(elementNode, callback);
+        const hover = (on) => graphNode.label.classList.toggle("hover", on);
+        elementNode.addEventListener("pointerenter", () => hover(true));
+        elementNode.addEventListener("pointerleave", () => hover(false));
+        elementNode.addEventListener("focus", () => hover(true));
+        elementNode.addEventListener("blur", () => hover(false));
         elementNode.addEventListener("pointerdown", (event) => {
           if (event.button !== 0 || activeDrag) return;
           event.preventDefault();
@@ -891,13 +1210,12 @@
         activeDrag.graphNodes.forEach((node) => {
           node.x += dx;
           node.y += dy;
-          layoutPositions.set(positionKey(node), { x: node.x, y: node.y });
+          layoutPositions.set(positionKey(node), { fx: node.x / graphDimensions.width, fy: node.y / graphDimensions.height });
           const rendered = renderedNodes.get(positionKey(node));
           if (rendered) {
-            rendered.element.setAttribute(
-              "transform",
-              `translate(${node.x - rendered.originX} ${node.y - rendered.originY})`,
-            );
+            const transform = `translate(${node.x - rendered.originX} ${node.y - rendered.originY})`;
+            rendered.element.setAttribute("transform", transform);
+            rendered.label.setAttribute("transform", transform);
             rendered.element.classList.add("dragging");
           }
         });
@@ -925,7 +1243,7 @@
         }
       }
 
-      // Dragging the empty background pans the view; dragging a node moves the node.
+      // Dragging the empty background pans the view; clicking it clears the selection.
       function rootPoint(event) {
         const point = elements.graph.createSVGPoint();
         point.x = event.clientX;
@@ -936,13 +1254,18 @@
       function startPan(event) {
         if (event.button !== 0 || activeDrag || activePan || event.target.closest(".graph-node")) return;
         event.preventDefault();
-        activePan = { pointerId: event.pointerId, start: rootPoint(event), origin: { x: zoom.x, y: zoom.y } };
+        activePan = {
+          pointerId: event.pointerId, start: rootPoint(event), origin: { x: zoom.x, y: zoom.y },
+          client: { x: event.clientX, y: event.clientY }, moved: false,
+        };
         elements.graph.setPointerCapture(event.pointerId);
         elements.graph.classList.add("panning");
       }
 
       function movePan(event) {
         if (!activePan || activePan.pointerId !== event.pointerId) return;
+        if (!activePan.moved && Math.hypot(event.clientX - activePan.client.x, event.clientY - activePan.client.y) < 3) return;
+        activePan.moved = true;
         const point = rootPoint(event);
         zoom.x = activePan.origin.x + point.x - activePan.start.x;
         zoom.y = activePan.origin.y + point.y - activePan.start.y;
@@ -951,8 +1274,10 @@
 
       function finishPan(event) {
         if (!activePan || activePan.pointerId !== event.pointerId) return;
+        const clicked = !activePan.moved && event.type === "pointerup";
         activePan = null;
         elements.graph.classList.remove("panning");
+        if (clicked && selected) clearSelection();
       }
 
       elements.graph.addEventListener("pointerdown", startPan);
@@ -961,11 +1286,7 @@
       elements.graph.addEventListener("pointercancel", (event) => { finishGraphDrag(event); finishPan(event); });
       elements.graph.addEventListener("wheel", (event) => {
         event.preventDefault();
-        const pointer = elements.graph.createSVGPoint();
-        pointer.x = event.clientX;
-        pointer.y = event.clientY;
-        const anchor = pointer.matrixTransform(elements.graph.getScreenCTM().inverse());
-        zoomAt(zoom.scale * Math.exp(-event.deltaY * 0.0012), anchor);
+        zoomAt(zoom.scale * Math.exp(-event.deltaY * 0.0012), rootPoint(event));
       }, { passive: false });
 
       function clearDetail(label, title, description) {
@@ -979,11 +1300,17 @@
         return element("i", { class: `jedi-mark${MEMBER_GROUPS[member.group].core ? "" : " associate"}`, "aria-hidden": "true" });
       }
 
-      function renderLabPeople(people, onSelect) {
+      // "shared" counts are publications shared with the selected person.
+      function paperCount(person, mode) {
+        const count = person.papers.size;
+        return mode === "shared" ? `${count} shared` : `${count} ${count === 1 ? "paper" : "papers"}`;
+      }
+
+      function renderLabPeople(people, onSelect, mode) {
         const content = document.getElementById("detail-content");
         const section = element("section", { class: "people-group" });
         const heading = element("h3", { class: "section-title" });
-        heading.append(element("span", {}, "JEDI Lab"), element("span", { class: "count" }, `${people.length} ${people.length === 1 ? "person" : "people"}`));
+        heading.append(element("span", {}, mode === "shared" ? "JEDI Lab coauthors" : "JEDI Lab"), element("span", { class: "count" }, `${people.length} ${people.length === 1 ? "person" : "people"}`));
         section.appendChild(heading);
         if (!people.length) {
           section.appendChild(element("div", { class: "empty" }, "No JEDI Lab people are listed on these publications."));
@@ -998,7 +1325,7 @@
           const text = element("span", { class: "is-member" }, person.name);
           text.appendChild(element("span", { class: "member-role" }, MEMBER_GROUPS[member.group].label));
           name.append(memberMark(member), text);
-          button.append(name, element("span", { class: "paper-count" }, `${person.papers.size} ${person.papers.size === 1 ? "paper" : "papers"}`));
+          button.append(name, element("span", { class: "paper-count" }, paperCount(person, mode)));
           button.addEventListener("click", () => onSelect(person.name));
           list.appendChild(element("li")).appendChild(button);
         });
@@ -1006,12 +1333,12 @@
         content.appendChild(section);
       }
 
-      function renderPeople(allPeople, onSelect) {
+      function renderPeople(allPeople, onSelect, mode = "papers") {
         const content = document.getElementById("detail-content");
         const lab = allPeople.filter((person) => memberOf(person.name))
           .sort((a, b) => memberRank(a.name) - memberRank(b.name) || b.papers.size - a.papers.size || a.name.localeCompare(b.name));
         const people = allPeople.filter((person) => !memberOf(person.name));
-        if (members.size) renderLabPeople(lab, onSelect);
+        if (members.size) renderLabPeople(lab, onSelect, mode);
         const disclosure = element("details", { class: "people-disclosure" });
         if (contributorsExpanded) disclosure.open = true;
         const summary = element("summary");
@@ -1029,7 +1356,7 @@
           const item = element("li");
           if (index >= initialCount) item.hidden = !allContributorsExpanded;
           const button = element("button", { type: "button" });
-          button.append(element("span", {}, person.name), element("span", { class: "paper-count" }, `${person.papers.size} ${person.papers.size === 1 ? "paper" : "papers"}`));
+          button.append(element("span", {}, person.name), element("span", { class: "paper-count" }, paperCount(person, mode)));
           button.addEventListener("click", () => onSelect(person.name));
           item.appendChild(button);
           list.appendChild(item);
@@ -1140,7 +1467,7 @@
         clearDetail("Research theme", name, `${selectedPapers.length} publications matching the current filters.`);
         renderPeople(people, selectPerson);
         renderPapers(selectedPapers);
-        drawGraph(activePublications());
+        refreshGraphSelection();
       }
 
       function selectPerson(name) {
@@ -1153,7 +1480,7 @@
         } else {
           renderPersonDetail(name, [...person.papers.values()].filter((paper) => activePublications().includes(paper)));
         }
-        drawGraph(activePublications());
+        refreshGraphSelection();
       }
 
       function renderPersonDetail(name, publications) {
@@ -1187,6 +1514,15 @@
           topicsList.style.marginBottom = "19px";
           content.appendChild(topicsList);
         }
+        // Coauthors with the number of publications shared with this person.
+        const coauthors = new Map();
+        publications.forEach((paper) => paper.authors.forEach((author) => {
+          if (author === name) return;
+          const coauthor = coauthors.get(author) || { name: author, papers: new Map() };
+          coauthor.papers.set(paper.id, paper);
+          coauthors.set(author, coauthor);
+        }));
+        renderPeople([...coauthors.values()].sort((a, b) => b.papers.size - a.papers.size || a.name.localeCompare(b.name)), selectPerson, "shared");
         renderPapers(publications);
       }
 
@@ -1457,11 +1793,7 @@
         if (selected) {
           if (selected.type === "topic" && currentGraph.topicCounts.has(selected.name)) selectTopic(selected.name);
           else if (selected.type === "person" && currentGraph.allPeople.has(selected.name)) selectPerson(selected.name);
-          else if (!currentGraph.topicCounts.has(selected.name)) {
-            selected = null;
-            clearDetail("Start exploring", "A map of shared ideas", "Select one of the themes or researcher nodes. The list of people and papers here updates to match your selection.");
-            document.getElementById("detail-content").appendChild(element("div", { class: "empty" }, "Choose a node in the graph, or search for a topic, person or publication."));
-          }
+          else clearSelection();
         }
         if (elements.search.value) showSearchResults(elements.search.value);
       }
@@ -1476,12 +1808,8 @@
           }
           layoutPositions = new Map();
           Object.entries(positions).forEach(([key, value]) => {
-            const x = Array.isArray(value) ? value[0] : value?.x;
-            const y = Array.isArray(value) ? value[1] : value?.y;
-            if (
-              Number.isFinite(x) && Number.isFinite(y)
-            ) {
-              layoutPositions.set(key, { x, y });
+            if (Number.isFinite(value?.fx) && Number.isFinite(value?.fy)) {
+              layoutPositions.set(key, { fx: value.fx, fy: value.fy });
             }
           });
           return "";
@@ -1544,14 +1872,14 @@
           return;
         }
         layoutPositions.clear();
+        layoutCache.clear();
         resetZoom();
         elements.year.value = "all";
         elements.ranking.value = "all";
         elements.citations.value = "all";
         elements.search.value = "";
         elements.results.hidden = true;
-        clearDetail("Start exploring", "A map of shared ideas", "Select one of the themes or researcher nodes. The list of people and papers here updates to match your selection.");
-        document.getElementById("detail-content").appendChild(element("div", { class: "empty" }, "Choose a node in the graph, or search for a topic, person or publication."));
+        showStartPanel();
         render();
         setStatus("View and custom graph layout reset.");
       });
@@ -1565,8 +1893,22 @@
         if (!elements.results.contains(event.target) && event.target !== elements.search) elements.results.hidden = true;
       });
       document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") elements.results.hidden = true;
+        if (event.key !== "Escape") return;
+        if (!elements.results.hidden) elements.results.hidden = true;
+        else if (selected && document.activeElement !== elements.search) clearSelection();
       });
+      // Re-lay out when the stage changes shape noticeably (positions are kept as fractions).
+      let resizeTimer = 0;
+      new ResizeObserver(() => {
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(() => {
+          if (!data || !graphDimensions) return;
+          const next = graphSize();
+          if (Math.abs(next.pixels - graphDimensions.pixels) / graphDimensions.pixels > 0.08
+            || Math.abs(next.height - graphDimensions.height) / graphDimensions.height > 0.08) drawGraph(activePublications());
+          else applyZoomTransform();
+        }, 200);
+      }).observe(elements.graph.parentElement);
       document.getElementById("zoom-in").addEventListener("click", () => {
         zoomAt(zoom.scale * 1.2, graphCenter());
       });
