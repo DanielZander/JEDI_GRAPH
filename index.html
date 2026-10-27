@@ -93,7 +93,8 @@
     .jedi-mark { display: inline-block; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
     .jedi-mark.associate { box-sizing: border-box; border: 2px solid var(--blue); background: #fff; }
     .people-list .person-name { display: flex; align-items: center; gap: 7px; min-width: 0; }
-    .people-list .member-role { display: block; color: var(--muted); font-size: 10px; }
+    .people-list .member-role { color: var(--muted); font-size: 10px; white-space: nowrap; }
+    .people-list .person-name { flex-wrap: wrap; column-gap: 6px; row-gap: 0; }
     .people-list .is-member { font-weight: 750; }
     .people-group { margin: 0 0 19px; }
     .author-list { color: var(--muted); font-size: 11px; }
@@ -111,11 +112,11 @@
     .side-content { min-height: 0; padding: 14px 20px 20px; overflow: auto; }
     .section-title { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin: 0 0 9px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .section-title .count { color: #83919b; font-weight: 600; letter-spacing: 0; text-transform: none; }
-    .people-list { display: grid; gap: 6px; margin: 0 0 19px; padding: 0; list-style: none; }
+    .people-list { display: grid; gap: 3px; margin: 0; padding: 0; list-style: none; }
     .people-list button {
       width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 8px;
-      padding: 8px 9px; border: 1px solid transparent; border-radius: 8px;
-      background: #f6f8f9; color: var(--ink); text-align: left; font-size: 12px;
+      padding: 5px 8px; border: 1px solid transparent; border-radius: 7px;
+      background: #f6f8f9; color: var(--ink); text-align: left; font-size: 12px; line-height: 1.35;
     }
     .people-list button:hover { border-color: #d4a0aa; background: #fcf5f6; }
     .people-list .paper-count { color: var(--muted); font-size: 11px; white-space: nowrap; }
@@ -131,7 +132,7 @@
     .people-disclosure .count { margin-left: auto; color: #83919b; font-weight: 600; letter-spacing: 0; text-transform: none; }
     .people-disclosure .people-list { margin-bottom: 0; }
     .people-more {
-      width: 100%; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--line);
+      width: 100%; margin-top: 4px; padding: 5px 8px; border: 1px solid var(--line);
       border-radius: 8px; background: #fff; color: var(--blue); text-align: left;
       font-size: 12px; font-weight: 700;
     }
@@ -188,7 +189,9 @@
     .edge { stroke: #8c8c8c; stroke-linecap: round; stroke-opacity: .22; transition: stroke-opacity .18s; vector-effect: non-scaling-stroke; }
     .edge:not(.strong):not(.focus) { display: none; }
     #graph.has-focus .edge.strong:not(.focus) { stroke-opacity: .05; }
-    .edge.focus { stroke: #2f2f2f; stroke-opacity: .5; }
+    .edge-coauthor { stroke: var(--blue); }
+    .edge-cooccurrence { stroke: #a8a8a8; }
+    .edge-membership.focus { stroke: #2f2f2f; }
     .metric-line { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; margin-top: 5px; color: var(--muted); font-size: 11px; }
     .metric-badge { padding: 1px 6px; border: 1px solid var(--line); border-radius: 5px; background: #fff; color: var(--ink); font-size: 10px; font-weight: 650; white-space: nowrap; }
     .metric-line .citations { color: var(--ink); font-weight: 650; }
@@ -314,7 +317,12 @@
             </div>
             <div class="legend-row">
               <span><svg width="24" height="14" viewBox="0 0 24 14" aria-hidden="true"><circle cx="4" cy="9" r="3" fill="none" stroke="#8c8c8c"/><circle cx="17" cy="7" r="6" fill="none" stroke="#8c8c8c"/></svg> Circle size: publications in the current view</span>
-              <span><svg width="24" height="12" viewBox="0 0 24 12" aria-hidden="true"><line x1="1" y1="3" x2="23" y2="3" stroke="#8c8c8c" stroke-width="1"/><line x1="1" y1="9" x2="23" y2="9" stroke="#8c8c8c" stroke-width="3.5"/></svg> Line thickness: publications shared by the two nodes</span>
+            </div>
+            <div class="legend-row">
+              <span><svg width="24" height="8" viewBox="0 0 24 8" aria-hidden="true"><line x1="1" y1="4" x2="23" y2="4" stroke="#bd1230" stroke-width="2.5" stroke-linecap="round"/></svg> Co-authorship (person–person)</span>
+              <span><svg width="24" height="8" viewBox="0 0 24 8" aria-hidden="true"><line x1="1" y1="4" x2="23" y2="4" stroke="#2f2f2f" stroke-width="2" stroke-linecap="round"/></svg> Person–theme</span>
+              <span><svg width="24" height="8" viewBox="0 0 24 8" aria-hidden="true"><line x1="1" y1="4" x2="23" y2="4" stroke="#a8a8a8" stroke-width="1.2" stroke-linecap="round"/></svg> Theme–theme</span>
+              <span><svg width="24" height="12" viewBox="0 0 24 12" aria-hidden="true"><line x1="1" y1="3" x2="23" y2="3" stroke="#2f2f2f" stroke-width="1" stroke-opacity=".2"/><line x1="1" y1="9" x2="23" y2="9" stroke="#2f2f2f" stroke-width="3.5" stroke-opacity=".75"/></svg> Thicker, darker: more shared publications</span>
             </div>
             <p class="legend-note">Until you select something, only the strongest links are drawn: each person to their main theme, the closest coauthor pairs and the most common theme pairs. Select a theme or person to see all its connections; click the background or press Esc to clear.</p>
           </div>
@@ -362,6 +370,7 @@
       const STRONG_COAUTHOR_LINKS = 24;
       const STRONG_THEME_LINKS = 8;
       const LABEL_ZOOM = 1.8;
+      const PEOPLE_PREVIEW = 5;
       const LAYOUT_MIN_WIDTH = 760;
       const SVG_ELEMENTS = new Set(["svg", "g", "line", "circle", "text", "title", "tspan", "rect", "path"]);
       const RANKING_SYSTEMS = {
@@ -385,8 +394,8 @@
       // Canonical member name -> { name, group, role, spellings: Set of cited forms }.
       let members = new Map();
       let selected = null;
-      let contributorsExpanded = true;
-      let allContributorsExpanded = false;
+      // "Other coauthors" starts collapsed so the publications stay near the top.
+      let contributorsExpanded = false;
       let layoutPositions = new Map();
       let renderedNodes = new Map();
       let renderedEdges = [];
@@ -908,8 +917,22 @@
         return Math.min(3, 0.5 + Math.sqrt(link.weight) * 0.32);
       }
 
-      function focusEdgeWidth(link) {
-        return Math.min(6, 0.9 + Math.sqrt(link.weight) * 0.7);
+      // Emphasis of a selected node's links, by kind: co-authorship strongest, person–theme
+      // next, theme–theme kept in the background. Opacity and width grow with the link's
+      // share of the strongest link of its kind, so the closest collaborators stand out.
+      const FOCUS_EDGE = {
+        coauthor: { opacity: [0.12, 0.9], width: [0.8, 6] },
+        membership: { opacity: [0.12, 0.7], width: [0.7, 4.5] },
+        cooccurrence: { opacity: [0.05, 0.3], width: [0.6, 2.2] },
+      };
+
+      function focusEdgeStyle(link, maxWeight) {
+        const style = FOCUS_EDGE[link.kind];
+        const share = Math.pow(link.weight / Math.max(1, maxWeight), 0.75);
+        return {
+          opacity: style.opacity[0] + (style.opacity[1] - style.opacity[0]) * share,
+          width: style.width[0] + (style.width[1] - style.width[0]) * share,
+        };
       }
 
       // Break a theme name into at most two lines for the label under its circle.
@@ -961,7 +984,9 @@
         const nodesGroup = element("g", { class: "nodes" });
         const labelsGroup = element("g", { class: "labels", "aria-hidden": "true" });
         elements.viewport.append(edgesGroup, nodesGroup, labelsGroup);
-        graph.links.forEach((link) => {
+        // Theme–theme links underneath, co-authorship links on top.
+        const order = { cooccurrence: 0, membership: 1, coauthor: 2 };
+        [...graph.links].sort((a, b) => order[a.kind] - order[b.kind]).forEach((link) => {
           link.line = element("line", {
             x1: link.source.x, y1: link.source.y, x2: link.target.x, y2: link.target.y,
             class: `edge edge-${link.kind}${link.strong ? " strong" : ""}`,
@@ -1032,6 +1057,7 @@
         }
         elements.graph.classList.toggle("has-focus", Boolean(focus));
         graph.nodes.forEach((node) => {
+          node.focusWeight = neighbours.get(node)?.weight || 0;
           const related = !focus || node === focus || neighbours.has(node);
           node.element.classList.toggle("faded", !related);
           node.element.classList.toggle("selected", node === focus);
@@ -1040,10 +1066,19 @@
           node.label.classList.toggle("selected", node === focus);
           node.titleEl.textContent = nodeTitle(node, focus, neighbours.get(node));
         });
+        const maxWeight = {};
+        neighbours.forEach((link) => { maxWeight[link.kind] = Math.max(maxWeight[link.kind] || 0, link.weight); });
         graph.links.forEach((link) => {
           const incident = Boolean(focus) && (link.source === focus || link.target === focus);
           link.line.classList.toggle("focus", incident);
-          link.line.setAttribute("stroke-width", incident ? focusEdgeWidth(link) : edgeWidth(link));
+          if (incident) {
+            const style = focusEdgeStyle(link, maxWeight[link.kind]);
+            link.line.style.strokeOpacity = style.opacity.toFixed(3);
+            link.line.setAttribute("stroke-width", style.width.toFixed(2));
+          } else {
+            link.line.style.strokeOpacity = "";
+            link.line.setAttribute("stroke-width", edgeWidth(link));
+          }
         });
         declutterLabels();
       }
@@ -1064,7 +1099,7 @@
           if (label.classList.contains("faded")) return false;
           return focused ? label.classList.contains("show") : zoomed;
         }).sort((a, b) => Number(b.label.classList.contains("selected")) - Number(a.label.classList.contains("selected"))
-          || memberRank(a.name) - memberRank(b.name) || b.count - a.count);
+          || b.focusWeight - a.focusWeight || memberRank(a.name) - memberRank(b.name) || b.count - a.count);
         // A label collides with an already placed one, or runs off the stage.
         const overlaps = (box) => box.x < 0 || box.x + box.width > graphDimensions.width
           || placed.some((other) => box.x < other.x + other.width + 2 && other.x < box.x + box.width + 2
@@ -1306,82 +1341,66 @@
         return mode === "shared" ? `${count} shared` : `${count} ${count === 1 ? "paper" : "papers"}`;
       }
 
-      function renderLabPeople(people, onSelect, mode) {
-        const content = document.getElementById("detail-content");
-        const section = element("section", { class: "people-group" });
-        const heading = element("h3", { class: "section-title" });
-        heading.append(element("span", {}, mode === "shared" ? "JEDI Lab coauthors" : "JEDI Lab"), element("span", { class: "count" }, `${people.length} ${people.length === 1 ? "person" : "people"}`));
-        section.appendChild(heading);
-        if (!people.length) {
-          section.appendChild(element("div", { class: "empty" }, "No JEDI Lab people are listed on these publications."));
-          content.appendChild(section);
-          return;
-        }
+      // A short list of people: the first few are shown, the rest behind "Show all".
+      function peopleList(people, onSelect, mode, noun) {
+        const fragment = document.createDocumentFragment();
         const list = element("ul", { class: "people-list" });
-        people.forEach((person) => {
+        people.forEach((person, index) => {
           const member = memberOf(person.name);
+          const item = element("li");
+          item.hidden = index >= PEOPLE_PREVIEW;
           const button = element("button", { type: "button" });
           const name = element("span", { class: "person-name" });
-          const text = element("span", { class: "is-member" }, person.name);
-          text.appendChild(element("span", { class: "member-role" }, MEMBER_GROUPS[member.group].label));
-          name.append(memberMark(member), text);
+          if (member) {
+            name.append(memberMark(member), element("span", { class: "is-member" }, person.name),
+              element("span", { class: "member-role" }, MEMBER_GROUPS[member.group].label));
+          } else {
+            name.appendChild(element("span", {}, person.name));
+          }
           button.append(name, element("span", { class: "paper-count" }, paperCount(person, mode)));
-          button.addEventListener("click", () => onSelect(person.name));
-          list.appendChild(element("li")).appendChild(button);
-        });
-        section.appendChild(list);
-        content.appendChild(section);
-      }
-
-      function renderPeople(allPeople, onSelect, mode = "papers") {
-        const content = document.getElementById("detail-content");
-        const lab = allPeople.filter((person) => memberOf(person.name))
-          .sort((a, b) => memberRank(a.name) - memberRank(b.name) || b.papers.size - a.papers.size || a.name.localeCompare(b.name));
-        const people = allPeople.filter((person) => !memberOf(person.name));
-        if (members.size) renderLabPeople(lab, onSelect, mode);
-        const disclosure = element("details", { class: "people-disclosure" });
-        if (contributorsExpanded) disclosure.open = true;
-        const summary = element("summary");
-        summary.append(element("span", {}, members.size ? "Other coauthors" : "Contributors"), element("span", { class: "count" }, `${people.length} names`));
-        disclosure.appendChild(summary);
-        disclosure.addEventListener("toggle", () => { contributorsExpanded = disclosure.open; });
-        if (!people.length) {
-          disclosure.appendChild(element("div", { class: "empty" }, "No named contributors are listed for this selection."));
-          content.appendChild(disclosure);
-          return;
-        }
-        const list = element("ul", { class: "people-list" });
-        const initialCount = Math.min(8, people.length);
-        people.forEach((person, index) => {
-          const item = element("li");
-          if (index >= initialCount) item.hidden = !allContributorsExpanded;
-          const button = element("button", { type: "button" });
-          button.append(element("span", {}, person.name), element("span", { class: "paper-count" }, paperCount(person, mode)));
           button.addEventListener("click", () => onSelect(person.name));
           item.appendChild(button);
           list.appendChild(item);
         });
-        disclosure.appendChild(list);
-        if (people.length > initialCount) {
-          const moreButton = element("button", {
-            class: "people-more",
-            type: "button",
-            "aria-expanded": String(allContributorsExpanded),
-          }, allContributorsExpanded
-            ? `Show fewer ${members.size ? "coauthors" : "contributors"}`
-            : `Show all ${people.length} ${members.size ? "coauthors" : "contributors"}`);
-          moreButton.addEventListener("click", () => {
-            allContributorsExpanded = !allContributorsExpanded;
-            list.querySelectorAll("li").forEach((item, index) => {
-              if (index >= initialCount) item.hidden = !allContributorsExpanded;
-            });
-            moreButton.setAttribute("aria-expanded", String(allContributorsExpanded));
-            moreButton.textContent = allContributorsExpanded
-              ? `Show fewer ${members.size ? "coauthors" : "contributors"}`
-              : `Show all ${people.length} ${members.size ? "coauthors" : "contributors"}`;
+        fragment.appendChild(list);
+        if (people.length > PEOPLE_PREVIEW) {
+          const more = element("button", { class: "people-more", type: "button", "aria-expanded": "false" }, `Show all ${people.length} ${noun}`);
+          more.addEventListener("click", () => {
+            const expand = more.getAttribute("aria-expanded") !== "true";
+            list.querySelectorAll("li").forEach((item, index) => { item.hidden = !expand && index >= PEOPLE_PREVIEW; });
+            more.setAttribute("aria-expanded", String(expand));
+            more.textContent = expand ? `Show fewer ${noun}` : `Show all ${people.length} ${noun}`;
           });
-          disclosure.appendChild(moreButton);
+          fragment.appendChild(more);
         }
+        return fragment;
+      }
+
+      function renderPeople(allPeople, onSelect, mode = "papers") {
+        const content = document.getElementById("detail-content");
+        // Most shared publications first, so a person's closest collaborators lead the list.
+        const byCount = (a, b) => b.papers.size - a.papers.size || memberRank(a.name) - memberRank(b.name) || a.name.localeCompare(b.name);
+        const lab = allPeople.filter((person) => memberOf(person.name)).sort(byCount);
+        const people = allPeople.filter((person) => !memberOf(person.name)).sort(byCount);
+        if (members.size) {
+          const section = element("section", { class: "people-group" });
+          const heading = element("h3", { class: "section-title" });
+          heading.append(element("span", {}, mode === "shared" ? "JEDI Lab coauthors" : "JEDI Lab"), element("span", { class: "count" }, `${lab.length} ${lab.length === 1 ? "person" : "people"}`));
+          section.appendChild(heading);
+          section.appendChild(lab.length
+            ? peopleList(lab, onSelect, mode, "lab people")
+            : element("div", { class: "empty" }, "No JEDI Lab people are listed on these publications."));
+          content.appendChild(section);
+        }
+        const disclosure = element("details", { class: "people-disclosure" });
+        disclosure.open = contributorsExpanded;
+        disclosure.addEventListener("toggle", () => { contributorsExpanded = disclosure.open; });
+        const summary = element("summary");
+        summary.append(element("span", {}, members.size ? "Other coauthors" : "Contributors"), element("span", { class: "count" }, `${people.length} names`));
+        disclosure.appendChild(summary);
+        disclosure.appendChild(people.length
+          ? peopleList(people, onSelect, mode, members.size ? "coauthors" : "contributors")
+          : element("div", { class: "empty" }, "No named contributors are listed for this selection."));
         content.appendChild(disclosure);
       }
 
@@ -1455,7 +1474,6 @@
 
       function selectTopic(name) {
         selected = { type: "topic", name };
-        allContributorsExpanded = false;
         const selectedPapers = activePublications().filter((publication) => publication.topics.includes(name));
         const contributors = new Map();
         selectedPapers.forEach((paper) => paper.authors.forEach((author) => {
@@ -1472,7 +1490,6 @@
 
       function selectPerson(name) {
         selected = { type: "person", name };
-        allContributorsExpanded = false;
         const person = currentGraph.allPeople.get(name);
         if (!person) {
           const publications = activePublications().filter((paper) => paper.authors.includes(name));
