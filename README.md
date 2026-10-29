@@ -14,19 +14,32 @@ Then open `http://localhost:8000`. The graph loads `data/publications.json`; ope
 
 ## Deploy on the JEDI Lab website
 
-Host this folder on a static web host (for example, GitHub Pages) and add an HTML embed element to the Weebly page. Replace the URL with the deployed address:
+Host this folder on a static web host (for example, GitHub Pages). On the Weebly site, add a new page and drag an **Embed Code** element onto it, then paste the snippet below, replacing the URL with the deployed address:
 
 ```html
-<iframe
-  src="https://YOUR-STATIC-HOST.example/"
-  title="JEDI Lab research map"
-  style="width:100%;height:900px;border:0"
-  loading="lazy"
-  allowfullscreen>
-</iframe>
+<div style="position:relative;left:50%;width:min(1400px, calc(100vw - 40px));transform:translateX(-50%)">
+  <iframe id="jedi-research-map" src="https://YOUR-STATIC-HOST.example/" title="JEDI Lab research map"
+    style="display:block;width:100%;height:1500px;border:0;background:#242323"
+    loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+</div>
+<script>
+  window.addEventListener("message", function (event) {
+    var frame = document.getElementById("jedi-research-map");
+    var data = event.data;
+    if (!frame || event.source !== frame.contentWindow || !data || data.type !== "jedi-map:height") return;
+    if (data.height > 0) frame.style.height = Math.ceil(data.height) + "px";
+  });
+</script>
 ```
 
-The app does not require a server-side database, API key, JavaScript package manager or tracking service. Keep `index.html`, `data/publications.json`, `data/metrics.json`, `data/members.json`, and `data/JEDI_logo.png` together at the deployed URL.
+- **Look:** the page uses the Weebly theme's background (`#242323`), typefaces (Alice, Raleway, Open Sans, loaded from Google Fonts) and link colour, with the logo's red for JEDI Lab people, so it reads as part of the site. It has no logo or site link of its own; the Weebly header and navigation provide them.
+- **Width:** the wrapper `div` lets the map break out of the theme's 960px content column and use up to 1400px of the window, centred. To keep it inside the column instead, use the `iframe` without the wrapper; the layout adapts to 960px and to phones.
+- **Height:** when embedded, the page posts its height to the host page and the script above resizes the iframe to fit, so there is no inner scrollbar. Without the script the iframe stays at the fixed height in its `style`.
+- **Heading:** the page shows its own heading ("Ideas, people & connections") with the summary figures. If the Weebly page already has a title, add `?intro=0` to the URL to hide the heading and introduction and keep only the figures.
+- **Scrolling:** inside the iframe, scrolling over the map scrolls the Weebly page; Ctrl + scroll (⌘ + scroll on a Mac) or a trackpad pinch zooms the map. Opened directly, plain scrolling zooms as before.
+- **Fullscreen:** the corner button shows the search, map and side panel fullscreen; it needs `allow="fullscreen"` on the iframe.
+
+The app does not require a server-side database, API key, JavaScript package manager or tracking service. Keep `index.html`, `data/publications.json`, `data/metrics.json` and `data/members.json` together at the deployed URL.
 
 ## Refresh the bibliography
 
@@ -149,9 +162,9 @@ There is no publication editor in the webpage. The site administrator owns `data
 ### How the graph works
 
 - **Layout:** a deterministic force-directed layout with collision avoidance, stretched to fill the stage. Filtered views start from the unfiltered layout, so nodes stay roughly in place and the same filters always give the same map.
-- **Encoding:** circle size is the number of publications in the current view. Themes are dark, JEDI Lab members red, alumni and affiliated researchers red rings, other coauthors gray. Line thickness is the number of shared publications: a person's papers in a theme, papers two people co-authored, or papers carrying both themes.
+- **Encoding:** circle size is the number of publications in the current view. Themes are white spheres, JEDI Lab members red, alumni and affiliated researchers red rings, other coauthors gray. Line thickness is the number of shared publications: a person's papers in a theme, papers two people co-authored, or papers carrying both themes.
 - **Calm by default:** until something is selected, only the strongest links are drawn (each person to their main theme, the closest coauthor pairs and the most common theme pairs), faint and thin. Person names appear on hover, on selection, or when zoomed in to 180% or more; where names would overlap, the less prominent one waits for hover or a closer zoom.
-- **Selection:** clicking a node, or choosing a theme or person in search, highlights it, its neighbours and all the links between them; the rest of the map fades but stays visible. Co-authorship links are red, person–theme links dark and theme–theme links light gray in the background. Each link's opacity and thickness grow with its share of the selected node's strongest link of the same kind, so a person's closest collaborators and a theme's most active people stand out. Hover a highlighted node for the exact number of shared publications. Click the background or press Esc to clear.
+- **Selection:** clicking a node, or choosing a theme or person in search, highlights it, its neighbours and all the links between them; the rest of the map fades but stays visible. Co-authorship links are red, person–theme links white and theme–theme links gray in the background; the selected node gets an amber ring. Each link's opacity and thickness grow with its share of the selected node's strongest link of the same kind, so a person's closest collaborators and a theme's most active people stand out. Hover a highlighted node for the exact number of shared publications. Click the background or press Esc to clear.
 - **Side panel lists:** people are sorted by shared publications; the first five show, with **Show all** for the rest, and "Other coauthors" starts collapsed so the publications stay near the top.
 
 The app also supports filtering by year, journal ranking and citation count; viewing publication and citation trends and ranking distributions; dragging the graph background to pan; scrolling over the graph to zoom around the pointer; and using the `+`, `−` and **Fit** controls. Drag nodes to arrange the graph in the current browser; Shift-drag a theme to move it with the people whose main theme it is. Layout changes are saved only in that browser. **Reset view** restores the default node positions and zoom. The JSON schema is:

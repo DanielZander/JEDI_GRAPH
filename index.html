@@ -3,236 +3,325 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f5f7">
+  <meta name="theme-color" content="#242323">
   <title>JEDI Lab | Research map</title>
+  <!-- The same typefaces as the JEDI Lab Weebly theme (Alice, Raleway, Open Sans). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alice&family=Open+Sans:wght@400;600;700&family=Raleway:wght@500;600;700&display=swap">
   <style>
+    /* Palette taken from the JEDI Lab Weebly theme (#242323 page, #d0d0d0 rules,
+       #5199a8 links) and the logo (red ring, white wings, orange star). */
     :root {
-      color-scheme: light;
-      --ink: #282828;
-      --muted: #6a6a6a;
-      --line: #dedede;
-      --paper: #ffffff;
-      --wash: #f5f5f5;
-      --blue: #bd1230;
-      --navy: #292929;
-      --gold: #bd1230;
-      --shadow: 0 12px 32px rgba(30, 30, 30, .07);
+      color-scheme: dark;
+      --bg: #242323;
+      --surface: #2b2a2a;
+      --raised: #333232;
+      --sunken: #1c1b1b;
+      --line: rgba(255, 255, 255, .085);
+      --line-strong: rgba(255, 255, 255, .16);
+      --rule: rgba(208, 208, 208, .55);
+      --ink: #f1edea;
+      --text: #d2cdc9;
+      --muted: #9d9894;
+      --faint: #7a7572;
+      --red: #d62a43;
+      --red-bright: #ff5269;
+      --red-soft: rgba(214, 42, 67, .17);
+      --star: #f59b3a;
+      --teal: #5199a8;
+      --teal-light: #8dc7d3;
+      --halo: #1b1a1a;
+      --shadow: 0 24px 60px rgba(0, 0, 0, .38);
+      --serif: "Alice", Georgia, "Times New Roman", serif;
+      --display: "Raleway", "Open Sans", "Segoe UI", sans-serif;
+      --sans: "Open Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
     }
     * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
     body {
       margin: 0;
-      background: var(--wash);
-      color: var(--ink);
-      font: 15px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.55 var(--sans);
+      scrollbar-color: #4b4848 transparent;
     }
+    * { scrollbar-width: thin; scrollbar-color: #4b4848 transparent; }
     button, input, select { font: inherit; }
     button { cursor: pointer; }
-    a { color: var(--blue); }
-    .page { max-width: 1600px; margin: 0 auto; padding: 24px clamp(16px, 3vw, 44px) 32px; }
-    .masthead { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
-    .brand { display: flex; gap: 13px; align-items: center; }
-    .brand-mark {
-      display: grid; place-items: center; flex: none; width: 74px; height: 74px;
-      overflow: hidden; border-radius: 50%; background: var(--navy);
+    a { color: var(--teal); }
+    a:hover { color: var(--teal-light); }
+    :focus-visible { outline: 2px solid var(--star); outline-offset: 2px; }
+    .page { max-width: 1600px; margin: 0 auto; padding: 22px clamp(12px, 2.5vw, 36px) 36px; }
+
+    /* Hero: echoes the Weebly page heading and its ruled navigation bar. */
+    .hero { max-width: 760px; margin: 0 auto 26px; text-align: center; }
+    .eyebrow {
+      display: flex; align-items: center; justify-content: center; gap: 16px; margin: 0 0 12px;
+      color: var(--muted); font: 600 11px/1 var(--display); letter-spacing: .24em; text-transform: uppercase;
     }
-    .brand-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
-    .eyebrow { margin: 0 0 2px; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
-    h1 { margin: 0; font-size: clamp(22px, 3vw, 30px); letter-spacing: -.035em; line-height: 1.15; }
-    .site-link { color: var(--muted); font-size: 13px; text-decoration: none; }
-    .site-link:hover { color: var(--blue); }
-    .intro { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin: 0 0 20px; }
-    .intro-copy { max-width: 700px; color: var(--muted); }
-    .intro-copy p { margin: 0; }
-    .stats { display: flex; gap: 9px; flex-wrap: wrap; justify-content: end; }
-    .stat { min-width: 112px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
-    .stat strong { display: block; color: var(--navy); font-size: 19px; line-height: 1.15; }
-    .stat span { color: var(--muted); font-size: 11px; }
+    .eyebrow::before, .eyebrow::after { content: ""; width: 34px; height: 1px; background: var(--rule); }
+    h1 { margin: 0 0 12px; color: var(--ink); font: 400 clamp(26px, 3.4vw, 34px)/1.2 var(--serif); }
+    .intro-copy { margin: 0; color: var(--text); font-size: 14px; }
+    .stats { display: flex; flex-wrap: wrap; justify-content: center; margin: 22px 0 0; }
+    .stat { min-width: 128px; padding: 2px 22px; text-align: center; }
+    .stat + .stat { border-left: 1px solid var(--line-strong); }
+    .stat strong { display: block; color: var(--ink); font: 400 27px/1.2 var(--serif); }
+    .stat span { color: var(--muted); font: 600 10px/1.4 var(--display); letter-spacing: .14em; text-transform: uppercase; }
+
+    /* Explorer: toolbar, graph and side panel; this is the element shown fullscreen. */
+    .explorer { position: relative; }
     .toolbar {
-      display: flex; align-items: center; gap: 9px; flex-wrap: wrap; padding: 12px;
-      border: 1px solid var(--line); border-radius: 14px 14px 0 0; background: var(--paper);
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 12px;
+      border: 1px solid var(--line); border-radius: 16px 16px 0 0; background: var(--surface);
     }
-    .search-wrap { position: relative; flex: 1 1 250px; }
+    .search-wrap { position: relative; flex: 1 1 220px; }
+    #ranking-filter { max-width: 200px; }
+    .search-icon { position: absolute; top: 50%; left: 12px; width: 16px; height: 16px; transform: translateY(-50%); color: var(--faint); pointer-events: none; }
     .search-wrap input, select {
-      width: 100%; min-height: 40px; padding: 8px 11px; border: 1px solid var(--line);
-      border-radius: 9px; background: #fff; color: var(--ink); outline: none;
+      width: 100%; min-height: 40px; padding: 8px 12px; border: 1px solid var(--line-strong);
+      border-radius: 10px; background: var(--sunken); color: var(--ink); outline: none;
+      transition: border-color .15s, box-shadow .15s;
     }
-    .search-wrap input:focus, select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(189,18,48,.12); }
-    select { width: auto; min-width: 132px; }
+    .search-wrap input { padding-left: 37px; }
+    .search-wrap input::placeholder { color: var(--faint); }
+    .search-wrap input:focus, select:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(214, 42, 67, .2); }
+    select {
+      width: auto; min-width: 132px; padding-right: 32px; appearance: none; -webkit-appearance: none;
+      background: var(--sunken) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%239d9894' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center;
+    }
+    select option, select optgroup { background: var(--surface); color: var(--ink); }
     .button {
-      display: inline-flex; min-height: 39px; align-items: center; justify-content: center; gap: 7px;
-      padding: 8px 12px; border: 1px solid var(--line); border-radius: 9px;
-      background: #fff; color: var(--ink); font-weight: 650; font-size: 13px;
+      display: inline-flex; min-height: 40px; align-items: center; justify-content: center; gap: 7px;
+      padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 10px;
+      background: var(--raised); color: var(--ink); font: 600 12px/1 var(--display); letter-spacing: .08em; text-transform: uppercase;
+      transition: border-color .15s, background .15s, color .15s;
     }
-    .button:hover { border-color: #9aabb6; background: #f9fbfc; }
-    .button.primary { border-color: var(--navy); background: var(--navy); color: #fff; }
-    .button.primary:hover { background: #444; }
-    .button.subtle { background: #f7f9fa; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; min-height: 665px; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 14px 14px; overflow: hidden; background: #fff; box-shadow: var(--shadow); }
-    .graph-column { min-width: 0; background: radial-gradient(ellipse at 50% 46%, #fff 15%, #f8f8f8 100%); }
-    .graph-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 19px 7px; }
-    .graph-heading h2 { margin: 0; font-size: 16px; letter-spacing: -.02em; }
-    .graph-hint { color: var(--muted); font-size: 12px; }
+    .button:hover { border-color: rgba(214, 42, 67, .7); background: #3a3838; }
+    .button svg { width: 14px; height: 14px; }
+    .status { min-height: 19px; padding: 5px 14px 6px; border-inline: 1px solid var(--line); background: var(--surface); color: var(--faint); font-size: 11px; }
+    .status.error { color: #ff8f8f; }
+    .layout {
+      display: grid; grid-template-columns: minmax(0, 1fr) 340px; min-height: 665px;
+      border: 1px solid var(--line); border-top: 0; border-radius: 0 0 16px 16px;
+      overflow: hidden; background: var(--surface); box-shadow: var(--shadow);
+    }
+
+    /* Graph stage: a dark field with a faint red and amber glow, like the logo's star. */
+    .graph-column {
+      position: relative; min-width: 0;
+      background:
+        radial-gradient(ellipse 55% 48% at 48% 46%, rgba(214, 42, 67, .13), transparent 72%),
+        radial-gradient(ellipse 38% 32% at 66% 62%, rgba(245, 155, 58, .07), transparent 70%),
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, .055) 1px, transparent 1.5px) 0 0 / 24px 24px,
+        linear-gradient(180deg, #212020, #1a1919);
+    }
+    .graph-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 18px 6px; }
+    .graph-heading h2 { margin: 0; color: var(--muted); font: 700 11px/1 var(--display); letter-spacing: .2em; text-transform: uppercase; }
+    .graph-hint { color: var(--faint); font-size: 11.5px; }
     .graph-controls { display: flex; align-items: center; gap: 5px; }
-    .graph-controls .button { min-width: 34px; min-height: 32px; padding: 4px 8px; }
-    .zoom-level { min-width: 42px; color: var(--muted); font-size: 11px; text-align: center; }
-    .graph-stage { height: 640px; min-height: 490px; }
+    .graph-controls .button { min-width: 32px; min-height: 30px; padding: 4px 8px; border-color: var(--line); background: rgba(51, 50, 50, .75); font-size: 11px; }
+    .graph-controls .button.symbol { font: 400 16px/1 var(--sans); letter-spacing: 0; }
+    .zoom-level { min-width: 40px; color: var(--muted); font-size: 11px; text-align: center; font-variant-numeric: tabular-nums; }
+    .graph-stage { position: relative; height: 640px; min-height: 490px; }
     #graph { display: block; width: 100%; height: 100%; touch-action: none; user-select: none; cursor: grab; }
     #graph.panning { cursor: grabbing; }
-    .graph-footer { display: flex; align-items: start; justify-content: space-between; gap: 8px 16px; padding: 10px 19px 15px; border-top: 1px solid #eee; color: var(--muted); font-size: 11px; }
+    .wheel-hint {
+      position: absolute; left: 50%; bottom: 18px; z-index: 2; padding: 8px 14px; transform: translate(-50%, 6px);
+      border: 1px solid var(--line-strong); border-radius: 99px; background: rgba(28, 27, 27, .92);
+      color: var(--ink); font-size: 12px; white-space: nowrap; pointer-events: none; opacity: 0;
+      transition: opacity .2s, transform .2s;
+    }
+    .wheel-hint.show { opacity: 1; transform: translate(-50%, 0); }
+    .graph-footer { display: flex; align-items: start; justify-content: space-between; gap: 8px 16px; padding: 11px 18px 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; background: rgba(28, 27, 27, .55); }
     .legend { display: grid; gap: 7px; }
     .legend-row { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
     .legend span { display: inline-flex; align-items: center; gap: 6px; }
     .legend svg { flex: none; overflow: visible; }
-    .legend-note { margin: 0; max-width: 720px; }
+    .legend-note { margin: 0; max-width: 720px; color: var(--faint); }
     .key { display: inline-block; flex: none; width: 9px; height: 9px; border-radius: 50%; }
-    .key-theme { width: 13px; height: 13px; background: #2f2f2f; }
-    .key-core { background: var(--blue); }
-    .key-associate { border: 2px solid var(--blue); background: #fff; }
-    .key-other { background: #b4b4b4; }
+    .key-theme { width: 13px; height: 13px; background: radial-gradient(circle at 35% 30%, #fff, #c9c2bb 70%); box-shadow: 0 0 8px rgba(255, 255, 255, .25); }
+    .key-core { background: var(--red-bright); box-shadow: 0 0 6px rgba(255, 82, 105, .6); }
+    .key-associate { border: 2px solid var(--red-bright); background: transparent; }
+    .key-other { background: #75706d; }
     #graph-summary { white-space: nowrap; }
-    .jedi-mark { display: inline-block; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
-    .jedi-mark.associate { box-sizing: border-box; border: 2px solid var(--blue); background: #fff; }
-    .people-list .person-name { display: flex; align-items: center; gap: 7px; min-width: 0; }
-    .people-list .member-role { color: var(--muted); font-size: 10px; white-space: nowrap; }
-    .people-list .person-name { flex-wrap: wrap; column-gap: 6px; row-gap: 0; }
-    .people-list .is-member { font-weight: 750; }
+
+    /* Side panel */
+    .side-panel { border-left: 1px solid var(--line); background: var(--surface); display: flex; flex-direction: column; min-width: 0; }
+    .side-top { padding: 20px 20px 15px; border-bottom: 1px solid var(--line); }
+    .side-label { margin: 0 0 8px; color: var(--red-bright); font: 700 10px/1.3 var(--display); letter-spacing: .2em; text-transform: uppercase; }
+    .side-top h2 { margin: 0 0 7px; color: var(--ink); font: 400 23px/1.25 var(--serif); }
+    .side-description { margin: 0; color: var(--muted); font-size: 12.5px; }
+    .side-content { min-height: 0; padding: 15px 20px 20px; overflow: auto; }
+    .section-title { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin: 0 0 9px; color: var(--muted); font: 700 10.5px/1.3 var(--display); letter-spacing: .14em; text-transform: uppercase; }
+    .section-title .count { color: var(--faint); font: 400 11px var(--sans); letter-spacing: 0; text-transform: none; }
+    .jedi-mark { display: inline-block; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--red-bright); box-shadow: 0 0 5px rgba(255, 82, 105, .55); }
+    .jedi-mark.associate { box-sizing: border-box; border: 2px solid var(--red-bright); background: transparent; box-shadow: none; }
     .people-group { margin: 0 0 19px; }
-    .author-list { color: var(--muted); font-size: 11px; }
-    .author-member {
-      display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none;
-      color: var(--ink); font: inherit; font-weight: 750; cursor: pointer;
-    }
-    .author-member:hover { color: var(--blue); text-decoration: underline; }
-    .spellings { display: block; margin: 7px 0 0; color: var(--muted); font-size: 11px; }
-    .side-panel { border-left: 1px solid var(--line); background: #fff; display: flex; flex-direction: column; min-width: 0; }
-    .side-top { padding: 19px 20px 14px; border-bottom: 1px solid var(--line); }
-    .side-label { margin: 0 0 7px; color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
-    .side-top h2 { margin: 0 0 7px; font-size: 21px; line-height: 1.2; letter-spacing: -.03em; }
-    .side-description { margin: 0; color: var(--muted); font-size: 13px; }
-    .side-content { min-height: 0; padding: 14px 20px 20px; overflow: auto; }
-    .section-title { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin: 0 0 9px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .section-title .count { color: #83919b; font-weight: 600; letter-spacing: 0; text-transform: none; }
     .people-list { display: grid; gap: 3px; margin: 0; padding: 0; list-style: none; }
     .people-list button {
       width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 8px;
-      padding: 5px 8px; border: 1px solid transparent; border-radius: 7px;
-      background: #f6f8f9; color: var(--ink); text-align: left; font-size: 12px; line-height: 1.35;
+      padding: 6px 9px; border: 1px solid transparent; border-radius: 8px;
+      background: rgba(255, 255, 255, .04); color: var(--text); text-align: left; font-size: 12px; line-height: 1.35;
+      transition: border-color .15s, background .15s;
     }
-    .people-list button:hover { border-color: #d4a0aa; background: #fcf5f6; }
+    .people-list button:hover { border-color: rgba(214, 42, 67, .55); background: var(--red-soft); }
+    .people-list .person-name { display: flex; flex-wrap: wrap; align-items: center; column-gap: 7px; row-gap: 0; min-width: 0; }
+    .people-list .is-member { color: var(--ink); font-weight: 700; }
+    .people-list .member-role { color: var(--faint); font-size: 10px; white-space: nowrap; }
     .people-list .paper-count { color: var(--muted); font-size: 11px; white-space: nowrap; }
     .people-disclosure { margin: 0 0 19px; }
     .people-disclosure summary {
       display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
       margin: 0 0 9px; color: var(--muted); cursor: pointer; list-style: none;
-      font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      font: 700 10.5px/1.3 var(--display); letter-spacing: .14em; text-transform: uppercase;
     }
     .people-disclosure summary::-webkit-details-marker { display: none; }
-    .people-disclosure summary::before { content: "▸"; margin-right: 1px; font-size: 13px; }
+    .people-disclosure summary::before { content: "▸"; margin-right: 1px; font-size: 12px; }
     .people-disclosure[open] summary::before { content: "▾"; }
-    .people-disclosure .count { margin-left: auto; color: #83919b; font-weight: 600; letter-spacing: 0; text-transform: none; }
+    .people-disclosure .count { margin-left: auto; color: var(--faint); font: 400 11px var(--sans); letter-spacing: 0; text-transform: none; }
     .people-disclosure .people-list { margin-bottom: 0; }
     .people-more {
-      width: 100%; margin-top: 4px; padding: 5px 8px; border: 1px solid var(--line);
-      border-radius: 8px; background: #fff; color: var(--blue); text-align: left;
-      font-size: 12px; font-weight: 700;
+      width: 100%; margin-top: 4px; padding: 6px 9px; border: 1px dashed var(--line-strong);
+      border-radius: 8px; background: transparent; color: var(--teal-light); text-align: left;
+      font-size: 12px; font-weight: 600;
     }
-    .people-more:hover { background: #fcf5f6; border-color: #d4a0aa; }
-    .paper-list { display: grid; gap: 10px; }
-    .paper-card { padding: 11px 0 0; border-top: 1px solid #e9edf0; }
+    .people-more:hover { border-color: var(--teal); background: rgba(81, 153, 168, .1); }
+    .author-list { margin-top: 3px; color: var(--muted); font-size: 11px; }
+    .author-member {
+      display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none;
+      color: var(--ink); font: inherit; font-weight: 700; cursor: pointer;
+    }
+    .author-member:hover { color: var(--red-bright); text-decoration: underline; }
+    .spellings { display: block; margin: 7px 0 0; color: var(--faint); font-size: 11px; }
+    .paper-list { display: grid; gap: 12px; }
+    .paper-card { padding: 12px 0 0; border-top: 1px solid var(--line); }
     .paper-card:first-child { border-top: 0; padding-top: 0; }
-    .paper-title { margin: 0 0 4px; color: var(--ink); font-size: 13px; font-weight: 720; line-height: 1.4; }
+    .paper-title { margin: 0 0 4px; color: var(--ink); font-size: 13px; font-weight: 600; line-height: 1.42; }
     .paper-meta { color: var(--muted); font-size: 11px; }
     .paper-meta a { text-decoration: none; }
     .paper-meta a:hover { text-decoration: underline; }
-    .topic-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
-    .topic-tag { padding: 2px 7px; border-radius: 99px; background: #f8e9ec; color: #8b1c30; font-size: 10px; }
-    .empty { padding: 17px 12px; border: 1px dashed var(--line); border-radius: 9px; color: var(--muted); font-size: 13px; text-align: center; }
-    .status { min-height: 19px; padding: 0 14px 6px; color: var(--muted); font-size: 11px; }
-    .status.error { color: #a13030; }
-    .disclaimer { margin: 14px 1px 0; color: #778590; font-size: 11px; }
+    .topic-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 7px; }
+    .topic-tag { padding: 2px 9px; border: 0; border-radius: 99px; background: var(--red-soft); color: #ffb3be; font-size: 10.5px; }
+    button.topic-tag { transition: background .15s; }
+    button.topic-tag:hover { background: rgba(214, 42, 67, .35); color: #fff; }
+    .metric-line { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; margin-top: 5px; color: var(--muted); font-size: 11px; }
+    .metric-badge { padding: 1px 6px; border: 1px solid var(--line-strong); border-radius: 5px; color: var(--text); font-size: 10px; font-weight: 600; white-space: nowrap; }
+    .metric-line .citations { color: var(--star); font-weight: 600; }
+    .empty { padding: 18px 14px; border: 1px dashed var(--line-strong); border-radius: 10px; color: var(--muted); font-size: 12.5px; text-align: center; }
+
+    /* Search results */
     .search-results {
-      position: absolute; z-index: 5; top: calc(100% + 5px); left: 0; right: 0;
-      max-height: 310px; overflow: auto; padding: 5px; border: 1px solid var(--line);
-      border-radius: 10px; background: #fff; box-shadow: var(--shadow);
+      position: absolute; z-index: 5; top: calc(100% + 6px); left: 0; right: 0;
+      max-height: 320px; overflow: auto; padding: 5px; border: 1px solid var(--line-strong);
+      border-radius: 12px; background: #2f2e2e; box-shadow: var(--shadow);
     }
     .search-results[hidden] { display: none; }
-    .search-result { display: block; width: 100%; padding: 8px 9px; border: 0; border-radius: 6px; background: #fff; color: var(--ink); text-align: left; }
-    .search-result:hover { background: #f2f6f8; }
+    .search-result { display: block; width: 100%; padding: 8px 10px; border: 0; border-radius: 8px; background: transparent; color: var(--ink); text-align: left; }
+    .search-result:hover { background: rgba(255, 255, 255, .06); }
     .search-result small { display: block; color: var(--muted); }
+
     /* Graph: one colour per node type; size and line width encode publication counts. */
-    .graph-node { cursor: pointer; transition: opacity .18s; }
+    @keyframes appear { from { opacity: 0; } }
+    .edges { animation: appear .9s .15s ease-out backwards; }
+    .graph-node { cursor: pointer; transition: opacity .2s; animation: appear .55s ease-out backwards; }
+    .person-node { animation-delay: .12s; }
     .graph-node.dragging { cursor: grabbing; }
     .graph-node:focus { outline: none; }
-    .topic-node .node-circle { fill: #2f2f2f; stroke: #fff; stroke-width: 2; }
-    .person-core .node-circle { fill: var(--blue); stroke: #fff; stroke-width: 1.5; }
-    .person-associate .node-circle { fill: #fff; stroke: var(--blue); stroke-width: 2; }
-    .person-other .node-circle { fill: #b4b4b4; stroke: #fff; stroke-width: 1.5; }
-    .graph-node:focus-visible .node-circle, .graph-node.selected .node-circle { stroke: #111; stroke-width: 3; }
-    .graph-node.faded { opacity: .13; }
-    .topic-count { pointer-events: none; fill: #fff; font-size: 11px; font-weight: 700; }
-    .labels text { pointer-events: none; paint-order: stroke; stroke: #fff; stroke-linejoin: round; }
+    .node-circle { transition: stroke .15s, stroke-width .15s; }
+    .topic-node .node-circle { fill: url(#theme-fill); stroke: rgba(255, 255, 255, .7); stroke-width: 1; filter: url(#glow-soft); }
+    .person-core .node-circle { fill: url(#member-fill); stroke: var(--halo); stroke-width: 1.2; }
+    .person-associate .node-circle { fill: var(--halo); stroke: var(--red-bright); stroke-width: 2; }
+    .person-other .node-circle { fill: #6f6a67; stroke: var(--halo); stroke-width: 1.2; }
+    .person-node:hover .node-circle { filter: url(#glow-soft); }
+    .graph-node:focus-visible .node-circle, .graph-node.selected .node-circle { stroke: var(--star); stroke-width: 3; filter: url(#glow-strong); }
+    .graph-node.faded { opacity: .14; }
+    .topic-count { pointer-events: none; fill: #242323; font: 700 11px var(--sans); }
+    .labels text { pointer-events: none; paint-order: stroke; stroke: var(--halo); stroke-linejoin: round; stroke-opacity: .9; }
     .theme-label {
-      fill: #1f1f1f; font-size: calc(12.5px * var(--label-scale, 1)); font-weight: 700;
-      stroke-width: calc(4px * var(--label-scale, 1)); transition: opacity .18s;
+      fill: var(--ink); font-family: var(--serif); font-size: calc(13.5px * var(--label-scale, 1));
+      stroke-width: calc(4px * var(--label-scale, 1)); transition: opacity .2s;
     }
-    .theme-label.faded { opacity: .22; }
+    .theme-label.faded { opacity: .2; }
     .node-label {
-      fill: #3b3b3b; font-size: calc(11.5px * var(--label-scale, 1)); font-weight: 550;
+      fill: var(--text); font-family: var(--sans); font-size: calc(11.5px * var(--label-scale, 1)); font-weight: 600;
       stroke-width: calc(3.5px * var(--label-scale, 1)); opacity: 0; transition: opacity .15s;
     }
-    .node-label.member-label { fill: #1b1b1b; font-weight: 750; }
+    .node-label.member-label { fill: #fff; font-weight: 700; }
     .node-label.show, #graph.zoomed .node-label { opacity: 1; }
     #graph .node-label.faded { opacity: 0; }
     #graph .node-label.crowded { opacity: 0; }
     #graph .node-label.hover, #graph .node-label.selected { opacity: 1; }
-    .node-label.selected { fill: #111; font-weight: 800; }
-    .edge { stroke: #8c8c8c; stroke-linecap: round; stroke-opacity: .22; transition: stroke-opacity .18s; vector-effect: non-scaling-stroke; }
+    .node-label.selected { fill: #ffc27d; font-weight: 700; }
+    .edge { stroke: #c4bdb6; stroke-linecap: round; stroke-opacity: .2; transition: stroke-opacity .2s; vector-effect: non-scaling-stroke; }
     .edge:not(.strong):not(.focus) { display: none; }
     #graph.has-focus .edge.strong:not(.focus) { stroke-opacity: .05; }
-    .edge-coauthor { stroke: var(--blue); }
-    .edge-cooccurrence { stroke: #a8a8a8; }
-    .edge-membership.focus { stroke: #2f2f2f; }
-    .metric-line { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; margin-top: 5px; color: var(--muted); font-size: 11px; }
-    .metric-badge { padding: 1px 6px; border: 1px solid var(--line); border-radius: 5px; background: #fff; color: var(--ink); font-size: 10px; font-weight: 650; white-space: nowrap; }
-    .metric-line .citations { color: var(--ink); font-weight: 650; }
-    .analytics { margin-top: 18px; padding: 18px 19px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); box-shadow: var(--shadow); }
-    .analytics-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
-    .analytics-head h2 { margin: 0; font-size: 16px; letter-spacing: -.02em; }
+    .edge-coauthor { stroke: var(--red-bright); }
+    .edge-cooccurrence { stroke: #948d88; }
+    .edge-membership.focus { stroke: #efe9e3; }
+
+    /* Analytics */
+    .analytics { margin-top: 22px; padding: 22px 22px 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); }
+    .analytics-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+    .analytics-head h2 { margin: 0; color: var(--ink); font: 400 22px/1.2 var(--serif); }
     .analytics-coverage { color: var(--muted); font-size: 12px; }
-    .chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr)); gap: 16px 22px; }
+    .chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr)); gap: 22px 28px; }
     .chart-card { position: relative; min-width: 0; }
-    .chart-card h3 { margin: 0; font-size: 13px; }
-    .chart-card .chart-sub { margin: 1px 0 6px; color: var(--muted); font-size: 11px; }
+    .chart-card h3 { margin: 0; color: var(--ink); font: 700 11px/1.4 var(--display); letter-spacing: .14em; text-transform: uppercase; }
+    .chart-card .chart-sub { margin: 2px 0 8px; color: var(--muted); font-size: 11px; }
     .chart-card svg { display: block; width: 100%; height: auto; overflow: visible; }
     .chart-axis { fill: var(--muted); font-size: 10px; }
-    .chart-grid-line { stroke: #ececec; stroke-width: 1; }
-    .chart-baseline { stroke: #cfcfcf; stroke-width: 1; }
-    .chart-bar { fill: var(--blue); }
-    .chart-bar.unknown { fill: #c9c9c9; }
+    .chart-grid-line { stroke: rgba(255, 255, 255, .07); stroke-width: 1; }
+    .chart-baseline { stroke: rgba(255, 255, 255, .2); stroke-width: 1; }
+    .chart-bar { fill: var(--red); transition: fill .15s; }
+    .chart-bar.unknown { fill: #514d4b; }
     .chart-hit { fill: transparent; cursor: default; }
-    .chart-hit:hover + .chart-bar, .chart-bar.active { opacity: .78; }
-    .chart-value { fill: var(--ink); font-size: 10px; font-weight: 650; }
-    .chart-empty { padding: 30px 12px; border: 1px dashed var(--line); border-radius: 9px; color: var(--muted); font-size: 12px; text-align: center; }
-    .chart-tooltip { position: absolute; z-index: 6; pointer-events: none; padding: 6px 9px; border: 1px solid var(--line); border-radius: 7px; background: #fff; box-shadow: var(--shadow); color: var(--ink); font-size: 11px; white-space: nowrap; }
+    .chart-hit:hover + .chart-bar, .chart-bar.active { fill: var(--red-bright); }
+    .chart-hit:hover + .chart-bar.unknown, .chart-bar.unknown.active { fill: #6a6562; }
+    .chart-value { fill: var(--ink); font-size: 10px; font-weight: 600; }
+    .chart-empty { padding: 30px 12px; border: 1px dashed var(--line-strong); border-radius: 10px; color: var(--muted); font-size: 12px; text-align: center; }
+    .chart-tooltip { position: absolute; z-index: 6; pointer-events: none; padding: 6px 10px; border: 1px solid var(--line-strong); border-radius: 8px; background: #383636; box-shadow: var(--shadow); color: var(--text); font-size: 11px; white-space: nowrap; }
     .chart-tooltip[hidden] { display: none; }
-    .chart-tooltip strong { display: block; font-size: 12px; }
-    .chart-table summary { margin-top: 4px; color: var(--muted); cursor: pointer; font-size: 11px; }
+    .chart-tooltip strong { display: block; color: var(--ink); font-size: 12px; }
+    .chart-table summary { margin-top: 6px; color: var(--muted); cursor: pointer; font-size: 11px; }
+    .chart-table summary:hover { color: var(--teal-light); }
     .chart-table table { width: 100%; margin-top: 6px; border-collapse: collapse; font-size: 11px; }
-    .chart-table th, .chart-table td { padding: 3px 6px; border-bottom: 1px solid #eee; text-align: left; }
+    .chart-table th, .chart-table td { padding: 3px 6px; border-bottom: 1px solid var(--line); text-align: left; }
+    .chart-table th { color: var(--muted); font-weight: 600; }
     .chart-table td:last-child, .chart-table th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+
+    /* About the data */
+    .about { max-width: 980px; margin: 22px auto 0; color: var(--faint); font-size: 11.5px; }
+    .about summary {
+      display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--muted); cursor: pointer; list-style: none;
+      font: 600 10.5px/1 var(--display); letter-spacing: .22em; text-transform: uppercase;
+    }
+    .about summary::-webkit-details-marker { display: none; }
+    .about summary::before, .about summary::after { content: ""; width: 34px; height: 1px; background: var(--rule); }
+    .about summary:hover { color: var(--ink); }
+    .about[open] summary { margin-bottom: 10px; }
+    .disclaimer { margin: 0 0 8px; }
+
+    /* Fullscreen: the explorer fills the screen and the graph takes the spare height. */
+    .explorer:fullscreen { display: flex; flex-direction: column; padding: 14px; background: var(--bg); }
+    .explorer:fullscreen .layout { flex: 1; min-height: 0; grid-template-rows: minmax(0, 1fr); }
+    .explorer:fullscreen .graph-column { display: flex; flex-direction: column; min-height: 0; }
+    .explorer:fullscreen .graph-stage { flex: 1; height: auto; min-height: 0; }
+    .explorer:fullscreen .legend-note { display: none; }
+
+    @media (min-width: 761px) {
+      /* The side panel scrolls inside the graph's height instead of stretching the page. */
+      .side-panel { contain: size; }
+    }
     @media (max-width: 1000px) {
-      .layout { grid-template-columns: minmax(0, 1fr) 310px; }
+      .layout { grid-template-columns: minmax(0, 1fr) 300px; }
       .graph-stage { height: 590px; }
       .graph-hint { display: none; }
     }
     @media (max-width: 760px) {
       .page { padding: 16px 12px 24px; }
-      .masthead { margin-bottom: 17px; }
-      .brand-mark { width: 58px; height: 58px; }
-      .site-link { display: none; }
-      .intro { display: block; }
-      .stats { justify-content: start; margin-top: 14px; }
-      .stat { min-width: 96px; }
+      .stat { min-width: 0; padding: 2px 14px; }
+      .stat strong { font-size: 22px; }
       .layout { display: flex; flex-direction: column; }
       .graph-stage { height: min(72vh, 560px); min-height: 410px; }
       .side-panel { min-height: 430px; border-top: 1px solid var(--line); border-left: 0; }
@@ -243,103 +332,127 @@
       .graph-heading { flex-wrap: wrap; }
       .graph-controls { margin-left: auto; }
     }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
+    @media (max-width: 520px) {
+      .stats { display: grid; grid-template-columns: 1fr 1fr; row-gap: 14px; }
+      .stat + .stat { border-left: 0; }
+      .stat:nth-child(even) { border-left: 1px solid var(--line-strong); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+    }
   </style>
 </head>
 <body>
   <main class="page">
-    <header class="masthead">
-      <div class="brand">
-        <div class="brand-mark"><img src="data/JEDI_logo.png" alt="JEDI Lab logo"></div>
-        <div>
-          <p class="eyebrow">Research map</p>
-          <h1>Ideas, people &amp; connections</h1>
-        </div>
-      </div>
-      <a class="site-link" href="https://jedilab.weebly.com/publications.html" target="_blank" rel="noreferrer">JEDI Lab publications ↗</a>
-    </header>
-
-    <section class="intro" aria-label="About this graph">
-      <div class="intro-copy">
-        <p>Explore the ideas running through JEDI Lab's research. Choose a theme or researcher to see related collaborators and publications. The map is built from the lab's public bibliography.</p>
-      </div>
+    <header class="hero" id="hero">
+      <p class="eyebrow">Research map</p>
+      <h1>Ideas, people &amp; connections</h1>
+      <p class="intro-copy">Explore the ideas running through our research. Choose a theme or researcher to see related collaborators and publications. The map is built from the lab's public bibliography.</p>
       <div class="stats" aria-label="Dataset summary">
         <div class="stat"><strong id="paper-stat">—</strong><span>publications</span></div>
-        <div class="stat"><strong id="people-stat">—</strong><span>named contributors</span></div>
-        <div class="stat"><strong id="year-stat">—</strong><span>publication years</span></div>
-        <div class="stat" id="citation-stat-tile" hidden><strong id="citation-stat">—</strong><span>citations (OpenAlex)</span></div>
+        <div class="stat"><strong id="people-stat">—</strong><span>contributors</span></div>
+        <div class="stat"><strong id="year-stat">—</strong><span>years</span></div>
+        <div class="stat" id="citation-stat-tile" hidden><strong id="citation-stat">—</strong><span>citations</span></div>
       </div>
-    </section>
+    </header>
 
-    <div class="toolbar" role="search">
-      <div class="search-wrap">
-        <input id="search" type="search" placeholder="Search a theme, researcher (first or last name) or paper" autocomplete="off" aria-label="Search the research graph">
-        <div id="search-results" class="search-results" hidden></div>
+    <div class="explorer" id="explorer">
+      <div class="toolbar" role="search">
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <input id="search" type="search" placeholder="Search a theme, researcher (first or last name) or paper" autocomplete="off" aria-label="Search the research graph">
+          <div id="search-results" class="search-results" hidden></div>
+        </div>
+        <select id="year-filter" aria-label="Filter by publication year"><option value="all">All years</option></select>
+        <select id="ranking-filter" aria-label="Filter by journal ranking" hidden><option value="all">All journals</option></select>
+        <select id="citation-filter" aria-label="Filter by citation count" hidden>
+          <option value="all">Any citations</option>
+          <option value="0">With citation data</option>
+          <option value="1">1+ citations</option>
+          <option value="10">10+ citations</option>
+          <option value="50">50+ citations</option>
+          <option value="100">100+ citations</option>
+        </select>
+        <button id="reset-view" class="button" type="button">Reset</button>
       </div>
-      <select id="year-filter" aria-label="Filter by publication year"><option value="all">All years</option></select>
-      <select id="ranking-filter" aria-label="Filter by journal ranking" hidden><option value="all">All journals</option></select>
-      <select id="citation-filter" aria-label="Filter by citation count" hidden>
-        <option value="all">Any citations</option>
-        <option value="0">With citation data</option>
-        <option value="1">1+ citations</option>
-        <option value="10">10+ citations</option>
-        <option value="50">50+ citations</option>
-        <option value="100">100+ citations</option>
-      </select>
-      <button id="reset-view" class="button subtle" type="button">Reset view</button>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+
+      <section class="layout" aria-label="Interactive knowledge graph">
+        <div class="graph-column">
+          <div class="graph-heading">
+            <h2>Research connections</h2>
+            <span id="graph-hint" class="graph-hint">Click a node to focus · Drag to pan or rearrange · Scroll to zoom</span>
+            <div class="graph-controls" role="group" aria-label="Graph zoom controls">
+              <button id="zoom-out" class="button symbol" type="button" aria-label="Zoom out" title="Zoom out">−</button>
+              <span id="zoom-level" class="zoom-level" aria-live="polite">100%</span>
+              <button id="zoom-in" class="button symbol" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+              <button id="zoom-reset" class="button" type="button" aria-label="Reset zoom" title="Reset zoom">Fit</button>
+              <button id="fullscreen" class="button" type="button" aria-label="Show fullscreen" title="Fullscreen" hidden>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="graph-stage">
+            <svg id="graph" viewBox="0 0 1000 920" role="img" aria-label="Interactive map of research topics and contributors">
+              <defs>
+                <radialGradient id="theme-fill" cx="35%" cy="30%" r="75%">
+                  <stop offset="0" stop-color="#ffffff"/>
+                  <stop offset=".55" stop-color="#e4ded8"/>
+                  <stop offset="1" stop-color="#a9a29b"/>
+                </radialGradient>
+                <radialGradient id="member-fill" cx="35%" cy="30%" r="75%">
+                  <stop offset="0" stop-color="#ff7a8c"/>
+                  <stop offset=".6" stop-color="#e5304a"/>
+                  <stop offset="1" stop-color="#a5132b"/>
+                </radialGradient>
+                <filter id="glow-soft" x="-60%" y="-60%" width="220%" height="220%">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+                  <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 .45 0" result="glow"/>
+                  <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <filter id="glow-strong" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+                  <feFlood flood-color="#f59b3a" flood-opacity=".75"/>
+                  <feComposite operator="in" in2="blur" result="glow"/>
+                  <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <g id="graph-viewport"></g>
+            </svg>
+            <div id="wheel-hint" class="wheel-hint" aria-hidden="true"></div>
+          </div>
+          <div class="graph-footer">
+            <div class="legend" aria-label="Graph legend">
+              <div class="legend-row">
+                <span><i class="key key-theme"></i> Research theme</span>
+                <span><i class="key key-core"></i> JEDI Lab member</span>
+                <span><i class="key key-associate"></i> Alumni / affiliated</span>
+                <span><i class="key key-other"></i> Other coauthor</span>
+                <span><svg width="24" height="14" viewBox="0 0 24 14" aria-hidden="true"><circle cx="4" cy="9" r="3" fill="none" stroke="#9d9894"/><circle cx="17" cy="7" r="6" fill="none" stroke="#9d9894"/></svg> Size: publications in view</span>
+              </div>
+              <div class="legend-row">
+                <span><svg width="24" height="8" viewBox="0 0 24 8" aria-hidden="true"><line x1="1" y1="4" x2="23" y2="4" stroke="#ff5269" stroke-width="2.5" stroke-linecap="round"/></svg> Co-authorship</span>
+                <span><svg width="24" height="8" viewBox="0 0 24 8" aria-hidden="true"><line x1="1" y1="4" x2="23" y2="4" stroke="#efe9e3" stroke-width="2" stroke-linecap="round"/></svg> Person–theme</span>
+                <span><svg width="24" height="8" viewBox="0 0 24 8" aria-hidden="true"><line x1="1" y1="4" x2="23" y2="4" stroke="#948d88" stroke-width="1.2" stroke-linecap="round"/></svg> Theme–theme</span>
+                <span><svg width="24" height="12" viewBox="0 0 24 12" aria-hidden="true"><line x1="1" y1="3" x2="23" y2="3" stroke="#efe9e3" stroke-width="1" stroke-opacity=".25"/><line x1="1" y1="9" x2="23" y2="9" stroke="#efe9e3" stroke-width="3.5" stroke-opacity=".8"/></svg> Thicker, brighter: more shared publications</span>
+              </div>
+              <p class="legend-note">Until you select something, only the strongest links are drawn: each person to their main theme, the closest coauthor pairs and the most common theme pairs. Select a theme or person to see all its connections; click the background or press Esc to clear.</p>
+            </div>
+            <span id="graph-summary"></span>
+          </div>
+        </div>
+        <aside class="side-panel" aria-label="Selected topic or researcher">
+          <div class="side-top">
+            <p id="detail-label" class="side-label">Start exploring</p>
+            <h2 id="detail-title">A map of shared ideas</h2>
+            <p id="detail-description" class="side-description">Select one of the themes or researcher nodes. The list of people and papers here updates to match your selection.</p>
+          </div>
+          <div id="detail-content" class="side-content">
+            <div class="empty">Choose a node in the graph, or search for a topic, person or publication.</div>
+          </div>
+        </aside>
+      </section>
     </div>
-    <div id="status" class="status" role="status" aria-live="polite"></div>
-
-    <section class="layout" aria-label="Interactive knowledge graph">
-      <div class="graph-column">
-        <div class="graph-heading">
-          <h2>Research connections</h2>
-          <span class="graph-hint">Click a node to focus · Drag to pan or rearrange · Scroll to zoom</span>
-          <div class="graph-controls" role="group" aria-label="Graph zoom controls">
-            <button id="zoom-out" class="button" type="button" aria-label="Zoom out" title="Zoom out">−</button>
-            <span id="zoom-level" class="zoom-level" aria-live="polite">100%</span>
-            <button id="zoom-in" class="button" type="button" aria-label="Zoom in" title="Zoom in">+</button>
-            <button id="zoom-reset" class="button subtle" type="button" aria-label="Reset zoom" title="Reset zoom">Fit</button>
-          </div>
-        </div>
-        <div class="graph-stage">
-          <svg id="graph" viewBox="0 0 1000 920" role="img" aria-label="Interactive map of research topics and contributors">
-            <g id="graph-viewport"></g>
-          </svg>
-        </div>
-        <div class="graph-footer">
-          <div class="legend" aria-label="Graph legend">
-            <div class="legend-row">
-              <span><i class="key key-theme"></i> Research theme</span>
-              <span><i class="key key-core"></i> JEDI Lab member</span>
-              <span><i class="key key-associate"></i> Alumni / affiliated</span>
-              <span><i class="key key-other"></i> Other coauthor</span>
-            </div>
-            <div class="legend-row">
-              <span><svg width="24" height="14" viewBox="0 0 24 14" aria-hidden="true"><circle cx="4" cy="9" r="3" fill="none" stroke="#8c8c8c"/><circle cx="17" cy="7" r="6" fill="none" stroke="#8c8c8c"/></svg> Circle size: publications in the current view</span>
-            </div>
-            <div class="legend-row">
-              <span><svg width="24" height="8" viewBox="0 0 24 8" aria-hidden="true"><line x1="1" y1="4" x2="23" y2="4" stroke="#bd1230" stroke-width="2.5" stroke-linecap="round"/></svg> Co-authorship (person–person)</span>
-              <span><svg width="24" height="8" viewBox="0 0 24 8" aria-hidden="true"><line x1="1" y1="4" x2="23" y2="4" stroke="#2f2f2f" stroke-width="2" stroke-linecap="round"/></svg> Person–theme</span>
-              <span><svg width="24" height="8" viewBox="0 0 24 8" aria-hidden="true"><line x1="1" y1="4" x2="23" y2="4" stroke="#a8a8a8" stroke-width="1.2" stroke-linecap="round"/></svg> Theme–theme</span>
-              <span><svg width="24" height="12" viewBox="0 0 24 12" aria-hidden="true"><line x1="1" y1="3" x2="23" y2="3" stroke="#2f2f2f" stroke-width="1" stroke-opacity=".2"/><line x1="1" y1="9" x2="23" y2="9" stroke="#2f2f2f" stroke-width="3.5" stroke-opacity=".75"/></svg> Thicker, darker: more shared publications</span>
-            </div>
-            <p class="legend-note">Until you select something, only the strongest links are drawn: each person to their main theme, the closest coauthor pairs and the most common theme pairs. Select a theme or person to see all its connections; click the background or press Esc to clear.</p>
-          </div>
-          <span id="graph-summary"></span>
-        </div>
-      </div>
-      <aside class="side-panel" aria-label="Selected topic or researcher">
-        <div class="side-top">
-          <p id="detail-label" class="side-label">Start exploring</p>
-          <h2 id="detail-title">A map of shared ideas</h2>
-          <p id="detail-description" class="side-description">Select one of the themes or researcher nodes. The list of people and papers here updates to match your selection.</p>
-        </div>
-        <div id="detail-content" class="side-content">
-          <div class="empty">Choose a node in the graph, or search for a topic, person or publication.</div>
-        </div>
-      </aside>
-    </section>
 
     <section id="analytics" class="analytics" aria-label="Publication metrics" hidden>
       <div class="analytics-head">
@@ -348,8 +461,12 @@
       </div>
       <div id="chart-grid" class="chart-grid"></div>
     </section>
-    <p class="disclaimer">Themes are suggested from publication titles (with journal names as a hint) and reviewed corrections; they are an aid to browsing, not a formal coding of the research. JEDI Lab people (members, alumni and affiliated researchers, from the lab's people page) are matched to the bibliography's cited names by surname and first initial, plus reviewed spellings, so an unrelated namesake can occasionally be counted; their spellings are merged under one name. Other contributor nodes are cited coauthors. The source bibliography uses abbreviated author names and may omit authors where it uses an ellipsis. Publication data is maintained by the site administrator in the JSON dataset.</p>
-    <p id="metrics-note" class="disclaimer" hidden></p>
+
+    <details class="about">
+      <summary>About the data</summary>
+      <p class="disclaimer">Themes are suggested from publication titles (with journal names as a hint) and reviewed corrections; they are an aid to browsing, not a formal coding of the research. JEDI Lab people (members, alumni and affiliated researchers, from the lab's people page) are matched to the bibliography's cited names by surname and first initial, plus reviewed spellings, so an unrelated namesake can occasionally be counted; their spellings are merged under one name. Other contributor nodes are cited coauthors. The source bibliography uses abbreviated author names and may omit authors where it uses an ellipsis. Publication data is maintained by the site administrator in the JSON dataset.</p>
+      <p id="metrics-note" class="disclaimer" hidden></p>
+    </details>
   </main>
 
   <script>
@@ -388,7 +505,25 @@
         citations: document.getElementById("citation-filter"),
         status: document.getElementById("status"),
         zoomLevel: document.getElementById("zoom-level"),
+        wheelHint: document.getElementById("wheel-hint"),
+        explorer: document.getElementById("explorer"),
+        fullscreen: document.getElementById("fullscreen"),
       };
+      // Inside an iframe (the JEDI Lab Weebly page), plain scrolling scrolls the page;
+      // zooming the graph takes Ctrl/⌘ + scroll or a trackpad pinch.
+      const EMBEDDED = (() => {
+        try { return window.self !== window.top; } catch (error) { return true; }
+      })();
+      const ZOOM_KEY = /Mac|iPhone|iPad/.test(navigator.platform) ? "⌘" : "Ctrl";
+      // ?intro=0 hides the heading, for a host page that already has one.
+      if (new URLSearchParams(window.location.search).get("intro") === "0") {
+        document.querySelector("#hero h1").hidden = true;
+        document.querySelector("#hero .eyebrow").hidden = true;
+        document.querySelector("#hero .intro-copy").hidden = true;
+      }
+      if (EMBEDDED) {
+        document.getElementById("graph-hint").textContent = `Click a node to focus · Drag to pan or rearrange · ${ZOOM_KEY} + scroll to zoom`;
+      }
       let data;
       let metrics = null;
       // Canonical member name -> { name, group, role, spellings: Set of cited forms }.
@@ -1319,7 +1454,15 @@
       elements.graph.addEventListener("pointermove", (event) => { moveGraphNodes(event); movePan(event); });
       elements.graph.addEventListener("pointerup", (event) => { finishGraphDrag(event); finishPan(event); });
       elements.graph.addEventListener("pointercancel", (event) => { finishGraphDrag(event); finishPan(event); });
+      let wheelHintTimer = 0;
       elements.graph.addEventListener("wheel", (event) => {
+        if (EMBEDDED && !event.ctrlKey && !event.metaKey) {
+          elements.wheelHint.textContent = `Hold ${ZOOM_KEY} and scroll to zoom the map`;
+          elements.wheelHint.classList.add("show");
+          window.clearTimeout(wheelHintTimer);
+          wheelHintTimer = window.setTimeout(() => elements.wheelHint.classList.remove("show"), 1400);
+          return;
+        }
         event.preventDefault();
         zoomAt(zoom.scale * Math.exp(-event.deltaY * 0.0012), rootPoint(event));
       }, { passive: false });
@@ -1933,6 +2076,27 @@
         zoomAt(zoom.scale / 1.2, graphCenter());
       });
       document.getElementById("zoom-reset").addEventListener("click", resetZoom);
+      // Fullscreen shows the toolbar, graph and side panel; the iframe needs allow="fullscreen".
+      if (document.fullscreenEnabled) {
+        elements.fullscreen.hidden = false;
+        elements.fullscreen.addEventListener("click", () => {
+          const request = document.fullscreenElement ? document.exitFullscreen() : elements.explorer.requestFullscreen();
+          request.catch((error) => setStatus(`Fullscreen is not available: ${error.message}`, true));
+        });
+        document.addEventListener("fullscreenchange", () => {
+          const full = Boolean(document.fullscreenElement);
+          elements.fullscreen.setAttribute("aria-label", full ? "Exit fullscreen" : "Show fullscreen");
+          elements.fullscreen.title = full ? "Exit fullscreen" : "Fullscreen";
+        });
+      }
+      // Report the page height so the host page can size the iframe to fit (see README).
+      if (EMBEDDED) {
+        const page = document.querySelector(".page");
+        new ResizeObserver(() => {
+          if (document.fullscreenElement) return;
+          window.parent.postMessage({ type: "jedi-map:height", height: Math.ceil(page.getBoundingClientRect().height) }, "*");
+        }).observe(page);
+      }
       load();
     })();
   </script>
