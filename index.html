@@ -118,12 +118,28 @@
     }
     .graph-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 18px 6px; }
     .graph-heading h2 { margin: 0; color: var(--muted); font: 700 11px/1 var(--display); letter-spacing: .2em; text-transform: uppercase; }
-    .graph-hint { color: var(--faint); font-size: 11.5px; }
+    /* How-to chips: one per gesture, with the gesture word highlighted. */
+    .guide { display: flex; flex-wrap: wrap; gap: 7px; margin: 0; padding: 4px 18px 8px; list-style: none; }
+    .guide li {
+      display: inline-flex; align-items: center; gap: 8px; padding: 5px 13px 5px 5px;
+      border: 1px solid var(--line-strong); border-radius: 99px; background: rgba(28, 27, 27, .7);
+      color: var(--text); font-size: 12.5px; line-height: 1.3; transition: border-color .2s, background .2s;
+    }
+    .guide b { color: var(--ink); font-weight: 700; }
+    .guide-icon { display: grid; place-items: center; flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--red-soft); color: var(--red-bright); }
+    .guide-icon svg { width: 13px; height: 13px; }
+    .guide li.active { border-color: rgba(245, 155, 58, .75); background: rgba(245, 155, 58, .12); }
+    .guide li.active .guide-icon { background: rgba(245, 155, 58, .22); color: var(--star); }
+    .guide li.nudge { animation: nudge .7s ease-out; }
+    @keyframes nudge { 30% { border-color: var(--star); background: rgba(245, 155, 58, .2); } }
     .graph-controls { display: flex; align-items: center; gap: 5px; }
     .graph-controls .button { min-width: 32px; min-height: 30px; padding: 4px 8px; border-color: var(--line); background: rgba(51, 50, 50, .75); font-size: 11px; }
     .graph-controls .button.symbol { font: 400 16px/1 var(--sans); letter-spacing: 0; }
     .zoom-level { min-width: 40px; color: var(--muted); font-size: 11px; text-align: center; font-variant-numeric: tabular-nums; }
-    .graph-stage { position: relative; height: 640px; min-height: 490px; }
+    .graph-stage { position: relative; height: 700px; min-height: 490px; transition: box-shadow .2s; }
+    /* Embedded: after a click on the map, plain scrolling zooms it; the ring shows that state. */
+    .graph-stage.active { box-shadow: inset 0 0 0 1px rgba(245, 155, 58, .55), inset 0 0 40px rgba(245, 155, 58, .06); }
+    .detail-jump { display: none; }
     #graph { display: block; width: 100%; height: 100%; touch-action: none; user-select: none; cursor: grab; }
     #graph.panning { cursor: grabbing; }
     .wheel-hint {
@@ -133,14 +149,16 @@
       transition: opacity .2s, transform .2s;
     }
     .wheel-hint.show { opacity: 1; transform: translate(-50%, 0); }
-    .graph-footer { display: flex; align-items: start; justify-content: space-between; gap: 8px 16px; padding: 11px 18px 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; background: rgba(28, 27, 27, .55); }
-    .legend { display: grid; gap: 7px; }
-    .legend-row { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
-    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .graph-footer { display: flex; align-items: end; justify-content: space-between; gap: 10px 16px; padding: 14px 18px 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; background: rgba(28, 27, 27, .6); }
+    .legend { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px 26px; align-items: start; }
+    .legend-group { display: contents; }
+    .legend-group h3 { margin: 0; padding-top: 4px; color: var(--muted); font: 700 10.5px/1.3 var(--display); letter-spacing: .18em; text-transform: uppercase; }
+    .legend-items { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0; padding: 0; list-style: none; color: var(--text); font-size: 12.5px; }
+    .legend-items li { display: inline-flex; align-items: center; gap: 8px; }
     .legend svg { flex: none; overflow: visible; }
-    .legend-note { margin: 0; max-width: 720px; color: var(--faint); }
-    .key { display: inline-block; flex: none; width: 9px; height: 9px; border-radius: 50%; }
-    .key-theme { width: 13px; height: 13px; background: radial-gradient(circle at 35% 30%, #fff, #c9c2bb 70%); box-shadow: 0 0 8px rgba(255, 255, 255, .25); }
+    .legend-note { grid-column: 1 / -1; margin: 2px 0 0; max-width: 760px; color: var(--muted); font-size: 11.5px; }
+    .key { display: inline-block; flex: none; width: 12px; height: 12px; border-radius: 50%; }
+    .key-theme { width: 16px; height: 16px; background: radial-gradient(circle at 35% 30%, #fff, #c9c2bb 70%); box-shadow: 0 0 8px rgba(255, 255, 255, .25); }
     .key-core { background: var(--red-bright); box-shadow: 0 0 6px rgba(255, 82, 105, .6); }
     .key-associate { border: 2px solid var(--red-bright); background: transparent; }
     .key-other { background: #75706d; }
@@ -228,6 +246,7 @@
     .person-node { animation-delay: .12s; }
     .graph-node.dragging { cursor: grabbing; }
     .graph-node:focus { outline: none; }
+    .node-hit { fill: transparent; }
     .node-circle { transition: stroke .15s, stroke-width .15s; }
     .topic-node .node-circle { fill: url(#theme-fill); stroke: rgba(255, 255, 255, .7); stroke-width: 1; filter: url(#glow-soft); }
     .person-core .node-circle { fill: url(#member-fill); stroke: var(--halo); stroke-width: 1.2; }
@@ -306,6 +325,7 @@
     .explorer:fullscreen { display: flex; flex-direction: column; padding: 14px; background: var(--bg); }
     .explorer:fullscreen .layout { flex: 1; min-height: 0; grid-template-rows: minmax(0, 1fr); }
     .explorer:fullscreen .graph-column { display: flex; flex-direction: column; min-height: 0; }
+    .explorer:fullscreen .graph-stage.active { box-shadow: none; }
     .explorer:fullscreen .graph-stage { flex: 1; height: auto; min-height: 0; }
     .explorer:fullscreen .legend-note { display: none; }
 
@@ -315,15 +335,27 @@
     }
     @media (max-width: 1000px) {
       .layout { grid-template-columns: minmax(0, 1fr) 300px; }
-      .graph-stage { height: 590px; }
-      .graph-hint { display: none; }
+      .graph-stage { height: 640px; }
     }
     @media (max-width: 760px) {
       .page { padding: 16px 12px 24px; }
       .stat { min-width: 0; padding: 2px 14px; }
       .stat strong { font-size: 22px; }
       .layout { display: flex; flex-direction: column; }
-      .graph-stage { height: min(72vh, 560px); min-height: 410px; }
+      /* Phones: a tall portrait stage (vw, not vh, so an auto-sized iframe cannot feed back). */
+      .graph-stage { height: min(165vw, 740px); min-height: 0; }
+      .guide { padding-inline: 12px; gap: 6px; }
+      .guide li { font-size: 12px; }
+      .legend { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+      .legend-group h3 { padding-top: 6px; }
+      .theme-label { font-size: calc(12px * var(--label-scale, 1)); }
+      .detail-jump:not([hidden]) {
+        position: absolute; left: 50%; bottom: 14px; z-index: 3; display: inline-flex; align-items: center; gap: 6px;
+        max-width: calc(100% - 24px); padding: 10px 16px; transform: translateX(-50%);
+        border: 1px solid rgba(245, 155, 58, .7); border-radius: 99px; background: rgba(28, 27, 27, .94);
+        color: var(--ink); font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        box-shadow: var(--shadow);
+      }
       .side-panel { min-height: 430px; border-top: 1px solid var(--line); border-left: 0; }
       .side-content { max-height: 520px; }
       .graph-footer { align-items: start; flex-direction: column; }
@@ -381,7 +413,6 @@
         <div class="graph-column">
           <div class="graph-heading">
             <h2>Research connections</h2>
-            <span id="graph-hint" class="graph-hint">Click a node to focus · Drag to pan or rearrange · Scroll to zoom</span>
             <div class="graph-controls" role="group" aria-label="Graph zoom controls">
               <button id="zoom-out" class="button symbol" type="button" aria-label="Zoom out" title="Zoom out">−</button>
               <span id="zoom-level" class="zoom-level" aria-live="polite">100%</span>
@@ -392,7 +423,25 @@
               </button>
             </div>
           </div>
-          <div class="graph-stage">
+          <ul class="guide" aria-label="How to explore the map">
+            <li>
+              <span class="guide-icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5l9 5.2-4.1 1.1L7 11.6z" fill="currentColor"/><path d="M9 8.5l3 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+              <span><b id="guide-select">Click</b> a theme or person to light up its links and papers</span>
+            </li>
+            <li>
+              <span class="guide-icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5v13M1.5 8h13M8 1.5L6 3.5M8 1.5l2 2M8 14.5l-2-2M8 14.5l2-2M1.5 8l2-2M1.5 8l2 2M14.5 8l-2-2M14.5 8l-2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span id="guide-drag"><b>Drag</b> the background to pan, a node to move it</span>
+            </li>
+            <li id="guide-zoom-item">
+              <span class="guide-icon"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.8" cy="6.8" r="4.8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 10.5l3.8 3.8M4.6 6.8h4.4M6.8 4.6v4.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <span id="guide-zoom"><b>Scroll</b> to zoom</span>
+            </li>
+            <li>
+              <span class="guide-icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+              <span id="guide-clear"><b>Esc</b> or click empty space to clear</span>
+            </li>
+          </ul>
+          <div class="graph-stage" id="graph-stage">
             <svg id="graph" viewBox="0 0 1000 920" role="img" aria-label="Interactive map of research topics and contributors">
               <defs>
                 <radialGradient id="theme-fill" cx="35%" cy="30%" r="75%">
@@ -420,23 +469,30 @@
               <g id="graph-viewport"></g>
             </svg>
             <div id="wheel-hint" class="wheel-hint" aria-hidden="true"></div>
+            <button id="detail-jump" class="detail-jump" type="button" hidden></button>
           </div>
           <div class="graph-footer">
             <div class="legend" aria-label="Graph legend">
-              <div class="legend-row">
-                <span><i class="key key-theme"></i> Research theme</span>
-                <span><i class="key key-core"></i> JEDI Lab member</span>
-                <span><i class="key key-associate"></i> Alumni / affiliated</span>
-                <span><i class="key key-other"></i> Other coauthor</span>
-                <span><svg width="24" height="14" viewBox="0 0 24 14" aria-hidden="true"><circle cx="4" cy="9" r="3" fill="none" stroke="#9d9894"/><circle cx="17" cy="7" r="6" fill="none" stroke="#9d9894"/></svg> Size: publications in view</span>
+              <div class="legend-group">
+                <h3>Nodes</h3>
+                <ul class="legend-items">
+                  <li><i class="key key-theme"></i> Research theme</li>
+                  <li><i class="key key-core"></i> JEDI Lab member</li>
+                  <li><i class="key key-associate"></i> Alumni / affiliated</li>
+                  <li><i class="key key-other"></i> Other coauthor</li>
+                  <li><svg width="26" height="16" viewBox="0 0 26 16" aria-hidden="true"><circle cx="4.5" cy="10.5" r="3.5" fill="none" stroke="#d2cdc9" stroke-width="1.3"/><circle cx="18" cy="8" r="7" fill="none" stroke="#d2cdc9" stroke-width="1.3"/></svg> Bigger = more publications</li>
+                </ul>
               </div>
-              <div class="legend-row">
-                <span><svg width="24" height="8" viewBox="0 0 24 8" aria-hidden="true"><line x1="1" y1="4" x2="23" y2="4" stroke="#ff5269" stroke-width="2.5" stroke-linecap="round"/></svg> Co-authorship</span>
-                <span><svg width="24" height="8" viewBox="0 0 24 8" aria-hidden="true"><line x1="1" y1="4" x2="23" y2="4" stroke="#efe9e3" stroke-width="2" stroke-linecap="round"/></svg> Person–theme</span>
-                <span><svg width="24" height="8" viewBox="0 0 24 8" aria-hidden="true"><line x1="1" y1="4" x2="23" y2="4" stroke="#948d88" stroke-width="1.2" stroke-linecap="round"/></svg> Theme–theme</span>
-                <span><svg width="24" height="12" viewBox="0 0 24 12" aria-hidden="true"><line x1="1" y1="3" x2="23" y2="3" stroke="#efe9e3" stroke-width="1" stroke-opacity=".25"/><line x1="1" y1="9" x2="23" y2="9" stroke="#efe9e3" stroke-width="3.5" stroke-opacity=".8"/></svg> Thicker, brighter: more shared publications</span>
+              <div class="legend-group">
+                <h3>Links</h3>
+                <ul class="legend-items">
+                  <li><svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><line x1="2" y1="5" x2="26" y2="5" stroke="#ff5269" stroke-width="3" stroke-linecap="round"/></svg> Co-authors</li>
+                  <li><svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><line x1="2" y1="5" x2="26" y2="5" stroke="#efe9e3" stroke-width="2.5" stroke-linecap="round"/></svg> Person works on theme</li>
+                  <li><svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><line x1="2" y1="5" x2="26" y2="5" stroke="#948d88" stroke-width="1.6" stroke-linecap="round"/></svg> Themes share papers</li>
+                  <li><svg width="28" height="14" viewBox="0 0 28 14" aria-hidden="true"><line x1="2" y1="3" x2="26" y2="3" stroke="#efe9e3" stroke-width="1" stroke-opacity=".3" stroke-linecap="round"/><line x1="2" y1="10" x2="26" y2="10" stroke="#efe9e3" stroke-width="4" stroke-opacity=".85" stroke-linecap="round"/></svg> Thicker = more shared papers</li>
+                </ul>
               </div>
-              <p class="legend-note">Until you select something, only the strongest links are drawn: each person to their main theme, the closest coauthor pairs and the most common theme pairs. Select a theme or person to see all its connections; click the background or press Esc to clear.</p>
+              <p class="legend-note">Until you select something, only the strongest links are drawn: each person to their main theme, the closest coauthor pairs and the most common theme pairs. Select a theme or person to see all its connections.</p>
             </div>
             <span id="graph-summary"></span>
           </div>
@@ -482,13 +538,19 @@
         alumni: { label: "Alumni", core: false, order: 2 },
         affiliated: { label: "Affiliated researcher", core: false, order: 3 },
       };
-      const LAYOUT_KEY = "jedi-graph-layout-v3";
+      const LAYOUT_KEY = "jedi-graph-layout-v4";
       const MAX_PEOPLE = 72;
       const STRONG_COAUTHOR_LINKS = 24;
       const STRONG_THEME_LINKS = 8;
       const LABEL_ZOOM = 1.8;
       const PEOPLE_PREVIEW = 5;
       const LAYOUT_MIN_WIDTH = 760;
+      const NARROW_LAYOUT_MIN_WIDTH = 440;
+      const NARROW_STAGE = 700;
+      // Layout spacing: the exponent that evens out the map's density (1 = off) and the
+      // extra room between two theme circles for their labels.
+      const SPREAD = 0.6;
+      const THEME_GAP = 70;
       const SVG_ELEMENTS = new Set(["svg", "g", "line", "circle", "text", "title", "tspan", "rect", "path"]);
       const RANKING_SYSTEMS = {
         abdc: { label: "ABDC", order: ["A*", "A", "B", "C"] },
@@ -508,9 +570,14 @@
         wheelHint: document.getElementById("wheel-hint"),
         explorer: document.getElementById("explorer"),
         fullscreen: document.getElementById("fullscreen"),
+        stage: document.getElementById("graph-stage"),
+        detailJump: document.getElementById("detail-jump"),
+        zoomGuide: document.getElementById("guide-zoom-item"),
       };
-      // Inside an iframe (the JEDI Lab Weebly page), plain scrolling scrolls the page;
-      // zooming the graph takes Ctrl/⌘ + scroll or a trackpad pinch.
+      // Inside an iframe (the JEDI Lab Weebly page), scrolling over the map scrolls the
+      // page until the visitor clicks the map; then plain scrolling zooms it, until the
+      // pointer leaves the map or they click elsewhere. Ctrl/⌘ + scroll and a trackpad
+      // pinch always zoom.
       const EMBEDDED = (() => {
         try { return window.self !== window.top; } catch (error) { return true; }
       })();
@@ -521,9 +588,8 @@
         document.querySelector("#hero .eyebrow").hidden = true;
         document.querySelector("#hero .intro-copy").hidden = true;
       }
-      if (EMBEDDED) {
-        document.getElementById("graph-hint").textContent = `Click a node to focus · Drag to pan or rearrange · ${ZOOM_KEY} + scroll to zoom`;
-      }
+      const TOUCH = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+      let mapActive = !EMBEDDED;
       let data;
       let metrics = null;
       // Canonical member name -> { name, group, role, spellings: Set of cited forms }.
@@ -542,6 +608,8 @@
       // Last computed positions (as fractions of the layout box), used to seed the next layout.
       let layoutCache = new Map();
       let graphDimensions = null;
+      // Nodes are drawn smaller on a phone's narrow stage, so the map is not crowded.
+      let radiusScale = 1;
       let declutterFrame = 0;
       function setStatus(message, isError = false) {
         elements.status.textContent = message;
@@ -785,21 +853,23 @@
         return `${node.type}:${node.name}`;
       }
 
-      // Layout units track the stage's pixel size (at least LAYOUT_MIN_WIDTH wide),
-      // so the graph fills the available width and text sizes stay predictable.
+      // Layout units track the stage's pixel size (at least LAYOUT_MIN_WIDTH wide, or
+      // NARROW_LAYOUT_MIN_WIDTH on a phone's portrait stage), so the graph fills the
+      // available space and text sizes stay predictable.
       function graphSize() {
         const box = elements.graph.parentElement.getBoundingClientRect();
         if (!box.width || !box.height) return { width: 1100, height: 660, pixels: 1100 };
-        const width = Math.max(LAYOUT_MIN_WIDTH, Math.round(box.width));
+        const minimum = box.width < NARROW_STAGE ? NARROW_LAYOUT_MIN_WIDTH : LAYOUT_MIN_WIDTH;
+        const width = Math.max(minimum, Math.round(box.width));
         return { width, height: Math.round((box.height * width) / box.width), pixels: box.width };
       }
 
       function themeRadius(count) {
-        return Math.min(36, 11 + Math.sqrt(count) * 2.5);
+        return Math.min(40, 13 + Math.sqrt(count) * 2.8) * radiusScale;
       }
 
       function personRadius(count) {
-        return Math.min(12, 3 + Math.sqrt(count) * 0.9);
+        return Math.min(14, 3.5 + Math.sqrt(count) * 1.05) * radiusScale;
       }
 
       // The graph model: theme and person nodes joined by three kinds of links.
@@ -861,7 +931,7 @@
 
       function collisionRadius(node) {
         // Themes reserve room for the label printed under the circle.
-        return node.type === "topic" ? node.r + 18 : node.r + 3;
+        return node.type === "topic" ? node.r + 22 : node.r + 6;
       }
 
       // A small, deterministic force-directed layout: springs along links, repulsion
@@ -941,12 +1011,12 @@
             for (let j = i + 1; j < nodes.length; j += 1) {
               const b = nodes[j];
               // Themes push each other apart strongly, people only gently.
-              const q = a.type === "topic" && b.type === "topic" ? 900 : a.type === "topic" || b.type === "topic" ? 140 : 55;
+              const q = a.type === "topic" && b.type === "topic" ? 1600 : a.type === "topic" || b.type === "topic" ? 260 : 120;
               let dx = b.x - a.x;
               let dy = b.y - a.y;
               let d2 = dx * dx + dy * dy;
               // People only repel nearby people, so the dense core does not fling outliers to the edges.
-              if (d2 > (a.type === "person" && b.type === "person" ? 40000 : 160000)) continue;
+              if (d2 > (a.type === "person" && b.type === "person" ? 70000 : 160000)) continue;
               if (d2 < 1) {
                 dx = ((hash(a.name + b.name) % 7) - 3) || 1;
                 dy = 1;
@@ -987,7 +1057,10 @@
             for (let j = i + 1; j < nodes.length; j += 1) {
               const a = nodes[i];
               const b = nodes[j];
-              const minimum = collisionRadius(a) + collisionRadius(b);
+              // Two themes also keep their labels (printed below the circle) apart.
+              const minimum = a.type === "topic" && b.type === "topic"
+                ? a.r + b.r + THEME_GAP
+                : collisionRadius(a) + collisionRadius(b);
               let dx = b.x - a.x;
               let dy = b.y - a.y;
               let distance = Math.hypot(dx, dy);
@@ -1023,19 +1096,46 @@
         });
       }
 
-      // Centre the finished layout and stretch it to fill the stage. Horizontal and
-      // vertical scales may differ by up to 1.5x, so a round cluster still uses a wide stage.
-      function fitLayout(nodes, width, height) {
-        const bounds = nodes.reduce((box, node) => {
+      function layoutBounds(nodes) {
+        return nodes.reduce((box, node) => {
           const margin = nodeMargins(node);
           return {
             left: Math.min(box.left, node.x - margin.side), right: Math.max(box.right, node.x + margin.side),
             top: Math.min(box.top, node.y - margin.top), bottom: Math.max(box.bottom, node.y + margin.bottom),
           };
         }, { left: Infinity, right: -Infinity, top: Infinity, bottom: -Infinity });
+      }
+
+      // Even out the density: a few outlying nodes would otherwise set the scale and
+      // squeeze the busy centre. Each node's distance from the centre (relative to the
+      // layout's half-width and half-height) is raised to the power SPREAD, which pushes
+      // the core outward and draws outliers in, keeping every node's direction.
+      function spreadLayout(nodes) {
+        const bounds = layoutBounds(nodes);
+        // Spread from the mean position, the middle of the busy core.
+        const midX = nodes.reduce((sum, node) => sum + node.x, 0) / nodes.length;
+        const midY = nodes.reduce((sum, node) => sum + node.y, 0) / nodes.length;
+        const halfX = (bounds.right - bounds.left) / 2 || 1;
+        const halfY = (bounds.bottom - bounds.top) / 2 || 1;
+        const distances = nodes.map((node) => Math.hypot((node.x - midX) / halfX, (node.y - midY) / halfY));
+        const farthest = Math.max(...distances) || 1;
+        nodes.forEach((node, index) => {
+          if (node.fixed || !distances[index]) return;
+          const factor = Math.pow(distances[index] / farthest, SPREAD) * farthest / distances[index];
+          node.x = midX + (node.x - midX) * factor;
+          node.y = midY + (node.y - midY) * factor;
+        });
+      }
+
+      // Centre the finished layout and stretch it to fill the stage. Horizontal and
+      // vertical scales may differ by up to 1.5x, so a round cluster still uses a wide stage.
+      function fitLayout(nodes, width, height) {
+        spreadLayout(nodes);
+        separate(nodes, 2);
+        const bounds = layoutBounds(nodes);
         const pad = 14;
-        let scaleX = Math.min(1.8, (width - pad * 2) / (bounds.right - bounds.left));
-        let scaleY = Math.min(1.8, (height - pad * 2) / (bounds.bottom - bounds.top));
+        let scaleX = Math.min(3, (width - pad * 2) / (bounds.right - bounds.left));
+        let scaleY = Math.min(3, (height - pad * 2) / (bounds.bottom - bounds.top));
         scaleX = Math.min(scaleX, scaleY * 1.5);
         scaleY = Math.min(scaleY, scaleX * 1.5);
         const midX = (bounds.left + bounds.right) / 2;
@@ -1104,6 +1204,7 @@
       function drawGraph(publications) {
         const size = graphSize();
         graphDimensions = size;
+        radiusScale = size.pixels < NARROW_STAGE ? 0.72 : 1;
         elements.graph.setAttribute("viewBox", `0 0 ${size.width} ${size.height}`);
         const unfiltered = publications.length === data.publications.length;
         // Lay out the full dataset first, so filtered views have stable starting positions.
@@ -1156,7 +1257,10 @@
             "aria-label": `${person.name}${person.member ? `, ${MEMBER_GROUPS[person.member.group].label}` : ""}, ${plural(person.count, "publication")}.`,
           });
           person.titleEl = element("title");
-          group.append(person.titleEl, element("circle", { cx: person.x, cy: person.y, r: person.r, class: "node-circle" }));
+          // A transparent, larger hit area makes small people easy to tap.
+          group.append(person.titleEl,
+            element("circle", { cx: person.x, cy: person.y, r: person.r + (size.pixels < NARROW_STAGE ? 10 : 4), class: "node-hit" }),
+            element("circle", { cx: person.x, cy: person.y, r: person.r, class: "node-circle" }));
           const right = person.x >= size.width / 2;
           const label = element("text", {
             x: person.x + (right ? person.r + 5 : -person.r - 5), y: person.y + 4,
@@ -1191,6 +1295,9 @@
           });
         }
         elements.graph.classList.toggle("has-focus", Boolean(focus));
+        // On phones the side panel is below the map: offer a jump to it.
+        elements.detailJump.hidden = !focus;
+        if (focus) elements.detailJump.textContent = `${focus.name}: people & papers ↓`;
         graph.nodes.forEach((node) => {
           node.focusWeight = neighbours.get(node)?.weight || 0;
           const related = !focus || node === focus || neighbours.has(node);
@@ -1454,13 +1561,99 @@
       elements.graph.addEventListener("pointermove", (event) => { moveGraphNodes(event); movePan(event); });
       elements.graph.addEventListener("pointerup", (event) => { finishGraphDrag(event); finishPan(event); });
       elements.graph.addEventListener("pointercancel", (event) => { finishGraphDrag(event); finishPan(event); });
+      // Two-finger pinch zooms around the fingers' midpoint and pans with it. It runs in
+      // the capture phase so a second finger on a node does not start a node drag.
+      const touches = new Map();
+      let pinch = null;
+      function pinchState() {
+        const [a, b] = [...touches.values()];
+        const mid = rootPoint({ clientX: (a.x + b.x) / 2, clientY: (a.y + b.y) / 2 });
+        return { distance: Math.hypot(a.x - b.x, a.y - b.y) || 1, mid };
+      }
+      elements.graph.addEventListener("pointerdown", (event) => {
+        if (event.pointerType !== "touch") return;
+        touches.set(event.pointerId, { x: event.clientX, y: event.clientY });
+        if (touches.size !== 2) return;
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        (activeDrag?.elementNodes || []).forEach((node) => node.classList.remove("dragging"));
+        activeDrag = null;
+        activePan = null;
+        elements.graph.classList.remove("panning");
+        pinch = { ...pinchState(), scale: zoom.scale, origin: { x: zoom.x, y: zoom.y } };
+      }, true);
+      elements.graph.addEventListener("pointermove", (event) => {
+        if (!touches.has(event.pointerId)) return;
+        touches.set(event.pointerId, { x: event.clientX, y: event.clientY });
+        if (!pinch || touches.size < 2) return;
+        event.stopImmediatePropagation();
+        const now = pinchState();
+        const scale = Math.max(0.65, Math.min(4, (pinch.scale * now.distance) / pinch.distance));
+        // Keep the graph point that was under the starting midpoint under the current one.
+        zoom = {
+          scale,
+          x: now.mid.x - ((pinch.mid.x - pinch.origin.x) / pinch.scale) * scale,
+          y: now.mid.y - ((pinch.mid.y - pinch.origin.y) / pinch.scale) * scale,
+        };
+        applyZoomTransform();
+      }, true);
+      const endTouch = (event) => {
+        if (!touches.delete(event.pointerId) || !pinch || touches.size >= 2) return;
+        pinch = null;
+        suppressNodeClick = true;
+        window.setTimeout(() => { suppressNodeClick = false; }, 0);
+      };
+      elements.graph.addEventListener("pointerup", endTouch, true);
+      elements.graph.addEventListener("pointercancel", endTouch, true);
+
+      function guideText(id, strong, rest) {
+        document.getElementById(id).replaceChildren(element("b", {}, strong), document.createTextNode(rest));
+      }
+
+      function updateGuide() {
+        if (TOUCH) {
+          guideText("guide-select", "Tap", " a node to explore it");
+          guideText("guide-drag", "Drag", " to pan");
+          guideText("guide-zoom", "Pinch", " to zoom");
+          guideText("guide-clear", "Tap empty space", " to clear");
+        } else if (!EMBEDDED) {
+          guideText("guide-zoom", "Scroll", " to zoom");
+        } else if (mapActive) {
+          guideText("guide-zoom", "Scroll", " to zoom · move off the map to scroll the page");
+        } else {
+          guideText("guide-zoom", "Click the map", ", then scroll to zoom");
+        }
+        elements.zoomGuide.classList.toggle("active", EMBEDDED && mapActive && !TOUCH);
+      }
+
+      function setMapActive(active) {
+        if (!EMBEDDED || mapActive === active) return;
+        mapActive = active;
+        elements.stage.classList.toggle("active", active);
+        updateGuide();
+      }
+
+      elements.stage.addEventListener("pointerdown", () => setMapActive(true));
+      elements.stage.addEventListener("pointerleave", (event) => {
+        if (event.pointerType === "mouse" && !activeDrag && !activePan) setMapActive(false);
+      });
+      document.addEventListener("pointerdown", (event) => {
+        if (!elements.stage.contains(event.target)) setMapActive(false);
+      });
+      window.addEventListener("blur", () => setMapActive(false));
+      updateGuide();
+
       let wheelHintTimer = 0;
       elements.graph.addEventListener("wheel", (event) => {
-        if (EMBEDDED && !event.ctrlKey && !event.metaKey) {
-          elements.wheelHint.textContent = `Hold ${ZOOM_KEY} and scroll to zoom the map`;
+        if (!mapActive && !document.fullscreenElement && !event.ctrlKey && !event.metaKey) {
+          // Let the page scroll, and point at how to zoom instead.
+          elements.wheelHint.textContent = `Click the map to zoom with the scroll wheel (or hold ${ZOOM_KEY})`;
           elements.wheelHint.classList.add("show");
+          elements.zoomGuide.classList.remove("nudge");
+          void elements.zoomGuide.offsetWidth;
+          elements.zoomGuide.classList.add("nudge");
           window.clearTimeout(wheelHintTimer);
-          wheelHintTimer = window.setTimeout(() => elements.wheelHint.classList.remove("show"), 1400);
+          wheelHintTimer = window.setTimeout(() => elements.wheelHint.classList.remove("show"), 1600);
           return;
         }
         event.preventDefault();
@@ -2076,6 +2269,9 @@
         zoomAt(zoom.scale / 1.2, graphCenter());
       });
       document.getElementById("zoom-reset").addEventListener("click", resetZoom);
+      elements.detailJump.addEventListener("click", () => {
+        document.querySelector(".side-panel").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
       // Fullscreen shows the toolbar, graph and side panel; the iframe needs allow="fullscreen".
       if (document.fullscreenEnabled) {
         elements.fullscreen.hidden = false;
