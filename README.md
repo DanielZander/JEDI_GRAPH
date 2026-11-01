@@ -58,7 +58,7 @@ To parse an HTML copy of the source page instead of fetching it:
 python tools\update_publications.py --input path\to\publications.html
 ```
 
-The page lists references, not structured author records. The tool preserves the cited author spellings (including initials), DOI, publication year, journal where marked up, and full citation text. Author ellipses are not expanded, and listed coauthors are not necessarily JEDI Lab members; historical lab affiliation is not identified by the source.
+The page lists references, not structured author records. The tool keeps the DOI (cited as `https://doi.org/…`, `doi.org/…` or `DOI: 10.…`), publication year, journal where marked up, and full citation text. Author names keep their initials but are written as `Surname, A.`, and each author gets one spelling across the bibliography: `Juslin, P.` and `Juslin, P.N.` both become `Juslin, P.N.`, unless the shorter form could belong to two different people. Author ellipses are not expanded, and listed coauthors are not necessarily JEDI Lab members; historical lab affiliation is not identified by the source.
 
 ## Research themes
 
@@ -85,7 +85,7 @@ The key is the paper's `id` in `publications.json` (its DOI URL, or a 16-charact
 - **Publications:** lab people are marked and bold in the author list; click a name to open that person.
 - **Search:** accepts first or last names, without accents, in any order (`gustav`, `vastfjall daniel`).
 
-Cited names are matched to people by surname and first initial (for example `Tinghög, G.`, `Tinghög G` and `TInghög, G.` all become Gustav Tinghög), and each person's spellings are merged into one node. A name that matches two people is left unmatched. Add an `aliases` entry for spellings the rule cannot catch, such as an earlier surname or a typo in the source:
+Cited names are matched to people by surname and first initial (for example `Tinghög, G.`, `Tinghög G` and `TInghög, G.` all become Gustav Tinghög), and each person's spellings are merged into one node. A name that matches two people is left unmatched. Add an `aliases` entry for spellings the rule cannot catch, such as an earlier surname (Kinga Barrafrem is also cited as `Posadzy, K.`) or a typo in the source (`Tinhög, G.`):
 
 ```json
 {

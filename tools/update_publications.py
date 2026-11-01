@@ -8,6 +8,7 @@ import hashlib
 import json
 import re
 import sys
+import unicodedata
 import urllib.error
 import urllib.request
 from datetime import date
@@ -211,6 +212,13 @@ class BibliographyParser(HTMLParser):
             self._parts.append(data)
 
 
+# DOIs are cited as "https://doi.org/10.…", "dx.doi.org/…", "doi.org/…" or "DOI: 10.…".
+DOI_PATTERN = re.compile(
+    r"(?:(?:https?://)?(?:dx\.)?doi\.org/|\bdoi:\s*)+(10\.\d{4,}/\S+)",
+    re.IGNORECASE,
+)
+
+
 def clean_text(value: str) -> str:
     return re.sub(r"\s+", " ", value.replace("\u200b", "").replace("\xa0", " ")).strip()
 
@@ -233,7 +241,66 @@ def parse_authors(value: str) -> list[str]:
         rf"|(?<=,\s[A-Z]\.)\s+(?={SURNAME},)"
     )
     names = [clean_text(part.strip(" ,")) for part in re.split(split_pattern, value)]
+    # Write "Surname. I." and "Surname I." as "Surname, I.".
+    names = [re.sub(rf"^({SURNAME})\.?\s+((?:[A-Z]\.?\s?-?){{1,3}})$", r"\1, \2", name) for name in names]
     return [name for name in names if name and name != "..."]
+
+
+def _fold(value: str) -> str:
+    return "".join(c for c in unicodedata.normalize("NFKD", value.casefold()) if not unicodedata.combining(c))
+
+
+def _name_key(name: str) -> tuple[str, str] | None:
+    """Folded surname and initials of "Surname, A. B." or "First M. Last"."""
+    if "," in name:
+        surname, given = name.split(",", 1)
+    else:
+        parts = name.split()
+        if len(parts) < 2:
+            return None
+        surname, given = parts[-1], " ".join(parts[:-1])
+    initials = "".join(re.findall(r"(?:^|[\s.\-])([^\W\d_])", given))
+    return (_fold(surname.strip()), _fold(initials)) if initials else None
+
+
+def unify_spellings(publications: list[dict[str, object]]) -> int:
+    """Use one spelling per author across the bibliography.
+
+    "Juslin, P." and "Juslin, P.N.", or "Sverker C. Jagers" and "Jagers, S. C.",
+    become the fullest "Surname, A. B." form. A shorter form is left alone when
+    it could belong to two different people (two longer forms that disagree).
+    """
+    counts: dict[str, int] = {}
+    for publication in publications:
+        for author in publication["authors"]:
+            counts[author] = counts.get(author, 0) + 1
+    by_surname: dict[str, dict[str, list[str]]] = {}
+    for name in counts:
+        key = _name_key(name)
+        if key:
+            by_surname.setdefault(key[0], {}).setdefault(key[1], []).append(name)
+
+    renamed: dict[str, str] = {}
+    for initial_groups in by_surname.values():
+        for initials, names in initial_groups.items():
+            longer = {other for other in initial_groups if other.startswith(initials)}
+            longest = max(longer, key=len)
+            if any(not longest.startswith(other) for other in longer):
+                continue  # Ambiguous: "A." could be "A. B." or "A. C.".
+            candidates = initial_groups[longest]
+            # Prefer the comma form with full stops and normal capitals ("TInghög"
+            # is a typo), then the most cited.
+            canonical = max(candidates, key=lambda n: (
+                "," in n, n.endswith("."), not re.search(r"[A-Z]{2}", n.split(",")[0]), counts[n],
+            ))
+            for name in names:
+                if name != canonical:
+                    renamed[name] = canonical
+
+    for publication in publications:
+        authors = [renamed.get(author, author) for author in publication["authors"]]
+        publication["authors"] = list(dict.fromkeys(authors))
+    return len(renamed)
 
 
 def classify_topics(title: str, journal: str) -> list[str]:
@@ -285,7 +352,8 @@ def parse_bibliography(html: str) -> list[dict[str, object]]:
     if not parser.paragraphs:
         raise ValueError("The publications page did not contain a bibliography paragraph.")
 
-    raw = parser.paragraphs[0]
+    # Some "empty" separator lines hold a zero-width space; drop it so they split.
+    raw = parser.paragraphs[0].replace("​", "")
     blocks = [
         block.strip()
         for block in re.split(r"\n\s*\n+", raw)
@@ -316,10 +384,9 @@ def parse_bibliography(html: str) -> list[dict[str, object]]:
                 continue
         else:
             author_text, cited_year, remainder = author_match.groups()
-        doi_match = re.search(r"https?://doi\.org/\S+", remainder, flags=re.IGNORECASE)
-        doi = doi_match.group(0).rstrip(".,;") if doi_match else ""
+        doi_match = DOI_PATTERN.search(remainder)
+        doi = f"https://doi.org/{doi_match.group(1).rstrip('.,;')}" if doi_match else ""
         if doi:
-            doi = re.sub(r"^https?://doi\.org/https?://doi\.org/", "https://doi.org/", doi, flags=re.I)
             remainder = remainder[: doi_match.start()].strip()
 
         journal_match = re.search(r"\ue000(.*?)\ue001", block)
@@ -333,7 +400,7 @@ def parse_bibliography(html: str) -> list[dict[str, object]]:
             title = citation_remainder or plain
 
         citation = clean_text(plain)
-        if doi and doi not in citation:
+        if doi and doi_match.group(1).rstrip(".,;") not in citation:
             citation = f"{citation} {doi}"
         identifier = doi or hashlib.sha256(
             f"{cited_year}|{title}|{author_text}".encode("utf-8")
@@ -448,6 +515,7 @@ def main() -> int:
             except (OSError, json.JSONDecodeError) as error:
                 raise RuntimeError(f"Could not read existing dataset {args.output}: {error}") from error
             publications, preserved = merge_existing(publications, existing)
+        unified = unify_spellings(publications)
         overridden = apply_topic_overrides(publications, args.overrides)
         output = {
             "source": SOURCE_URL,
@@ -466,6 +534,7 @@ def main() -> int:
 
     years = [publication["year"] for publication in publications]
     detail = f"; preserved {preserved} manually added records" if preserved else ""
+    detail += f"; unified {unified} author spellings" if unified else ""
     detail += f"; applied {overridden} reviewed theme overrides" if overridden else ""
     print(
         f"Wrote {len(publications)} unique publications ({min(years)}–{max(years)})"

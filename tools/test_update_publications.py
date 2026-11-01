@@ -9,6 +9,7 @@ from update_publications import (
     merge_existing,
     parse_authors,
     parse_bibliography,
+    unify_spellings,
 )
 
 
@@ -41,7 +42,7 @@ class BibliographyParsingTests(unittest.TestCase):
     def test_author_parser_splits_irregular_separators(self):
         cases = {
             "Doell, K. C., Vlasceanu M., … Koppel, L., … & Van Bavel, J. J.":
-                ["Doell, K. C.", "Vlasceanu M.", "Koppel, L.", "Van Bavel, J. J."],
+                ["Doell, K. C.", "Vlasceanu, M.", "Koppel, L.", "Van Bavel, J. J."],
             "Barrafrem, K., Tinghög, G., and Västfjäll, D.":
                 ["Barrafrem, K.", "Tinghög, G.", "Västfjäll, D."],
             "Nilsson, A., Erlandsson, E. Västfjäll, D., & Tinghög, G.":
@@ -51,10 +52,46 @@ class BibliographyParsingTests(unittest.TestCase):
             "Koppel, L., ... Lindkvist, A.M. ... & Zwaan, R.A.":
                 ["Koppel, L.", "Lindkvist, A.M.", "Zwaan, R.A."],
             "Birt, A., . . . Zwienenberg, M.": ["Birt, A.", "Zwienenberg, M."],
+            "Asutay. E. & Västfjäll. D.": ["Asutay, E.", "Västfjäll, D."],
+            "Tinghög G, Persson E, Västfjäll D.": ["Tinghög, G", "Persson, E", "Västfjäll, D."],
         }
         for text, expected in cases.items():
             with self.subTest(text=text):
                 self.assertEqual(parse_authors(text), expected)
+
+    def test_splits_references_separated_by_a_zero_width_line(self):
+        html = """
+        <div class="paragraph">
+          2017<br /><br />
+          Koppel, L. (2017). First paper. <em>Journal A</em>. DOI: 10.1000/first<br />​<br />
+          Kirchler, M. (2017). Second paper. <em>Journal B</em>. doi: 10.1000/second
+        </div>
+        """
+        publications = parse_bibliography(html)
+        self.assertEqual([p["title"] for p in publications], ["First paper", "Second paper"])
+        self.assertEqual([p["doi"] for p in publications], ["https://doi.org/10.1000/first", "https://doi.org/10.1000/second"])
+        self.assertEqual(publications[0]["citation"].count("10.1000/first"), 1)
+
+    def test_recognises_doi_spellings(self):
+        for cited in ["https://doi.org/10.1000/x", "doi.org/10.1000/x", "DOI: 10.1000/x.",
+                      "doi: http://dx.doi.org/10.1000/x", "https://doi.org/https://doi.org/10.1000/x"]:
+            with self.subTest(cited=cited):
+                html = f'<div class="paragraph">2020<br /><br />Persson, E. (2020). Title. <em>J</em>. {cited}</div>'
+                self.assertEqual(parse_bibliography(html)[0]["doi"], "https://doi.org/10.1000/x")
+
+    def test_unifies_author_spellings(self):
+        publications = [
+            {"authors": ["Juslin, P.", "Jagers, S. C."]},
+            {"authors": ["Juslin, P.N.", "Sverker C. Jagers", "TInghög, G."]},
+            {"authors": ["Tinghög, G.", "Tinghög, G"]},
+            # "Nilsson, A." could be either of two people, so it is left alone.
+            {"authors": ["Nilsson, A.", "Nilsson, A. B.", "Nilsson, A. C."]},
+        ]
+        unify_spellings(publications)
+        self.assertEqual(publications[0]["authors"], ["Juslin, P.N.", "Jagers, S. C."])
+        self.assertEqual(publications[1]["authors"], ["Juslin, P.N.", "Jagers, S. C.", "Tinghög, G."])
+        self.assertEqual(publications[2]["authors"], ["Tinghög, G."])
+        self.assertEqual(publications[3]["authors"], ["Nilsson, A.", "Nilsson, A. B.", "Nilsson, A. C."])
 
     def test_unmatched_titles_remain_in_other(self):
         self.assertEqual(classify_topics("A title without a mapped keyword", ""), ["Other"])

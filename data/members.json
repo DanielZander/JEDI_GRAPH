@@ -2,7 +2,7 @@
   "source": "https://jedilab.weebly.com/people.html",
   "updated": "2026-10-23",
   "members": [
-    { "name": "Gustav Tinghög", "group": "director", "role": "Professor of economics, Linköping University" },
+    { "name": "Gustav Tinghög", "group": "director", "role": "Professor of economics, Linköping University", "aliases": ["Tinhög, G."] },
     { "name": "Daniel Västfjäll", "group": "director", "role": "Professor of cognitive psychology, Linköping University & Decision Research, Eugene, OR" },
     { "name": "Arvid Erlandsson", "group": "member", "role": "Associate professor in psychology", "aliases": ["Erlandsson, E."] },
     { "name": "Kenny Skagerlund", "group": "member", "role": "Associate professor in psychology" },
@@ -11,7 +11,7 @@
     { "name": "Anton Andersson", "group": "member", "role": "Ph.D. student in psychology" },
     { "name": "August Collsiöö", "group": "member", "role": "Postdoctoral researcher in psychology" },
     { "name": "Erkin Asutay", "group": "member", "role": "Associate professor in psychology" },
-    { "name": "Kinga Barrafrem", "group": "member", "role": "Associate professor in economics" },
+    { "name": "Kinga Barrafrem", "group": "member", "role": "Associate professor in economics", "aliases": ["Posadzy, K."] },
     { "name": "Per Andersson", "group": "member", "role": "Assistant professor in psychology" },
     { "name": "Amanda Lindkvist", "group": "member", "role": "Ph.D. student in economics" },
     { "name": "Oscar Bauer", "group": "member", "role": "Ph.D. student in psychology" },
